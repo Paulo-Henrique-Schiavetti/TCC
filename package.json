@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "knex": "^0.14.2",
     "mysql": "^2.15.0",
     "restify": "^6.3.4",
