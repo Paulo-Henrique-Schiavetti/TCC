@@ -1,12 +1,11 @@
-const restify = require('restify');
-const errs = require('restify-errors');
+const restify = require("restify");
+var fs = require('fs');
 
-const server = restify.createServer({
-  name: 'myapp',
-  version: '1.0.0'
+const googleMapsClient = require('@google/maps').createClient({
+  key: 'AIzaSyAVbUQNNGKFeUMHDNZCilrkNklhPE83wKk',
+  Promise: Promise
 });
-
-var knex = require('knex')({
+const knex = require('knex')({
     client: 'mysql',
     connection: {
       host : '127.0.0.1',
@@ -16,77 +15,54 @@ var knex = require('knex')({
     }
   });
 
+
+const server = restify.createServer({
+  name: "myapp",
+  version: "1.0.0",
+  key: fs.readFileSync('./key.pem'), //on current folder
+  certificate: fs.readFileSync('./cert.pem')
+});
+
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
-server.listen(8080, function () {
-  console.log('%s listening at %s', server.name, server.url);
+server.get("/all", function(req, res, next) {
+    
+  knex('places').then((dados) => {
+    res.send(dados);
+  }, next)
+
+  return next();
 });
 
-// rotas REST
+server.post("/geocode", function(req, res, next) {
+  const {lat, lng} = req.body
 
-server.get('/', restify.plugins.serveStatic({
-    directory: './dist',
-    file: 'index.html'
-  }));
+  googleMapsClient.reverseGeocode({latlng: [lat, lng]}).asPromise()
+  .then((response) => {
+    const address = response.json.results[0].formatted_address
+    const place_id = response.json.results[0].place_id;
+    const image = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=15&size=300x300&sensor=false`;
 
-server.get('/read', (req, res, next) => {
-    
-    knex('tabela').then((dados) => {
-        res.send(dados);
+    knex('places')
+    .insert({place_id, address, image})
+    .then(() => {
+        res.send({address, image});
     }, next)
-    
+
+  })
+  .catch((err) => {
+    res.send(err);
+  });
+
 });
 
-server.post('/create', (req, res, next) => {
-    
-    knex('tabela')
-        .insert(req.body)
-        .then((dados) => {
-            res.send(dados);
-        }, next)
-    
-});
+server.get(/\/(.*)?.*/,restify.plugins.serveStatic({
+  directory: './dist',
+  default: 'index.html',
+}));
 
-server.get('/show/:id', (req, res, next) => {
-    
-    const { id } = req.params;
-
-    knex('tabela')
-        .where('id', id)
-        .first()
-        .then((dados) => {
-            if(!dados) return res.send(new errs.BadRequestError('nada foi encontrado'))
-            res.send(dados);
-        }, next)
-        
-});
-
-server.put('/update/:id', (req, res, next) => {
-    
-    const { id } = req.params;
-
-    knex('tabela')
-        .where('id', id)
-        .update(req.body)
-        .then((dados) => {
-            if(!dados) return res.send(new errs.BadRequestError('nada foi encontrado'))
-            res.send('dados atualizados');
-        }, next)
-        
-});
-
-server.del('/delete/:id', (req, res, next) => {
-    
-    const { id } = req.params;
-
-    knex('tabela')
-        .where('id', id)
-        .delete()
-        .then((dados) => {
-            if(!dados) return res.send(new errs.BadRequestError('nada foi encontrado'))
-            res.send('dados excluidos');
-        }, next)
-        
-});
+server.listen(8080, function() {
+    console.log("%s listening at %s", server.name, server.url);
+  });

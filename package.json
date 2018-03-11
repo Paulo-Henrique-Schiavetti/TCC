@@ -1,5 +1,5 @@
 {
-  "name": "crud",
+  "name": "maps",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,10 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
+    "@google/maps": "^0.4.5",
     "knex": "^0.14.2",
     "mysql": "^2.15.0",
-    "restify": "^6.3.4",
-    "restify-errors": "^5.0.0"
+    "restify": "^6.3.4"
   }
 }
