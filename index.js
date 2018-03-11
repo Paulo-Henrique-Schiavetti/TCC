@@ -1,8 +1,7 @@
 const restify = require("restify");
-var fs = require('fs');
 
 const googleMapsClient = require('@google/maps').createClient({
-  key: 'AIzaSyAVbUQNNGKFeUMHDNZCilrkNklhPE83wKk',
+  key: 'AIzaSyCix-KkR-cjpVVAV7fSM5SO6xIFPZmDBVU',
   Promise: Promise
 });
 const knex = require('knex')({
@@ -19,8 +18,6 @@ const knex = require('knex')({
 const server = restify.createServer({
   name: "myapp",
   version: "1.0.0",
-  key: fs.readFileSync('./key.pem'), //on current folder
-  certificate: fs.readFileSync('./cert.pem')
 });
 
 server.use(restify.plugins.acceptParser(server.acceptable));
