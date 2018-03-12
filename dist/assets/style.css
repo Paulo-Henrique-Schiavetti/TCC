@@ -18,6 +18,28 @@ body{
     z-index: 3;
 }
 
+#btnalugar {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background: green;
+  border-radius: 4px;
+  font-weight: 600;
+  color: white;
+  box-shadow: -1px 1px #004400;
+}
+
+#btnadd {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background: blue;
+  border-radius: 4px;
+  font-weight: 600;
+  color: white;
+  box-shadow: -1px 1px darkblue;
+}
+
 .spinner-position{
   position: fixed;
   right: 55px;

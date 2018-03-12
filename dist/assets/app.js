@@ -1,9 +1,23 @@
 window.onload = () => {
     let grid = document.querySelector("#grid");
     let button = document.querySelector("#send");
+    let lista = document.querySelector("#lista")
     button.addEventListener("click", save);
     read();
+    setTimeout(() => {
+        let btn_alugar = document.querySelector("#btnalugar");
+        btn_alugar.addEventListener("click", alugar);
+        let btn_add = document.querySelector("#btnadd");
+        btn_add.addEventListener("click", add);
+    }, 1000);
 };
+function alugar() {
+    alert('pow');
+}
+function add() {
+    let conteudo = document.querySelector("#btnadd");
+    lista.innerHTML += conteudo.innerHTML+"<br/>";
+}
 
 function templateCard(address, image) {
     return `
@@ -15,6 +29,8 @@ function templateCard(address, image) {
     <div class="mdl-card__supporting-text">
         ${address}
     </div>
+    <button id="btnalugar" class="mdl-button">alugar</button>
+    <button id="btnadd" class="mdl-button">add à lista</button>
 
 </div>
     `;
@@ -30,7 +46,7 @@ function read() {
         });
     })
     .catch(error => {
-     
+
     });
 }
 
@@ -65,7 +81,7 @@ function save() {
             });
     }
 
-    function error(err) {
-        alert(err);
+    function error(error) {
+        alert(error);
     }
 }
