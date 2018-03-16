@@ -10,7 +10,7 @@ const knex = require('knex')({
       host : '127.0.0.1',
       user : 'root',
       password : '',
-      database : 'db'
+      database : 'mydb'
     }
   });
 
@@ -27,6 +27,15 @@ server.use(restify.plugins.bodyParser());
 server.get("/all", function(req, res, next) {
     
   knex('places').then((dados) => {
+    res.send(dados);
+  }, next)
+
+  return next();
+});
+
+server.get("/items", function(req, res, next) {
+    
+  knex('item').then((dados) => {
     res.send(dados);
   }, next)
 

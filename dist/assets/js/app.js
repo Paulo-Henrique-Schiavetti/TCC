@@ -1,15 +1,16 @@
 window.onload = () => {
+    //let button = document.querySelector("#send");
+    //button.addEventListener("click", save);
+    //read();
     let grid = document.querySelector("#grid");
-    let button = document.querySelector("#send");
     let lista = document.querySelector("#lista")
-    button.addEventListener("click", save);
-    read();
+    exibiritems();
     setTimeout(() => {
         let btn_alugar = document.querySelector("#btnalugar");
         btn_alugar.addEventListener("click", alugar);
         let btn_add = document.querySelector("#btnadd");
         btn_add.addEventListener("click", add);
-    }, 1000);
+    }, 500);
 };
 function alugar() {
     alert('pow');
@@ -19,20 +20,35 @@ function add() {
     lista.innerHTML += conteudo.innerHTML+"<br/>";
 }
 
-function templateCard(address, image) {
-    return `
-    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title">
-        <img src="${image}"
-            alt="">
-    </div>
-    <div class="mdl-card__supporting-text">
-        ${address}
-    </div>
-    <button id="btnalugar" class="mdl-button">alugar</button>
-    <button id="btnadd" class="mdl-button">add à lista</button>
+function exibiritems() {
+    axios
+    .get("/items")
+    .then(response => {
+        response.data.forEach(element => {
+            let card = templateCard(element.nome, element.imagem);
+            grid.innerHTML += card;
+        });
+    })
+    .catch(error => {
 
-</div>
+    });
+}
+
+function templateCard(nome, image) {
+    return `
+    <div class="col s12 m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="assets/imagens/bola-de-futebol-pequena-de-pelucia-pelucia.jpg" alt=""/>
+                <span class="card-title"></span>
+                <div>
+                    <a class="waves-effect waves-light btn" id="btnalugar">Alugar</a>
+                    <a class="waves-effect waves-light btn" id="btnadd">Add à lista</a>
+                    <p class="descricao">${nome}</p>
+                </div>
+            </div>
+        </div>
+    </div>
     `;
 }
 

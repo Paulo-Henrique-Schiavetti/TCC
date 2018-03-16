@@ -39,10 +39,27 @@ body{
   color: white;
   box-shadow: -1px 1px darkblue;
 }
-
-.spinner-position{
+#lista {
+  background-color: #fff;
   position: fixed;
-  right: 55px;
-  bottom: 100px;
-  z-index: 3;
+  top: 62px;
+  right: 0;
+  height: 100px;
+  width: 100px;
+  z-index: 10;
+  border-radius: 4px;
+}
+
+.fancy {
+    font-family: arial;
+    font-size: 24pt;
+    color: #fff;
+}
+
+.descricao {
+    font-size: 18pt;
+    color:#000 !important;
+    margin: 0;
+    margin-left: 5%;
+    margin-right: 5%;
 }
