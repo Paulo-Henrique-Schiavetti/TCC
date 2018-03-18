@@ -42,6 +42,18 @@ server.get("/items", function(req, res, next) {
   return next();
 });
 
+server.get("/pesquisarid/:id", function(req, res, next) {
+    const {id} = req.params;
+  knex('item')
+    .where("id", id)
+    .first()
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
 server.post("/geocode", function(req, res, next) {
   const {lat, lng} = req.body
 

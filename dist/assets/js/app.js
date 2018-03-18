@@ -12,29 +12,8 @@ window.onload = () => {
         btn_add.addEventListener("click", add);
     }, 500);
 };
-function alugar() {
-    alert('pow');
-}
-function add() {
-    let conteudo = document.querySelector("#btnadd");
-    lista.innerHTML += conteudo.innerHTML+"<br/>";
-}
 
-function exibiritems() {
-    axios
-    .get("/items")
-    .then(response => {
-        response.data.forEach(element => {
-            let card = templateCard(element.nome, element.imagem);
-            grid.innerHTML += card;
-        });
-    })
-    .catch(error => {
-
-    });
-}
-
-function templateCard(nome, image) {
+function item(id, nome, imagem) {
     return `
     <div class="col s12 m4">
         <div class="card">
@@ -43,7 +22,7 @@ function templateCard(nome, image) {
                 <span class="card-title"></span>
                 <div>
                     <a class="waves-effect waves-light btn" id="btnalugar">Alugar</a>
-                    <a class="waves-effect waves-light btn" id="btnadd">Add à lista</a>
+                    <a class="waves-effect waves-light btn" data-id="${id}" id="btnadd">Add à lista</a>
                     <p class="descricao">${nome}</p>
                 </div>
             </div>
@@ -52,12 +31,37 @@ function templateCard(nome, image) {
     `;
 }
 
+function alugar() {
+    alert('pow');
+}
+function add(element) {
+    const id = element.target.dataset.id;
+    axios
+        .get(`/pesquisarid/${id}`)
+        .then(response => {
+                lista.innerHTML = response.data.nome;
+        });
+}
+
+function exibiritems() {
+    axios
+    .get("/items")
+    .then(response => {
+        response.data.forEach(element => {
+            let card = item(element.id, element.nome, element.imagem);
+            grid.innerHTML += card;
+        });
+    })
+    .catch(error => {
+
+    });
+}
 function read() {
     axios
     .get("/all")
     .then(response => {
         response.data.forEach(element => {
-            let card = templateCard(element.address, element.image);
+            let card = item(element.address, element.image);
             grid.innerHTML += card;
         });
     })
