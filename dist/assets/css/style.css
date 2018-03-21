@@ -22,7 +22,7 @@ body{
   color: white;
   box-shadow: -1px 1px darkblue;
 }
-#lista {
+.lista-de-desejos {
   position: fixed;
   top: 0;
   right: 0;
@@ -31,10 +31,13 @@ body{
   z-index: 10;
   border-bottom-left-radius: 4px;
 }
+#lista > li {
+  line-height: 24px;
+  padding: 0;
+}
 .espaço-lista {
   width: 150px;
 }
-
 .fancy {
     font-family: arial;
     font-size: 24pt;

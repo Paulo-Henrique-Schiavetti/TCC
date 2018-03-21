@@ -6,14 +6,13 @@ window.onload = () => {
     let lista = document.querySelector("#lista")
     exibiritems();
     setTimeout(() => {
-        let card = document.querySelector("#card")
-        card.addEventListener("click", clicar);
+        grid.addEventListener("click", clicar);
     }, 500);
 };
 
 function item(id, nome, imagem) {
     return `
-    <div class="col s12 m4" id="card" data-id="${id}">
+    <div class="col s12 m4" data-id="${id}">
         <div class="card">
             <div class="card-image">
                 <img src="assets/imagens/bola-de-futebol-pequena-de-pelucia-pelucia.jpg" alt=""/>
@@ -50,7 +49,7 @@ function add(id) {
     axios
         .get(`/pesquisarid/${id}`)
         .then(response => {
-                lista.innerHTML = response.data.nome;
+                lista.innerHTML += "<li><a href='item/"+id+"'>"+response.data.nome+"</a></li>";
         });
 }
 
