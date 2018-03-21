@@ -1,5 +1,5 @@
 use mydb;
-insert into item (id, nome, preço, descrição, imagem) values (1, 'Lyssa', 38, 'blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit', 'dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed');
+insert into item (id, nome, preço, descrição, imagem) values (1, 'Lyssa', 38, 'blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit', '');
 insert into item (id, nome, preço, descrição, imagem) values (2, 'Thaine', 32, 'luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at', 'felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat');
 insert into item (id, nome, preço, descrição, imagem) values (3, 'Claudina', 86, 'blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget', 'semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum');
 insert into item (id, nome, preço, descrição, imagem) values (4, 'Felike', 91, 'interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique', 'vel nulla eget eros elementum pellentesque quisque porta volutpat erat');

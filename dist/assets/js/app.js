@@ -6,23 +6,21 @@ window.onload = () => {
     let lista = document.querySelector("#lista")
     exibiritems();
     setTimeout(() => {
-        let btn_alugar = document.querySelector("#btnalugar");
-        btn_alugar.addEventListener("click", alugar);
-        let btn_add = document.querySelector("#btnadd");
-        btn_add.addEventListener("click", add);
+        let card = document.querySelector("#card")
+        card.addEventListener("click", clicar);
     }, 500);
 };
 
 function item(id, nome, imagem) {
     return `
-    <div class="col s12 m4">
+    <div class="col s12 m4" id="card" data-id="${id}">
         <div class="card">
             <div class="card-image">
                 <img src="assets/imagens/bola-de-futebol-pequena-de-pelucia-pelucia.jpg" alt=""/>
                 <span class="card-title"></span>
                 <div>
-                    <a class="waves-effect waves-light btn" id="btnalugar">Alugar</a>
-                    <a class="waves-effect waves-light btn" data-id="${id}" id="btnadd">Add à lista</a>
+                    <a class="waves-effect waves-light btn btnalugar">Alugar</a>
+                    <a class="waves-effect waves-light btn btnadd">Add à lista</a>
                     <p class="descricao">${nome}</p>
                 </div>
             </div>
@@ -31,11 +29,24 @@ function item(id, nome, imagem) {
     `;
 }
 
-function alugar() {
-    alert('pow');
+function clicar(element){
+    console.log(element);
+    const id = element.path[4].dataset.id;
+    if(element.target.classList.contains('btnalugar')){
+        alugar(id);
+    } else if(element.target.classList.contains('btnadd')) {
+        add(id);
+    }
 }
-function add(element) {
-    const id = element.target.dataset.id;
+
+function alugar(id) {
+    axios
+        .get(`/pesquisarid/${id}`)
+        .then(response => {
+                alert(response.data.nome);
+        });
+}
+function add(id) {
     axios
         .get(`/pesquisarid/${id}`)
         .then(response => {
