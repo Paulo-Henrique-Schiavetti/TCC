@@ -1,10 +1,8 @@
 window.onload = () => {
-    //let button = document.querySelector("#send");
-    //button.addEventListener("click", save);
-    //read();
     let grid = document.querySelector("#grid");
     let lista = document.querySelector("#lista")
-    exibiritems();
+    let dados = [];
+    exibiritens();
     setTimeout(() => {
         grid.addEventListener("click", clicar);
     }, 500);
@@ -29,8 +27,9 @@ function item(id, nome, imagem) {
 }
 
 function clicar(element){
-    console.log(element);
+    // pegando o id do elemento
     const id = element.path[4].dataset.id;
+    // escolhendo entre alugar e adicionar
     if(element.target.classList.contains('btnalugar')){
         alugar(id);
     } else if(element.target.classList.contains('btnadd')) {
@@ -45,17 +44,20 @@ function alugar(id) {
                 alert(response.data.nome);
         });
 }
+
 function add(id) {
     axios
         .get(`/pesquisarid/${id}`)
         .then(response => {
-                lista.innerHTML += "<li><a href='item/"+id+"'>"+response.data.nome+"</a></li>";
+                //lista.innerHTML += "<li><a href='item/"+id+"'>"+response.data.nome+"</a></li>";
+                dados = response.data;
+                localStorage.setItem('dados', JSON.stringify(dados));
         });
 }
 
-function exibiritems() {
+function exibiritens() {
     axios
-    .get("/items")
+    .get("/itens")
     .then(response => {
         response.data.forEach(element => {
             let card = item(element.id, element.nome, element.imagem);
@@ -65,53 +67,4 @@ function exibiritems() {
     .catch(error => {
 
     });
-}
-function read() {
-    axios
-    .get("/all")
-    .then(response => {
-        response.data.forEach(element => {
-            let card = item(element.address, element.image);
-            grid.innerHTML += card;
-        });
-    })
-    .catch(error => {
-
-    });
-}
-
-function save() {
-    if (!navigator.geolocation) {
-        alert('Seu browser não suporta geolocalização!</p>');
-        return;
-    }
-
-    navigator.geolocation.getCurrentPosition(sucess, error, {
-        enableHighAccuracy: true
-      });
-
-    function sucess(position) {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-
-        const spinner = document.querySelector("#spinner");
-        spinner.classList.add("is-active");
-
-        axios
-            .post("/geocode",{ lat, lng })
-            .then(function(response) {
-                let card = templateCard(response.data.address, response.data.image);
-                grid.innerHTML += card;
-                spinner.classList.remove("is-active");
-
-            })
-            .catch(function(error) {
-                spinner.classList.remove("is-active");
-
-            });
-    }
-
-    function error(error) {
-        alert(error);
-    }
 }

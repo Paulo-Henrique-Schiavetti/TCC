@@ -33,7 +33,7 @@ server.get("/all", function(req, res, next) {
   return next();
 });
 
-server.get("/items", function(req, res, next) {
+server.get("/itens", function(req, res, next) {
     
   knex('item').then((dados) => {
     res.send(dados);
