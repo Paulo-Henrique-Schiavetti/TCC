@@ -1,17 +1,23 @@
 window.onload = () => {
     let grid = document.querySelector("#grid");
     let lista = document.querySelector("#lista");
-    dados = [];
-    localStorage.getItem('dados') ? dados = JSON.parse(localStorage.getItem('dados')) : localStorage.setItem('dados', "");
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
     numitem = parseInt(localStorage.getItem('numitem'));
+    dados = [];
     localStorage.getItem('dados') ? novoitem() : "";
+    localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
     exibiritens();
     setTimeout(() => {
         grid.addEventListener("click", clicaritem);
         lista.addEventListener("click", mostrarlista);
     }, 500);
 };
+
+function dadosexistentes() {
+    dados = JSON.parse(localStorage.getItem('dados'));
+    lista.innerHTML = "<i class='material-icons'>reorder</i><h3 class='center'>!</h3><ul style='visibility: hidden;'></ul>";
+    novoitem();
+}
 
 function item(id, nome, imagem) {
     return `
@@ -32,7 +38,19 @@ function item(id, nome, imagem) {
 }
 
 function novoitem() {
-    lista.innerHTML = "<i class='material-icons'>reorder</i><h3 class='center'>!</h3>";
+    lista.lastChild.innerHTML = "";
+    if (numitem == 0) {
+        lista.innerHTML = "<i class='material-icons'>reorder</i><h3 class='center'>!</h3><ul style='visibility: hidden;'></ul>";
+    }
+    dados.forEach(element => {
+        lista.lastChild.innerHTML += `<li><a>${element.nome}</a></li>`;
+    });
+}
+
+function mostrarlista(element) {
+    lista.style = "height: 400px;";
+    novoitem();
+    lista.lastChild.style = "visibility: visible !important;";
 }
 
 function clicaritem(element){
@@ -58,19 +76,12 @@ function add(id) {
     axios
         .get(`/pesquisarid/${id}`)
         .then(response => {
-                novoitem();
-                dados[numitem] = response.data;
-                numitem ++;
-                localStorage.setItem("numitem", numitem);
-                localStorage.setItem('dados', JSON.stringify(dados));
+            dados[numitem] = response.data;
+            novoitem();
+            numitem ++;
+            localStorage.setItem("numitem", numitem);
+            localStorage.setItem('dados', JSON.stringify(dados));
         });
-}
-
-function mostrarlista() {
-    const dados = JSON.parse(localStorage.getItem('dados'));
-    dados.forEach(element => {
-        lista.innerHTML += `<li>${element.nome}</li>`;
-    });
 }
 
 function exibiritens() {
