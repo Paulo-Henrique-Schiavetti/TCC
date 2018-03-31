@@ -47,10 +47,24 @@ function novoitem() {
     });
 }
 
-function mostrarlista(element) {
+function mostrarlista() {
     lista.style = "height: 400px;";
     novoitem();
     lista.lastChild.style = "visibility: visible !important;";
+    setTimeout(()=> {
+        document.addEventListener("click", esconderlista);
+        document.removeEventListener("click", mostrarlista);
+    }, 100);
+}
+function esconderlista(element) {
+    if(!element.target.classList.contains('lista-de-desejos')){
+        lista.lastChild.style = "visibility: hidden !important;";
+        lista.style = "height: 100px;";
+        setTimeout(()=> {
+            document.addEventListener("click", mostrarlista);
+            document.removeEventListener("click", esconderlista);
+        }, 100);
+    }
 }
 
 function clicaritem(element){
