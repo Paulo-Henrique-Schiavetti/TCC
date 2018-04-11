@@ -1,18 +1,18 @@
 body{
-  background-color: #00897b
+  background-color: #fff
 }
 .pagina {
   position: absolute;
   left: 16%;
   right: 16%;
   width: 68%;
-  background-color: #00b7a4;
+  background-color: #c1c1c1;
 }
 .btnalugar {
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
-  background: green;
+  background: green !important;
   border-radius: 4px;
   font-weight: 600;
   color: white;
@@ -23,7 +23,7 @@ body{
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
-  background: blue;
+  background: blue !important;
   border-radius: 4px;
   font-weight: 600;
   color: white;
@@ -33,33 +33,73 @@ body{
   position: fixed;
   top: 0;
   right: 0;
-  height: 128px;
-  width: 128px;
+  width: 15%;
+  height: 12.75%;
   z-index: 10;
   border-bottom-left-radius: 4px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
-#lista > ul{
+.alert {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+.lista-titulo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18pt;
+  text-align: center;
+}
+.lista-titulo2 {
+  padding-left: 10%;
+}
+.collection-item { 
   background-color: #00b0ff !important;
 }
-#lista> ul > li {
-  line-height: 24px;
-  padding: 0;
-  list-style: none;
+.collection-item > a, #lista {
+  color: #fff;
 }
-.espaço-lista {
-  width: 150px;
-}
-.fancy {
-    font-family: arial;
-    font-size: 24pt;
-    color: #fff;
-}
-
 .descricao {
     font-size: 18pt;
     color:#000 !important;
     margin: 0;
     margin-left: 5%;
     margin-right: 5%;
+}
+.pesquisar {
+  margin-left: 5%;
+  margin-right: 5%;
+  background: #00b0ff;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  padding: 1%;
+}
+.pesquisar > div > form {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16pt;
+  color: #fff !important;
+}
+.pesquisar > div > form > input[type=text] {
+  background: #fff;
+  color: black;
+  font-size: 18pt;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: solid 1px rgba(0, 0, 0, 0.12);
+  border-radius: 50px;
+  margin: 1%;
+  width:42%;
+}
+.pesquisar > div > form > #cidade {
+  width:18%;
+}
+.pesquisar > div > form > button {
+  background: #00b0ff;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  margin: 1%;
+  width:20%;
 }

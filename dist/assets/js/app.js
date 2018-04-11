@@ -15,7 +15,7 @@ window.onload = () => {
 
 function dadosexistentes() {
     dados = JSON.parse(localStorage.getItem('dados'));
-    lista.innerHTML = "<i class='material-icons'>reorder</i><h3 class='center'>!</h3><ul style='visibility: hidden;'></ul>";
+    lista.innerHTML = "<p class='lista-titulo lista-titulo2'>lista de itens</p><h3 class='alert'>!</h3><ul class='collection' style='visibility: hidden;'></ul>";
     novoitem();
 }
 
@@ -27,7 +27,7 @@ function item(id, nome, imagem) {
                 <img src="assets/imagens/bola-de-futebol-pequena-de-pelucia-pelucia.jpg" alt=""/>
                 <span class="card-title"></span>
                 <div>
-                    <a class="waves-effect waves-light btn btnalugar">Alugar</a>
+                    <a class="waves-effect waves-light btn btnalugar">Allugar</a>
                     <a class="waves-effect waves-light btn btnadd">Add à lista</a>
                     <p class="descricao">${nome}</p>
                 </div>
@@ -40,15 +40,14 @@ function item(id, nome, imagem) {
 function novoitem() {
     lista.lastChild.innerHTML = "";
     if (numitem == 0) {
-        lista.innerHTML = "<i class='material-icons'>reorder</i><h3 class='center'>!</h3><ul style='visibility: hidden;'></ul>";
+        lista.innerHTML = "<p class='lista-titulo lista-titulo2'>lista de itens</p><h3 class='alert'>!</h3><ul class='collection' style='visibility: hidden;'></ul>";
     }
     dados.forEach(element => {
-        lista.lastChild.innerHTML += `<li><a>${element.nome}</a></li>`;
+        lista.lastChild.innerHTML += `<li class="collection-item"><a>${element.nome}</a></li>`;
     });
 }
 
 function mostrarlista() {
-    lista.style = "height: 400px;";
     novoitem();
     lista.lastChild.style = "visibility: visible !important;";
     setTimeout(()=> {
@@ -59,7 +58,6 @@ function mostrarlista() {
 function esconderlista(element) {
     if(!element.target.classList.contains('lista-de-desejos')){
         lista.lastChild.style = "visibility: hidden !important;";
-        lista.style = "height: 128px;";
         setTimeout(()=> {
             lista.addEventListener("click", mostrarlista);
             document.removeEventListener("click", esconderlista);
