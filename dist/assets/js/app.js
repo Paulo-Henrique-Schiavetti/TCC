@@ -1,11 +1,13 @@
 window.onload = () => {
     let grid = document.querySelector("#grid");
     let lista = document.querySelector("#lista");
+    let verdadeiralista = document.querySelector("#verdadeiralista");
+    //variáveis
+    dados = [];
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
     numitem = parseInt(localStorage.getItem('numitem'));
-    dados = [];
-    localStorage.getItem('dados') ? novoitem() : "";
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
+    //funções
     exibiritens();
     setTimeout(() => {
         grid.addEventListener("click", clicaritem);
@@ -15,49 +17,37 @@ window.onload = () => {
 
 function dadosexistentes() {
     dados = JSON.parse(localStorage.getItem('dados'));
-    lista.innerHTML = "<p class='lista-titulo lista-titulo2'>lista de itens</p><h3 class='alert'>!</h3><ul class='collection' style='visibility: hidden;'></ul>";
-    novoitem();
-}
-
-function item(id, nome, imagem) {
-    return `
-    <div class="col s12 m4" data-id="${id}">
-        <div class="card">
-            <div class="card-image">
-                <img src="assets/imagens/bola-de-futebol-pequena-de-pelucia-pelucia.jpg" alt=""/>
-                <span class="card-title"></span>
-                <div>
-                    <a class="waves-effect waves-light btn btnalugar">Allugar</a>
-                    <a class="waves-effect waves-light btn btnadd">Add à lista</a>
-                    <p class="descricao">${nome}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
+    lista.innerHTML = "<p class='lista-titulo lista-titulo2'>lista de itens</p><h3 class='alert'>!</h3><ul class='collection' id='verdadeiralista'></ul>";
 }
 
 function novoitem() {
-    lista.lastChild.innerHTML = "";
-    if (numitem == 0) {
-        lista.innerHTML = "<p class='lista-titulo lista-titulo2'>lista de itens</p><h3 class='alert'>!</h3><ul class='collection' style='visibility: hidden;'></ul>";
-    }
-    dados.forEach(element => {
-        lista.lastChild.innerHTML += `<li class="collection-item"><a>${element.nome}</a></li>`;
+    verdadeiralista.innerHTML = "";
+    var numerodeitensnalista = 0;
+    dados.some(element => {
+        numerodeitensnalista++;
+        if(numerodeitensnalista>5){
+            verdadeiralista.innerHTML += `<li class="collection-item"><a>...</a></li>`;
+            return true;
+        }
+        verdadeiralista.innerHTML += `<li class="collection-item"><a>${element.nome}</a></li>`;
     });
 }
 
 function mostrarlista() {
+    verdadeiralista.style.visibility = "visible";
     novoitem();
-    lista.lastChild.style = "visibility: visible !important;";
-    setTimeout(()=> {
-        document.addEventListener("click", esconderlista);
-        lista.removeEventListener("click", mostrarlista);
-    }, 100);
+    if (numitem == 0) {
+        mensagem('não há nenhum item na sua lista');
+    } else {
+        setTimeout(()=> {
+            document.addEventListener("click", esconderlista);
+            lista.removeEventListener("click", mostrarlista);
+        }, 100);
+    }
 }
 function esconderlista(element) {
-    if(!element.target.classList.contains('lista-de-desejos')){
-        lista.lastChild.style = "visibility: hidden !important;";
+    if(!element.target.classList.contains('lista-de-desejos') && !element.target.classList.contains('btnadd')){
+        verdadeiralista.style.visibility = "hidden";
         setTimeout(()=> {
             lista.addEventListener("click", mostrarlista);
             document.removeEventListener("click", esconderlista);
@@ -66,9 +56,9 @@ function esconderlista(element) {
 }
 
 function clicaritem(element){
-    // pegando o id do elemento
+
     const id = element.path[4].dataset.id;
-    // escolhendo entre alugar e adicionar
+
     if(element.target.classList.contains('btnalugar')){
         alugar(id);
     } else if(element.target.classList.contains('btnadd')) {
@@ -89,11 +79,30 @@ function add(id) {
         .get(`/pesquisarid/${id}`)
         .then(response => {
             dados[numitem] = response.data;
-            novoitem();
             numitem ++;
             localStorage.setItem("numitem", numitem);
             localStorage.setItem('dados', JSON.stringify(dados));
+            mensagem('O item foi adicionado a lista ->');
+            novoitem();
         });
+}
+
+function item(id, nome, imagem) {
+    return `
+    <div class="col s12 m4" data-id="${id}">
+        <div class="card">
+            <div class="card-image">
+                <img src="assets/imagens/bola-de-futebol-pequena-de-pelucia-pelucia.jpg" alt=""/>
+                <span class="card-title"></span>
+                <div>
+                    <a class="waves-effect waves-light btn btnalugar">Allugar</a>
+                    <a class="waves-effect waves-light btn btnadd">Add à lista</a>
+                    <p class="descricao">${nome}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
 }
 
 function exibiritens() {
@@ -108,4 +117,8 @@ function exibiritens() {
     .catch(error => {
 
     });
+}
+
+function mensagem(texto) {
+    alert(texto);
 }
