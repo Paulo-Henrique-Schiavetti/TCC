@@ -41,6 +41,13 @@
                 </form>
             </div>
         </ul>
+        <ul class="center-align" id="cadastrodeprodutos">
+            <input type="text" id="camponome" placeholder="nome"/>
+            <input type="text" id="campopreço" placeholder="preço"/>
+            <input type="text" id="campodescrição" placeholder="descrição"/>
+            <input type="file" id="campoimagem"/>
+            <button onclick="cadastrarproduto()">enviar</button>
+        </ul>
         <div class="row" id="grid">
             <!-- html no app.js -->
         </div>
@@ -50,5 +57,7 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="assets/js/materialize.min.js"></script>
+    <!-- scripts locais -->
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/cadastros.js"></script>
 </body>

@@ -87,17 +87,17 @@ function add(id) {
         });
 }
 
-function item(id, nome, imagem) {
+function item(id, nome, descricao, imagem) {
     return `
     <div class="col s12 m4" data-id="${id}">
         <div class="card">
             <div class="card-image">
-                <img src="assets/imagens/bola-de-futebol-pequena-de-pelucia-pelucia.jpg" alt=""/>
-                <span class="card-title"></span>
+                <img src="${imagem}" alt=""/>
+                <span class="card-title">${nome}</span>
                 <div>
                     <a class="waves-effect waves-light btn btnalugar">Allugar</a>
                     <a class="waves-effect waves-light btn btnadd">Add à lista</a>
-                    <p class="descricao">${nome}</p>
+                    <p class="descricao">${descricao}</p>
                 </div>
             </div>
         </div>
@@ -110,8 +110,8 @@ function exibiritens() {
     .get("/itens")
     .then(response => {
         response.data.forEach(element => {
-            let card = item(element.id, element.nome, element.imagem);
-            grid.innerHTML += card;
+                let card = item(element.id, element.nome, element.descrição, element.imagem);
+                grid.innerHTML += card;
         });
     })
     .catch(error => {

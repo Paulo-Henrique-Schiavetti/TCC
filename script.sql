@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`item` (
   `nome` VARCHAR(45) NULL,
   `preço` VARCHAR(45) NULL,
   `descrição` VARCHAR(45) NULL,
-  `imagem` VARCHAR(45) NULL,
+  `imagem` LONGTEXT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
