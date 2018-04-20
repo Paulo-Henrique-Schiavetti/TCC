@@ -17,7 +17,7 @@ window.onload = () => {
 
 function dadosexistentes() {
     dados = JSON.parse(localStorage.getItem('dados'));
-    lista.innerHTML = "<p class='lista-titulo lista-titulo2'>lista de itens</p><h3 class='alert'>!</h3><ul class='collection' id='verdadeiralista'></ul>";
+    lista.innerHTML = "<p class='lista-titulo lista-titulo2'>Lista de itens</p><h3 class='alert'>!</h3><ul class='collection' id='verdadeiralista' style='visibility:hidden;'></ul>";
 }
 
 function novoitem() {
@@ -79,6 +79,7 @@ function add(id) {
         .get(`/pesquisarid/${id}`)
         .then(response => {
             dados[numitem] = response.data;
+            console.log(dados[numitem]);
             numitem ++;
             localStorage.setItem("numitem", numitem);
             localStorage.setItem('dados', JSON.stringify(dados));
@@ -93,11 +94,13 @@ function item(id, nome, descricao, imagem) {
         <div class="card">
             <div class="card-image">
                 <img src="${imagem}" alt=""/>
-                <span class="card-title">${nome}</span>
                 <div>
                     <a class="waves-effect waves-light btn btnalugar">Allugar</a>
-                    <a class="waves-effect waves-light btn btnadd">Add à lista</a>
-                    <p class="descricao">${descricao}</p>
+                    <a class="waves-effect waves-light btn btnadd"><i class="material-icons">shopping_card</i></a>
+                    <p class="descricao">
+                    ${nome}<br/>
+                    ${descricao}
+                    </p>
                 </div>
             </div>
         </div>

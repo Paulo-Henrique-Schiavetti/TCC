@@ -1,5 +1,3 @@
-
-
 function cadastrarproduto() {
     var camponome = document.querySelector('#camponome').value;
     var campopreço = document.querySelector('#campopreço').value;

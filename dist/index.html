@@ -18,18 +18,19 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8"/>
-    <title>cool</title>
+    <title>Allugar</title>
 </head>
-
 <body>
-    <div class="pagina">
+
+    <div class="pagina" id="pagina">
+        <!-- html na home.html -->
         <ul class="center-align">
             <h3>Allugar<h3>
         </ul>
         <div class="light-blue lighten-1 lista-de-desejos"  id="lista">
             <p class='lista-titulo'>lista de itens</p>
-            <ul class='collection' id="verdadeiralista">
-                <!-- html no app.js -->
+            <ul class='collection' id="verdadeiralista" style="visibility:hidden;">
+                <!-- html no app.js (nomes na pag 32 e três pontos na 29) -->
             </ul>
         </div>
         <ul class="center-align pesquisar">
@@ -41,15 +42,8 @@
                 </form>
             </div>
         </ul>
-        <ul class="center-align" id="cadastrodeprodutos">
-            <input type="text" id="camponome" placeholder="nome"/>
-            <input type="text" id="campopreço" placeholder="preço"/>
-            <input type="text" id="campodescrição" placeholder="descrição"/>
-            <input type="file" id="campoimagem"/>
-            <button onclick="cadastrarproduto()">enviar</button>
-        </ul>
         <div class="row" id="grid">
-            <!-- html no app.js -->
+            <!-- html no app.js pag 92 à 106-->
         </div>
     </div>
     
