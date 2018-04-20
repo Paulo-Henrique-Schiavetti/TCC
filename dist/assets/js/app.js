@@ -17,7 +17,7 @@ window.onload = () => {
 
 function dadosexistentes() {
     dados = JSON.parse(localStorage.getItem('dados'));
-    lista.innerHTML = "<p class='lista-titulo lista-titulo2'>Lista de itens</p><h3 class='alert'>!</h3><ul class='collection' id='verdadeiralista' style='visibility:hidden;'></ul>";
+    lista.innerHTML = "<p class='lista-titulo'><i class='material-icons'>fiber_manual_record</i> Lista de itens</p><ul class='collection' id='verdadeiralista' style='visibility:hidden;'></ul>";
 }
 
 function novoitem() {
@@ -34,11 +34,11 @@ function novoitem() {
 }
 
 function mostrarlista() {
-    verdadeiralista.style.visibility = "visible";
-    novoitem();
     if (numitem == 0) {
         mensagem('não há nenhum item na sua lista');
     } else {
+        verdadeiralista.style.visibility = "visible";
+        novoitem();
         setTimeout(()=> {
             document.addEventListener("click", esconderlista);
             lista.removeEventListener("click", mostrarlista);
@@ -57,11 +57,11 @@ function esconderlista(element) {
 
 function clicaritem(element){
 
-    const id = element.path[4].dataset.id;
+    element.path[5].dataset.id ? id = element.path[5].dataset.id : id = element.path[4].dataset.id;
 
-    if(element.target.classList.contains('btnalugar')){
+    if(element.path[1].classList.contains('btnalugar') || element.path[0].classList.contains('btnalugar')){
         alugar(id);
-    } else if(element.target.classList.contains('btnadd')) {
+    } else if(element.path[1].classList.contains('btnadd') || element.path[0].classList.contains('btnadd')) {
         add(id);
     }
 }
@@ -79,12 +79,11 @@ function add(id) {
         .get(`/pesquisarid/${id}`)
         .then(response => {
             dados[numitem] = response.data;
-            console.log(dados[numitem]);
             numitem ++;
             localStorage.setItem("numitem", numitem);
             localStorage.setItem('dados', JSON.stringify(dados));
-            mensagem('O item foi adicionado a lista ->');
             novoitem();
+            mensagem('O item foi adicionado a lista ->');
         });
 }
 
@@ -95,8 +94,8 @@ function item(id, nome, descricao, imagem) {
             <div class="card-image">
                 <img src="${imagem}" alt=""/>
                 <div>
-                    <a class="waves-effect waves-light btn btnalugar">Allugar</a>
-                    <a class="waves-effect waves-light btn btnadd"><i class="material-icons">shopping_card</i></a>
+                    <a class="waves-effect waves-light btn btnalugar">Allugar <i class="material-icons">reply</i></a>
+                    <a class="waves-effect waves-light btn btnadd">Add à lista <i class="material-icons">add_circle_outline</i></a>
                     <p class="descricao">
                     ${nome}<br/>
                     ${descricao}
