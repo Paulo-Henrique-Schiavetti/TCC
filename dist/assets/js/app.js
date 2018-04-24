@@ -23,6 +23,7 @@ function dadosexistentes() {
 function novoitem() {
     verdadeiralista.innerHTML = "";
     var numerodeitensnalista = 0;
+    dadosexistentes();
     dados.some(element => {
         numerodeitensnalista++;
         if(numerodeitensnalista>5){
