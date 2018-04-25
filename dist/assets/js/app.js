@@ -17,7 +17,7 @@ window.onload = () => {
 
 function dadosexistentes() {
     dados = JSON.parse(localStorage.getItem('dados'));
-    lista.innerHTML = "<p class='lista-titulo'><i class='material-icons'>fiber_manual_record</i> Lista de itens</p><ul class='collection' id='verdadeiralista' style='visibility:hidden;'></ul>";
+    lista.firstElementChild.innerHTML = "<i class='material-icons'>fiber_manual_record</i> Lista de itens";
 }
 
 function novoitem() {
@@ -34,7 +34,8 @@ function novoitem() {
     });
 }
 
-function mostrarlista() {
+function mostrarlista(element) {
+    console.log(element);
     if (numitem == 0) {
         mensagem('não há nenhum item na sua lista');
     } else {
