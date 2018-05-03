@@ -96,5 +96,8 @@ body{
 }
 .card-image > img {
   width: 260x;
-  height: 220px;
+  height: 240px;
+}
+.card-image {
+  height: 420px;
 }
