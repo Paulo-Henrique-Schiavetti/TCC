@@ -65,6 +65,17 @@ server.get("/pesquisarid/:id", function(req, res, next) {
   return next();
 });
 
+server.get("/pesquisarnome/:nome", function(req, res, next) {
+    const {nome} = req.params;
+  knex('item')
+    .where("nome",'like', '%'+nome+'%')
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
 server.post("/geocode", function(req, res, next) {
   const {lat, lng} = req.body
 
