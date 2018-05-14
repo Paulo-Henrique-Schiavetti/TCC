@@ -2,6 +2,7 @@ window.onload = () => {
     let grid = document.querySelector("#grid");
     let lista = document.querySelector("#lista");
     let verdadeiralista = document.querySelector("#verdadeiralista");
+    let pesquisar = document.querySelector("#pesquisar");
     //variáveis
     dados = [];
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
@@ -12,6 +13,7 @@ window.onload = () => {
     setTimeout(() => {
         grid.addEventListener("click", clicaritem);
         lista.addEventListener("click", mostrarlista);
+        pesquisar.addEventListener("keyup", pesquisa);
     }, 500);
 };
 
@@ -121,6 +123,17 @@ function exibiritens() {
     .catch(error => {
 
     });
+}
+
+function pesquisa() {
+    nome = pesquisar.value;
+    axios
+        .get(`/pesquisarnome/${nome}`)
+        .then(response => {
+            response.data.forEach(element => {
+                console.log(element.nome);
+            });
+        });
 }
 
 function mensagem(texto) {
