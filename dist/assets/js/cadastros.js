@@ -1,5 +1,7 @@
 function cadastrarproduto() {
     var camponome = document.querySelector('#camponome').value;
+    var campolocatario = 1;
+    var campoavaliacao = "5";
     var campopreço = document.querySelector('#campopreço').value;
     var campodescrição = document.querySelector('#campodescrição').value;
     var file = document.querySelector('#campoimagem').files[0];
@@ -11,7 +13,7 @@ function cadastrarproduto() {
         campoimagem = reader.result;
 
         axios.post('/cadastrarproduto', {
-            nome: camponome, preço: campopreço, descrição: campodescrição, imagem: campoimagem
+            locatario: campolocatario, nome: camponome, avaliacao: campoavaliacao, preço: campopreço, descrição: campodescrição, imagem: campoimagem
         })
         .then(()=> {
             mensagem('O seu produto foi cadastrado!')
