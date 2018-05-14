@@ -20,10 +20,10 @@ body{
 }
 
 .btnadd {
-  margin-left: 5px;
-  margin-right: 5px;
-  background: blue !important;
-  border-radius: 4px;
+  margin-left: 3px;
+  margin-right: 3px;
+  background: rgb(14, 163, 0) !important;
+  Border-radius: 50%;
   font-weight: 600;
   color: white;
   box-shadow: -1px 1px darkblue;
@@ -57,8 +57,8 @@ body{
     margin-right: 5%;
 }
 .pesquisar {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
   background: #00b0ff;
   border: none;
   border-radius: 50px;
@@ -83,8 +83,9 @@ body{
   margin: 1%;
   width:42%;
 }
-.pesquisar > div > form > #cidade {
-  width:18%;
+.pesquisar > div > form > #pesquisar {
+  width: 90%;
+  
 }
 .pesquisar > div > form > button {
   background: #00b0ff;
@@ -95,6 +96,6 @@ body{
   width:20%;
 }
 .card-image > img {
-  width: 260x;
-  height: 220px;
+  width: 300x;
+  height: 200px;
 }
