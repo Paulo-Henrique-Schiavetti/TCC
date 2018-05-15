@@ -19,7 +19,7 @@ window.onload = () => {
 
 function dadosexistentes() {
     dados = JSON.parse(localStorage.getItem('dados'));
-    lista.firstElementChild.innerHTML = "<i class='material-icons'>fiber_manual_record</i> Lista de itens";
+    lista.firstElementChild.innerHTML = "<i class='material-icons'>fiber_manual_record</i> Meus Itens";
 }
 
 function novoitem() {
@@ -104,6 +104,12 @@ function item(id, nome, descricao, imagem) {
                     ${nome}<br/>
                     ${descricao}
                     </p>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star</i>
+                    <i class="material-icons">star_half</i>
+                    <i class="material-icons">star_border</i>
+                    <i class="material-icons">location_on</i>
                 </div>
             </div>
         </div>
