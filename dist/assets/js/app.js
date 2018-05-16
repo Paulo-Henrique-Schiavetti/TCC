@@ -91,19 +91,7 @@ function add(id) {
         });
 }
 
-function item(id, locatario, avaliacao, nome, descricao, imagem) {
-    var estrelas = "";
-    for(i=0;i>5;i++){
-        if (avaliacao>=1) {
-            estrelas += "<i class="material-icons">star</i>"
-        } else {
-            if (avaliacao>0) {
-                estrelas += "<i class="material-icons">star_half</i>"
-            } else {
-                estrelas += "<i class="material-icons">star_border</i>"
-            }
-        }
-    }
+function item(id, locatario, nome, descricao, imagem, estrelas) {
     return `
     <div class="col s12 m4" data-id="${id}">
         <div class="card">
@@ -130,7 +118,20 @@ function exibiritens() {
     .get("/itens")
     .then(response => {
         response.data.forEach(element => {
-                let card = item(element.id, element.locatario, element.avaliacao ,element.nome, element.descrição, element.imagem);
+            var estrelas = '';
+            for(i=0;i<5;i++){
+                if (element.avaliacao>=1) {
+                    estrelas += '<i class="material-icons">star</i>'
+                } else {
+                    if (element.avaliacao>0) {
+                        estrelas += '<i class="material-icons">star_half</i>'
+                    } else {
+                        estrelas += '<i class="material-icons">star_border</i>'
+                    }
+                }
+                element.avaliacao -= 1;
+            }
+                let card = item(element.id, element.locatario, element.nome, element.descrição, element.imagem, estrelas);
                 grid.innerHTML += card;
         });
     })
