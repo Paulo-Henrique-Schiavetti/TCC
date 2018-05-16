@@ -91,7 +91,19 @@ function add(id) {
         });
 }
 
-function item(id, nome, descricao, imagem) {
+function item(id, locatario, avaliacao, nome, descricao, imagem) {
+    var estrelas = "";
+    for(i=0;i>5;i++){
+        if (avaliacao>=1) {
+            estrelas += "<i class="material-icons">star</i>"
+        } else {
+            if (avaliacao>0) {
+                estrelas += "<i class="material-icons">star_half</i>"
+            } else {
+                estrelas += "<i class="material-icons">star_border</i>"
+            }
+        }
+    }
     return `
     <div class="col s12 m4" data-id="${id}">
         <div class="card">
@@ -104,11 +116,7 @@ function item(id, nome, descricao, imagem) {
                     ${nome}<br/>
                     ${descricao}
                     </p>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star</i>
-                    <i class="material-icons">star_half</i>
-                    <i class="material-icons">star_border</i>
+                    ${estrelas}
                     <i class="material-icons">location_on</i>
                 </div>
             </div>
@@ -122,7 +130,7 @@ function exibiritens() {
     .get("/itens")
     .then(response => {
         response.data.forEach(element => {
-                let card = item(element.id, element.nome, element.descrição, element.imagem);
+                let card = item(element.id, element.locatario, element.avaliacao ,element.nome, element.descrição, element.imagem);
                 grid.innerHTML += card;
         });
     })
