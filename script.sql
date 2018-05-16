@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
   `nome` VARCHAR(45) NULL,
   `endereco` VARCHAR(45) NULL,
   `telefone` VARCHAR(45) NULL,
-  `avaliacao` INT,
+  `avaliacao` FLOAT,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB;
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`item` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `locatario` INT NOT NULL,
   `nome` VARCHAR(45) NULL,
-  `avaliacao` INT,
+  `avaliacao` FLOAT,
   `preço` VARCHAR(45) NULL,
   `descrição` VARCHAR(85),
   `imagem` LONGTEXT NULL,
