@@ -23,37 +23,34 @@
 <body>
 
     <div class="pagina" id="pagina">
-        <!-- html na home.html -->
-        <br/>
-        <ul class="center-align">
-            <img src="assets/imagens/logo-fundo.png" width="40%"/>
-        </ul>
         <div class="light-blue lighten-1 lista-de-desejos"  id="lista">
             <p class='lista-titulo'>Meus itens</p>
             <ul class='collection' id="verdadeiralista" style="visibility:hidden;">
                 <!-- html no app.js (nomes na pag 32 e três pontos na 29) -->
             </ul>
-
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <ul class="center-align pesquisar">
-            <div class="nav-wrapper">
-                <form>
-                    <input type="text" id="pesquisar" placeholder="O que você precisa?"/>
-                </form>
-            </div>
+        <ul class="center-align logo">
+            <img src="assets/imagens/logo-fundo.png" width="40%"/>
         </ul>
-        <ul class="center-align" id="cadastrodeprodutos">
-            <input type="text" id="camponome" placeholder="nome"/>
-            <input type="text" id="campopreço" placeholder="preço"/>
-            <input type="text" id="campodescrição" placeholder="descrição"/>
-            <input type="file" id="campoimagem"/>
-            <button onclick="cadastrarproduto()">enviar</button>
-        </ul>
-    
-
+        <div class="container">
+            <ul class="center-align pesquisar">
+                <div class="nav-wrapper">
+                    <form>
+                        <input type="text" id="pesquisar" placeholder="O que você precisa?"/>
+                    </form>
+                </div>
+            </ul>
+        </div>
+        
+        <div class="container">
+            <ul class="center-align" id="cadastrodeprodutos">
+                <input type="text" id="camponome" placeholder="Nome"/>
+                <input type="text" id="campopreço" placeholder="Preço"/>
+                <input type="text" id="campodescrição" placeholder="Descrição"/>
+                <input type="file" id="campoimagem"/>
+                <button onclick="cadastrarproduto()">enviar</button>
+            </ul>
+        </div>
         <div class="row" id="grid">
             <!-- html no app.js pag 92 à 106-->
         </div>
