@@ -99,11 +99,13 @@ function item(id, locatario, nome, descricao, imagem, estrelas) {
                 <img src="${imagem}" alt=""/>
                 <div class="card-content">
                     ${nome}
-                    <a class="btn btnalugar">Allugar <i class="material-icons">reply</i></a>
-                    <a class="btn btnadd">Add à lista <i class="material-icons">add_circle_outline</i></a>
+                    <div class="card-botoes">
+                        <a class="btn btnalugar">Allugar</a>
+                        <a class="btn btnadd"><i class="material-icons">add_circle_outline</i></a>
+                    </div>
                     <div class="card-down">
-                    ${estrelas}
-                    <i class="material-icons">location_on</i>
+                        ${estrelas}
+                        <i class="material-icons">location_on</i>
                     </div>
                 </div>
             </div>

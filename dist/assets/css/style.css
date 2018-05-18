@@ -54,11 +54,11 @@ body{
   width:20%;
 }
 .card-content {
-    display: flex;
-    flex-direction: column;
-    font-size: 18pt;
-    color:#000 !important;
-    text-align: center;
+  position: relative;
+  font-size: 18pt;
+  color:#000 !important;
+  text-align: center;
+  height: 220px;
 }
 .card-image > img {
   width: 300x;
@@ -66,6 +66,16 @@ body{
 }
 .card-image {
   height: 420px;
+}
+.card-down {
+  position: absolute;
+  bottom: 0;
+}
+.card-botoes {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  display: inline-flex;
 }
 .logo {
   margin-bottom: 10%;
