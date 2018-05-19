@@ -102,3 +102,6 @@ body{
 .collection-item > a, #lista {
   color: #fff;
 }
+.red {
+  background-color: red;
+}

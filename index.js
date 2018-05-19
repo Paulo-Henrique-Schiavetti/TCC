@@ -76,26 +76,19 @@ server.get("/pesquisarnome/:nome", function(req, res, next) {
   return next();
 });
 
-server.post("/geocode", function(req, res, next) {
+server.post("/geolocate", function(req, res, next) {
   const {lat, lng} = req.body
 
   googleMapsClient.reverseGeocode({latlng: [lat, lng]}).asPromise()
   .then((response) => {
     const address = response.json.results[0].formatted_address
     const place_id = response.json.results[0].place_id;
-    const image = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=15&size=300x300&sensor=false`;
-
-    knex('places')
-    .insert({place_id, address, image})
-    .then(() => {
-        res.send({address, image});
-    }, next)
-
-  })
+    res.send({address, place_id});
+  }, next)
   .catch((err) => {
     res.send(err);
   });
-
+  return next();
 });
 
 server.get(/\/(.*)?.*/,restify.plugins.serveStatic({
