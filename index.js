@@ -53,6 +53,17 @@ server.post("/cadastrarproduto", function(req, res, next) {
   return next();
 });
 
+server.post("/cadastrarusuario", function(req, res, next) {
+    
+  knex('item')
+  .insert(req.body)
+  .then((dados) => {
+    res.send(dados);
+  }, next)
+
+  return next();
+});
+
 server.get("/pesquisarid/:id", function(req, res, next) {
     const {id} = req.params;
   knex('item')
