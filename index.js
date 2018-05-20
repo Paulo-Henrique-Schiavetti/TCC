@@ -55,7 +55,7 @@ server.post("/cadastrarproduto", function(req, res, next) {
 
 server.post("/cadastrarusuario", function(req, res, next) {
     
-  knex('item')
+  knex('usuarios')
   .insert(req.body)
   .then((dados) => {
     res.send(dados);

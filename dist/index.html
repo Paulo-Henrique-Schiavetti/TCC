@@ -41,19 +41,9 @@
                 </div>
             </ul>
         </div>
-        
-        <div class="container">
-            <ul class="center-align" id="cadastrodeprodutos">
-                <input type="text" id="camponome" placeholder="Nome"/>
-                <input type="text" id="campopreço" placeholder="Preço"/>
-                <input type="text" id="campodescrição" placeholder="Descrição"/>
-                <input type="file" id="campoimagem"/>
-                <button onclick="cadastrarproduto()">enviar</button>
-            </ul>
-        </div>
         <div class="container">
             <ul class="center-align">
-                <button onclick="geosave()">mapear</button><button id='loading'>carregando</button>
+                <button onclick='paginacadastrarusuario()'>cadastre-se</button> ou faça <button onclick='paginacadastrarproduto()'>login</button> para alugar um item.
             </ul>
         </div>
         <div class="row" id="grid">
@@ -67,6 +57,7 @@
     <script type="text/javascript" src="assets/js/materialize.min.js"></script>
     <!-- scripts locais -->
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/paginas.js"></script>
     <script src="assets/js/cadastros.js"></script>
     <script src="assets/js/geolocation.js"></script>
 </body>
