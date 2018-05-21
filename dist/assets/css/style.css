@@ -90,7 +90,7 @@ body{
 .logo {
   margin-bottom: 10%;
 }
-.logo:hover {
+.logo > img:hover {
   cursor: pointer;
 }
 /* vai virar um item do menu */
