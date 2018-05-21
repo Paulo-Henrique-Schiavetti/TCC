@@ -90,6 +90,9 @@ body{
 .logo {
   margin-bottom: 10%;
 }
+.logo:hover {
+  cursor: pointer;
+}
 /* vai virar um item do menu */
 .lista-de-desejos {
   position: fixed;

@@ -1,8 +1,9 @@
 window.onload = () => {
     let grid = document.querySelector("#grid");
     let lista = document.querySelector("#lista");
-    let verdadeiralista = document.querySelector("#verdadeiralista");
     let pesquisar = document.querySelector("#pesquisar");
+    let dropdown = document.querySelector("#dropdown");
+    let verdadeiralista = document.querySelector("#verdadeiralista");
     //variáveis
     dados = [];
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
@@ -12,8 +13,8 @@ window.onload = () => {
     exibiritens();
     setTimeout(() => {
         grid.addEventListener("click", clicaritem);
-        lista.addEventListener("click", mostrarlista);
         pesquisar.addEventListener("keyup", pesquisa);
+        lista.addEventListener("click", mostrarlista);
     }, 500);
 };
 
@@ -58,7 +59,56 @@ function esconderlista(element) {
         }, 100);
     }
 }
+function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
+    return `
+    <div class="col s12 m4" data-id="${id}">
+        <div class="card">
+            <div class="card-image">
+                <img src="${imagem}" alt=""/>
+                <div class="card-content">
+                    ${nome}
+                    <div class="card-botoes">
+                        <a class="btn btnalugar">Allugar</a>
+                        <a class="btn btnadd"><i class="material-icons">add_circle_outline</i></a>
+                    </div>
+                    <div class="card-down">
+                        ${estrelas}  R$${preco}
+                        <i class="material-icons">location_on</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+}
 
+function exibiritens() {
+    grid.innerHTML = "";
+    axios
+    .get("/itens")
+    .then(response => {
+        response.data.forEach(element => {
+            var estrelas = '';
+            for(i=0;i<5;i++){
+                if (element.avaliacao>=1) {
+                    estrelas += '<i class="material-icons">star</i>'
+                } else {
+                    if (element.avaliacao>0) {
+                        estrelas += '<i class="material-icons">star_half</i>'
+                    } else {
+                        estrelas += '<i class="material-icons">star_border</i>'
+                    }
+                }
+                element.avaliacao -= 1;
+            }
+                let card = item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, estrelas);
+                grid.innerHTML += card;
+        });
+    })
+    .catch(error => {
+
+    });
+}
 function clicaritem(element){
 
     element.path[5].dataset.id ? id = element.path[5].dataset.id : id = element.path[4].dataset.id;
@@ -90,65 +140,21 @@ function add(id) {
             mensagem('O item foi adicionado a lista ->');
         });
 }
-
-function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
-    return `
-    <div class="col s12 m4" data-id="${id}">
-        <div class="card">
-            <div class="card-image">
-                <img src="${imagem}" alt=""/>
-                <div class="card-content">
-                    ${nome}
-                    <div class="card-botoes">
-                        <a class="btn btnalugar">Allugar</a>
-                        <a class="btn btnadd"><i class="material-icons">add_circle_outline</i></a>
-                    </div>
-                    <div class="card-down">
-                        ${estrelas}  R$${preco}
-                        <i class="material-icons">location_on</i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-}
-
-function exibiritens() {
-    axios
-    .get("/itens")
-    .then(response => {
-        response.data.forEach(element => {
-            var estrelas = '';
-            for(i=0;i<5;i++){
-                if (element.avaliacao>=1) {
-                    estrelas += '<i class="material-icons">star</i>'
-                } else {
-                    if (element.avaliacao>0) {
-                        estrelas += '<i class="material-icons">star_half</i>'
-                    } else {
-                        estrelas += '<i class="material-icons">star_border</i>'
-                    }
-                }
-                element.avaliacao -= 1;
-            }
-                let card = item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, estrelas);
-                grid.innerHTML += card;
-        });
-    })
-    .catch(error => {
-
-    });
-}
-
 function pesquisa() {
     nome = pesquisar.value;
+    numerodeitensnodrop = 0;
+    dropdown.innerHTML = "";
     axios
         .get(`/pesquisarnome/${nome}`)
         .then(response => {
             response.data.forEach(element => {
-                console.log(element.nome);
-            });
+                numerodeitensnodrop++;
+                if(numerodeitensnodrop>5){
+                    dropdown.innerHTML += `<li class="collection-item"><a>...</a></li>`;
+                    return true;
+                }
+            dropdown.innerHTML += `<li class="collection-item"><a>${element.nome}</a></li>`;
+            })
         });
 }
 
