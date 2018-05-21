@@ -16,6 +16,16 @@ body{
   border-radius: 20px !important;
   font-weight: 600;
 }
+.sign {
+  color: white;
+  font-weight: 800;
+  font-size: 16pt;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.sign:hover {
+  cursor: pointer;
+}
 .pesquisar {
   background: #00b0ff;
   border: none;

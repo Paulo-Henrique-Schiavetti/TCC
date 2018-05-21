@@ -11,8 +11,9 @@
     <script src="assets/js/axios.min.js"></script>
     <!--Import own css-->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!--Import Google Icon Font-->
+    <!--Import Google Icon Font & Font Awesome-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css"  media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
@@ -29,6 +30,10 @@
                 <!-- html no app.js (nomes na pag 32 e três pontos na 29) -->
             </ul>
         </div>
+        <ul class="right-align">
+            <span class="sign">Cadastrar <i class="fa fa-user-plus" onclick='paginacadastrarusuario()'></i></span>
+            <span class="sign">Entrar <i class="fa fa-sign-in" onclick='paginacadastrarusuario()'></i></span>
+        </ul>
         <ul class="center-align logo">
             <img src="assets/imagens/logo-fundo.png" width="40%"/>
         </ul>
@@ -39,11 +44,6 @@
                         <input type="text" id="pesquisar" placeholder="O que você precisa?"/>
                     </form>
                 </div>
-            </ul>
-        </div>
-        <div class="container">
-            <ul class="center-align">
-                <button onclick='paginacadastrarusuario()'>cadastre-se</button> ou faça <button onclick='paginacadastrarproduto()'>login</button> para alugar um item.
             </ul>
         </div>
         <div class="row" id="grid">

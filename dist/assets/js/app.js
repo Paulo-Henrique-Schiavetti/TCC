@@ -91,7 +91,7 @@ function add(id) {
         });
 }
 
-function item(id, locatario, nome, descricao, imagem, estrelas) {
+function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
     return `
     <div class="col s12 m4" data-id="${id}">
         <div class="card">
@@ -104,7 +104,7 @@ function item(id, locatario, nome, descricao, imagem, estrelas) {
                         <a class="btn btnadd"><i class="material-icons">add_circle_outline</i></a>
                     </div>
                     <div class="card-down">
-                        ${estrelas}
+                        ${estrelas}  R$${preco}
                         <i class="material-icons">location_on</i>
                     </div>
                 </div>
@@ -132,7 +132,7 @@ function exibiritens() {
                 }
                 element.avaliacao -= 1;
             }
-                let card = item(element.id, element.locatario, element.nome, element.descrição, element.imagem, estrelas);
+                let card = item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, estrelas);
                 grid.innerHTML += card;
         });
     })
