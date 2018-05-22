@@ -97,7 +97,7 @@ body{
   margin-bottom: 10%;
 }
 .logo > img:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 /* vai virar um item do menu */
 .lista-de-desejos {
