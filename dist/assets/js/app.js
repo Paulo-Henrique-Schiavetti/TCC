@@ -98,10 +98,12 @@ function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
             <div class="card-image">
                 <img src="${imagem}" alt=""/>
                 <div class="card-content">
+                <div class="card-nome">
                     ${nome}
+                    </div>
                     <div class="card-botoes">
                         <a class="btn btnalugar">Allugar</a>
-                        <a class="btn btnadd"><i class="material-icons">add_circle_outline</i></a>
+                        <a class="btn btnadd"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-down">
                         ${estrelas}  R$${preco}

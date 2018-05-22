@@ -9,12 +9,11 @@ body{
   width: 68%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
-.btnalugar, .btnadd {
-  margin: 1%;
-  padding: 2%;
+.btnalugar, .btnadd{
   background: green !important;
   border-radius: 20px !important;
   font-weight: 600;
+  margin-right: 20%;
 }
 .sign {
   color: white;
@@ -83,12 +82,22 @@ body{
 }
 .card-botoes {
   position: absolute;
-  top: 45%;
+  top: 20%;
   left: 5%;
   display: inline-flex;
 }
+.card-nome {
+  position: absolute;
+  top: 1%;
+  right: 72%;
+  font-weight: 500;
+  font-size: 22pt;
+}
 .logo {
   margin-bottom: 10%;
+}
+.logo > img:hover {
+cursor: pointer;
 }
 /* vai virar um item do menu */
 .lista-de-desejos {
