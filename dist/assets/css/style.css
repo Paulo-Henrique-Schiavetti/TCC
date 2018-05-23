@@ -32,13 +32,6 @@ body{
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   padding: 1%;
 }
-.pesquisar > div > form {
-  display: flex;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16pt;
-  color: #fff !important;
-}
 .pesquisar > div > form > input[type=text] {
   background: #fff;
   color: black;
@@ -48,19 +41,24 @@ body{
   border: solid 1px rgba(0, 0, 0, 0.12);
   border-radius: 50px;
   margin: 1%;
-  width:42%;
+  width: 85%;
 }
-.pesquisar > div > form > #pesquisar {
-  width: 90%;
-  
+.pesquisar > div > form > i {
+  color: white;
+  font-weight: 800;
+  font-size: 18pt;
 }
-.pesquisar > div > form > button {
-  background: #00b0ff;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  margin: 1%;
-  width:20%;
+.dropdown-pesquisar {
+  background: #fff !important;
+}
+.dropdown-li {
+  background: #fff !important;
+  border: solid 1px rgba(0, 0, 0, 0.12);
+}
+.dropdown-li > a {
+  font-family: arial;
+  color: rgba(0, 0, 0, 0.25);
+  font-weight: 600;
 }
 .card-content {
   position: relative;

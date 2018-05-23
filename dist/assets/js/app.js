@@ -152,10 +152,10 @@ function pesquisa() {
             response.data.forEach(element => {
                 numerodeitensnodrop++;
                 if(numerodeitensnodrop>5){
-                    dropdown.innerHTML += `<li class="collection-item"><a>...</a></li>`;
+                    dropdown.innerHTML += `<li class="dropdown-li"><a>...</a></li>`;
                     return true;
                 }
-            dropdown.innerHTML += `<li class="collection-item"><a>${element.nome}</a></li>`;
+            dropdown.innerHTML += `<li class="dropdown-li"><a>${element.nome}</a></li>`;
             })
         });
 }
