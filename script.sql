@@ -54,6 +54,30 @@ CREATE TABLE IF NOT EXISTS `mydb`.`item` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `mydb`.`conversa`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `mydb`.`conversa` (
+  `id` INT NOT NULL,
+  mensagem VARCHAR(100),
+  `remetente_id` INT NOT NULL,
+  `destinatario_id` INT NOT NULL,
+  `item_id` INT NOT NULL,
+   PRIMARY KEY (`id`),
+    FOREIGN KEY (`remetente_id`)
+    REFERENCES `mydb`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    FOREIGN KEY (`destinatario_id`)
+    REFERENCES `mydb`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    FOREIGN KEY (`item_id`)
+    REFERENCES `mydb`.`item` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`lista`
