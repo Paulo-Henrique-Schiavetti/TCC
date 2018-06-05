@@ -1,11 +1,11 @@
 function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
-    content.innerHTML = `
+    content.innerHTML += `
     <div class="col s12 m4" data-id="${id}">
         <div class="card">
             <div class="card-image">
                 <img src="${imagem}" alt=""/>
                 <div class="card-content">
-                <div class="card-nome">
+                    <div class="card-nome">
                     ${nome}
                     </div>
                     <div class="card-botoes">
@@ -13,7 +13,8 @@ function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
                         <a class="btn btnadd"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-down">
-                        ${estrelas}  R$${preco}
+                        R$${preco}<br/>
+                        ${estrelas}<br/>
                         <i class="material-icons">location_on</i>
                     </div>
                 </div>

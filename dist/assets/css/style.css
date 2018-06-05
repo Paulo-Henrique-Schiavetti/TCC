@@ -60,36 +60,34 @@ body{
   color: rgba(0, 0, 0, 0.25);
   font-weight: 600;
 }
-.card-content {
-  position: relative;
-  font-size: 18pt;
-  color:#000 !important;
-  text-align: center;
-  height: 220px;
-}
 .card-image > img {
-  width: 300x;
   height: 200px;
 }
 .card-image {
   height: 420px;
 }
-.card-down {
-  position: absolute;
-  bottom: 0;
+.card-content {
+  position: relative;
+  height: 220px;
 }
 .card-botoes {
   position: absolute;
-  top: 20%;
-  left: 5%;
+  top: 30%;
   display: inline-flex;
 }
 .card-nome {
   position: absolute;
-  top: 1%;
-  right: 72%;
-  font-weight: 500;
-  font-size: 22pt;
+  top: 5%;
+  color:#000 !important;
+  font-size: 18pt;
+  text-align: left;
+}
+.card-down {
+  position: absolute;
+  bottom: 0;
+  color:#000 !important;
+  font-size: 18pt;
+  text-align: left;
 }
 .logo {
   margin-bottom: 10%;
