@@ -7,6 +7,7 @@ body{
   left: 16%;
   right: 16%;
   width: 68%;
+  background-color: #00b0ff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 .btnalugar, .btnadd{
@@ -43,6 +44,9 @@ body{
   margin: 1%;
   width: 85%;
 }
+.pesquisar > div > form {
+  position: relative;
+}
 .pesquisar > div > form > i {
   color: white;
   font-weight: 800;
@@ -50,15 +54,32 @@ body{
 }
 .dropdown-pesquisar {
   background: #fff !important;
+  position: absolute;
+  top: 76%;
+  left: 2.5%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin: 1%;
+  width: 89.4%;
+  overflow: hidden;
+  z-index: 5;
 }
 .dropdown-li {
   background: #fff !important;
   border: solid 1px rgba(0, 0, 0, 0.12);
+  height: 60px;
+  padding-top: 0.5%;
 }
 .dropdown-li > a {
-  font-family: arial;
   color: rgba(0, 0, 0, 0.25);
-  font-weight: 600;
+  font-family: arial;
+  font-size: 18pt;
+}
+.dropdown-li > a > img{
+  width: 50px;
+  border: solid 1px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  margin-right: 5%;
 }
 .card-image > img {
   height: 200px;
@@ -90,7 +111,7 @@ body{
   text-align: left;
 }
 .logo {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .logo > img:hover {
   cursor: pointer;
