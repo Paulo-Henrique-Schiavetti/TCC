@@ -10,7 +10,7 @@ const knex = require('knex')({
       host : '127.0.0.1',
       user : 'root',
       password : '',
-      database : 'mydb'
+      database : 'allugardb'
     }
   });
 
@@ -64,11 +64,24 @@ server.post("/cadastrarusuario", function(req, res, next) {
   return next();
 });
 
-server.get("/pesquisarid/:id", function(req, res, next) {
+server.get("/paginaitem/:id", function(req, res, next) {
     const {id} = req.params;
   knex('item')
     .where("id", id)
     .first()
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
+server.get("/conversa/:id", function(req, res, next) {
+    const {id} = req.params;
+  knex('conversa')
+    .innerJoin('usuarios', 'conversa.remetente_id', 'usuarios.id')
+    .where("conversa.item_id", id)
+    .select( {'nome' : 'usuarios.nome', 'mensagem' : 'conversa.mensagem'} )
     .then((dados) => {
       res.send(dados);
     }, next)

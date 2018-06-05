@@ -1,5 +1,5 @@
 window.onload = () => {
-    let grid = document.querySelector("#grid");
+    let content = document.querySelector("#content");
     let lista = document.querySelector("#lista");
     let pesquisar = document.querySelector("#pesquisar");
     let dropdown = document.querySelector("#dropdown");
@@ -12,7 +12,7 @@ window.onload = () => {
     //funções
     exibiritens();
     setTimeout(() => {
-        grid.addEventListener("click", clicaritem);
+        content.addEventListener("click", clicaritem);
         pesquisar.addEventListener("keyup", pesquisa);
         lista.addEventListener("click", mostrarlista);
     }, 500);
@@ -36,56 +36,8 @@ function novoitem() {
         verdadeiralista.innerHTML += `<li class="collection-item"><a>${element.nome}</a></li>`;
     });
 }
-
-function mostrarlista(element) {
-    console.log(element);
-    if (numitem == 0) {
-        mensagem('não há nenhum item na sua lista');
-    } else {
-        verdadeiralista.style.visibility = "visible";
-        novoitem();
-        setTimeout(()=> {
-            document.addEventListener("click", esconderlista);
-            lista.removeEventListener("click", mostrarlista);
-        }, 100);
-    }
-}
-function esconderlista(element) {
-    if(!element.target.classList.contains('lista-de-desejos') && !element.target.classList.contains('btnadd')){
-        verdadeiralista.style.visibility = "hidden";
-        setTimeout(()=> {
-            lista.addEventListener("click", mostrarlista);
-            document.removeEventListener("click", esconderlista);
-        }, 100);
-    }
-}
-function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
-    return `
-    <div class="col s12 m4" data-id="${id}">
-        <div class="card">
-            <div class="card-image">
-                <img src="${imagem}" alt=""/>
-                <div class="card-content">
-                <div class="card-nome">
-                    ${nome}
-                    </div>
-                    <div class="card-botoes">
-                        <a class="btn btnalugar">Allugar</a>
-                        <a class="btn btnadd"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-down">
-                        ${estrelas}  R$${preco}
-                        <i class="material-icons">location_on</i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-}
-
 function exibiritens() {
-    grid.innerHTML = "";
+    content.innerHTML = "";
     axios
     .get("/itens")
     .then(response => {
@@ -103,8 +55,7 @@ function exibiritens() {
                 }
                 element.avaliacao -= 1;
             }
-                let card = item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, estrelas);
-                grid.innerHTML += card;
+                item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, estrelas);
         });
     })
     .catch(error => {
@@ -121,15 +72,23 @@ function clicaritem(element){
         add(id);
     }
 }
-
-function alugar(id) {
+function alugar(id){
+    var comentarios = "";
     axios
-        .get(`/pesquisarid/${id}`)
+        .get(`/paginaitem/${id}`)
         .then(response => {
-                alert(response.data.nome);
+            element = response.data;
+            axios
+                .get(`/conversa/${id}`)
+                .then(response => {
+                    response.data.forEach(chat => {
+                        comentarios += '<p>'+chat.nome+': '+chat.mensagem+'</p>';
+                        paginaitem(element.id, element.nome, element.locatario, element.imagem, comentarios);
+                    });
+                });
+                
         });
 }
-
 function add(id) {
     axios
         .get(`/pesquisarid/${id}`)
@@ -162,4 +121,26 @@ function pesquisa() {
 
 function mensagem(texto) {
     alert(texto);
+}
+
+function mostrarlista(element) {
+    if (numitem == 0) {
+        mensagem('não há nenhum item na sua lista');
+    } else {
+        verdadeiralista.style.visibility = "visible";
+        novoitem();
+        setTimeout(()=> {
+            document.addEventListener("click", esconderlista);
+            lista.removeEventListener("click", mostrarlista);
+        }, 100);
+    }
+}
+function esconderlista(element) {
+    if(!element.target.classList.contains('lista-de-desejos') && !element.target.classList.contains('btnadd')){
+        verdadeiralista.style.visibility = "hidden";
+        setTimeout(()=> {
+            lista.addEventListener("click", mostrarlista);
+            document.removeEventListener("click", esconderlista);
+        }, 100);
+    }
 }

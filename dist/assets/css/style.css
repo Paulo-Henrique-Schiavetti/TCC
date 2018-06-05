@@ -97,6 +97,27 @@ body{
 .logo > img:hover {
   cursor: pointer;
 }
+.paginaitem {
+  background: white;
+  border: solid black 1px;
+  border-radius: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18pt;
+}
+.paginaitem > img {
+  border: solid black 1px;
+  border-radius: 2px;
+  width: 250px;
+}
+.comentarios {
+  background: lightgray;
+  border: solid black 1px;
+  border-radius: 2px;
+  margin: 1%;
+  padding: 1%;
+  font-size: 16pt;
+  text-align: left;
+}
 /* vai virar um item do menu */
 .lista-de-desejos {
   position: fixed;
