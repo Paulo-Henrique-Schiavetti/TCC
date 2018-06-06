@@ -80,6 +80,11 @@ body{
   position: absolute;
   bottom: 0;
 }
+.card-quase-down {
+  position: absolute;
+  top: 70%;
+  
+}
 .card-botoes {
   position: absolute;
   top: 20%;

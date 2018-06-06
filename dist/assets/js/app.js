@@ -75,7 +75,9 @@ function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
                     </div>
                     <div class="card-down">
                         ${estrelas}  R$${preco}
-                        <i class="material-icons">location_on</i>
+                    </div>
+                    <div class="card-quase-down">
+                    <i class="material-icons">location_on</i>
                     </div>
                 </div>
             </div>
