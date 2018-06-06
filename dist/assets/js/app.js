@@ -153,16 +153,24 @@ function pesquisa() {
     nome = pesquisar.value;
     numerodeitensnodrop = 0;
     dropdown.innerHTML = "";
+    
     axios
         .get(`/pesquisarnome/${nome}`)
         .then(response => {
+            if(nome == "" || response.data.length == 0){
+                pesquisar.style = "border-radius: 50px";
+                return;
+
+            } else {
+                pesquisar.style = "border-top-right-radius: 30px; border-top-left-radius: 30px;border-bottom-right-radius: 0; border-bottom-left-radius: 0";
+            }
             response.data.forEach(element => {
                 numerodeitensnodrop++;
-                if(numerodeitensnodrop>5){
+                if(numerodeitensnodrop>4){
                     dropdown.innerHTML += `<li class="dropdown-li"><a>...</a></li>`;
                     return true;
                 }
-            dropdown.innerHTML += `<li class="dropdown-li"><a>${element.nome}</a></li>`;
+            dropdown.innerHTML += `<li class="dropdown-li"><a><img src="${element.imagem}" alt="">${element.nome}</a></li>`;
             })
         });
 }
