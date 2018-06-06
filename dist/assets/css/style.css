@@ -32,13 +32,6 @@ body{
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   padding: 1%;
 }
-.pesquisar > div > form {
-  display: flex;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16pt;
-  color: #fff !important;
-}
 .pesquisar > div > form > input[type=text] {
   background: #fff;
   color: black;
@@ -48,37 +41,34 @@ body{
   border: solid 1px rgba(0, 0, 0, 0.12);
   border-radius: 50px;
   margin: 1%;
-  width:42%;
+  width: 85%;
 }
-.pesquisar > div > form > #pesquisar {
-  width: 90%;
-  
-}
-.pesquisar > div > form > button {
-  background: #00b0ff;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  margin: 1%;
-  width:20%;
-}
-.card-content {
-  position: relative;
+.pesquisar > div > form > i {
+  color: white;
+  font-weight: 800;
   font-size: 18pt;
-  color:#000 !important;
-  text-align: center;
-  height: 220px;
+}
+.dropdown-pesquisar {
+  background: #fff !important;
+}
+.dropdown-li {
+  background: #fff !important;
+  border: solid 1px rgba(0, 0, 0, 0.12);
+}
+.dropdown-li > a {
+  font-family: arial;
+  color: rgba(0, 0, 0, 0.25);
+  font-weight: 600;
 }
 .card-image > img {
-  width: 300x;
   height: 200px;
 }
 .card-image {
   height: 420px;
 }
-.card-down {
-  position: absolute;
-  bottom: 0;
+.card-content {
+  position: relative;
+  height: 220px;
 }
 .card-quase-down {
   position: absolute;
@@ -87,22 +77,49 @@ body{
 }
 .card-botoes {
   position: absolute;
-  top: 20%;
-  left: 5%;
+  top: 30%;
   display: inline-flex;
 }
 .card-nome {
   position: absolute;
-  top: 1%;
-  right: 72%;
-  font-weight: 500;
-  font-size: 22pt;
+  top: 5%;
+  color:#000 !important;
+  font-size: 18pt;
+  text-align: left;
+}
+.card-down {
+  position: absolute;
+  bottom: 0;
+  color:#000 !important;
+  font-size: 18pt;
+  text-align: left;
 }
 .logo {
   margin-bottom: 10%;
 }
 .logo > img:hover {
   cursor: pointer;
+}
+.paginaitem {
+  background: white;
+  border: solid black 1px;
+  border-radius: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18pt;
+}
+.paginaitem > img {
+  border: solid black 1px;
+  border-radius: 2px;
+  width: 250px;
+}
+.comentarios {
+  background: lightgray;
+  border: solid black 1px;
+  border-radius: 2px;
+  margin: 1%;
+  padding: 1%;
+  font-size: 16pt;
+  text-align: left;
 }
 /* vai virar um item do menu */
 .lista-de-desejos {
