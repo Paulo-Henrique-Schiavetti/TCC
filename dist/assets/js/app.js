@@ -123,7 +123,7 @@ function clicaritem(element){
 function alugar(id){
     var comentarios = "";
     axios
-        .get(`/paginaitem/${id}`)
+        .get(`/pesquisarid/${id}`)
         .then(response => {
             element = response.data;
             axios
@@ -167,10 +167,10 @@ function pesquisa() {
             response.data.forEach(element => {
                 numerodeitensnodrop++;
                 if(numerodeitensnodrop>4){
-                    dropdown.innerHTML += `<li class="dropdown-li"><a>...</a></li>`;
+                    dropdown.innerHTML += `<li class="dropdown-li tres-pontos"><a>...</a></li>`;
                     return true;
                 }
-            dropdown.innerHTML += `<li class="dropdown-li"><a><img src="${element.imagem}" alt="">${element.nome}</a></li>`;
+            dropdown.innerHTML += `<li class="dropdown-li"><a><img src="${element.imagem}" alt=""><span>${element.nome}</span></a></li>`;
             })
         });
 }
