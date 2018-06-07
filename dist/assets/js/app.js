@@ -73,7 +73,7 @@ function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
                         <a class="btn btnadd"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-down">
-                        ${estrelas}  R$${preco}
+                        ${estrelas} R$${preco}  
                     </div>
                     <div class="card-quase-down">
                     <i class="material-icons">location_on</i>

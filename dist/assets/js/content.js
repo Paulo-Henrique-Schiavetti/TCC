@@ -8,18 +8,29 @@ function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
                     <div class="card-nome">
                     ${nome}
                     </div>
-                    <div class="card-botoes">
+                    <div class="card-all">
                         <a class="btn btnalugar">Allugar</a>
+                    </div>
+                    <div class="card-add">
                         <a class="btn btnadd"><i class="material-icons">add</i></a>
                     </div>
+                    <div class="card-livre">
+                    <p>LIVRE</p>
+                    </div>
+                    <div class="card-local">
+                    <p>Mogi Mirim - SP<i class="material-icons">location_on</i></p>
+                    </div>
+                    <br/>
                     <div class="card-down">
-                        R$${preco}<br/>
-                        ${estrelas}<br/>
-                        <i class="material-icons">location_on</i>
+                        ${estrelas}
+                    </div>
+                    <div class="card-preco">
+                    R$${preco}
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
     `;
 }
