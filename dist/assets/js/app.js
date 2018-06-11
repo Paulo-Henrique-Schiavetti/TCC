@@ -60,24 +60,32 @@ function esconderlista(element) {
 }
 function exibiritens() {
     content.innerHTML = "";
+    var numerodeitens = 1;
     axios
     .get("/itens")
     .then(response => {
-        response.data.forEach(element => {
-            var estrelas = '';
-            for(i=0;i<5;i++){
-                if (element.avaliacao>=1) {
-                    estrelas += '<i class="material-icons">star</i>'
-                } else {
-                    if (element.avaliacao>0) {
-                        estrelas += '<i class="material-icons">star_half</i>'
+        response.data.some(element => {
+            if (numerodeitens<=9){
+                var estrelas = '';
+                for(i=0;i<5;i++){
+                    if (element.avaliacao>=1) {
+                        estrelas += '<i class="material-icons">star</i>'
                     } else {
-                        estrelas += '<i class="material-icons">star_border</i>'
+                        if (element.avaliacao>0) {
+                            estrelas += '<i class="material-icons">star_half</i>'
+                        } else {
+                            estrelas += '<i class="material-icons">star_border</i>'
+                        }
                     }
+                    element.avaliacao -= 1;
                 }
-                element.avaliacao -= 1;
+                    item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, estrelas);
+                    numerodeitens++;
+            } else {
+                exibirvermais();
+                return true;
             }
-                item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, estrelas);
+            
         });
     })
     .catch(error => {

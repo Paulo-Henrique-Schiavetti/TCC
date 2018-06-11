@@ -34,6 +34,13 @@ function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
     </div>
     `;
 }
+function exibirvermais(){
+    content.innerHTML += `
+        <div class="vermais">
+            <a class="btn">Ver Mais</a>
+        </div>
+    `
+}
 function paginacadastrarproduto() {
     content.innerHTML = `
     <div class="container">

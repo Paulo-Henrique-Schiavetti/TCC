@@ -163,14 +163,11 @@ body{
   font-size: 18pt;
   padding-left: 60%;
 }
-.ver-mais{
-  position: absolute;
-  bottom: 2%;
-  color:#0084ff !important;
-  font-size: 18pt;
-  padding-left: 45%;
+.vermais{
+  text-align: center;
 }
-.ver-mais > a {
+.vermais > a {
+  font-size: 16pt;
   background: #0084ff ;
 }
 .logo {
