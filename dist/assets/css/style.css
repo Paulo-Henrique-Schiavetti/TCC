@@ -150,7 +150,7 @@ body{
 .card-local > p {
   color: gray !important;
 }
-.card-down {
+.card-estrela {
   position: absolute;
   bottom: 0;
   color:#000 !important;

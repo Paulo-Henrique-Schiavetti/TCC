@@ -58,32 +58,6 @@ function esconderlista(element) {
         }, 100);
     }
 }
-function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
-    return `
-    <div class="col s12 m4" data-id="${id}">
-        <div class="card">
-            <div class="card-image">
-                <img src="${imagem}" alt=""/>
-                <div class="card-content">
-                <div class="card-nome">
-                    ${nome}
-                    </div>
-                    <div class="card-botoes">
-                        <a class="btn btnalugar">Allugar</a>
-                        <a class="btn btnadd"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-down">
-                        ${estrelas} R$${preco}  
-                    </div>
-                    <div class="card-quase-down">
-                    <i class="material-icons">location_on</i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    `;
-}
 function exibiritens() {
     content.innerHTML = "";
     axios
