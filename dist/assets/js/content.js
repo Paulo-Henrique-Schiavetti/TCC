@@ -18,7 +18,7 @@ function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
                     <p>LIVRE</p>
                     </div>
                     <div class="card-local">
-                    <p>Mogi Mirim - SP<i class="material-icons">location_on</i></p>
+                    <i class="material-icons">location_on</i> Mogi Mirim - SP
                     </div>
                     <br/>
                     <div class="card-estrela">

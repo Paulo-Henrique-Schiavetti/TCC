@@ -116,39 +116,38 @@ body{
   border-top:2px solid #00b0ff;
   border-bottom:2px solid #00b0ff;
 }
+.card-nome {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  left: 5%;
+  color:#000 !important;
+  font-size: 18pt;
+  text-align: left;
+}
 .card-all {
   position: absolute;
   top: 30%;
-  padding-right: 75%;
+  left: 5%;
 }
 .card-add {
   position: absolute;
   top: 30%;
-  padding-left: 60%;
-}
-.card-nome {
-  position: absolute;
-  top: 5%;
-  color:#000 !important;
-  font-size: 18pt;
-  text-align: left;
+  left: 60%;
 }
 .card-livre {
   position: absolute;
   color: green;
   font-size: 15pt;
-  top: 70%;
-  padding-left: 10%;
+  top: 65%;
+  left: 10%;
 }
 .card-local {
   position: absolute;
-  top: 70%;
-  color:#000 !important;
-  font-size: 12pt;
-  padding-left: 48%;
-}
-.card-local > p {
+  top: 65%;
   color: gray !important;
+  font-size: 12pt;
+  right: 5%;
 }
 .card-estrela {
   position: absolute;
@@ -158,7 +157,7 @@ body{
 }
 .card-preco {
   position: absolute;
-  bottom: 0;
+  bottom: 1%;
   color:#000 !important;
   font-size: 18pt;
   padding-left: 60%;
