@@ -104,6 +104,8 @@ function clicaritem(element){
 }
 function alugar(id){
     var comentarios = "";
+    dropdown.innerHTML = "";
+    pesquisar.style = "border-radius: 50px";
     axios
         .get(`/pesquisarid/${id}`)
         .then(response => {
@@ -152,7 +154,7 @@ function pesquisa() {
                     dropdown.innerHTML += `<li class="dropdown-li tres-pontos"><a>...</a></li>`;
                     return true;
                 }
-            dropdown.innerHTML += `<li class="dropdown-li"><a><img src="${element.imagem}" alt=""><span>${element.nome}</span></a></li>`;
+            dropdown.innerHTML += `<li class="dropdown-li"><a onclick="alugar(${element.id})"><img src="${element.imagem}" alt=""><span>${element.nome}</span></a></li>`;
             })
         });
 }

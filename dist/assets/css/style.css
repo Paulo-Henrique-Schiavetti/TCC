@@ -62,7 +62,7 @@ body{
   background: #fff !important;
   position: absolute;
   top: 76%;
-  left: 2.75%;
+  left: 2.5%;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   margin: 1%;
@@ -93,6 +93,9 @@ body{
 }
 .tres-pontos {
   text-align: center !important;
+}
+.dropdown-li:hover{
+  cursor: pointer;
 }
 .dropdown-li > a > img{
   width: 48px;
