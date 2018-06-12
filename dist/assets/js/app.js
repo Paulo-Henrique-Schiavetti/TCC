@@ -79,7 +79,7 @@ function exibiritens() {
                     }
                     element.avaliacao -= 1;
                 }
-                    item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, estrelas);
+                    item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
                     numerodeitens++;
             } else {
                 exibirvermais();
@@ -115,7 +115,7 @@ function alugar(id){
                 .then(response => {
                     response.data.forEach(chat => {
                         comentarios += '<p>'+chat.nome+': '+chat.mensagem+'</p>';
-                        paginaitem(element.id, element.nome, element.locatario, element.imagem, comentarios);
+                        paginaitem(element.id, element.nome, element.endereco, element.imagem, comentarios);
                     });
                 });
                 

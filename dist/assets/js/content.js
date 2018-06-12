@@ -1,4 +1,4 @@
-function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
+function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas) {
     content.innerHTML += `
     <div class="col s12 m4" data-id="${id}">
         <div class="card">
@@ -18,7 +18,8 @@ function item(id, locatario, nome, preco, descricao, imagem, estrelas) {
                     <p>LIVRE</p>
                     </div>
                     <div class="card-local">
-                    <i class="material-icons">location_on</i> Mogi Mirim - SP
+                    <i class="material-icons">location_on</i>
+                    ${endereco}
                     </div>
                     <br/>
                     <div class="card-estrela">

@@ -142,15 +142,15 @@ body{
   position: absolute;
   color: green;
   font-size: 15pt;
-  top: 65%;
+  top: 60%;
   left: 10%;
 }
 .card-local {
   position: absolute;
-  top: 65%;
+  top: 55%;
+  left: 45%;
   color: gray !important;
   font-size: 12pt;
-  right: 5%;
 }
 .card-estrela {
   position: absolute;

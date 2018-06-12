@@ -35,9 +35,13 @@ server.get("/all", function(req, res, next) {
 
 server.get("/itens", function(req, res, next) {
     
-  knex('item').then((dados) => {
-    res.send(dados);
-  }, next)
+  knex
+    .select( {'id' : 'item.id', 'nome' : 'item.nome', 'imagem' : 'item.imagem', 'preço' : 'item.preço', 'descrição' : 'item.descrição', 'avaliacao' : 'item.avaliacao', 'endereco' : 'usuarios.endereco'})
+    .from('item')
+    .leftJoin('usuarios', 'item.locatario', 'usuarios.id')
+    .then((dados) => {
+      res.send(dados);
+    }, next)
 
   return next();
 });
@@ -67,8 +71,10 @@ server.post("/cadastrarusuario", function(req, res, next) {
 server.get("/pesquisarid/:id", function(req, res, next) {
     const {id} = req.params;
   knex('item')
-    .where("id", id)
+    .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
+    .where("item.id", id)
     .first()
+    .select('item.id','item.nome','item.imagem','usuarios.endereco')
     .then((dados) => {
       res.send(dados);
     }, next)
