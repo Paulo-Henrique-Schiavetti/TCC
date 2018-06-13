@@ -16,11 +16,17 @@ body{
   font-weight: 600;
   margin-right: 20%;
 }
+.btnalugar:hover{
+  background: #00c0ff !important;
+}
 .btnadd{
   background: #0084ff !important;
   border-radius: 100px !important;
   font-weight: 600;
   margin-right: 20%;
+}
+.btnadd:hover{
+  background: #00b0ff !important;
 }
 .sign {
   color: white;
@@ -170,7 +176,10 @@ body{
 }
 .vermais > a {
   font-size: 16pt;
-  background: #0084ff ;
+  background: #0084ff;
+}
+.vermais > a:hover{
+  background: #00c0ff !important;
 }
 .logo {
   margin-bottom: 5%;
