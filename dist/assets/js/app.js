@@ -4,6 +4,7 @@ window.onload = () => {
     let pesquisar = document.querySelector("#pesquisar");
     let dropdown = document.querySelector("#dropdown");
     let verdadeiralista = document.querySelector("#verdadeiralista");
+    let modal = document.querySelector("#modal");
     //variáveis
     dados = [];
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
@@ -130,7 +131,7 @@ function add(id) {
             localStorage.setItem("numitem", numitem);
             localStorage.setItem('dados', JSON.stringify(dados));
             novoitem();
-            mensagem('O item foi adicionado a lista ->');
+            mensagemtemporaria('O item foi adicionado a lista ->');
         });
 }
 function pesquisa() {
@@ -160,7 +161,16 @@ function pesquisa() {
 }
 
 function mensagem(texto) {
-    alert(texto);
+    modal.style.display = "block";
+    modal.innerHTML = texto;
+}
+
+function mensagemtemporaria(texto) {
+    modal.style.display = "initial";
+    modal.innerHTML = texto;
+    setTimeout(()=>{
+        modal.style.display = "none";
+    }, 1000);
 }
 
 function mostrarlista(element) {
