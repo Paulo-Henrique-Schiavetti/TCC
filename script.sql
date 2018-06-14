@@ -40,9 +40,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `allugardb`.`item` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `locatario` INT NOT NULL,
-  `nome` VARCHAR(45) NULL,
+  `nome` VARCHAR(45) NOT NULL,
   `avaliacao` FLOAT,
-  `preço` VARCHAR(45) NULL,
+  `preço` INT NOT NULL,
   `descrição` VARCHAR(85),
   `imagem` LONGTEXT NULL,
   PRIMARY KEY (`id`),
@@ -60,7 +60,6 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `allugardb`.`conversa` (
   `id` INT NOT NULL,
-  mensagem VARCHAR(100),
   `remetente_id` INT NOT NULL,
   `destinatario_id` INT NOT NULL,
   `item_id` INT NOT NULL,
@@ -77,6 +76,20 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`conversa` (
     REFERENCES `allugardb`.`item` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `allugardb`.`mensagens`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `allugardb`.`mensagens` (
+  `id` INT NOT NULL,
+  mensagem VARCHAR(100),
+  `conversa_id` INT NOT NULL,
+  `datahora` DATETIME NOT NULL,
+   PRIMARY KEY (`id`),
+    FOREIGN KEY (`conversa_id)
+    REFERENCES `allugardb`.`conversa` (`id`)
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------
