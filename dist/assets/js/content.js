@@ -37,7 +37,7 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
 }
 function exibirvermais(){
     content.innerHTML += `
-        <div class="vermais">
+        <div class="vermais" onclick='exibiritens()'>
             <a class="btn">Ver Mais</a>
         </div>
     `

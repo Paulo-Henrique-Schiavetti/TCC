@@ -10,6 +10,7 @@ window.onload = () => {
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
     numitem = parseInt(localStorage.getItem('numitem'));
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
+    localStorage.setItem('id', 1);
     //funções
     exibiritens();
     setTimeout(() => {
@@ -60,13 +61,12 @@ function esconderlista(element) {
     }
 }
 function exibiritens() {
-    content.innerHTML = "";
-    var numerodeitens = 1;
-    axios
-    .get("/itens")
-    .then(response => {
-        response.data.some(element => {
-            if (numerodeitens<=9){
+    localStorage.getItem('id') ? id = localStorage.getItem('id') : localStorage.setItem('id', 1);
+    for(i=0;i<9;i++){
+            axios
+        .get(`/itens/${id}`)
+        .then(response => {
+            element = response.data;
                 var estrelas = '';
                 for(i=0;i<5;i++){
                     if (element.avaliacao>=1) {
@@ -80,18 +80,12 @@ function exibiritens() {
                     }
                     element.avaliacao -= 1;
                 }
-                    item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
-                    numerodeitens++;
-            } else {
-                exibirvermais();
-                return true;
-            }
-            
-        });
-    })
-    .catch(error => {
-
-    });
+            item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
+        })
+        id++;
+    }
+    localStorage.setItem('id', id);
+    exibirvermais();
 }
 function clicaritem(element){
 
