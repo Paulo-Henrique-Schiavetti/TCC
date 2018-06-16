@@ -80,17 +80,17 @@ function paginacadastrarusuario() {
     </div>
     `;
 }
-function paginaitem(id, item, locatario, imagem, comentarios) {
-            content.innerHTML = `
-            <div class="container">
-                <ul class="center-align paginaitem">
-                    <p>${item} por: ${locatario}</p>
-                    <img src="${imagem}" alt=""/>
-                    <div class="comentarios">
-                        ${comentarios}
-                    </div>
-                </ul>
+function paginaitem(id, item, endereco, imagem) {
+    content.innerHTML = `
+    <div class="container">
+        <ul class="center-align paginaitem">
+            <p>${item}</p>
+            <img src="${imagem}" alt=""/>
+            <p>${endereco}</p>
+            <div class="comentarios" id="comentarios">
             </div>
-            `;
-    
+        </ul>
+    </div>
+    `;
+    exibircomentarios();
 }

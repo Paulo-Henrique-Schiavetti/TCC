@@ -55,41 +55,24 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`item` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `allugardb`.`conversa`
+-- Table `allugardb`.`comentarios`
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `allugardb`.`conversa` (
+CREATE TABLE IF NOT EXISTS `allugardb`.`comentarios` (
   `id` INT NOT NULL,
-  `remetente_id` INT NOT NULL,
-  `destinatario_id` INT NOT NULL,
   `item_id` INT NOT NULL,
+  `usuario_id` INT NOT NULL,
+  `datahora` DATETIME NOT NULL,
+  `mensagem` VARCHAR(100),
    PRIMARY KEY (`id`),
-    FOREIGN KEY (`remetente_id`)
-    REFERENCES `allugardb`.`usuarios` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-    FOREIGN KEY (`destinatario_id`)
-    REFERENCES `allugardb`.`usuarios` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
     FOREIGN KEY (`item_id`)
     REFERENCES `allugardb`.`item` (`id`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `allugardb`.`usuarios` (`id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION
-) ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `allugardb`.`mensagens`
--- -----------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS `allugardb`.`mensagens` (
-  `id` INT NOT NULL,
-  mensagem VARCHAR(100),
-  `conversa_id` INT NOT NULL,
-  `datahora` DATETIME NOT NULL,
-   PRIMARY KEY (`id`),
-    FOREIGN KEY (`conversa_id`)
-    REFERENCES `allugardb`.`conversa` (`id`)
 ) ENGINE = InnoDB;
 
 -- -----------------------------------------------------

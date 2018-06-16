@@ -67,15 +67,17 @@ function alugar(id){
         .get(`/pesquisarid/${id}`)
         .then(response => {
             element = response.data;
-            axios
-                .get(`/conversa/${id}`)
-                .then(response => {
-                    response.data.forEach(chat => {
-                        comentarios += '<p>'+chat.nome+': '+chat.mensagem+'</p>';
-                        paginaitem(element.id, element.nome, element.endereco, element.imagem, comentarios);
-                    });
-                });
-                
+            paginaitem(element.id, element.nome, element.endereco, element.imagem);
+        });
+}
+function exibircomentarios() {
+    let campocomments = document.querySelector("#comentarios");
+    axios
+        .get(`/comentarios/${id}`)
+        .then(response => {
+            response.data.forEach(comments => {
+                campocomments.innerHTML += '<p>'+comments.nome+': '+comments.mensagem+'</p>';
+            });
         });
 }
 function add(id) {

@@ -85,12 +85,12 @@ server.get("/pesquisarid/:id", function(req, res, next) {
   return next();
 });
 
-server.get("/conversa/:id", function(req, res, next) {
+server.get("/comentarios/:id", function(req, res, next) {
     const {id} = req.params;
-  knex('conversa')
-    .innerJoin('usuarios', 'conversa.remetente_id', 'usuarios.id')
-    .where("conversa.item_id", id)
-    .select( {'nome' : 'usuarios.nome', 'mensagem' : 'conversa.mensagem'} )
+  knex('comentarios')
+    .where("comentarios.item_id", id)
+    .innerJoin('usuarios', 'comentarios.usuario_id', 'usuarios.id')
+    .select( {'nome' : 'usuarios.nome', 'mensagem' : 'comentarios.mensagem', 'datahora' : 'comentarios.datahora'} )
     .then((dados) => {
       res.send(dados);
     }, next)
