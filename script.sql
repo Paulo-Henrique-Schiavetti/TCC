@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`mensagens` (
   `conversa_id` INT NOT NULL,
   `datahora` DATETIME NOT NULL,
    PRIMARY KEY (`id`),
-    FOREIGN KEY (`conversa_id)
+    FOREIGN KEY (`conversa_id`)
     REFERENCES `allugardb`.`conversa` (`id`)
 ) ENGINE = InnoDB;
 

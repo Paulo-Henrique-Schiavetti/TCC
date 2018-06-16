@@ -37,11 +37,10 @@ server.get("/itens/:id", function(req, res, next) {
 
   const {id} = req.params;
 
-  knex
+  knex('item')
     .select( {'id' : 'item.id', 'nome' : 'item.nome', 'imagem' : 'item.imagem', 'preço' : 'item.preço', 'descrição' : 'item.descrição', 'avaliacao' : 'item.avaliacao', 'endereco' : 'usuarios.endereco'})
     .where('item.id', id)
     .first()
-    .from('item')
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .then((dados) => {
       res.send(dados);

@@ -1,5 +1,19 @@
+function paginahome(){
+    content.innerHTML =`
+    <div class="row" id="grid">
+    </div>
+    <div class="row">
+        <div class="vermais" onclick='exibiritens()'>
+            <a class="btn">Ver Mais</a>
+        </div>
+    </div>
+    `
+    let grid = document.querySelector("#grid");
+    exibiritens();
+}
+
 function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas) {
-    content.innerHTML += `
+    grid.innerHTML += `
     <div class="col s12 m4" data-id="${id}">
         <div class="card">
             <div class="card-image">
@@ -34,13 +48,6 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
         
     </div>
     `;
-}
-function exibirvermais(){
-    content.innerHTML += `
-        <div class="vermais" onclick='exibiritens()'>
-            <a class="btn">Ver Mais</a>
-        </div>
-    `
 }
 function paginacadastrarproduto() {
     content.innerHTML = `

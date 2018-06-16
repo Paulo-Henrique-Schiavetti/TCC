@@ -12,7 +12,10 @@ window.onload = () => {
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
     localStorage.setItem('id', 1);
     //funções
-    exibiritens();
+    
+    setTimeout(() => {
+        paginahome();
+    }, 100);
     setTimeout(() => {
         content.addEventListener("click", clicaritem);
         pesquisar.addEventListener("keyup", pesquisa);
@@ -20,55 +23,15 @@ window.onload = () => {
     }, 500);
 };
 
-function dadosexistentes() {
-    dados = JSON.parse(localStorage.getItem('dados'));
-    lista.firstElementChild.innerHTML = "<i class='material-icons'>fiber_manual_record</i> Meus Itens";
-}
-
-function novoitem() {
-    verdadeiralista.innerHTML = "";
-    var numerodeitensnalista = 0;
-    dadosexistentes();
-    dados.some(element => {
-        numerodeitensnalista++;
-        if(numerodeitensnalista>5){
-            verdadeiralista.innerHTML += `<li class="collection-item"><a>...</a></li>`;
-            return true;
-        }
-        verdadeiralista.innerHTML += `<li class="collection-item"><a>${element.nome}</a></li>`;
-    });
-}
-function mostrarlista(element) {
-    console.log(element);
-    if (numitem == 0) {
-        mensagem('não há nenhum item na sua lista');
-    } else {
-        verdadeiralista.style.visibility = "visible";
-        novoitem();
-        setTimeout(()=> {
-            document.addEventListener("click", esconderlista);
-            lista.removeEventListener("click", mostrarlista);
-        }, 100);
-    }
-}
-function esconderlista(element) {
-    if(!element.target.classList.contains('lista-de-desejos') && !element.target.classList.contains('btnadd')){
-        verdadeiralista.style.visibility = "hidden";
-        setTimeout(()=> {
-            lista.addEventListener("click", mostrarlista);
-            document.removeEventListener("click", esconderlista);
-        }, 100);
-    }
-}
 function exibiritens() {
-    localStorage.getItem('id') ? id = localStorage.getItem('id') : localStorage.setItem('id', 1);
     for(i=0;i<9;i++){
-            axios
-        .get(`/itens/${id}`)
+        var localId = localStorage.getItem('id')
+        axios
+        .get(`/itens/${localId}`)
         .then(response => {
-            element = response.data;
+            var element = response.data;
                 var estrelas = '';
-                for(i=0;i<5;i++){
+                for(e=0;e<5;e++){
                     if (element.avaliacao>=1) {
                         estrelas += '<i class="material-icons">star</i>'
                     } else {
@@ -81,11 +44,10 @@ function exibiritens() {
                     element.avaliacao -= 1;
                 }
             item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
-        })
-        id++;
+        });
+        localId++;
+        localStorage.setItem('id', localId);
     }
-    localStorage.setItem('id', id);
-    exibirvermais();
 }
 function clicaritem(element){
 
@@ -167,6 +129,24 @@ function mensagemtemporaria(texto) {
     }, 1000);
 }
 
+function dadosexistentes() {
+    dados = JSON.parse(localStorage.getItem('dados'));
+    lista.firstElementChild.innerHTML = "<i class='material-icons'>fiber_manual_record</i> Meus Itens";
+}
+
+function novoitem() {
+    verdadeiralista.innerHTML = "";
+    var numerodeitensnalista = 0;
+    dadosexistentes();
+    dados.some(element => {
+        numerodeitensnalista++;
+        if(numerodeitensnalista>5){
+            verdadeiralista.innerHTML += `<li class="collection-item"><a>...</a></li>`;
+            return true;
+        }
+        verdadeiralista.innerHTML += `<li class="collection-item"><a>${element.nome}</a></li>`;
+    });
+}
 function mostrarlista(element) {
     if (numitem == 0) {
         mensagem('não há nenhum item na sua lista');
