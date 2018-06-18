@@ -33,13 +33,13 @@ server.get("/all", function(req, res, next) {
   return next();
 });
 
-server.get("/itens/:id", function(req, res, next) {
+server.get("/itens/:data", function(req, res, next) {
 
-  const {id} = req.params;
+  const {data} = req.params;
 
   knex('item')
-    .select( {'id' : 'item.id', 'nome' : 'item.nome', 'imagem' : 'item.imagem', 'preço' : 'item.preço', 'descrição' : 'item.descrição', 'avaliacao' : 'item.avaliacao', 'endereco' : 'usuarios.endereco'})
-    .where('item.id', id)
+    .select( {'id' : 'item.id', 'nome' : 'item.nome', 'imagem' : 'item.imagem', 'preço' : 'item.preço', 'descrição' : 'item.descrição', 'avaliacao' : 'item.avaliacao', 'endereco' : 'usuarios.endereco', 'data' : 'item.data_publicacao'})
+    .where('item.data_publicacao', '<', data)
     .first()
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .then((dados) => {

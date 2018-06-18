@@ -10,7 +10,18 @@ window.onload = () => {
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
     numitem = parseInt(localStorage.getItem('numitem'));
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
-    localStorage.setItem('id', 1);
+    
+    var data = new Date;
+    var dia = data.getDate();
+    var mes = data.getMonth();
+    mes = parseInt(mes)+1;
+    var ano = data.getFullYear();
+    var hora = data.getHours();
+    var min = data.getMinutes();
+    var sec = data.getSeconds();
+    const localData = ano+'-'+mes+'-'+dia+' '+hora+':'+min+':'+sec;
+    localStorage.setItem('data', localData);
+
     //funções
     
     setTimeout(() => {
@@ -25,9 +36,9 @@ window.onload = () => {
 
 function exibiritens() {
     for(i=0;i<9;i++){
-        var localId = localStorage.getItem('id')
+        var localData = localStorage.getItem('data')
         axios
-        .get(`/itens/${localId}`)
+        .get(`/itens/${localData}`)
         .then(response => {
             var element = response.data;
                 var estrelas = '';
@@ -43,10 +54,10 @@ function exibiritens() {
                     }
                     element.avaliacao -= 1;
                 }
+            localData = element.data;
             item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
         });
-        localId++;
-        localStorage.setItem('id', localId);
+        localStorage.setItem('data', localData);
     }
 }
 function clicaritem(element){
