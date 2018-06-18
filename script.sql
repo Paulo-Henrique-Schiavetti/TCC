@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`item` (
   `avaliacao` FLOAT NULL,
   `preço` FLOAT NOT NULL,
   `descrição` VARCHAR(85) NULL,
-  `data_publicacao` DATETIME NOT NULL,
+  `data_publicacao` TIMESTAMP NOT NULL,
   `imagem` LONGTEXT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_item_usuarios1_idx` (`locatario` ASC),
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`comentarios` (
   `id` INT NOT NULL,
   `item_id` INT NOT NULL,
   `usuario_id` INT NOT NULL,
-  `datahora` DATETIME NOT NULL,
+  `datahora` TIMESTAMP NOT NULL,
   `mensagem` VARCHAR(100),
    PRIMARY KEY (`id`),
     FOREIGN KEY (`item_id`)

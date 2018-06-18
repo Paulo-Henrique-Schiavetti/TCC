@@ -12,14 +12,7 @@ window.onload = () => {
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
     
     var data = new Date;
-    var dia = data.getDate();
-    var mes = data.getMonth();
-    mes = parseInt(mes)+1;
-    var ano = data.getFullYear();
-    var hora = data.getHours();
-    var min = data.getMinutes();
-    var sec = data.getSeconds();
-    const localData = ano+'-'+mes+'-'+dia+' '+hora+':'+min+':'+sec;
+    const localData = data.getTime();
     localStorage.setItem('data', localData);
 
     //funções
