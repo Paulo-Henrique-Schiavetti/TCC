@@ -39,7 +39,8 @@ server.get("/itens/:data", function(req, res, next) {
 
   knex('item')
     .select( {'id' : 'item.id', 'nome' : 'item.nome', 'imagem' : 'item.imagem', 'preço' : 'item.preço', 'descrição' : 'item.descrição', 'avaliacao' : 'item.avaliacao', 'endereco' : 'usuarios.endereco', 'data' : 'item.data_publicacao'})
-    .where('item.data_publicacao', '>', data)
+    .Where('item.data_publicacao', '<', data)
+    .orderBy('item.data_publicacao')
     .first()
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .then((dados) => {

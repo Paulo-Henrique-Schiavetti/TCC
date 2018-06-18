@@ -10,11 +10,6 @@ window.onload = () => {
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
     numitem = parseInt(localStorage.getItem('numitem'));
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
-    
-    var data = new Date;
-    const localData = data.getTime();
-    localStorage.setItem('data', localData);
-
     //funções
     
     setTimeout(() => {
@@ -29,7 +24,7 @@ window.onload = () => {
 
 function exibiritens() {
     for(i=0;i<9;i++){
-        var localData = localStorage.getItem('data')
+        localData = localStorage.getItem('data');
         axios
         .get(`/itens/${localData}`)
         .then(response => {
@@ -48,9 +43,9 @@ function exibiritens() {
                     element.avaliacao -= 1;
                 }
             localData = element.data;
+            localStorage.setItem('data', localData);
             item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
         });
-        localStorage.setItem('data', localData);
     }
 }
 function clicaritem(element){
