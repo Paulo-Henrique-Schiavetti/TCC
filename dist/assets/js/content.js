@@ -1,6 +1,6 @@
 function paginahome(){
     
-    const localData = Date.now();
+    var localData = Date.now();
     localStorage.setItem('data', localData);
 
     content.innerHTML =`

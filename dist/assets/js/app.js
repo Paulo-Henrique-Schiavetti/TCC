@@ -23,12 +23,12 @@ window.onload = () => {
 };
 
 function exibiritens() {
+    var localData = localStorage.getItem('data');
     for(i=0;i<9;i++){
-        localData = localStorage.getItem('data');
         axios
-        .get(`/itens/${localData}`)
-        .then(response => {
-            var element = response.data;
+            .get(`/itens/${localData}`)
+            .then(response => {
+                var element = response.data;
                 var estrelas = '';
                 for(e=0;e<5;e++){
                     if (element.avaliacao>=1) {
@@ -42,10 +42,10 @@ function exibiritens() {
                     }
                     element.avaliacao -= 1;
                 }
-            localData = element.data;
-            localStorage.setItem('data', localData);
-            item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
-        });
+                localData = element.data;
+                localStorage.setItem('data', localData);
+                item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
+            });
     }
 }
 function clicaritem(element){
