@@ -1,6 +1,6 @@
 function paginahome(){
     
-    var localData = Date.now();
+    localData = Date.now();
     localStorage.setItem('data', localData);
 
     content.innerHTML =`
@@ -59,6 +59,7 @@ function paginacadastrarproduto() {
         <ul class="center-align" id="cadastrodeprodutos">
             <input type="text" id="camponome" placeholder="Nome"/>
             <input type="text" id="campopreço" placeholder="Preço"/>
+            <input type="text" id="campoavaliacao" placeholder="avaliação"/>
             <input type="text" id="campodescrição" placeholder="Descrição"/>
             <input type="file" id="campoimagem"/>
             <button onclick="cadastrarproduto()">Cadastrar</button>

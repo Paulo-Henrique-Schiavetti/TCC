@@ -10,6 +10,7 @@ window.onload = () => {
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
     numitem = parseInt(localStorage.getItem('numitem'));
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
+    localData = Date.now();
     //funções
     
     setTimeout(() => {
@@ -25,8 +26,9 @@ window.onload = () => {
 function exibiritens() {
     var localData = localStorage.getItem('data');
     for(i=0;i<9;i++){
+        datapub = parseInt(localData);
         axios
-            .get(`/itens/${localData}`)
+            .get(`/itens/${datapub}`)
             .then(response => {
                 var element = response.data;
                 var estrelas = '';
@@ -150,7 +152,7 @@ function novoitem() {
 }
 function mostrarlista(element) {
     if (numitem == 0) {
-        mensagem('não há nenhum item na sua lista');
+        mensagemtemporaria('não há nenhum item na sua lista');
     } else {
         verdadeiralista.style.visibility = "visible";
         novoitem();

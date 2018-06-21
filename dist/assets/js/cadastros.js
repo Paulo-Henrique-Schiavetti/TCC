@@ -1,26 +1,26 @@
 function cadastrarproduto() {
     var camponome = document.querySelector('#camponome').value;
     var campolocatario = 1;
-    var campoavaliacao = (Math.random()*5);
-    var campopreço = document.querySelector('#campopreço').value;
+    var campoavaliacao = document.querySelector('#campoavaliacao').value;
+    var campopreço = parseFloat(document.querySelector('#campopreço').value);
     var campodescrição = document.querySelector('#campodescrição').value;
+    var campodatapub = Date.now()+'';
     var file = document.querySelector('#campoimagem').files[0];
-    var campoimagem = "";
 
     var reader = new FileReader();
+    
     reader.onloadend = ()=> {
-        
         campoimagem = reader.result;
 
         axios.post('/cadastrarproduto', {
-            locatario: campolocatario, nome: camponome, avaliacao: campoavaliacao, preço: campopreço, descrição: campodescrição, imagem: campoimagem
+            locatario: campolocatario, nome: camponome, avaliacao: campoavaliacao, preço: campopreço, descrição: campodescrição, data_publicacao: campodatapub, imagem: campoimagem
         })
         .then(()=> {
-            mensagem('O seu produto foi cadastrado!')
+            mensagemtemporaria('A sua conta foi cadastrada!')
         })
         .catch((error)=>{
             console.log(error);
-        })
+        });
     }
     reader.readAsDataURL(file);
 }
@@ -58,7 +58,7 @@ function cadastrarusuario() {
                         email: campoemail, senha: camposenha, nome: camponome, endereco: campoendereco, place_id: campoplace_id, telefone: campotelefone, avaliacao: campoavaliacao
                     })
                     .then(()=> {
-                        mensagem('A sua conta foi cadastrada!')
+                        mensagemtemporaria('A sua conta foi cadastrada!')
                     })
                     .catch((error)=>{
                         console.log(error);
