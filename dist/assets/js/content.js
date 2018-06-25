@@ -19,33 +19,16 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
             <div class="card-image">
                 <img src="${imagem}" alt=""/>
                 <div class="card-content">
-                    <div class="card-nome">
-                    ${nome}
-                    </div>
-                    <div class="card-all">
-                        <a class="btn btnalugar">Allugar</a>
-                    </div>
-                    <div class="card-add">
-                        <a class="btn btnadd"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-livre">
-                    <p>LIVRE</p>
-                    </div>
-                    <div class="card-local">
-                    <i class="material-icons">location_on</i>
-                    ${endereco}
-                    </div>
-                    <br/>
-                    <div class="card-estrela">
-                        ${estrelas}
-                    </div>
-                    <div class="card-preco">
-                    R$${preco}
-                    </div>
+                    <div class="card-nome">${nome}</div>
+                    <div class="card-all"><a class="btn btnalugar">Allugar</a></div>
+                    <div class="card-add"><a class="btn btnadd"><i class="material-icons">add</i></a></div>
+                    <div class="card-livre"><p>LIVRE</p></div>
+                    <div class="card-local"><i class="material-icons">location_on</i>${endereco}</div><br/>
+                    <div class="card-estrela">${estrelas}</div>
+                    <div class="card-preco">R$${preco}</div>
                 </div>
             </div>
         </div>
-        
     </div>
     `;
 }

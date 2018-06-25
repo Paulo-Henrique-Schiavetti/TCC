@@ -5,14 +5,17 @@ window.onload = () => {
     let dropdown = document.querySelector("#dropdown");
     let verdadeiralista = document.querySelector("#verdadeiralista");
     let modal = document.querySelector("#modal");
+
     //variáveis
     dados = [];
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
     numitem = parseInt(localStorage.getItem('numitem'));
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
-    localData = Date.now();
+    actualPage = 1;
+    perPage = 9;
+
     //funções
-    
+
     setTimeout(() => {
         paginahome();
     }, 100);
@@ -24,45 +27,39 @@ window.onload = () => {
 };
 
 function exibiritens() {
-    var ids = Array('0','0');
-    ids = ids.join();
-    for(i=0;i<9;i++){
-        axios
-            .get(`/itens/${ids}`)
-            .then(response => {
-                var element = response.data;
-                var estrelas = '';
-                for(e=0;e<5;e++){
-                    if (element.avaliacao>=1) {
-                        estrelas += '<i class="material-icons">star</i>'
+    axios
+    .get(`/itens/${actualPage}/${perPage}`)
+    .then(response => {
+        response.data.forEach((element) => {
+            var estrelas = '';
+            for (e = 0; e < 5; e++) {
+                if (element.avaliacao >= 1) {
+                    estrelas += '<i class="material-icons">star</i>'
+                } else {
+                    if (element.avaliacao > 0) {
+                        estrelas += '<i class="material-icons">star_half</i>'
                     } else {
-                        if (element.avaliacao>0) {
-                            estrelas += '<i class="material-icons">star_half</i>'
-                        } else {
-                            estrelas += '<i class="material-icons">star_border</i>'
-                        }
+                        estrelas += '<i class="material-icons">star_border</i>'
                     }
-                    element.avaliacao -= 1;
                 }
-                localStorage.setItem('id', element.id);
-                ids = ids.split(',');
-                ids.push(localStorage.getItem('id'));
-                ids = ids.join();
-                item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
-            });
-    }
+                element.avaliacao -= 1;
+            }
+            item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
+        });
+    });
 }
-function clicaritem(element){
+
+function clicaritem(element) {
 
     element.path[5].dataset.id ? id = element.path[5].dataset.id : id = element.path[4].dataset.id;
 
-    if(element.path[1].classList.contains('btnalugar') || element.path[0].classList.contains('btnalugar')){
+    if (element.path[1].classList.contains('btnalugar') || element.path[0].classList.contains('btnalugar')) {
         alugar(id);
-    } else if(element.path[1].classList.contains('btnadd') || element.path[0].classList.contains('btnadd')) {
+    } else if (element.path[1].classList.contains('btnadd') || element.path[0].classList.contains('btnadd')) {
         add(id);
     }
 }
-function alugar(id){
+function alugar(id) {
     var comentarios = "";
     dropdown.innerHTML = "";
     pesquisar.style = "border-radius: 50px";
@@ -79,7 +76,7 @@ function exibircomentarios() {
         .get(`/comentarios/${id}`)
         .then(response => {
             response.data.forEach(comments => {
-                campocomments.innerHTML += '<p>'+comments.nome+': '+comments.mensagem+'</p>';
+                campocomments.innerHTML += '<p>' + comments.nome + ': ' + comments.mensagem + '</p>';
             });
         });
 }
@@ -88,7 +85,7 @@ function add(id) {
         .get(`/pesquisarid/${id}`)
         .then(response => {
             dados[numitem] = response.data;
-            numitem ++;
+            numitem++;
             localStorage.setItem("numitem", numitem);
             localStorage.setItem('dados', JSON.stringify(dados));
             novoitem();
@@ -99,11 +96,11 @@ function pesquisa() {
     nome = pesquisar.value;
     numerodeitensnodrop = 0;
     dropdown.innerHTML = "";
-    
+
     axios
         .get(`/pesquisarnome/${nome}`)
         .then(response => {
-            if(nome == "" || response.data.length == 0){
+            if (nome == "" || response.data.length == 0) {
                 pesquisar.style = "border-radius: 50px";
                 return;
 
@@ -112,11 +109,11 @@ function pesquisa() {
             }
             response.data.forEach(element => {
                 numerodeitensnodrop++;
-                if(numerodeitensnodrop>4){
+                if (numerodeitensnodrop > 4) {
                     dropdown.innerHTML += `<li class="dropdown-li tres-pontos"><a>...</a></li>`;
                     return true;
                 }
-            dropdown.innerHTML += `<li class="dropdown-li"><a onclick="alugar(${element.id})"><img src="${element.imagem}" alt=""><span>${element.nome}</span></a></li>`;
+                dropdown.innerHTML += `<li class="dropdown-li"><a onclick="alugar(${element.id})"><img src="${element.imagem}" alt=""><span>${element.nome}</span></a></li>`;
             })
         });
 }
@@ -129,7 +126,7 @@ function mensagem(texto) {
 function mensagemtemporaria(texto) {
     modal.style.display = "initial";
     modal.innerHTML = texto;
-    setTimeout(()=>{
+    setTimeout(() => {
         modal.style.display = "none";
     }, 1000);
 }
@@ -145,7 +142,7 @@ function novoitem() {
     dadosexistentes();
     dados.some(element => {
         numerodeitensnalista++;
-        if(numerodeitensnalista>5){
+        if (numerodeitensnalista > 5) {
             verdadeiralista.innerHTML += `<li class="collection-item"><a>...</a></li>`;
             return true;
         }
@@ -158,16 +155,16 @@ function mostrarlista(element) {
     } else {
         verdadeiralista.style.visibility = "visible";
         novoitem();
-        setTimeout(()=> {
+        setTimeout(() => {
             document.addEventListener("click", esconderlista);
             lista.removeEventListener("click", mostrarlista);
         }, 100);
     }
 }
 function esconderlista(element) {
-    if(!element.target.classList.contains('lista-de-desejos') && !element.target.classList.contains('btnadd')){
+    if (!element.target.classList.contains('lista-de-desejos') && !element.target.classList.contains('btnadd')) {
         verdadeiralista.style.visibility = "hidden";
-        setTimeout(()=> {
+        setTimeout(() => {
             lista.addEventListener("click", mostrarlista);
             document.removeEventListener("click", esconderlista);
         }, 100);
