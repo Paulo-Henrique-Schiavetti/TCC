@@ -1,8 +1,4 @@
 function paginahome(){
-    
-    localData = Date.now();
-    localStorage.setItem('data', localData);
-
     content.innerHTML =`
     <div class="row" id="grid">
     </div>

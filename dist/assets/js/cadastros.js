@@ -4,7 +4,7 @@ function cadastrarproduto() {
     var campoavaliacao = document.querySelector('#campoavaliacao').value;
     var campopreço = parseFloat(document.querySelector('#campopreço').value);
     var campodescrição = document.querySelector('#campodescrição').value;
-    var campodatapub = Date.now()+'';
+    var campodatapub = Date.now();
     var file = document.querySelector('#campoimagem').files[0];
 
     var reader = new FileReader();

@@ -32,15 +32,14 @@ server.get("/all", function(req, res, next) {
 
   return next();
 });
-server.get("/itens/:datapub", function(req, res, next) {
+server.get("/itens/:ids", function(req, res, next) {
 
-  const {datapub} = req.params;
+  const {ids} = req.params;
 
   knex('item')
-    .orderBy('item.data_publicacao')
+    .orderBy('item.data_publicacao', 'desc')
     .select( {'id' : 'item.id', 'nome' : 'item.nome', 'imagem' : 'item.imagem', 'preço' : 'item.preço', 'descrição' : 'item.descrição', 'avaliacao' : 'item.avaliacao', 'endereco' : 'usuarios.endereco', 'data' : 'item.data_publicacao'})
-    .whereNotIn('item.data_publicacao', datapub)
-    .andWhere('item.data_publicacao', '<', datapub)
+    .whereNotIn('item.id', ids)
     .first()
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .then((dados) => {

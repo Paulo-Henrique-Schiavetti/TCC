@@ -24,11 +24,11 @@ window.onload = () => {
 };
 
 function exibiritens() {
-    var localData = localStorage.getItem('data');
+    var ids = Array('0','0');
+    ids = ids.join();
     for(i=0;i<9;i++){
-        datapub = parseInt(localData);
         axios
-            .get(`/itens/${datapub}`)
+            .get(`/itens/${ids}`)
             .then(response => {
                 var element = response.data;
                 var estrelas = '';
@@ -44,8 +44,10 @@ function exibiritens() {
                     }
                     element.avaliacao -= 1;
                 }
-                localData = element.data;
-                localStorage.setItem('data', localData);
+                localStorage.setItem('id', element.id);
+                ids = ids.split(',');
+                ids.push(localStorage.getItem('id'));
+                ids = ids.join();
                 item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
             });
     }
