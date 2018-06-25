@@ -38,7 +38,7 @@ server.get("/itens/:data", function(req, res, next) {
   const {data} = req.params;
 
   knex('item')
-    .orderBy('item.data_publicacao')    
+    .orderBy('item.data_publicacao', 'desc')    
     .where('item.data_publicacao', '<', data)    
     .first()
     .select( {'id' : 'item.id', 'nome' : 'item.nome', 'imagem' : 'item.imagem', 'preço' : 'item.preço', 'descrição' : 'item.descrição', 'avaliacao' : 'item.avaliacao', 'endereco' : 'usuarios.endereco', 'data' : 'item.data_publicacao'})
