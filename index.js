@@ -15,44 +15,6 @@ const knex = require('knex')({
   }
 });
 
-module.exports = function (dbConfig) {
-  var knex = require('knex')(dbConfig);
-
-  var KnexQueryBuilder = require('knex/lib/query/builder');
-
-  KnexQueryBuilder.prototype.paginate = function (per_page, current_page) {
-    var pagination = {};
-    var per_page = per_page || 10;
-    var page = current_page || 1;
-    if (page < 1) page = 1;
-    var offset = (page - 1) * per_page;
-    return Promise.all([
-      this.clone().count('* as count').first(),
-      this.offset(offset).limit(per_page)
-    ])
-      .then(([total, rows]) => {
-        var count = total.count;
-        var rows = rows;
-        pagination.total = count;
-        pagination.per_page = per_page;
-        pagination.offset = offset;
-        pagination.to = offset + rows.length;
-        pagination.last_page = Math.ceil(count / per_page);
-        pagination.current_page = page;
-        pagination.from = offset;
-        pagination.data = rows;
-        return pagination;
-      });
-  };
-
-  knex.queryBuilder = function () {
-    return new KnexQueryBuilder(knex.client);
-  };
-
-  return knex;
-}
-
-
 const server = restify.createServer({
   name: "myapp",
   version: "1.0.0",
@@ -73,11 +35,11 @@ server.get("/all", function (req, res, next) {
 
 server.get("/itens/:page/:perPage", function (req, res, next) {
 
-  const { page } = req.params;
-  const { perPage } = req.params;
+  const { page } = req.params.page;
+  const { perPage } = req.params.perPage;
   
   knex('item')
-    .paginate(perPage, page)
+    .limit(perPage).offset(page).orderBy('item.data_publicacao', 'desc')
     .select({ 'id': 'item.id', 'nome': 'item.nome', 'imagem': 'item.imagem', 'preço': 'item.preço', 'descrição': 'item.descrição', 'avaliacao': 'item.avaliacao', 'endereco': 'usuarios.endereco', 'data': 'item.data_publicacao' })
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .then((dados) => {
