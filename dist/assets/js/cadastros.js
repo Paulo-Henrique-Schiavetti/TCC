@@ -1,11 +1,29 @@
 function cadastrarproduto() {
-    var camponome = document.querySelector('#camponome').value;
+    var camponome = document.querySelector('#camponome');
     var campolocatario = 1;
-    var campoavaliacao = document.querySelector('#campoavaliacao').value;
-    var campopreço = parseFloat(document.querySelector('#campopreço').value);
-    var campodescrição = document.querySelector('#campodescrição').value;
+    var campoavaliacao = Math.trunc(Math.random()*5);
+    var campopreço = document.querySelector('#campopreço');
+    var campodescrição = document.querySelector('#campodescrição');
     var campodatapub = Date.now();
     var file = document.querySelector('#campoimagem').files[0];
+
+    if(camponome.value == '')
+    {
+        camponome.focus()
+        mensagemtemporaria('digite o nome.')
+        return false;
+    }
+    else if(campopreço.value == '')
+    {
+        campopreço.focus()
+        mensagemtemporaria('digite o preço.')
+        return false;
+    }
+    else if(file == undefined)
+    {
+        mensagemtemporaria('selecione a imagem.')
+        return false;
+    } 
 
     var reader = new FileReader();
     
@@ -13,7 +31,7 @@ function cadastrarproduto() {
         campoimagem = reader.result;
 
         axios.post('/cadastrarproduto', {
-            locatario: campolocatario, nome: camponome, avaliacao: campoavaliacao, preço: campopreço, descrição: campodescrição, data_publicacao: campodatapub, imagem: campoimagem
+            locatario: campolocatario, nome: camponome.value, avaliacao: campoavaliacao.value, preço: campopreço.value, descrição: campodescrição.value, data_publicacao: campodatapub, imagem: campoimagem
         })
         .then(()=> {
             mensagemtemporaria('Seu item foi cadastrado!')
@@ -57,8 +75,9 @@ function cadastrarusuario() {
                     .post('/cadastrarusuario', {
                         email: campoemail, senha: camposenha, nome: camponome, endereco: campoendereco, place_id: campoplace_id, telefone: campotelefone, avaliacao: campoavaliacao
                     })
-                    .then(()=> {
-                        mensagemtemporaria('A sua conta foi cadastrada!')
+                    .then(response => {
+                        mensagemtemporaria('A sua conta foi cadastrada!');
+                        login(response.data);
                     })
                     .catch((error)=>{
                         console.log(error);

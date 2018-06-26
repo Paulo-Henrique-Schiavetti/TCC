@@ -33,19 +33,22 @@ server.get("/all", function (req, res, next) {
   return next();
 });
 
-server.get("/itens/:page/:perPage", function (req, res, next) {
+server.get("/itens/:page", function (req, res, next) {
 
-  const { page } = req.params.page;
-  const { perPage } = req.params.perPage;
+  const { page } = req.params;
+  const perPage = 9;
+  const actualPage = parseInt(page);
   
   knex('item')
-    .limit(perPage).offset(page).orderBy('item.data_publicacao', 'desc')
+    .limit(perPage).offset(actualPage).orderBy('item.data_publicacao', 'desc')
     .select({ 'id': 'item.id', 'nome': 'item.nome', 'imagem': 'item.imagem', 'preço': 'item.preço', 'descrição': 'item.descrição', 'avaliacao': 'item.avaliacao', 'endereco': 'usuarios.endereco', 'data': 'item.data_publicacao' })
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .then((dados) => {
       res.send(dados);
     }, next)
-
+    .catch((err) => {
+      res.send(err);
+    });
   return next();
 });
 
@@ -65,6 +68,19 @@ server.post("/cadastrarusuario", function (req, res, next) {
 
   knex('usuarios')
     .insert(req.body)
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
+server.post("/login", function (req, res, next) {
+
+  knex('usuarios')
+    .where("email", req.body.email)
+    .andWhere("senha", req.body.senha)
+    .first()
     .then((dados) => {
       res.send(dados);
     }, next)

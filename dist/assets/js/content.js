@@ -7,7 +7,8 @@ function paginahome(){
             <a class="btn">Ver Mais</a>
         </div>
     </div>
-    `
+    `;
+    page = 0;
     let grid = document.querySelector("#grid");
     exibiritens();
 }
@@ -35,10 +36,9 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
 function paginacadastrarproduto() {
     content.innerHTML = `
     <div class="container">
-        <ul class="center-align" id="cadastrodeprodutos">
+        <ul class="center-align">
             <input type="text" id="camponome" placeholder="Nome"/>
             <input type="text" id="campopreço" placeholder="Preço"/>
-            <input type="text" id="campoavaliacao" placeholder="avaliação"/>
             <input type="text" id="campodescrição" placeholder="Descrição"/>
             <input type="file" id="campoimagem"/>
             <button onclick="cadastrarproduto()">Cadastrar</button>
@@ -49,7 +49,7 @@ function paginacadastrarproduto() {
 function paginacadastrarusuario() {
     content.innerHTML = `
     <div class="container">
-        <ul class="center-align" id="cadastrodeprodutos">
+        <ul class="center-align">
             <input type="text" id="campoemail" placeholder="Email"/>
             <input type="password" id="camposenha" placeholder="Senha"/>
             <input type="text" id="camponome" placeholder="Nome"/>
@@ -60,6 +60,17 @@ function paginacadastrarusuario() {
     <div class="container">
         <ul class="center-align">
             <button onclick="geosave()">mapear</button><button id='loading'>carregando</button>
+        </ul>
+    </div>
+    `;
+}
+function paginalogar() {
+    content.innerHTML = `
+    <div class="container">
+        <ul class="center-align">
+            <input type="text" id="email" placeholder="Email"/>
+            <input type="password" id="senha" placeholder="Senha"/>
+            <button onclick="validacao()">login</button>
         </ul>
     </div>
     `;

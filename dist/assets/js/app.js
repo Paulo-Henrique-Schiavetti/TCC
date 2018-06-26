@@ -11,8 +11,8 @@ window.onload = () => {
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
     numitem = parseInt(localStorage.getItem('numitem'));
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
-    actualPage = 1;
-    perPage = 9;
+    page = 0;
+    usuario = Array();
 
     //funções
 
@@ -28,7 +28,7 @@ window.onload = () => {
 
 function exibiritens() {
     axios
-    .get(`/itens/${actualPage}/${perPage}`)
+    .get(`/itens/${page}`)
     .then(response => {
         response.data.forEach((element) => {
             var estrelas = '';
@@ -47,6 +47,7 @@ function exibiritens() {
             item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
         });
     });
+    page += 9;
 }
 
 function clicaritem(element) {
