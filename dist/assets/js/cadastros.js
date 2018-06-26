@@ -75,9 +75,10 @@ function cadastrarusuario() {
                     .post('/cadastrarusuario', {
                         email: campoemail, senha: camposenha, nome: camponome, endereco: campoendereco, place_id: campoplace_id, telefone: campotelefone, avaliacao: campoavaliacao
                     })
-                    .then(response => {
+                    .then(()=>{
                         mensagemtemporaria('A sua conta foi cadastrada!');
-                        login(response.data);
+                        const data = {email: campoemail, senha: camposenha, nome: camponome, endereco: campoendereco, place_id: campoplace_id, telefone: campotelefone, avaliacao: campoavaliacao};
+                        login(data);
                     })
                     .catch((error)=>{
                         console.log(error);
