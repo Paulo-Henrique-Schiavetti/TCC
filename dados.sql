@@ -1,0 +1,1 @@
+INSERT INTO `usuarios` (`id`, `email`, `senha`, `nome`, `endereco`, `place_id`, `telefone`, `avaliacao`) VALUES ('1', 'paulo@megumin.com', '123', 'paulo', 'R. Conselheiro Rodrigues Alves, 310 - Jardim ', 'ElRSLiBDb25zZWxoZWlybyBSb2RyaWd1ZXMgQWx2ZXMsIDMxMCAtIEphcmRp', '99999999', '4.5');
