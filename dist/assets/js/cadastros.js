@@ -16,7 +16,7 @@ function cadastrarproduto() {
             locatario: campolocatario, nome: camponome, avaliacao: campoavaliacao, preço: campopreço, descrição: campodescrição, data_publicacao: campodatapub, imagem: campoimagem
         })
         .then(()=> {
-            mensagemtemporaria('A sua conta foi cadastrada!')
+            mensagemtemporaria('Seu item foi cadastrado!')
         })
         .catch((error)=>{
             console.log(error);
