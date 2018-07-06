@@ -1,4 +1,9 @@
 function paginahome(){
+    if (loged){
+        header.innerHTML =`
+            <span class="sign" onclick='paginacadastrarproduto()'>Item <i class="fa fa-sign-in"></i></span>
+        `;  
+    }
     content.innerHTML =`
     <div class="row" id="grid">
     </div>

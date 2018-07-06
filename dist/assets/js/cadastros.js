@@ -1,7 +1,7 @@
 function cadastrarproduto() {
     var camponome = document.querySelector('#camponome');
-    var campolocatario = 1;
-    var campoavaliacao = Math.trunc(Math.random()*5);
+    var campolocatario = usuario.id;
+    var campoavaliacao = usuario.avaliacao;
     var campopreço = document.querySelector('#campopreço');
     var campodescrição = document.querySelector('#campodescrição');
     var campodatapub = Date.now();

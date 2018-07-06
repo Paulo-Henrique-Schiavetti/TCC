@@ -31,12 +31,13 @@ function geosave() {
                     </iframe>
                 `;
 
-                grid.innerHTML = map;
+                content.innerHTML = map;
                 spinner.classList.remove("red");
 
             })
             .catch(function(error) {
                 spinner.classList.remove("red");
+                alert(error);
 
         });
     }

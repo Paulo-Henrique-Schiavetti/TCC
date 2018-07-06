@@ -1,5 +1,6 @@
 window.onload = () => {
     let content = document.querySelector("#content");
+    let header = document.querySelector("#header");
     let lista = document.querySelector("#lista");
     let pesquisar = document.querySelector("#pesquisar");
     let dropdown = document.querySelector("#dropdown");
@@ -13,6 +14,7 @@ window.onload = () => {
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
     page = 0;
     usuario = Array();
+    loged = false;
 
     //funções
 

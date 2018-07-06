@@ -30,6 +30,7 @@ function validacao(){
 }
 function login(data){
     usuario = data;
+    loged = true;
     paginahome();
     mensagemtemporaria('Bem vindo '+usuario.nome+'!');
 
