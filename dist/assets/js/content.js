@@ -1,9 +1,5 @@
 function paginahome(){
-    if (loged){
-        header.innerHTML =`
-            <span class="sign" onclick='paginacadastrarproduto()'>Item <i class="fa fa-sign-in"></i></span>
-        `;  
-    }
+    header(true);
     content.innerHTML =`
     <div class="row" id="grid">
     </div>
@@ -13,8 +9,9 @@ function paginahome(){
         </div>
     </div>
     `;
-    page = 0;
     let grid = document.querySelector("#grid");
+    page = 0;
+    pronta = true;
     exibiritens();
 }
 
@@ -39,6 +36,7 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
     `;
 }
 function paginacadastrarproduto() {
+    header();
     content.innerHTML = `
     <div class="container">
         <ul class="center-align">
@@ -52,6 +50,7 @@ function paginacadastrarproduto() {
     `;
 }
 function paginacadastrarusuario() {
+    header();
     content.innerHTML = `
     <div class="container">
         <ul class="center-align">
@@ -70,6 +69,7 @@ function paginacadastrarusuario() {
     `;
 }
 function paginalogar() {
+    header();
     content.innerHTML = `
     <div class="container">
         <ul class="center-align">
@@ -81,6 +81,7 @@ function paginalogar() {
     `;
 }
 function paginaitem(id, item, endereco, imagem) {
+    header();
     content.innerHTML = `
     <div class="container">
         <ul class="center-align paginaitem">

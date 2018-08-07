@@ -1,9 +1,8 @@
 window.onload = () => {
     let content = document.querySelector("#content");
-    let header = document.querySelector("#header");
+    let headertop = document.querySelector("#headertop");
+    let headerbase = document.querySelector("#headertop");
     let lista = document.querySelector("#lista");
-    let pesquisar = document.querySelector("#pesquisar");
-    let dropdown = document.querySelector("#dropdown");
     let verdadeiralista = document.querySelector("#verdadeiralista");
     let modal = document.querySelector("#modal");
 
@@ -15,17 +14,13 @@ window.onload = () => {
     page = 0;
     usuario = Array();
     loged = false;
+    pronta = false;
 
     //funções
-
     setTimeout(() => {
         paginahome();
     }, 100);
-    setTimeout(() => {
-        content.addEventListener("click", clicaritem);
-        pesquisar.addEventListener("keyup", pesquisa);
-        lista.addEventListener("click", mostrarlista);
-    }, 500);
+        
 };
 
 function exibiritens() {
