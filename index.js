@@ -102,6 +102,18 @@ server.get("/pesquisarid/:id", function (req, res, next) {
   return next();
 });
 
+server.get("/pesquisarparaalista/:id", function (req, res, next) {
+  const { id } = req.params;
+  knex('item')
+    .where("item.id", id)
+    .first()
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
 server.get("/comentarios/:id", function (req, res, next) {
   const { id } = req.params;
   knex('comentarios')

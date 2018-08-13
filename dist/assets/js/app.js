@@ -80,7 +80,7 @@ function exibircomentarios() {
 }
 function add(id) {
     axios
-        .get(`/pesquisarid/${id}`)
+        .get(`/pesquisarparaalista/${id}`)
         .then(response => {
             dados[numitem] = response.data;
             numitem++;

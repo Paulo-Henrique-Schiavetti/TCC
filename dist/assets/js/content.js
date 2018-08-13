@@ -26,7 +26,7 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
                     <div class="card-all"><a class="btn btnalugar">Allugar</a></div>
                     <div class="card-add"><a class="btn btnadd"><i class="material-icons">shopping_cart</i></a></div>
                     <div class="card-livre"><p>LIVRE</p></div>
-                    <div class="card-local"><i class="material-icons">location_on</i>${endereco}</div><br/>
+                    <div class="card-local"><div><i class="material-icons">location_on</i>${endereco}</div></div><br/>
                     <div class="card-estrela">${estrelas}</div>
                     <div class="card-preco">R$${preco}</div>
                 </div>
@@ -41,7 +41,7 @@ function paginacadastrarproduto() {
     <div class="container">
         <ul class="center-align">
             <form class="camponome">
-                <input type="text" id="nome" placeholder="Nome"/>
+                <input type="text" id="camponome" placeholder="Nome"/>
             </form> <br/>
             <form class="campopreço">
             <input type="text" id="campopreço" placeholder="Preço"/>
@@ -71,9 +71,7 @@ function paginacadastrarusuario() {
         <form class="telefone">
             <input type="text" id="campotelefone" placeholder="(DDD)97070-7070"/>
         </form> <br/>
-        <form class="btn btncadastro"
-            <button onclick="cadastrarusuario()">Cadastrar</button>
-        </form>
+            <button class="btn btncadastro" onclick="cadastrarusuario()">Cadastrar</button>
     </div>
     `;
 }
@@ -88,9 +86,7 @@ function paginalogar() {
         <form class="senhalogin">
             <input type="password" id="senha" placeholder="Senha"/>
         </form> <br/>
-        <form class="btn btnlogin"
-            <button onclick="validacao()">login</button>
-        </form>
+            <button class="btn btnlogin" onclick="validacao()">login</button>
         </ul>
     </div>
     `;

@@ -3,7 +3,7 @@ function cadastrarproduto() {
     var campolocatario = usuario.id;
     var campoavaliacao = usuario.avaliacao;
     var campopreço = document.querySelector('#campopreço');
-    var campodescrição = document.querySelector('#campodescrição');
+    var campodescricao = document.querySelector('#campodescriçao');
     var campodatapub = Date.now();
     var file = document.querySelector('#campoimagem').files[0];
 
@@ -31,7 +31,7 @@ function cadastrarproduto() {
         campoimagem = reader.result;
 
         axios.post('/cadastrarproduto', {
-            locatario: campolocatario, nome: camponome.value, avaliacao: campoavaliacao.value, preço: campopreço.value, descrição: campodescrição.value, data_publicacao: campodatapub, imagem: campoimagem
+            locatario: campolocatario, nome: camponome.value, avaliacao: campoavaliacao, preço: campopreço.value, descrição: campodescricao.value, data_publicacao: campodatapub, imagem: campoimagem
         })
         .then(()=> {
             mensagemtemporaria('Seu item foi cadastrado!')
@@ -52,7 +52,19 @@ function cadastrarusuario() {
     var campoendereco = '';
     var campoplace_id = '';
 
-    if (!navigator.geolocation) {
+    if (campoemail == '')
+    {
+        campoemail.focus();
+        mensagemtemporaria('Digite o email.');
+        return false;
+    } 
+    else if (camposenha == '')
+    {
+        camposenha.focus();
+        mensagemtemporaria('Digite a senha.');
+        return false;
+    }
+    else if (!navigator.geolocation) {
         alert('Seu browser não suporta geolocalização!</p>');
         return;
     }

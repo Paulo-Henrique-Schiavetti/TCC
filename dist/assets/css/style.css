@@ -36,8 +36,8 @@ body{
   background: #0084ff !important;
   border-radius: 10px !important;
   font-weight: 600;
-  padding-right: 40% !important; 
-  padding-left: 40% !important;
+  padding-left: 80%;
+  padding-right: 80%;
 }
 .btnadd:hover{
   background: #0074ff !important;
@@ -153,7 +153,7 @@ body{
 .card-add {
   position: absolute;
   top: 30%;
-  left: 60%;
+  right: 10%;
 }
 .card-livre {
   position: absolute;
@@ -166,14 +166,18 @@ body{
   position: absolute;
   top: 55%;
   left: 45%;
-  color: gray !important;
+  display: inline;
   font-size: 12pt;
+  color: gray !important;
 }
 .card-estrela {
   position: absolute;
   bottom: 0;
   color:#000 !important;
   font-size: 18pt;
+}
+.card-estrela > i {
+  color:darkgoldenrod;
 }
 .card-preco {
   position: absolute;
@@ -251,7 +255,7 @@ body{
   margin-left: 1%;
   height: 40px;
 }
-.camponome > #nome {
+#camponome {
   font-size: 20px;
   padding-left: 2%;
 }
@@ -261,7 +265,7 @@ body{
   margin-left: 1%;
   height: 40px;
 }
-.campopreço > #campopreço {
+#campopreço {
   font-size: 20px;
   padding-left: 2%;
 }
@@ -271,7 +275,7 @@ body{
   margin-left: 1%;
   height: 40px;
 }
-.campodescriçao > #campodescriçao {
+#campodescriçao {
   font-size: 20px;
   padding-left: 2%;
 }
@@ -301,7 +305,7 @@ body{
   margin-left: 1%;
   height: 40px;
 }
-.nomeusuario > #camponome{
+#camponome{
   font-size: 20px;
   padding-left: 2%;
 }
@@ -311,7 +315,7 @@ body{
   margin-left: 1%;
   height: 40px;
 }
-.telefone > #campotelefone{
+#campotelefone{
   font-size: 20px;
   padding-left: 2%;
 }
