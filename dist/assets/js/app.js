@@ -11,10 +11,11 @@ window.onload = () => {
     localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
     numitem = parseInt(localStorage.getItem('numitem'));
     localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
-    page = 0;
-    usuario = Array();
     loged = false;
+    localStorage.getItem('usuario') ? loged=true : "";
+    loged ? usuario=JSON.parse(localStorage.getItem('usuario')) : "";
     pronta = false;
+    page = 0;
 
     //funções
     setTimeout(() => {

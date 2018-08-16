@@ -30,6 +30,7 @@ function validacao(){
 }
 function login(data){
     usuario = data;
+    localStorage.setItem('usuario', JSON.stringify(usuario));
     loged = true;
     paginahome();
     mensagemtemporaria('Bem vindo '+usuario.nome+'!');
