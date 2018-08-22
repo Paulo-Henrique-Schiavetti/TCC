@@ -129,7 +129,7 @@ function mensagemtemporaria(texto) {
         modal.style.display = "none";
     }, 1000);
 }
-
+// lista de desejos
 function dadosexistentes() {
     dados = JSON.parse(localStorage.getItem('dados'));
     lista.firstElementChild.innerHTML = "<i class='material-icons'>fiber_manual_record</i> Meus Itens";
