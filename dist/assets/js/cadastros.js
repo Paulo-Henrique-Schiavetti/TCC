@@ -51,6 +51,7 @@ function cadastrarusuario() {
     var campoavaliacao = 5;
     var campoendereco = '';
     var campoplace_id = '';
+    var file = document.querySelector('#campoimagem').files[0];
 
     if (campoemail == '')
     {
@@ -68,6 +69,11 @@ function cadastrarusuario() {
         alert('Seu browser não suporta geolocalização!</p>');
         return;
     }
+    else if(file == undefined)
+    {
+        mensagemtemporaria('selecione a imagem.')
+        return false;
+    }
 
     navigator.geolocation.getCurrentPosition(sucess, error, {
         enableHighAccuracy: true
@@ -83,18 +89,23 @@ function cadastrarusuario() {
 
                 campoendereco = response.data.address;
                 campoplace_id = response.data.place_id;
-                axios
-                    .post('/cadastrarusuario', {
-                        email: campoemail, senha: camposenha, nome: camponome, endereco: campoendereco, place_id: campoplace_id, telefone: campotelefone, avaliacao: campoavaliacao
-                    })
-                    .then(()=>{
-                        mensagemtemporaria('A sua conta foi cadastrada!');
-                        login(campoemail, camposenha);
-                    })
-                    .catch((error)=>{
-                        console.log(error);
-                    });
 
+                var reader = new FileReader();
+                reader.onloadend = ()=> {
+                    campoimagem = reader.result;
+                    axios
+                        .post('/cadastrarusuario', {
+                            email: campoemail, senha: camposenha, nome: camponome, endereco: campoendereco, place_id: campoplace_id, telefone: campotelefone, avaliacao: campoavaliacao, imagem: campoimagem
+                        })
+                        .then(()=>{
+                            mensagemtemporaria('A sua conta foi cadastrada!');
+                            login(campoemail, camposenha);
+                        })
+                        .catch((error)=>{
+                            console.log(error);
+                        });
+                }
+                reader.readAsDataURL(file);
         })
         .catch((error) => {
             console.log(error);

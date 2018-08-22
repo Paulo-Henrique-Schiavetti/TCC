@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`usuarios` (
   `place_id` VARCHAR(60) NULL,
   `telefone` VARCHAR(45) NULL,
   `avaliacao` FLOAT NULL,
+  `imagem` LONGTEXT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB;

@@ -84,7 +84,8 @@ function paginacadastrarusuario() {
         <form class="telefone">
             <input type="text" id="campotelefone" placeholder="(DDD)97070-7070"/>
         </form> <br/>
-            <button class="btn btncadastro" onclick="cadastrarusuario()">Cadastrar</button>
+            <input type="file" id="campoimagem"/>
+        <button class="btn btncadastro" onclick="cadastrarusuario()">Cadastrar</button>
     </div>
     `;
 }
