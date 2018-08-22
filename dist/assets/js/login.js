@@ -15,24 +15,23 @@ function validacao(){
         mensagemtemporaria('Digite a senha.');
         return false;
     }
-    axios
+    login(email.value, senha.value)
+}
+function login(email, senha){
+   axios
         .post(`/login`, {
-            email: email.value, senha: senha.value
+            email: email, senha: senha
         })
         .then(response => {
             if (response.data == ''){
                 mensagemtemporaria('O email ou a senha estão incorretos.');
                 return false;
             } else {
-                login(response.data);
+                usuario = response.data;
+                localStorage.setItem('usuario', JSON.stringify(usuario));
+                loged = true;
+                paginahome();
+                mensagemtemporaria('Bem vindo '+usuario.nome+'!');
             }
-        })
-}
-function login(data){
-    usuario = data;
-    localStorage.setItem('usuario', JSON.stringify(usuario));
-    loged = true;
-    paginahome();
-    mensagemtemporaria('Bem vindo '+usuario.nome+'!');
-
+        }) 
 }

@@ -10,6 +10,7 @@ function paginahome(){
     </div>
     `;
     let grid = document.querySelector("#grid");
+    grid.addEventListener("click", clicaritem);
     page = 0;
     pronta = true;
     exibiritens();

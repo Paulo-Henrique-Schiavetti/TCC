@@ -89,8 +89,7 @@ function cadastrarusuario() {
                     })
                     .then(()=>{
                         mensagemtemporaria('A sua conta foi cadastrada!');
-                        const data = {email: campoemail, senha: camposenha, nome: camponome, endereco: campoendereco, place_id: campoplace_id, telefone: campotelefone, avaliacao: campoavaliacao};
-                        login(data);
+                        login(campoemail, camposenha);
                     })
                     .catch((error)=>{
                         console.log(error);

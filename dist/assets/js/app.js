@@ -7,10 +7,6 @@ window.onload = () => {
     let modal = document.querySelector("#modal");
 
     //variáveis
-    dados = [];
-    localStorage.getItem('numitem') ? "" : localStorage.setItem('numitem', 0);
-    numitem = parseInt(localStorage.getItem('numitem'));
-    localStorage.getItem('dados') ? dadosexistentes() : localStorage.setItem('dados', "");
     loged = false;
     localStorage.getItem('usuario') ? loged=true : "";
     loged ? usuario=JSON.parse(localStorage.getItem('usuario')) : "";

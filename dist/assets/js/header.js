@@ -25,7 +25,6 @@ function header(inhome = false) {
         let pesquisar = document.querySelector("#pesquisar");
         let dropdown = document.querySelector("#dropdown");
         pesquisar.addEventListener("keyup", pesquisa);
-        content.addEventListener("click", clicaritem);
         lista.addEventListener("click", mostrarlista);
     } else {
         headerbase.innerHTML = '';
