@@ -79,18 +79,6 @@ function exibircomentarios() {
             });
         });
 }
-function add(id) {
-    axios
-        .get(`/pesquisarparaalista/${id}`)
-        .then(response => {
-            dados[numitem] = response.data;
-            numitem++;
-            localStorage.setItem("numitem", numitem);
-            localStorage.setItem('dados', JSON.stringify(dados));
-            novoitem();
-            mensagemtemporaria('O item foi adicionado a lista ->');
-        });
-}
 function pesquisa() {
     nome = pesquisar.value;
     numerodeitensnodrop = 0;
@@ -130,42 +118,35 @@ function mensagemtemporaria(texto) {
     }, 1000);
 }
 // lista de desejos
-function dadosexistentes() {
-    dados = JSON.parse(localStorage.getItem('dados'));
-    lista.firstElementChild.innerHTML = "<i class='material-icons'>fiber_manual_record</i> Meus Itens";
+function add(id) {
+    axios
+        .post(`/inserirnalista`, {item_id: id, usuarios_id: usuario.id})
+        .then(()=> {
+            mensagemtemporaria('O item foi adicionado a lista!')
+        })
+        .catch(error => {
+            console.log(error);
+        })
 }
-
-function novoitem() {
+function mostrarlista() {
     verdadeiralista.innerHTML = "";
-    var numerodeitensnalista = 0;
-    dadosexistentes();
-    dados.some(element => {
-        numerodeitensnalista++;
-        if (numerodeitensnalista > 5) {
-            verdadeiralista.innerHTML += `<li class="collection-item"><a>...</a></li>`;
-            return true;
-        }
-        verdadeiralista.innerHTML += `<li class="collection-item"><a>${element.nome}</a></li>`;
-    });
-}
-function mostrarlista(element) {
-    if (numitem == 0) {
-        mensagemtemporaria('não há nenhum item na sua lista');
-    } else {
-        verdadeiralista.style.visibility = "visible";
-        novoitem();
+    axios
+        .get(`/abrirlista/${usuario.id}`)
+        .then(response => {
+            response.data.forEach(element=>{
+                verdadeiralista.innerHTML += `<li class="collection-item" onclick="paginaitem(${element.id}, '${element.nome}', '${element.endereco}', '${element.imagem}')"><a>${element.nome}</a></li>`;
+                verdadeiralista.style.visibility = "visible";
+            })
+        })
         setTimeout(() => {
             document.addEventListener("click", esconderlista);
             lista.removeEventListener("click", mostrarlista);
         }, 100);
-    }
 }
 function esconderlista(element) {
-    if (!element.target.classList.contains('lista-de-desejos') && !element.target.classList.contains('btnadd')) {
         verdadeiralista.style.visibility = "hidden";
         setTimeout(() => {
             lista.addEventListener("click", mostrarlista);
             document.removeEventListener("click", esconderlista);
         }, 100);
-    }
 }

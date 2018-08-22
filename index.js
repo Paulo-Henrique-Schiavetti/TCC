@@ -101,12 +101,23 @@ server.get("/pesquisarid/:id", function (req, res, next) {
 
   return next();
 });
+server.post("/inserirnalista", function (req, res, next) {
+  knex('lista')
+    .insert(req.body)
+    .then((dados) => {
+      res.send(dados);
+    }, next)
 
-server.get("/pesquisarparaalista/:id", function (req, res, next) {
-  const { id } = req.params;
-  knex('item')
-    .where("item.id", id)
-    .first()
+  return next();
+});
+server.get("/abrirlista/:id", function (req, res, next) {
+  const {id} = req.params;
+  knex('lista')
+    .where("lista.usuarios_id", id)
+    .innerJoin('item', "lista.item_id", "item.id")
+    .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
+    .column('item.id', 'item.nome', 'item.imagem', 'usuarios.endereco')
+    .select()
     .then((dados) => {
       res.send(dados);
     }, next)
