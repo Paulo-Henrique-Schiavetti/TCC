@@ -115,8 +115,7 @@ server.get("/abrirlista/:id", function (req, res, next) {
   knex('lista')
     .where("lista.usuarios_id", id)
     .innerJoin('item', "lista.item_id", "item.id")
-    .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
-    .column('item.id', 'item.nome', 'item.imagem', 'usuarios.endereco')
+    .column('item.id', 'item.nome', 'item.imagem')
     .select()
     .then((dados) => {
       res.send(dados);
@@ -142,6 +141,20 @@ server.get("/pesquisarnome/:nome", function (req, res, next) {
   const { nome } = req.params;
   knex('item')
     .where("nome", 'like', '%' + nome + '%')
+    .limit(4).select()
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
+server.get("/pesquisarparapagina/:nome", function (req, res, next) {
+  const { nome } = req.params;
+  knex('item')
+    .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
+    .where("item.nome", 'like', '%' + nome + '%')
+    .select({ 'id': 'item.id', 'nome': 'item.nome', 'imagem': 'item.imagem', 'preço': 'item.preço', 'descrição': 'item.descrição', 'avaliacao': 'item.avaliacao', 'endereco': 'usuarios.endereco', 'data': 'item.data_publicacao' })
     .then((dados) => {
       res.send(dados);
     }, next)

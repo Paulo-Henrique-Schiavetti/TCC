@@ -10,7 +10,6 @@ window.onload = () => {
     loged = false;
     localStorage.getItem('usuario') ? loged=true : "";
     loged ? usuario=JSON.parse(localStorage.getItem('usuario')) : "";
-    pronta = false;
     page = 0;
 
     //funções
@@ -43,7 +42,30 @@ function exibiritens() {
     });
     page += 9;
 }
-
+function exibirresultados(texto){
+    axios
+    .get(`/pesquisarparapagina/${texto}`)
+    .then(response => {
+        response.data.forEach((element) => {
+            var estrelas = '';
+            for (e = 0; e < 5; e++) {
+                if (element.avaliacao >= 1) {
+                    estrelas += '<i class="material-icons">star</i>'
+                } else {
+                    if (element.avaliacao > 0) {
+                        estrelas += '<i class="material-icons">star_half</i>'
+                    } else {
+                        estrelas += '<i class="material-icons">star_border</i>'
+                    }
+                }
+                element.avaliacao -= 1;
+            }
+            resultados(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
+        });
+    });
+}
+/*
+// codigo inútil?
 function clicaritem(element) {
 
     element.path[5].dataset.id ? id = element.path[5].dataset.id : id = element.path[4].dataset.id;
@@ -54,10 +76,9 @@ function clicaritem(element) {
         add(id);
     }
 }
+*/
 function alugar(id) {
     var comentarios = "";
-    dropdown.innerHTML = "";
-    pesquisar.style = "border-radius: 50px";
     axios
         .get(`/pesquisarid/${id}`)
         .then(response => {
@@ -77,7 +98,6 @@ function exibircomentarios() {
 }
 function pesquisa() {
     nome = pesquisar.value;
-    numerodeitensnodrop = 0;
     dropdown.innerHTML = "";
 
     axios
@@ -91,13 +111,18 @@ function pesquisa() {
                 pesquisar.style = "border-top-right-radius: 30px; border-top-left-radius: 30px;border-bottom-right-radius: 0; border-bottom-left-radius: 0";
             }
             response.data.forEach(element => {
-                numerodeitensnodrop++;
-                if (numerodeitensnodrop > 4) {
-                    dropdown.innerHTML += `<li class="dropdown-li tres-pontos"><a>...</a></li>`;
-                    return true;
+                nomeArray = element.nome.split("");
+                if (nomeArray.length > 28){
+                    nomeArray.length = 28;
+                    nomeAbreviado = nomeArray.join("")+"...";
+                } else {
+                    nomeAbreviado = element.nome;
                 }
-                dropdown.innerHTML += `<li class="dropdown-li"><a onclick="alugar(${element.id})"><img src="${element.imagem}" alt=""><span>${element.nome}</span></a></li>`;
+                dropdown.innerHTML += `<li class="dropdown-li"><a onclick="alugar(${element.id})"><img src="${element.imagem}" alt=""><span>${nomeAbreviado}</span></a></li>`;
             })
+            if (response.data.length == 4) {
+                    dropdown.innerHTML += `<li class="dropdown-li tres-pontos"><a>...</a></li>`;
+                }
         });
 }
 
@@ -130,7 +155,7 @@ function mostrarlista() {
         .get(`/abrirlista/${usuario.id}`)
         .then(response => {
             response.data.forEach(element=>{
-                verdadeiralista.innerHTML += `<li class="collection-item" onclick="paginaitem(${element.id}, '${element.nome}', '${element.endereco}', '${element.imagem}')"><a>${element.nome}</a></li>`;
+                verdadeiralista.innerHTML += `<li class="collection-item" onclick="alugar(${element.id})"><a>${element.nome}</a></li>`;
                 verdadeiralista.style.visibility = "visible";
             })
         })

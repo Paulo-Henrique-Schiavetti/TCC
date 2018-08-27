@@ -13,10 +13,10 @@ function header(inhome = false) {
         headerbase.innerHTML =`
             <ul class="center-align pesquisar">
                 <div class="nav-wrapper">
-                    <form>
-                        <input type="text" id="pesquisar" placeholder="O que você precisa?"/><i class="fa fa-search"></i>
+                    <form onSubmit="paginaresultados()">
+                        <input type="text" id="pesquisar" placeholder="O que você precisa?"/><i class="fa fa-search" onclick="paginaresultados()"></i>
                         <ul class="dropdown-pesquisar" id="dropdown">
-                            <!-- html no content.js -->
+                            <!-- html no app.js -->
                         </ul>
                     </form>
                 </div>
