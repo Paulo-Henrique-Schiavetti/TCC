@@ -71,19 +71,19 @@ function paginacadastrarusuario() {
     header();
     content.innerHTML = `
     <div class="container">
-        <form class="emailcadastro">
+        <form class="emailcadastro" action="javascript:void(0);" onsubmit="cadastrarusuario()">
         <input type="text" id="campoemail" placeholder="Email"/>
         </form> <br/>
-        <form class="senhacadastro">
+        <form class="senhacadastro" action="javascript:void(0);" onsubmit="cadastrarusuario()">
             <input type="password" id="camposenha" placeholder="Senha"/>
         </form> <br/>
-        <form class="nomeusuario">
+        <form class="nomeusuario" action="javascript:void(0);" onsubmit="cadastrarusuario()">
             <input type="text" id="camponome" placeholder="Nome"/>
         </form> <br/>
-        <form class="telefone">
+        <form class="telefone" action="javascript:void(0);" onsubmit="cadastrarusuario()">
             <input type="text" id="campotelefone" placeholder="(DDD)97070-7070"/>
         </form> <br/>
-            <input type="file" id="campoimagem"/>
+        <input type="file" id="campoimagem"/>
         <button class="btn btncadastro" onclick="cadastrarusuario()">Cadastrar</button>
     </div>
     `;
@@ -93,10 +93,10 @@ function paginalogar() {
     content.innerHTML = `
     <div class="container">
         <ul class="center-align">
-        <form class="emaillogin">
+        <form class="emaillogin" action="javascript:void(0);" onsubmit="validacao()">
             <input type="text" id="email" placeholder="Email"/>
         </form> <br/>
-        <form class="senhalogin">
+        <form class="senhalogin" action="javascript:void(0);" onsubmit="validacao()">
             <input type="password" id="senha" placeholder="Senha"/>
         </form> <br/>
             <button class="btn btnlogin" onclick="validacao()">login</button>
