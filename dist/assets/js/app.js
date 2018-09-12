@@ -1,10 +1,11 @@
 window.onload = () => {
     let content = document.querySelector("#content");
     let headertop = document.querySelector("#headertop");
-    let headerbase = document.querySelector("#headertop");
+    let headerbase = document.querySelector("#headerbase");
+    let modal = document.querySelector("#modal");
+    // lista...
     let lista = document.querySelector("#lista");
     let verdadeiralista = document.querySelector("#verdadeiralista");
-    let modal = document.querySelector("#modal");
 
     //variáveis
     loged = false;
