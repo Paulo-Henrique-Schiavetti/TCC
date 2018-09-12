@@ -5766,9 +5766,10 @@ button.close {
 }
 
 .carousel-inner {
-  position: relative;
+  margin-left: 40%;
   width: 100%;
   overflow: hidden;
+  
 }
 
 .carousel-item {
