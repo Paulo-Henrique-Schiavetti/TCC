@@ -1,3 +1,11 @@
 .Page {
     padding-left: 8%;
 }
+.pesquisar input[type=text] {
+    border-radius: 5px;
+}
+.botao {
+    color: royalblue;
+    height: 35px;
+
+}
