@@ -4439,6 +4439,8 @@ input[type="button"].btn-block {
 
 .card-img-top {
   width: 100%;
+  max-width: 700px;
+  max-height: 400px;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
 }
