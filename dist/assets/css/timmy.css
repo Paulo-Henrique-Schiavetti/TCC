@@ -7,32 +7,61 @@
   form.pesquisar input[type=text] {
     padding: 10px;
     font-size: 17px;
-    border: 10px solid #2196F3;
+    border: 1px  gray;
     float: left;
-    width: 80%;
+    width: 600px;
     background: #f1f1f1;
-    margin-left: 5%;
-    border-radius: 10px;
-  }
-  form.pesquisar button {
-    float: left;
-    width: 10%;
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 29px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-    border-radius: 10px;
-  }
-  
-  form.pesquisar button:hover {
-    background: #0b7dda;
+    margin-left: 3%;
+    border-radius: 4px;
   }
   
   form.pesquisar::after {
     content: "";
     clear: both;
     display: table;
+  }
+  .submit-lente {
+    position:absolute;
+    top:6px; left:560px;
+    z-index:10;
+    border:none;
+    background:transparent;
+    outline:none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .pesquisar {
+    position: relative;
+    width: 200px;
+  }
+  
+  .pesquisar input {
+    width: 100%;
+  }
+  .alugar{
+    margin-left: 44%;
+  }
+  .login{
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+  .btn-default{
+    background: rgb(0, 153, 255);
+    border: 1px gray;
+    font-size: 12pt;
+    border-radius: 5px;
+    color: white;
+  }
+  .btn-entrar{
+    padding-left: 41%;
+  }
+  .img-login{
+    padding-left: 45%;
+  }
+  .ola{
+    padding-left: 39.5%;
+    font-family: Calibri;
+    font-size: 18pt;
+    color: rgb(61, 61, 61);
   }
