@@ -1,17 +1,14 @@
 window.onload = () => {
     let content = document.querySelector("#content");
-    let headertop = document.querySelector("#headertop");
-    let headerbase = document.querySelector("#headerbase");
     let modal = document.querySelector("#modal");
-    // lista...
-    let lista = document.querySelector("#lista");
-    let verdadeiralista = document.querySelector("#verdadeiralista");
+    // lista
+    //let lista = document.querySelector("#lista");
+    //let verdadeiralista = document.querySelector("#verdadeiralista");
 
     //variáveis
     loged = false;
     localStorage.getItem('usuario') ? loged=true : "";
     loged ? usuario=JSON.parse(localStorage.getItem('usuario')) : "";
-    page = 0;
 
     //funções
     setTimeout(() => {
@@ -28,12 +25,12 @@ function exibiritens() {
             var estrelas = '';
             for (e = 0; e < 5; e++) {
                 if (element.avaliacao >= 1) {
-                    estrelas += '<i class="material-icons">star</i>'
+                    estrelas += '<i class="fa fa-star" style="color:rgb(243, 239, 29);"></i>'
                 } else {
                     if (element.avaliacao > 0) {
-                        estrelas += '<i class="material-icons">star_half</i>'
+                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
                     } else {
-                        estrelas += '<i class="material-icons">star_border</i>'
+                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
                     }
                 }
                 element.avaliacao -= 1;
@@ -51,12 +48,12 @@ function exibirresultados(texto){
             var estrelas = '';
             for (e = 0; e < 5; e++) {
                 if (element.avaliacao >= 1) {
-                    estrelas += '<i class="material-icons">star</i>'
+                    estrelas += '<i class="fa fa-star" style="color:rgb(243, 239, 29);"></i>'
                 } else {
                     if (element.avaliacao > 0) {
-                        estrelas += '<i class="material-icons">star_half</i>'
+                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
                     } else {
-                        estrelas += '<i class="material-icons">star_border</i>'
+                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
                     }
                 }
                 element.avaliacao -= 1;
