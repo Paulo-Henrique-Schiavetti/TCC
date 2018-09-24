@@ -55,7 +55,7 @@ function paginacadastrarproduto() {
 function paginacadastrarusuario() {
     content.innerHTML = `
     <div class="container">
-        <form class="emailcadastro">
+        <form class="form-group">
         <input type="text" id="campoemail" placeholder="Email"/>
         </form> <br/>
         <form class="senhacadastro">
@@ -75,19 +75,33 @@ function paginacadastrarusuario() {
 }
 function paginalogar() {
     content.innerHTML = `
-    <div class="container">
-        <ul class="center-align">
-        <form class="emaillogin">
-            <input type="text" id="email" placeholder="Email"/>
-        </form> <br/>
-        <form class="senhalogin">
-            <input type="password" id="senha" placeholder="Senha"/>
-        </form> <br/>
-        <form class="btn btnlogin"
-            <button onclick="validacao()">login</button>
-        </form>
-        </ul>
-    </div>
+    <div class="col-lg-11">
+        <div class="img-login">
+                <img src="assets\imagens\icone-usuario.png" width = "100px">
+        </div>
+        <p class="ola">
+            Olá! Digite o seu E-mail
+        </p>
+        <br>
+        <div class="login">
+            <form action="/login-s.html">
+                <br><br><br>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="btn-continuar">
+                <button type="submit" class="btn btn-default">Continuar</button>
+                </div>
+                <br>
+                <div class="conta-nova">
+                    <p>
+                    Não tem uma conta? <a class="navbar-brand" href="index.html">Crie uma!</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div
     `;
 }
 function paginaitem(id, item, endereco, imagem) {
