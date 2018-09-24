@@ -33,11 +33,12 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-          <form class="pesquisar">
-            <input type="text" placeholder="Buscar produtos, marcas e muito mais..." name="search">
+          <form class="pesquisar" autocomplete="off">
+            <input type="text" placeholder="Buscar produtos, marcas e muito mais..." name="search" id="searchbar">
             <button class="submit-lente" type="submit">
                 <i class="fa fa-search" style="color:gray"></i>
             </button>
+            <ul id="dropdown" class="autocomplete"></ul>
           </form>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">

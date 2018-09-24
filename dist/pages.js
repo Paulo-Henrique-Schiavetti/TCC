@@ -18,7 +18,7 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
     grid.innerHTML += `
     <div class="col-lg-4 col-md-6 mb-4" data-id="${id}>
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" src="${imagem}" alt=""></a>
+        <a href="#"><img class="card-img-top" src="${imagem}" height="200" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#">${nome}</a>

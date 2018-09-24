@@ -1,6 +1,7 @@
 window.onload = () => {
     let content = document.querySelector("#content");
     let modal = document.querySelector("#modal");
+    let seachbar = document.querySelector("#searchbar")
     // lista
     //let lista = document.querySelector("#lista");
     //let verdadeiralista = document.querySelector("#verdadeiralista");
@@ -12,7 +13,10 @@ window.onload = () => {
 
     //funções
     setTimeout(() => {
+
         paginahome();
+        document.addEventListener("keyup", autocomplete);
+    
     }, 100);
         
 };
@@ -94,19 +98,15 @@ function exibircomentarios() {
             });
         });
 }
-function pesquisa() {
-    nome = pesquisar.value;
+function autocomplete() {
+    nome = searchbar.value;
     dropdown.innerHTML = "";
 
     axios
         .get(`/pesquisarnome/${nome}`)
         .then(response => {
             if (nome == "" || response.data.length == 0) {
-                pesquisar.style = "border-radius: 50px";
                 return;
-
-            } else {
-                pesquisar.style = "border-top-right-radius: 30px; border-top-left-radius: 30px;border-bottom-right-radius: 0; border-bottom-left-radius: 0";
             }
             response.data.forEach(element => {
                 nomeArray = element.nome.split("");
@@ -116,10 +116,10 @@ function pesquisa() {
                 } else {
                     nomeAbreviado = element.nome;
                 }
-                dropdown.innerHTML += `<li class="dropdown-li"><a onclick="alugar(${element.id})"><img src="${element.imagem}" alt=""><span>${nomeAbreviado}</span></a></li>`;
+                dropdown.innerHTML += `<li class="autocomplete-item"><a onclick="alugar(${element.id})"><img class="icon" src="${element.imagem}" alt=""><span>${nomeAbreviado}</span></a></li>`;
             })
             if (response.data.length == 4) {
-                    dropdown.innerHTML += `<li class="dropdown-li tres-pontos"><a>...</a></li>`;
+                    dropdown.innerHTML += `<li class="autocomplete-item"><a>...</a></li>`;
                 }
         });
 }
