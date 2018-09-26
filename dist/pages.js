@@ -84,14 +84,14 @@ function paginalogar() {
         </p>
         <br>
         <div class="login">
-            <form action="/login-s.html">
+            <form>
                 <br><br><br>
                 <div class="form-group">
                     <label for="email">E-mail:</label>
                     <input type="email" class="form-control" id="email">
                 </div>
                 <div class="btn-continuar">
-                <button type="submit" class="btn btn-default">Continuar</button>
+                <button type="submit" class="btn btn-default" onclick="paginalogar2()">Continuar</button>
                 </div>
                 <br>
                 <div class="conta-nova">
@@ -103,6 +103,35 @@ function paginalogar() {
         </div>
     </div
     `;
+}
+function paginalogar2() {
+    content.innerHTML = `
+    <div class="col-lg-11">
+        <div class="img-login">
+            <img src="assets\imagens\icone-usuario.png" width = "100px">
+        </div>
+        <p class="agora">
+        Agora, a sua senha
+        </p>
+        <br>
+        <div class="login">
+            <form>
+            <br><br><br>
+            <div class="form-group">
+                    <label for="pwd">Senha:</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox"> Mantenha-me conectado</label>
+                </div>
+                <div class="btn-entrar">
+                <button type="submit" class="btn btn-default" onclick="paginahome()">Entrar</button>
+                </div>
+                <br><br><br>
+            </form>
+        </div>
+      </div>
+      `;
 }
 function paginaitem(id, item, endereco, imagem) {
     content.innerHTML = `
