@@ -127,3 +127,6 @@
     height: 20px;
     float: left;
   }
+  .navbar-brand:hover{
+    cursor:pointer;
+  }

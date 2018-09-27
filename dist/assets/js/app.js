@@ -80,13 +80,13 @@ function clicaritem(element) {
 }
 */
 function alugar(id) {
-    var comentarios = "";
-    axios
-        .get(`/pesquisarid/${id}`)
-        .then(response => {
-            element = response.data;
-            paginaitem(element.id, element.nome, element.endereco, element.imagem);
-        });
+        var comentarios = "";
+        axios
+            .get(`/pesquisarid/${id}`)
+            .then(response => {
+                element = response.data;
+                paginaitem(element.id, element.nome, element.endereco, element.imagem);
+            });
 }
 function exibircomentarios() {
     let campocomments = document.querySelector("#comentarios");
