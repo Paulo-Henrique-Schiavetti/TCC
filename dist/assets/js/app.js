@@ -41,6 +41,9 @@ function exibiritens() {
             }
             item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
         });
+        if (response.data.length<9) {
+            vermais.remove();
+        }
     });
     page += 9;
 }

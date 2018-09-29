@@ -5,11 +5,14 @@ function paginahome(){
         <div class="row" id="grid">
         </div>
       </div>
-      <div onclick='exibiritens()'>
-        <a class="btn">Ver Mais</a>
+      <div class="container" id="vermais">
+            <ul class="center-align">
+                <button class="btn btn-default" onclick="exibiritens()">Ver Mais</button>
+            </ul>
       </div>
     `;
     let grid = document.querySelector("#grid");
+    let vermais = document.querySelector("#vermais");
     page = 0;
     exibiritens();
 }

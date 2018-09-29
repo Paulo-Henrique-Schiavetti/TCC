@@ -57,18 +57,44 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`item` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `allugardb`.`comentarios`
+-- Table `allugardb`.`conversas`
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `allugardb`.`comentarios` (
-  `id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `allugardb`.`conversas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `item_id` INT NOT NULL,
+  `locatario_id` INT NOT NULL,
+  `locador_id` INT NOT NULL,
+  `locatario_visualizar` BOOLEAN,
+  `locador_visualizar` BOOLEAN,
+   PRIMARY KEY (`id`),
+    FOREIGN KEY (`item_id`)
+    REFERENCES `allugardb`.`item` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    FOREIGN KEY (`locador_id`)
+    REFERENCES `allugardb`.`item` (`locatario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `allugardb`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `allugardb`.`mensagens`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `allugardb`.`mensagens` (
+  `id` INT NOT NULL,
+  `conversa_id` INT NOT NULL,
   `usuario_id` INT NOT NULL,
   `datahora` BIGINT NOT NULL,
   `mensagem` VARCHAR(100),
    PRIMARY KEY (`id`),
-    FOREIGN KEY (`item_id`)
-    REFERENCES `allugardb`.`item` (`id`)
+    FOREIGN KEY (`conversa_id`)
+    REFERENCES `allugardb`.`conversas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     FOREIGN KEY (`usuario_id`)
