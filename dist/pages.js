@@ -54,6 +54,11 @@ function paginacadastrarproduto() {
         </ul>
     </div>
     `;
+    var camponome = document.querySelector('#camponome');
+    var campopreço = document.querySelector('#campopreço');
+    var campodescricao = document.querySelector('#campodescriçao');
+    var file = document.querySelector('#campoimagem');
+    file.addEventListener('change', prepararImagem);
 }
 function paginacadastrarusuario() {
     content.innerHTML = `
@@ -70,11 +75,18 @@ function paginacadastrarusuario() {
         <form class="telefone">
             <input type="text" id="campotelefone" placeholder="(DDD)97070-7070"/>
         </form> <br/>
+        <input type="file" id="campoimagem"/>
         <form class="btn btncadastro"
             <button onclick="cadastrarusuario()">Cadastrar</button>
         </form>
     </div>
     `;
+    var campoemail = document.querySelector('#campoemail');
+    var camposenha = document.querySelector('#camposenha');
+    var camponome = document.querySelector('#camponome');
+    var campotelefone = document.querySelector('#campotelefone');
+    var file = document.querySelector('#campoimagem');
+    file.addEventListener('change', prepararImagem);
 }
 function paginalogar() {
     content.innerHTML = `

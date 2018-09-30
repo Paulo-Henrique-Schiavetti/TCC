@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`usuarios` (
   `place_id` VARCHAR(60) NULL,
   `telefone` VARCHAR(45) NULL,
   `avaliacao` FLOAT NULL,
-  `imagem` LONGTEXT NULL,
+  `imagemMenor` LONGTEXT NULL,
+  `imagemCompleta` LONGTEXT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC))
 ENGINE = InnoDB;
@@ -46,7 +47,8 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`item` (
   `preço` FLOAT NOT NULL,
   `descrição` VARCHAR(85) NULL,
   `data_publicacao` BIGINT NOT NULL,
-  `imagem` LONGTEXT NULL,
+  `imagemMenor` LONGTEXT NULL,
+  `imagemCompleta` LONGTEXT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_item_usuarios1_idx` (`locatario` ASC),
   CONSTRAINT `fk_item_usuarios1`
@@ -72,11 +74,11 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`conversas` (
     REFERENCES `allugardb`.`item` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-    FOREIGN KEY (`locador_id`)
+    FOREIGN KEY (`locatario_id`)
     REFERENCES `allugardb`.`item` (`locatario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-    FOREIGN KEY (`usuario_id`)
+    FOREIGN KEY (`locador_id`)
     REFERENCES `allugardb`.`usuarios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION

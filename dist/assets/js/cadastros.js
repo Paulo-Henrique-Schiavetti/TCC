@@ -1,11 +1,34 @@
+function prepararImagem(evt){
+    var compress = new Compress();
+    var reader = new FileReader();
+
+    var arquivo = [...event.target.files];
+
+    compress.compress(arquivo, {
+        size: 4, // the max size in MB, defaults to 2MB
+        quality: .75, // the quality of the image, max is 1,
+        maxWidth: 1920, // the max width of the output image, defaults to 1920px
+        maxHeight: 1920, // the max height of the output image, defaults to 1920px
+        resize: true, // defaults to true, set false if you do not want to resize the image width and height
+      }).then((data)=>{
+        localStorage.setItem('imagemCompleta', data[0].prefix+data[0].data);
+    }, false);
+
+    compress.compress(arquivo, {
+        size: 1, // the max size in MB, defaults to 2MB
+        quality: .75, // the quality of the image, max is 1,
+        maxWidth: 320, // the max width of the output image, defaults to 1920px
+        maxHeight: 240, // the max height of the output image, defaults to 1920px
+        resize: true // defaults to true, set false if you do not want to resize the image width and height
+      }).then((data)=>{
+        localStorage.setItem('imagemMenor', data[0].prefix+data[0].data);
+    }, false);
+}
+
 function cadastrarproduto() {
-    var camponome = document.querySelector('#camponome');
     var campolocatario = usuario.id;
     var campoavaliacao = usuario.avaliacao;
-    var campopreço = document.querySelector('#campopreço');
-    var campodescricao = document.querySelector('#campodescriçao');
     var campodatapub = Date.now();
-    var file = document.querySelector('#campoimagem').files[0];
 
     if(camponome.value == '')
     {
@@ -19,47 +42,40 @@ function cadastrarproduto() {
         mensagemtemporaria('digite o preço.')
         return false;
     }
-    else if(file == undefined)
+    else if(localStorage.getItem('imagemCompleta') == "")
     {
         mensagemtemporaria('selecione a imagem.')
         return false;
-    } 
-
-    var reader = new FileReader();
-    
-    reader.onloadend = ()=> {
-        campoimagem = reader.result;
-
-        axios.post('/cadastrarproduto', {
-            locatario: campolocatario, nome: camponome.value, avaliacao: campoavaliacao, preço: campopreço.value, descrição: campodescricao.value, data_publicacao: campodatapub, imagem: campoimagem
-        })
-        .then(()=> {
-            mensagemtemporaria('Seu item foi cadastrado!')
-        })
-        .catch((error)=>{
-            console.log(error);
-        });
     }
-    reader.readAsDataURL(file);
+    var imagemCompleta = localStorage.getItem('imagemCompleta');
+    var imagemMenor = localStorage.getItem('imagemMenor');
+    axios.post('/cadastrarproduto', {
+        locatario: campolocatario, nome: camponome.value, avaliacao: campoavaliacao, preço: campopreço.value, descrição: campodescricao.value, data_publicacao: campodatapub, imagemCompleta: imagemCompleta, imagemMenor: imagemMenor
+    })
+    .then(()=> {
+        mensagemtemporaria('Seu item foi cadastrado!')
+        localStorage.setItem('imagemCompleta', "");
+        localStorage.setItem('imagemMenor', "");
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+
+        
 }
 
 function cadastrarusuario() {
-    var campoemail = document.querySelector('#campoemail').value;
-    var camposenha = document.querySelector('#camposenha').value;
-    var camponome = document.querySelector('#camponome').value;
-    var campotelefone = document.querySelector('#campotelefone').value;
     var campoavaliacao = 5;
     var campoendereco = '';
     var campoplace_id = '';
-    var file = document.querySelector('#campoimagem').files[0];
 
-    if (campoemail == '')
+    if (campoemail.value == '')
     {
         campoemail.focus();
         mensagemtemporaria('Digite o email.');
         return false;
     } 
-    else if (camposenha == '')
+    else if (camposenha.value == '')
     {
         camposenha.focus();
         mensagemtemporaria('Digite a senha.');
@@ -69,7 +85,7 @@ function cadastrarusuario() {
         alert('Seu browser não suporta geolocalização!</p>');
         return;
     }
-    else if(file == undefined)
+    else if(localStorage.getItem('imagemCompleta') == "")
     {
         mensagemtemporaria('selecione a imagem.')
         return false;
@@ -86,30 +102,25 @@ function cadastrarusuario() {
         axios
             .post(`/geolocate`,{ lat, lng })
             .then((response) => {
-
                 campoendereco = response.data.address;
                 campoplace_id = response.data.place_id;
+                var imagemCompleta = localStorage.getItem('imagemCompleta');
+                var imagemMenor = localStorage.getItem('imagemMenor');
 
-                var reader = new FileReader();
-                reader.onloadend = ()=> {
-                    campoimagem = reader.result;
-                    axios
-                        .post('/cadastrarusuario', {
-                            email: campoemail, senha: camposenha, nome: camponome, endereco: campoendereco, place_id: campoplace_id, telefone: campotelefone, avaliacao: campoavaliacao, imagem: campoimagem
-                        })
-                        .then(()=>{
-                            mensagemtemporaria('A sua conta foi cadastrada!');
-                            login(campoemail, camposenha);
-                        })
-                        .catch((error)=>{
-                            console.log(error);
-                        });
-                }
-                reader.readAsDataURL(file);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+                axios
+                    .post('/cadastrarusuario', {
+                        email: campoemail.value, senha: camposenha.value, nome: camponome.value, endereco: campoendereco, place_id: campoplace_id, telefone: campotelefone.value, avaliacao: campoavaliacao, imagemMenor: imagemMenor, imagemCompleta: imagemCompleta
+                    })
+                    .then(()=>{
+                        mensagemtemporaria('A sua conta foi cadastrada!');
+                        localStorage.setItem('imagemCompleta', "");
+                        localStorage.setItem('imagemMenor', "");
+                        login(campoemail.value, camposenha.value);
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                    });
+                })
     }
     function error(error) {
         alert(error);

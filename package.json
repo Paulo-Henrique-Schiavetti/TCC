@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@google/maps": "^0.4.5",
+    "compress.js": "^1.1.2",
     "knex": "^0.14.2",
     "mysql": "^2.15.0",
     "nodemon": "^1.17.5",
