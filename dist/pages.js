@@ -1,15 +1,16 @@
 function paginahome(){
     content.innerHTML =`
-      <div class="col-lg-11">
-        <br><br><br>
-        <div class="row" id="grid">
+    <div class="container">
+        <div class="col-lg-12"> 
+            <div class="row" id="grid">
+            </div>
         </div>
-      </div>
-      <div class="container" id="vermais">
-            <ul class="center-align">
-                <button class="btn btn-default" onclick="exibiritens()">Ver Mais</button>
-            </ul>
-      </div>
+    </div>
+    <div class="container" id="vermais">
+        <ul class="center-align">
+            <button class="btn btn-default" onclick="exibiritens()">Ver Mais</button>
+        </ul>
+    </div>
     `;
     let grid = document.querySelector("#grid");
     let vermais = document.querySelector("#vermais");
@@ -90,7 +91,7 @@ function paginacadastrarusuario() {
 }
 function paginalogar() {
     content.innerHTML = `
-    <div class="col-lg-11">
+    <div class="col-lg-11 center-page">
         <div class="img-login">
                 <img src="assets/imagens/icone-usuario.png" width = "100px">
         </div>
@@ -115,7 +116,9 @@ function paginalogar() {
                     </p>
                 </div>
             </form>
+            
         </div>
+        <br><br><br><br><br><br><br>
     </div
     `;
 }
