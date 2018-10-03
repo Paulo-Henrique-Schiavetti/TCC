@@ -1,5 +1,6 @@
 window.onload = () => {
     let content = document.querySelector("#content");
+    let navbar = document.querySelector("#navbar");
     let modal = document.querySelector("#modal");
     let seachbar = document.querySelector("#searchbar")
     // lista
@@ -39,7 +40,7 @@ function exibiritens() {
                 }
                 element.avaliacao -= 1;
             }
-            item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
+            item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagemMenor, element.endereco, estrelas);
         });
         if (response.data.length<9) {
             vermais.remove();

@@ -41,13 +41,13 @@ function paginacadastrarproduto() {
     <div class="container">
         <ul class="center-align">
             <form class="camponome">
-                <input type="text" id="nome" placeholder="Nome"/>
+                <input type="text" id="camponome" placeholder="Nome"/>
             </form> <br/>
             <form class="campopreço">
             <input type="text" id="campopreço" placeholder="Preço"/>
             </form> <br/>
             <form class="campodescriçao">
-            <input type="text" id="campodescriçao" placeholder="Descrição"/>
+            <input type="text" id="campodescricao" placeholder="Descrição"/>
             </form> <br/>
             <input type="file" id="campoimagem"/>
             <button onclick="cadastrarproduto()">Cadastrar</button>
@@ -162,4 +162,11 @@ function paginaitem(id, item, endereco, imagem) {
     </div>
     `;
     exibircomentarios();
+}
+function menuLogado(){
+    navbar.innerHTML = `
+    <li class="nav-item active">
+        <a class="nav-link" onclick="paginacadastrarproduto()">Cadastrar Item</a>
+    </li>
+    `;
 }

@@ -48,6 +48,7 @@ function login(email, senha){
                  localStorage.setItem('usuario', JSON.stringify(usuario));
                  loged = true;
                  paginahome();
+                 menuLogado();
                  mensagemtemporaria('Bem vindo '+usuario.nome+'!');
              }
          }) 

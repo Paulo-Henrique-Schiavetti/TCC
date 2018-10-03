@@ -41,7 +41,7 @@ server.get("/itens/:page", function (req, res, next) {
   
   knex('item')
     .limit(perPage).offset(actualPage).orderBy('item.data_publicacao', 'desc')
-    .select({ 'id': 'item.id', 'nome': 'item.nome', 'imagem': 'item.imagem', 'preço': 'item.preço', 'descrição': 'item.descrição', 'avaliacao': 'item.avaliacao', 'endereco': 'usuarios.endereco', 'data': 'item.data_publicacao' })
+    .select({ 'id': 'item.id', 'nome': 'item.nome', 'imagemMenor': 'item.imagemMenor', 'preço': 'item.preço', 'descrição': 'item.descrição', 'avaliacao': 'item.avaliacao', 'endereco': 'usuarios.endereco', 'data': 'item.data_publicacao' })
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .then((dados) => {
       res.send(dados);
