@@ -75,6 +75,18 @@ server.post("/cadastrarusuario", function (req, res, next) {
   return next();
 });
 
+server.post("/getEmail", function (req, res, next) {
+
+  knex('usuarios')
+    .where("email", req.body.email)
+    .first()
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
 server.post("/login", function (req, res, next) {
 
   knex('usuarios')

@@ -92,7 +92,7 @@ function paginalogar() {
     content.innerHTML = `
     <div class="col-lg-11">
         <div class="img-login">
-                <img src="assets\imagens\icone-usuario.png" width = "100px">
+                <img src="assets/imagens/icone-usuario.png" width = "100px">
         </div>
         <p class="ola">
             Olá! Digite o seu E-mail
@@ -106,7 +106,7 @@ function paginalogar() {
                     <input type="email" class="form-control" id="email">
                 </div>
                 <div class="btn-continuar">
-                <button type="submit" class="btn btn-default" onclick="paginalogar2()">Continuar</button>
+                <button type="button" class="btn btn-default" onclick="validacaoEmail()">Continuar</button>
                 </div>
                 <br>
                 <div class="conta-nova">
@@ -119,14 +119,15 @@ function paginalogar() {
     </div
     `;
 }
-function paginalogar2() {
+function paginalogar2(email, nome) {
     content.innerHTML = `
     <div class="col-lg-11">
         <div class="img-login">
-            <img src="assets\imagens\icone-usuario.png" width = "100px">
+            <img src="assets/imagens/icone-usuario.png" id="icone" width = "100px">
         </div>
         <p class="agora">
-        Agora, a sua senha
+        ${nome}<br/>
+        Agora digite a sua senha
         </p>
         <br>
         <div class="login">
@@ -134,13 +135,13 @@ function paginalogar2() {
             <br><br><br>
             <div class="form-group">
                     <label for="pwd">Senha:</label>
-                    <input type="password" class="form-control" id="pwd">
+                    <input type="password" class="form-control" id="senha">
                 </div>
                 <div class="checkbox">
                     <label><input type="checkbox"> Mantenha-me conectado</label>
                 </div>
                 <div class="btn-entrar">
-                <button type="submit" class="btn btn-default" onclick="paginahome()">Entrar</button>
+                <button type="button" class="btn btn-default" onclick="validacaoSenha('${email}')">Entrar</button>
                 </div>
                 <br><br><br>
             </form>
