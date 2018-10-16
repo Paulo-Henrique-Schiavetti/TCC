@@ -106,7 +106,7 @@ server.get("/pesquisarid/:id", function (req, res, next) {
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .where("item.id", id)
     .first()
-    .select('item.id', 'item.nome', 'item.imagem', 'usuarios.endereco')
+    .select('item.id', 'item.nome', 'item.imagemCompleta', 'usuarios.endereco')
     .then((dados) => {
       res.send(dados);
     }, next)
@@ -127,7 +127,7 @@ server.get("/abrirlista/:id", function (req, res, next) {
   knex('lista')
     .where("lista.usuarios_id", id)
     .innerJoin('item', "lista.item_id", "item.id")
-    .column('item.id', 'item.nome', 'item.imagem')
+    .column('item.id', 'item.nome', 'item.imagemMenor')
     .select()
     .then((dados) => {
       res.send(dados);
@@ -138,10 +138,10 @@ server.get("/abrirlista/:id", function (req, res, next) {
 
 server.get("/comentarios/:id", function (req, res, next) {
   const { id } = req.params;
-  knex('comentarios')
-    .where("comentarios.item_id", id)
-    .innerJoin('usuarios', 'comentarios.usuario_id', 'usuarios.id')
-    .select({ 'nome': 'usuarios.nome', 'mensagem': 'comentarios.mensagem', 'datahora': 'comentarios.datahora' })
+  knex('mensagens')
+    .innerJoin("conversas", "mensagens.conversa_id", "conversas.id")
+    .where("conversas.item_id", id)
+    .select({ "nome": "mensagens.usuario_id", "mensagem": "mensagens.mensagem" })
     .then((dados) => {
       res.send(dados);
     }, next)
@@ -166,7 +166,7 @@ server.get("/pesquisarparapagina/:nome", function (req, res, next) {
   knex('item')
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .where("item.nome", 'like', '%' + nome + '%')
-    .select({ 'id': 'item.id', 'nome': 'item.nome', 'imagem': 'item.imagem', 'preço': 'item.preço', 'descrição': 'item.descrição', 'avaliacao': 'item.avaliacao', 'endereco': 'usuarios.endereco', 'data': 'item.data_publicacao' })
+    .select({ 'id': 'item.id', 'nome': 'item.nome', 'imagemMenor': 'item.imagemMenor', 'preço': 'item.preço', 'descrição': 'item.descrição', 'avaliacao': 'item.avaliacao', 'endereco': 'usuarios.endereco', 'data': 'item.data_publicacao' })
     .then((dados) => {
       res.send(dados);
     }, next)

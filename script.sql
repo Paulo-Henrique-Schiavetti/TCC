@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`conversas` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     FOREIGN KEY (`locatario_id`)
-    REFERENCES `allugardb`.`item` (`locatario`)
+    REFERENCES `allugardb`.`usuarios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
     FOREIGN KEY (`locador_id`)

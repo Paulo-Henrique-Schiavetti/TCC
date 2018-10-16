@@ -66,7 +66,7 @@ function exibirresultados(texto){
                 }
                 element.avaliacao -= 1;
             }
-            resultados(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagem, element.endereco, estrelas);
+            resultados(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagemMenor, element.endereco, estrelas);
         });
     });
 }
@@ -84,15 +84,15 @@ function clicaritem(element) {
 }
 */
 function alugar(id) {
-        var comentarios = "";
         axios
             .get(`/pesquisarid/${id}`)
             .then(response => {
                 element = response.data;
-                paginaitem(element.id, element.nome, element.endereco, element.imagem);
+                paginaitem(element.id, element.nome, element.endereco, element.imagemCompleta);
+                exibircomentarios(element.id);
             });
 }
-function exibircomentarios() {
+function exibircomentarios(id) {
     let campocomments = document.querySelector("#comentarios");
     axios
         .get(`/comentarios/${id}`)
@@ -120,7 +120,7 @@ function autocomplete() {
                 } else {
                     nomeAbreviado = element.nome;
                 }
-                dropdown.innerHTML += `<li class="autocomplete-item"><a onclick="alugar(${element.id})"><img class="icon" src="${element.imagem}" alt=""><span>${nomeAbreviado}</span></a></li>`;
+                dropdown.innerHTML += `<li class="autocomplete-item"><a onclick="alugar(${element.id})"><img class="icon" src="${element.imagemMenor}" alt=""><span>${nomeAbreviado}</span></a></li>`;
             })
             if (response.data.length == 4) {
                     dropdown.innerHTML += `<li class="autocomplete-item"><a>...</a></li>`;

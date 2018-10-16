@@ -1,7 +1,6 @@
 function paginahome(){
     content.innerHTML =`
       <div class="col-lg-11">
-        <br><br><br>
         <div class="row" id="grid">
         </div>
       </div>
@@ -19,8 +18,8 @@ function paginahome(){
 
 function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas) {
     grid.innerHTML += `
-    <div class="col-lg-4 col-md-6 mb-4" data-id="${id} onclick="alugar(${id})">
-      <div class="card h-100">
+    <div class="col-lg-4 col-md-6 mb-4" data-id="${id}">
+      <div class="card h-100" onclick="alugar(${id})">
         <a><img class="card-img-top" src="${imagem}" height="200" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
@@ -152,13 +151,10 @@ function paginalogar2(email, nome) {
 function paginaitem(id, item, endereco, imagem) {
     content.innerHTML = `
     <div class="container">
-        <ul class="center-align paginaitem">
-            <p>${item}</p>
-            <img src="${imagem}" alt=""/>
-            <p>${endereco}</p>
-            <div class="comentarios" id="comentarios">
-            </div>
-        </ul>
+        <p>${item}</p>
+        <img src="${imagem}" alt="" width="120px">
+        <div id="comentarios">
+        </div>
     </div>
     `;
     exibircomentarios();
