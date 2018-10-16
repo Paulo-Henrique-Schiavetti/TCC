@@ -1,14 +1,9 @@
 function paginahome(){
     content.innerHTML =`
-<<<<<<< HEAD
-      <div class="col-lg-11">
-        <div class="row" id="grid">
-=======
     <div class="container">
         <div class="col-lg-12"> 
             <div class="row" id="grid">
             </div>
->>>>>>> b7c93a189e960d0fb13c1dcacd018dc2b172cd96
         </div>
     </div>
     <div class="container" id="vermais">
