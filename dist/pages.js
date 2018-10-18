@@ -91,62 +91,48 @@ function paginacadastrarusuario() {
 }
 function paginalogar() {
     content.innerHTML = `
-    <div class="col-lg-11 center-page">
-        <div class="img-login">
-                <img src="assets/imagens/icone-usuario.png" width = "100px">
+    <div class="col-lg-11">
+        <div class="center-align">
+                <img src="assets/imagens/icone-usuario.png" class="img-rounded">
         </div>
-        <p class="ola">
+        <p class="center-align">
             Olá! Digite o seu E-mail
         </p>
-        <br>
-        <div class="login">
+        <div class="container login">
             <form>
-                <br><br><br>
                 <div class="form-group">
                     <label for="email">E-mail:</label>
                     <input type="email" class="form-control" id="email">
                 </div>
-                <div class="btn-continuar">
                 <button type="button" class="btn btn-default" onclick="validacaoEmail()">Continuar</button>
-                </div>
-                <br>
-                <div class="conta-nova">
-                    <p>
-                    Não tem uma conta? <a class="navbar-brand" href="index.html">Crie uma!</a>
-                    </p>
-                </div>
+                <p>
+                Não tem uma conta? <a class="navbar-brand" href="index.html">Crie uma!</a>
+                </p>
             </form>
-            
         </div>
-        <br><br><br><br><br><br><br>
-    </div
+    </div>
     `;
 }
 function paginalogar2(email, nome) {
     content.innerHTML = `
     <div class="col-lg-11">
-        <div class="img-login">
-            <img src="assets/imagens/icone-usuario.png" id="icone" width = "100px">
+        <div class="center-align">
+            <img src="assets/imagens/icone-usuario.png" class="img-rounded" id="icone">
         </div>
-        <p class="agora">
-        ${nome}<br/>
+        <p class="center-align">
         Agora digite a sua senha
         </p>
-        <br>
-        <div class="login">
+        <div class="container login">
             <form>
-            <br><br><br>
-            <div class="form-group">
-                    <label for="pwd">Senha:</label>
-                    <input type="password" class="form-control" id="senha">
+                <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" class="form-control" id="senha">
                 </div>
                 <div class="checkbox">
                     <label><input type="checkbox"> Mantenha-me conectado</label>
                 </div>
-                <div class="btn-entrar">
                 <button type="button" class="btn btn-default" onclick="validacaoSenha('${email}')">Entrar</button>
-                </div>
-                <br><br><br>
+                <p></p>
             </form>
         </div>
       </div>
