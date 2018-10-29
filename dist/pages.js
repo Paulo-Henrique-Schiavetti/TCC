@@ -22,7 +22,7 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
     grid.innerHTML += `
     <div class="col-lg-4 col-md-6 mb-4" data-id="${id}">
       <div class="card h-100" onclick="alugar(${id})">
-        <a><img class="card-img-top" src="${imagem}" height="200" alt=""></a>
+        <a><img class="card-img-top" src="${imagem}" height="220px" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#">${nome}</a>
@@ -138,11 +138,12 @@ function paginalogar2(email, nome) {
       </div>
       `;
 }
-function paginaitem(id, item, endereco, imagem) {
+function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
     content.innerHTML = `
     <div class="container">
         <p>${item}</p>
         <img src="${imagem}" alt="" width="120px">
+        <p>${descricao}. avaliação: ${avaliacao}, preço: ${preco}, endereço: ${endereco}.</p>
         <div id="comentarios">
         </div>
     </div>

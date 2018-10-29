@@ -88,7 +88,8 @@ function alugar(id) {
             .get(`/pesquisarid/${id}`)
             .then(response => {
                 element = response.data;
-                paginaitem(element.id, element.nome, element.endereco, element.imagemCompleta);
+                console.log(element);
+                paginaitem(element.id, element.item, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
                 exibircomentarios(element.id);
             });
 }

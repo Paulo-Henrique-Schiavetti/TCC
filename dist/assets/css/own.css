@@ -95,6 +95,7 @@
   }
   .navbar-brand:hover{
     cursor:pointer;
+    font-size: 10pt;
   }
 
   .img-rounded {
