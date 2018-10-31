@@ -2,20 +2,26 @@ window.onload = () => {
     let content = document.querySelector("#content");
     let navbar = document.querySelector("#navbar");
     let modal = document.querySelector("#modal");
-    let seachbar = document.querySelector("#searchbar")
+    let searchinput = document.querySelector("#searchinput");
+    let searchbar = document.querySelector("#searchbar");
+    dropdown = document.createElement("ul");
+    dropdown.setAttribute("class", "autocomplete");
+    needAppendDropdown = true;
     // lista
     //let lista = document.querySelector("#lista");
     //let verdadeiralista = document.querySelector("#verdadeiralista");
 
     //variáveis
+    usuario = [];
     loged = false;
     localStorage.getItem('usuario') ? loged=true : "";
     loged ? usuario=JSON.parse(localStorage.getItem('usuario')) : "";
-
+    
     //funções
     setTimeout(() => {
 
         paginahome();
+        loged ? menuLogado() : "";
         document.addEventListener("keyup", autocomplete);
     
     }, 100);
@@ -104,15 +110,19 @@ function exibircomentarios(id) {
         });
 }
 function autocomplete() {
-    nome = searchbar.value;
-    dropdown.innerHTML = "";
-
+    nome = searchinput.value;
+    
     axios
         .get(`/pesquisarnome/${nome}`)
         .then(response => {
             if (nome == "" || response.data.length == 0) {
+                searchbar.removeChild(dropdown);
+                searchinput.style.borderBottomLeftRadius = '4px';
+                searchinput.style.borderBottomRightRadius = '4px';
+                needAppendDropdown = true;
                 return;
             }
+            dropdown.innerHTML = "";
             response.data.forEach(element => {
                 nomeArray = element.nome.split("");
                 if (nomeArray.length > 28){
@@ -121,12 +131,19 @@ function autocomplete() {
                 } else {
                     nomeAbreviado = element.nome;
                 }
-                dropdown.innerHTML += `<li class="autocomplete-item"><a onclick="alugar(${element.id})"><img class="icon" src="${element.imagemMenor}" alt=""><span>${nomeAbreviado}</span></a></li>`;
+                dropdown.innerHTML += `<li class="autocomplete-item"><a onclick="alugar(${element.id})"><img class="autocomplete-icon" src="${element.imagemMenor}" alt=""> ${nomeAbreviado}</a></li>`;
             })
             if (response.data.length == 4) {
                     dropdown.innerHTML += `<li class="autocomplete-item"><a>...</a></li>`;
                 }
         });
+        if (needAppendDropdown){
+            searchbar.appendChild(dropdown);
+            searchinput.style.borderBottomLeftRadius = 0;
+            searchinput.style.borderBottomRightRadius = 0;
+            needAppendDropdown = false;
+        }
+    
 }
 
 function mensagem(texto) {

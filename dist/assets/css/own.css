@@ -1,43 +1,58 @@
 * {
     box-sizing: border-box;
   }
-  form.pesquisar input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px  gray;
-    float: left;
-    width: 600px;
-    background: #f1f1f1;
-    margin-left: 3%;
-    border-radius: 4px;
+
+  .pesquisar {
+    position: relative;
+    width: 50%;
+    height: 7vh;
   }
-  
-  form.pesquisar::after {
-    content: "";
-    clear: both;
-    display: table;
+  .pesquisar > input[type=text] {
+    font-size: 12pt;
+    border: solid 1px #e6e6e6;
+    background: #f1f1f1;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    padding: 2vh;
   }
   .submit-lente {
     position:absolute;
-    top:6px; left:560px;
+    top: 1vh;
+    right:0;
     z-index:10;
+    font-size: 20px;
     border:none;
     background:transparent;
     outline:none;
-    font-size: 20px;
     cursor: pointer;
   }
-  
-  .pesquisar {
-    position: relative;
-    width: 200px;
+  .autocomplete {
+    position: absolute;
+    top: 6.9vh;
+    right:0;
+    left:0;
+    font-size: 12pt;
+    background-color: #fbfbfb;
+    border-right: solid 1px #e6e6e6 ;
+    border-left: solid 1px #e6e6e6;
+    border-bottom: solid 1px #e6e6e6;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 0;
   }
-  
-  .pesquisar input {
-    width: 100%;
+  .autocomplete-item {
+    border-top: solid 1px #e6e6e6;
+    list-style: none;
+    padding: 0.5vh;
   }
-  .alugar{
-    margin-left: 5%;
+  .autocomplete-item:hover {
+    background-color: #f1f1f1;
+  }
+  .autocomplete-icon {
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
   }
   .login{
     width: 60vh;
@@ -65,39 +80,25 @@
     font-size: 20pt;
     font-family: Calibri;
   }
-  .barra{
-    background: rgb(0, 163, 255);
-  }
-  .form-group label[for=pwd]{
-    margin-left: 16%;
-  }
   .checkbox{
     font-size: 16px;
   }
   .card:hover{
     box-shadow: 1px 1px 10px 3px  #888888;
   }
-  .autocomplete {
-  }
-  .autocomplete-item {
-    background-color: white;
-    border-right: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
-    list-style: none;
-    text-align: center;
-  }
-  .icon {
-    border-radius: 5px;
-    width: 20px;
-    height: 20px;
-    float: left;
+  .navbar-brand {
+    margin-right: 5%;
   }
   .navbar-brand:hover{
+    background-color: #0072ec;
+    border-radius: 10%;
     cursor:pointer;
-    font-size: 10pt;
   }
-
+  .nav-item:hover{
+    background-color: #0072ec;
+    border-radius: 10%;
+    cursor:pointer;
+  }
   .img-rounded {
     width: 100px;
     height: 100px;

@@ -144,8 +144,6 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
         <p>${item}</p>
         <img src="${imagem}" alt="" width="120px">
         <p>${descricao}. avaliação: ${avaliacao}, preço: ${preco}, endereço: ${endereco}.</p>
-        <div id="comentarios">
-        </div>
     </div>
     `;
     exibircomentarios();
@@ -154,6 +152,9 @@ function menuLogado(){
     navbar.innerHTML = `
     <li class="nav-item active">
         <a class="nav-link" onclick="paginacadastrarproduto()">Cadastrar Item</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" onclick="logoff()">sair</a>
     </li>
     `;
 }

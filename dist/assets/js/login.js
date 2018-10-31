@@ -15,7 +15,6 @@ function validacaoEmail(){
                 mensagemtemporaria('O email não existe ou está incorreto.');
                 return false;
             } else {
-                console.log(response);
                 paginalogar2(email.value, response.data.nome);
                 document.querySelector('#icone').src = response.data.imagemMenor;
             }
@@ -57,4 +56,5 @@ function login(email, senha){
  function logoff() {
      usuario = [];
      localStorage.setItem("usuario", "");
+     window.location.reload();
  }
