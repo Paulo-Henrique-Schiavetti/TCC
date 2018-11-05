@@ -27,7 +27,7 @@ function menuLogado(){
       <a class="nav-link" onclick="paginasobre()">Sobre</a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" onclick="paginasobre()">Sobre</a>
+        <a class="nav-link" onclick="logoff()">Sair</a>
     </li>
     `;
 }
