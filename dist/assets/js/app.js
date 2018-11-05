@@ -33,20 +33,7 @@ function exibiritens() {
     .get(`/itens/${page}`)
     .then(response => {
         response.data.forEach((element) => {
-            var estrelas = '';
-            for (e = 0; e < 5; e++) {
-                if (element.avaliacao >= 1) {
-                    estrelas += '<i class="fa fa-star" style="color:rgb(243, 239, 29);"></i>'
-                } else {
-                    if (element.avaliacao > 0) {
-                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-                    } else {
-                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-                    }
-                }
-                element.avaliacao -= 1;
-            }
-            item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagemMenor, element.endereco, estrelas);
+            item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagemMenor, element.endereco);
         });
         if (response.data.length<9) {
             vermais.remove();
@@ -54,25 +41,13 @@ function exibiritens() {
     });
     page += 9;
 }
-function exibirresultados(texto){
+function exibirresultados(){
+    var texto = searchinput.value;
     axios
     .get(`/pesquisarparapagina/${texto}`)
     .then(response => {
         response.data.forEach((element) => {
-            var estrelas = '';
-            for (e = 0; e < 5; e++) {
-                if (element.avaliacao >= 1) {
-                    estrelas += '<i class="fa fa-star" style="color:rgb(243, 239, 29);"></i>'
-                } else {
-                    if (element.avaliacao > 0) {
-                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-                    } else {
-                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-                    }
-                }
-                element.avaliacao -= 1;
-            }
-            resultados(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagemMenor, element.endereco, estrelas);
+            item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagemMenor, element.endereco);
         });
     });
 }
@@ -131,7 +106,7 @@ function autocomplete() {
                 } else {
                     nomeAbreviado = element.nome;
                 }
-                dropdown.innerHTML += `<li class="autocomplete-item"><a onclick="alugar(${element.id})"><img class="autocomplete-icon" src="${element.imagemMenor}" alt=""> ${nomeAbreviado}</a></li>`;
+                dropdown.innerHTML += `<li class="autocomplete-item" onclick="alugar(${element.id})"><a><img class="autocomplete-icon" src="${element.imagemMenor}" alt=""> ${nomeAbreviado}</a></li>`;
             })
             if (response.data.length == 4) {
                     dropdown.innerHTML += `<li class="autocomplete-item"><a>...</a></li>`;

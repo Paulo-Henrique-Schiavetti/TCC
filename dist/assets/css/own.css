@@ -1,7 +1,9 @@
 * {
     box-sizing: border-box;
   }
-
+  body {
+    background-color: #f1f1f1;
+  }
   .pesquisar {
     position: relative;
     width: 50%;
@@ -40,6 +42,7 @@
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     padding: 0;
+    cursor: pointer;
   }
   .autocomplete-item {
     border-top: solid 1px #e6e6e6;
@@ -56,11 +59,17 @@
   }
   .login{
     width: 60vh;
-    border-top: solid 1px rgb(173, 173, 173);
-    border-bottom: solid 1px rgb(173, 173, 173);
-    border-left: solid 1.3px rgb(173, 173, 173);
-    border-right: solid 1.3px rgb(173, 173, 173);
+    border: solid 1px rgb(173, 173, 173);
     border-radius: 5px;
+    background: white;
+  }
+  .box {
+    border: solid 1px rgb(173, 173, 173);
+    border-radius: 5px;
+    background: white;
+  }
+  .right-box {
+    border-left: solid 1px rgb(173, 173, 173);
     background: white;
   }
   .btn-default{
@@ -113,4 +122,7 @@
   }
   .space-down {
     margin-bottom: 10vh;
+  }
+  .item-img {
+    max-height: 80vh;
   }

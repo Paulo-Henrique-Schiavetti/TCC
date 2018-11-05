@@ -1,9 +1,10 @@
 function paginahome(){
     content.innerHTML =`
-    <div class="container">
-        <div class="col-lg-12"> 
-            <div class="row" id="grid">
-            </div>
+    <div class="container ">
+        <p>Qual é a sua região?</p>
+    </div>
+    <div class="col-lg-9 container"> 
+        <div class="row" id="grid">
         </div>
     </div>
     <div class="container" id="vermais">
@@ -18,20 +19,17 @@ function paginahome(){
     exibiritens();
 }
 
-function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas) {
+function item(id, locatario, nome, preco, descricao, imagem, endereco) {
     grid.innerHTML += `
     <div class="col-lg-4 col-md-6 mb-4" data-id="${id}">
       <div class="card h-100" onclick="alugar(${id})">
-        <a><img class="card-img-top" src="${imagem}" height="220px" alt=""></a>
+        <img class="card-img-top" src="${imagem}" height="220px" alt="">
         <div class="card-body">
           <h4 class="card-title">
-            <a href="#">${nome}</a>
+            ${nome}
           </h4>
           <h5>R$ ${preco}</h5>
           <p class="card-text">${endereco}</p>
-        </div>
-        <div class="card-footer">
-          ${estrelas}
         </div>
       </div>
     </div>
@@ -141,9 +139,19 @@ function paginalogar2(email, nome) {
 function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
     content.innerHTML = `
     <div class="container">
-        <p>${item}</p>
-        <img src="${imagem}" alt="" width="120px">
-        <p>${descricao}. avaliação: ${avaliacao}, preço: ${preco}, endereço: ${endereco}.</p>
+      <div class="row box">
+        <div class="col-md-8 center-align">
+          <img class="img-fluid item-img" src="${imagem}" alt="">
+        </div>
+        <div class="col-md-4 right-box">
+          <h1 class="my-4">
+          ${item}
+          </h1>
+          <h3 class="my-3">Descrição</h3>
+          <p>${descricao}</p>
+          <p>Preço: ${preco}, Endereço: ${endereco}, avaliação: ${avaliacao}</p>
+        </div>
+      </div>
     </div>
     `;
     exibircomentarios();
@@ -157,4 +165,16 @@ function menuLogado(){
         <a class="nav-link" onclick="logoff()">sair</a>
     </li>
     `;
+}
+function paginapesquisa(){
+  content.innerHTML =`
+  <div class="container">
+      <div class="col-lg-12"> 
+          <div class="row" id="grid">
+          </div>
+      </div>
+  </div>
+  `;
+  let grid = document.querySelector("#grid");
+  exibirresultados();
 }
