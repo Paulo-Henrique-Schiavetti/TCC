@@ -17,7 +17,19 @@ function paginahome(){
     page = 0;
     exibiritens();
 }
-
+function menuLogado(){
+    navbar.innerHTML = `
+    <li class="nav-item active">
+        <a class="nav-link" onclick="paginacadastrarproduto()">Cadastrar Item</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" onclick="paginasobre()">Sobre</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" onclick="paginasobre()">Sobre</a>
+    </li>
+    `;
+}
 function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas) {
     grid.innerHTML += `
     <div class="col-lg-4 col-md-6 mb-4" data-id="${id}">
@@ -147,16 +159,6 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
     </div>
     `;
     exibircomentarios();
-}
-function menuLogado(){
-    navbar.innerHTML = `
-    <li class="nav-item active">
-        <a class="nav-link" onclick="paginacadastrarproduto()">Cadastrar Item</a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" onclick="logoff()">sair</a>
-    </li>
-    `;
 }
 function paginasobre(){
     content.innerHTML = `
