@@ -22,7 +22,7 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
     grid.innerHTML += `
     <div class="col-lg-4 col-md-6 mb-4" data-id="${id}">
       <div class="card h-100" onclick="alugar(${id})">
-        <a><img class="card-img-top" src="${imagem}" height="220px" alt=""></a>
+        <a><img class="card-img-top" src="${imagem}" height="270px" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="#">${nome}</a>
@@ -39,20 +39,19 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco, estrelas)
 }
 function paginacadastrarproduto() {
     content.innerHTML = `
-    <div class="container">
-        <ul class="center-align">
-            <form class="camponome">
-                <input type="text" id="camponome" placeholder="Nome"/>
+    <div class="container login">
+    <br/>
+            <form class="form-group">
+                <input type="text" class="form-control" id="camponome" placeholder="Nome"/>
             </form> <br/>
-            <form class="campopreço">
-            <input type="text" id="campopreço" placeholder="Preço"/>
+            <form class="form-group">
+            <input type="text" class="form-control" id="campopreço" placeholder="Preço"/>
             </form> <br/>
-            <form class="campodescriçao">
-            <input type="text" id="campodescricao" placeholder="Descrição"/>
+            <form class="form-group">
+            <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
             </form> <br/>
             <input type="file" id="campoimagem"/>
-            <button onclick="cadastrarproduto()">Cadastrar</button>
-        </ul>
+            <button class="btn btn-primary btn-right" onclick="cadastrarproduto()">Cadastrar</button> <br/><br/>
     </div>
     `;
     var camponome = document.querySelector('#camponome');
@@ -63,23 +62,29 @@ function paginacadastrarproduto() {
 }
 function paginacadastrarusuario() {
     content.innerHTML = `
-    <div class="container">
-        <form class="form-group">
-        <input type="text" id="campoemail" placeholder="Email"/>
-        </form> <br/>
-        <form class="senhacadastro">
-            <input type="password" id="camposenha" placeholder="Senha"/>
-        </form> <br/>
-        <form class="nomeusuario">
-            <input type="text" id="camponome" placeholder="Nome"/>
-        </form> <br/>
-        <form class="telefone">
-            <input type="text" id="campotelefone" placeholder="(DDD)97070-7070"/>
-        </form> <br/>
-        <input type="file" id="campoimagem"/>
-        <form class="btn btncadastro"
-            <button onclick="cadastrarusuario()">Cadastrar</button>
+    <div class="container login">
+    <form class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" class="form-control" id="campoemail"/>
         </form>
+        <form class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" class="form-control" id="camposenha"/>
+        </form>
+        <form class="form-group">
+            <label for="text">Nome:</label>
+            <input type="text" class="form-control" id="camponome"/>
+        </form>
+        <form class="form-group">
+            <label for="phonenum">Telefone:</label>
+            <input type="tel" class="form-control" id="campotelefone""/>
+        </form>
+        <input type="file" id="campoimagem"/>
+        </form>
+        <form>
+        <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
+            <button class="btn btn-default btn-right" onclick="cadastrarusuario()">Cadastrar</button>
+        </form> <br/><br/>
     </div>
     `;
     var campoemail = document.querySelector('#campoemail');

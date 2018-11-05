@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
   }
-
   .pesquisar {
     position: relative;
     width: 50%;
@@ -77,7 +76,7 @@
     text-align: center;
   }
   .form-group{
-    font-size: 20pt;
+    font-size: 16pt;
     font-family: Calibri;
   }
   .checkbox{
@@ -112,5 +111,8 @@
     justify-content: center;
   }
   .space-down {
-    margin-bottom: 10vh;
+    margin-bottom: 25.4vh;
+  }
+  .btn-right{
+    float: right;
   }

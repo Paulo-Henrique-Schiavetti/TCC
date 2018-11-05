@@ -158,6 +158,9 @@ function mensagemtemporaria(texto) {
         modal.style.display = "none";
     }, 1000);
 }
+function clickimagem(){
+    file.click();
+}
 // lista de desejos
 function add(id) {
     axios
