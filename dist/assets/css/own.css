@@ -71,9 +71,6 @@
     color: white;
   }
   .center-align{
-    font-family: Helvetica;
-    font-size: 18pt;
-    color: rgb(61, 61, 61);
     text-align: center;
   }
   .form-group{
@@ -104,7 +101,7 @@
     height: 100px;
     border-radius: 50%;
   }
-  .page-content {
+  .center-page {
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -113,4 +110,20 @@
   }
   .space-down {
     margin-bottom: 10vh;
+  }
+  .zoom {
+    overflow: hidden;
+  }
+  
+  .zoom a img {
+    max-width: 100%;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  .zoom:hover a img {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
   }
