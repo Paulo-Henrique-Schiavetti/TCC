@@ -29,6 +29,16 @@
     outline:none;
     cursor: pointer;
   }
+  .perfil {
+    position: relative;
+    display: flex;
+  }
+  .perfil-icon {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    border: solid #e6e6e6 1px;
+  }
   .autocomplete {
     position: absolute;
     top: 6.9vh;
@@ -133,14 +143,12 @@
   .zoom {
     overflow: hidden;
   }
-  
   .zoom a img {
     max-width: 100%;
     -moz-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
   }
-  
   .zoom:hover a img {
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);

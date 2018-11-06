@@ -1,6 +1,6 @@
 function paginahome(){
     content.innerHTML =`
-    <div class="container ">
+    <div class="container text-center">
         <p>Qual é a sua região?</p>
     </div>
     <div class="col-lg-9 container"> 
@@ -20,14 +20,20 @@ function paginahome(){
 }
 function menuLogado(){
     navbar.innerHTML = `
-    <li class="nav-item active">
-        <a class="nav-link" onclick="paginacadastrarproduto()">Cadastrar Item</a>
+    <li class="nav-item active perfil" id="perfil">
+    <img src="${usuario.imagemMenor}" alt="" class="perfil-icon"/><a class="nav-link" onclick="abrirPerfil()">${usuario.nome}</a>
     </li>
     <li class="nav-item active">
       <a class="nav-link" onclick="paginasobre()">Sobre</a>
     </li>
-    <li class="nav-item active">
-        <a class="nav-link" onclick="logoff()">Sair</a>
+    `;
+    let perfil = document.querySelector("#perfil");
+    options.innerHTML = `
+    <li class="autocomplete-item">
+        <a onclick="paginacadastrarproduto()">Cadastrar Item</a>
+    </li>
+    <li class="autocomplete-item">
+        <a onclick="logoff()">Sair</a>
     </li>
     `;
 }

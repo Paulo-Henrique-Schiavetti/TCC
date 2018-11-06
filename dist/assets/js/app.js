@@ -7,6 +7,9 @@ window.onload = () => {
     dropdown = document.createElement("ul");
     dropdown.setAttribute("class", "autocomplete");
     needAppendDropdown = true;
+    options = document.createElement("ul");
+    options.setAttribute("class", "autocomplete");
+    needAppendPerfil = true;
     // lista
     //let lista = document.querySelector("#lista");
     //let verdadeiralista = document.querySelector("#verdadeiralista");
@@ -22,7 +25,8 @@ window.onload = () => {
 
         paginahome();
         loged ? menuLogado() : "";
-        document.addEventListener("keyup", autocomplete);
+        searchbar.addEventListener("keyup", autocomplete);
+        document.addEventListener("click", cancelEvents);
     
     }, 100);
         
@@ -74,6 +78,27 @@ function alugar(id) {
                 exibircomentarios(element.id);
             });
 }
+function cancelEvents(element) {
+    if (element.target.id != "searchinput" && needAppendDropdown != true) {
+        searchbar.removeChild(dropdown);
+        searchinput.style.borderBottomLeftRadius = '4px';
+        searchinput.style.borderBottomRightRadius = '4px';
+        needAppendDropdown = true;
+    }
+    if (element.target.parentNode.id != "perfil" && needAppendPerfil != true) {
+        perfil.removeChild(options);
+        needAppendPerfil = true;
+    }
+}
+function abrirPerfil() {
+    if(needAppendPerfil) {
+        perfil.appendChild(options);
+        needAppendPerfil = false;
+    } else {
+        perfil.removeChild(options);
+        needAppendPerfil = true;
+    }
+}
 function exibircomentarios(id) {
     let campocomments = document.querySelector("#comentarios");
     axios
@@ -111,16 +136,14 @@ function autocomplete() {
             if (response.data.length == 4) {
                     dropdown.innerHTML += `<li class="autocomplete-item"><a>...</a></li>`;
                 }
+            if (needAppendDropdown){
+                searchbar.appendChild(dropdown);
+                searchinput.style.borderBottomLeftRadius = 0;
+                searchinput.style.borderBottomRightRadius = 0;
+                needAppendDropdown = false;
+            }
         });
-        if (needAppendDropdown){
-            searchbar.appendChild(dropdown);
-            searchinput.style.borderBottomLeftRadius = 0;
-            searchinput.style.borderBottomRightRadius = 0;
-            needAppendDropdown = false;
-        }
-    
 }
-
 function mensagem(texto) {
     modal.style.display = "block";
     modal.innerHTML = texto;
