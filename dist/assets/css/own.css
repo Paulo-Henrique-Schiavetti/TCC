@@ -159,6 +159,7 @@
     height: 40vh;
   }
   .carousel-inner, .carousel-item, .carousel-item, .carousel-item img{
+    margin: 0;
     width: inherit;
     height: inherit;
   }

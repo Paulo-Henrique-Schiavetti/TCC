@@ -109,6 +109,7 @@ function paginacadastrarproduto() {
 }
 function paginacadastrarusuario() {
     content.innerHTML = `
+    <br/><br/><br/>
     <div class="center-page">
         <div class="container login">
         <form class="form-group">
@@ -143,6 +144,7 @@ function paginacadastrarusuario() {
 }
 function paginalogar() {
     content.innerHTML = `
+    <br/><br/><br/>
     <div class="center-page">
         <div class="col-lg-11">
             <div class="center-align">
@@ -169,6 +171,7 @@ function paginalogar() {
 }
 function paginalogar2(email, nome) {
     content.innerHTML = `
+    <br/><br/><br/>
     <div class="center-page">
         <div class="col-lg-11">
             <div class="center-align">
@@ -196,6 +199,7 @@ function paginalogar2(email, nome) {
 }
 function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
     content.innerHTML = `
+    <br/><br/><br/>
     <div class="center-page">
         <div class="container">
             <div class="row box">
@@ -301,6 +305,7 @@ function paginasobre(){
 }
 function paginapesquisa(){
   content.innerHTML =`
+    <br/><br/><br/>
     <div class="center-page">
         <div class="container">
             <div class="col-lg-12"> 
@@ -309,7 +314,7 @@ function paginapesquisa(){
             </div>
         </div>
     </div>
-  `;
+    `;
   let grid = document.querySelector("#grid");
   exibirresultados();
 }
