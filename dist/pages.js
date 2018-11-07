@@ -1,16 +1,45 @@
 function paginahome(){
     content.innerHTML =`
-    <div class="container text-center">
-        <p>Qual é a sua região?</p>
-    </div>
-    <div class="col-lg-9 container"> 
-        <div class="row" id="grid">
-        </div>
-    </div>
-    <div class="container" id="vermais">
-        <ul class="center-align">
-            <button class="btn btn-default" onclick="exibiritens()">Ver Mais</button>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
         </ul>
+    
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="assets/imagens/bola.jpg" alt="Los Angeles">
+        </div>
+        <div class="carousel-item">
+            <img src="assets/imagens/bola.jpg" alt="Chicago">
+        </div>
+        <div class="carousel-item">
+            <img src="assets/imagens/bola.jpg" alt="New York">
+        </div>
+        </div>
+    
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <br/>
+    <div class="center-page">
+        <div class="col-lg-9 container"> 
+            <div class="row" id="grid">
+            </div>
+        </div>
+        <div class="container" id="vermais">
+            <ul class="center-align">
+                <button class="btn btn-default" onclick="exibiritens()">Ver Mais</button>
+            </ul>
+        </div>
     </div>
     `;
     let grid = document.querySelector("#grid");
@@ -55,8 +84,9 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco) {
 }
 function paginacadastrarproduto() {
     content.innerHTML = `
-    <div class="container login">
-    <br/>
+    <div class="center-page">
+        <div class="container login">
+        <br/>
             <form class="form-group">
                 <input type="text" class="form-control" id="camponome" placeholder="Nome"/>
             </form> <br/>
@@ -68,6 +98,7 @@ function paginacadastrarproduto() {
             </form> <br/>
             <input type="file" id="campoimagem"/>
             <button class="btn btn-primary btn-right" onclick="cadastrarproduto()">Cadastrar</button> <br/><br/>
+        </div>
     </div>
     `;
     var camponome = document.querySelector('#camponome');
@@ -78,29 +109,29 @@ function paginacadastrarproduto() {
 }
 function paginacadastrarusuario() {
     content.innerHTML = `
-    <div class="container login">
-    <form class="form-group">
-        <label for="email">E-mail:</label>
-        <input type="email" class="form-control" id="campoemail"/>
-        </form>
+    <div class="center-page">
+        <div class="container login">
         <form class="form-group">
-            <label for="password">Senha:</label>
-            <input type="password" class="form-control" id="camposenha"/>
-        </form>
-        <form class="form-group">
-            <label for="text">Nome:</label>
-            <input type="text" class="form-control" id="camponome"/>
-        </form>
-        <form class="form-group">
-            <label for="phonenum">Telefone:</label>
-            <input type="tel" class="form-control" id="campotelefone""/>
-        </form>
-        <input type="file" id="campoimagem"/>
-        </form>
-        <form>
-        <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
-            <button class="btn btn-default btn-right" onclick="cadastrarusuario()">Cadastrar</button>
-        </form> <br/><br/>
+            <label for="email">E-mail:</label>
+            <input type="email" class="form-control" id="campoemail"/>
+            </form>
+            <form class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" class="form-control" id="camposenha"/>
+            </form>
+            <form class="form-group">
+                <label for="text">Nome:</label>
+                <input type="text" class="form-control" id="camponome"/>
+            </form>
+            <form class="form-group">
+                <label for="phonenum">Telefone:</label>
+                <input type="tel" class="form-control" id="campotelefone""/>
+            </form>
+            <input type="file" id="campoimagem"/>
+            </form>
+            <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
+            <button class="btn btn-default btn-right" onclick="cadastrarusuario()">Cadastrar</button> <br/><br/>
+        </div>
     </div>
     `;
     var campoemail = document.querySelector('#campoemail');
@@ -112,69 +143,75 @@ function paginacadastrarusuario() {
 }
 function paginalogar() {
     content.innerHTML = `
-    <div class="col-lg-11">
-        <div class="center-align">
-                <img src="assets/imagens/icone-usuario.png" class="img-rounded">
-        </div>
-        <p class="center-align">
-            Olá! Digite o seu E-mail
-        </p>
-        <div class="container login">
-            <form>
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" class="form-control" id="email">
-                </div>
-                <button type="button" class="btn btn-default" onclick="validacaoEmail()">Continuar</button>
-                <p>
-                Não tem uma conta? <a class="navbar-brand" href="index.html">Crie uma!</a>
-                </p>
-            </form>
+    <div class="center-page">
+        <div class="col-lg-11">
+            <div class="center-align">
+                    <img src="assets/imagens/icone-usuario.png" class="img-rounded">
+            </div>
+            <p class="center-align">
+                Olá! Digite o seu E-mail
+            </p>
+            <div class="container login">
+                <form>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <button type="button" class="btn btn-default" onclick="validacaoEmail()">Continuar</button>
+                    <p>
+                    Não tem uma conta? <a class="navbar-brand" href="index.html">Crie uma!</a>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
     `;
 }
 function paginalogar2(email, nome) {
     content.innerHTML = `
-    <div class="col-lg-11">
-        <div class="center-align">
-            <img src="assets/imagens/icone-usuario.png" class="img-rounded" id="icone">
+    <div class="center-page">
+        <div class="col-lg-11">
+            <div class="center-align">
+                <img src="assets/imagens/icone-usuario.png" class="img-rounded" id="icone">
+            </div>
+            <p class="center-align">
+            Agora digite a sua senha
+            </p>
+            <div class="container login">
+                <form>
+                    <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" class="form-control" id="senha">
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Mantenha-me conectado</label>
+                    </div>
+                    <button type="button" class="btn btn-default" onclick="validacaoSenha('${email}')">Entrar</button>
+                    <p></p>
+                </form>
+            </div>
         </div>
-        <p class="center-align">
-        Agora digite a sua senha
-        </p>
-        <div class="container login">
-            <form>
-                <div class="form-group">
-                        <label for="senha">Senha:</label>
-                        <input type="password" class="form-control" id="senha">
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox"> Mantenha-me conectado</label>
-                </div>
-                <button type="button" class="btn btn-default" onclick="validacaoSenha('${email}')">Entrar</button>
-                <p></p>
-            </form>
-        </div>
-      </div>
+    </div>
       `;
 }
 function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
     content.innerHTML = `
-    <div class="container">
-      <div class="row box">
-        <div class="col-md-8 center-align">
-          <img class="img-fluid item-img" src="${imagem}" alt="">
+    <div class="center-page">
+        <div class="container">
+            <div class="row box">
+                <div class="col-md-8 center-align">
+                <img class="img-fluid item-img" src="${imagem}" alt="">
+                </div>
+                <div class="col-md-4 right-box">
+                <h1 class="my-4">
+                ${item}
+                </h1>
+                <h3 class="my-3">Descrição</h3>
+                <p>${descricao}</p>
+                <p>Preço: ${preco}, Endereço: ${endereco}, avaliação: ${avaliacao}</p>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 right-box">
-          <h1 class="my-4">
-          ${item}
-          </h1>
-          <h3 class="my-3">Descrição</h3>
-          <p>${descricao}</p>
-          <p>Preço: ${preco}, Endereço: ${endereco}, avaliação: ${avaliacao}</p>
-        </div>
-      </div>
     </div>
     `;
     exibircomentarios();
@@ -259,16 +296,19 @@ function paginasobre(){
                 <textarea id="message" class="textarea-message form-control" placeholder="Digite sua mensagem..." rows="5"></textarea>
                 </div>
         </div>
+    </div>
     `;
 }
 function paginapesquisa(){
   content.innerHTML =`
-  <div class="container">
-      <div class="col-lg-12"> 
-          <div class="row" id="grid">
-          </div>
-      </div>
-  </div>
+    <div class="center-page">
+        <div class="container">
+            <div class="col-lg-12"> 
+                <div class="row" id="grid">
+                </div>
+            </div>
+        </div>
+    </div>
   `;
   let grid = document.querySelector("#grid");
   exibirresultados();
