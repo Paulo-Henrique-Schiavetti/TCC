@@ -67,8 +67,8 @@
     width: 20px;
     height: 20px;
   }
-  .login{
-    width: 60vh;
+  .form-box{
+    width: 35%;
     border: solid 1px rgb(173, 173, 173);
     border-radius: 5px;
     background: white;
@@ -131,6 +131,9 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .space-up {
+    margin-top: 10vh;
+  }
   .space-down {
     margin-bottom: 10vh;
   }
@@ -156,9 +159,9 @@
   }
   .carousel {
     width: 100%;
-    height: 40vh;
+    height: 75vh;
   }
-  .carousel-inner, .carousel-item, .carousel-item, .carousel-item img{
+  .carousel-inner, .carousel-item, .carousel-item img{
     margin: 0;
     width: inherit;
     height: inherit;
