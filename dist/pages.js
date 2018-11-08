@@ -9,7 +9,7 @@ function paginahome(){
         </ul>
     
         <!-- The slideshow -->
-        <div class="carousel-inner">
+        <div class="carousel-inner" onclick="paginacadastrarusuario()">
         <div class="carousel-item active">
             <img src="assets/imagens/carousel1.jpeg" alt="1">
         </div>

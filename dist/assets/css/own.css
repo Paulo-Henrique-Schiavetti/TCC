@@ -165,8 +165,22 @@
     margin: 0;
     width: inherit;
     height: inherit;
+    cursor: pointer;
+  }
+  .carousel-control-prev {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+  }
+  .carousel-control-next {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
   }
   .add-item {
+    position: relative;
     color: green;
-    font-size: 42pt;
+    font-size: 92pt;
+  }
+  .add-item-icon {
+    position: absolute;
+    bottom: 30%;
+    right: 30%;
+    left: 30%;
   }

@@ -67,7 +67,7 @@ function exibirmeusitens(){
         <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100" onclick="paginacadastrarproduto()">
             <div class="card-body center-align add-item">
-                <i class="fa fa-plus-circle"></i>
+                <i class="fa fa-plus-circle add-item-icon"></i>
             </div>
         </div>
         </div>
