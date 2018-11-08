@@ -163,3 +163,7 @@
     width: inherit;
     height: inherit;
   }
+  .add-item {
+    color: green;
+    font-size: 42pt;
+  }

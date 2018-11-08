@@ -63,6 +63,15 @@ function exibirmeusitens(){
         response.data.forEach((element) => {
             item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagemMenor, element.endereco);
         });
+    grid.innerHTML += `
+        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100" onclick="paginacadastrarproduto()">
+            <div class="card-body center-align add-item">
+                <i class="fa fa-plus-circle"></i>
+            </div>
+        </div>
+        </div>
+        `;
     });
 }
 /*
