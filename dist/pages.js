@@ -57,6 +57,9 @@ function menuLogado(){
     let perfil = document.querySelector("#perfil");
     options.innerHTML = `
     <li class="autocomplete-item">
+        <a onclick="paginameusitens()">Meus Itens</a>
+    </li>
+    <li class="autocomplete-item">
         <a onclick="paginacadastrarproduto()">Cadastrar Item</a>
     </li>
     <li class="autocomplete-item">
@@ -209,6 +212,16 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
     </div>
     `;
     exibircomentarios();
+}
+function paginameusitens() {
+    content.innerHTML = `
+    <div class="container">
+        <div class="row" id="grid">
+        </div>
+    </div>
+    `;
+    let grid = document.querySelector("#grid");
+    exibirmeusitens();
 }
 function paginasobre(){
     content.innerHTML = `

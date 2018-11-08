@@ -174,6 +174,19 @@ server.get("/pesquisarparapagina/:nome", function (req, res, next) {
   return next();
 });
 
+server.get("/meusitens/:id", function (req, res, next) {
+  const { id } = req.params;
+  knex('item')
+    .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
+    .where('item.locatario' , id)
+    .select({ 'id': 'item.id', 'nome': 'item.nome', 'imagemMenor': 'item.imagemMenor', 'preço': 'item.preço', 'descrição': 'item.descrição', 'avaliacao': 'item.avaliacao', 'endereco': 'usuarios.endereco', 'data': 'item.data_publicacao' })
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
 server.post("/geolocate", function (req, res, next) {
   const { lat, lng } = req.body
 
