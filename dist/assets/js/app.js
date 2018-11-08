@@ -55,6 +55,16 @@ function exibirresultados(){
         });
     });
 }
+function exibirmeusitens(){
+    var id = usuario.id;
+    axios
+    .get(`/meusitens/${id}`)
+    .then(response => {
+        response.data.forEach((element) => {
+            item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagemMenor, element.endereco);
+        });
+    });
+}
 /*
 // codigo inútil?
 function clicaritem(element) {
