@@ -87,17 +87,19 @@ function paginacadastrarproduto() {
     content.innerHTML = `
     <div class="container space-up form-box">
     <br/>
-        <form class="form-group">
+    <form action="javascript:void(0);" onsubmit="cadastrarproduto()">
+        <div class="form-group">
             <input type="text" class="form-control" id="camponome" placeholder="Nome"/>
-        </form> <br/>
-        <form class="form-group">
+        </div>
+        <div class="form-group">
         <input type="text" class="form-control" id="campopreço" placeholder="Preço"/>
-        </form> <br/>
-        <form class="form-group">
+        </div>
+        <div class="form-group">
         <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
-        </form> <br/>
+        </div>
         <input type="file" id="campoimagem"/>
-        <button class="btn btn-primary btn-right" onclick="cadastrarproduto()">Cadastrar</button> <br/><br/>
+        <button class="btn btn-primary btn-right">Cadastrar</button>
+        </form> <br/><br/>
     </div>
     `;
     var camponome = document.querySelector('#camponome');
@@ -109,22 +111,23 @@ function paginacadastrarproduto() {
 function paginacadastrarusuario() {
     content.innerHTML = `
     <div class="container space-up form-box">
-    <form class="form-group">
+        <form action="javascript:void(0);" onsubmit="cadastrarusuario()">
+        <div class="form-group">
         <label for="email">E-mail:</label>
         <input type="email" class="form-control" id="campoemail"/>
-        </form>
-        <form class="form-group">
+        </div>
+        <div class="form-group">
             <label for="password">Senha:</label>
             <input type="password" class="form-control" id="camposenha"/>
-        </form>
-        <form class="form-group">
+        </div>
+        <div class="form-group">
             <label for="text">Nome:</label>
             <input type="text" class="form-control" id="camponome"/>
-        </form>
-        <form class="form-group">
+        </div>
+        <div class="form-group">
             <label for="phonenum">Telefone:</label>
             <input type="tel" class="form-control" id="campotelefone""/>
-        </form>
+        </div>
         <div class="checkbox">
             <label><input type="checkbox"> obter localização atual.</label>
             <button class="btn btn-default btn-right">selecionar a localização</button>
@@ -134,7 +137,8 @@ function paginacadastrarusuario() {
         </div>
         <input type="file" id="campoimagem"/>
         <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
-        <button class="btn btn-default btn-right" onclick="cadastrarusuario()">Cadastrar</button> <br/><br/>
+        <button class="btn btn-default btn-right">Cadastrar</button> <br/><br/>
+        </form>
     </div>
     `;
     var campoemail = document.querySelector('#campoemail');
@@ -154,15 +158,16 @@ function paginalogar() {
             Olá! Digite o seu E-mail
         </p>
         <div class="container form-box">
-            <form>
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" class="form-control" id="email">
-                </div>
-                <button type="button" class="btn btn-default" onclick="validacaoEmail()">Continuar</button>
-                <p>
-                Não tem uma conta? <a class="navbar-brand" href="index.html">Crie uma!</a>
-                </p>
+            <br/>
+            <form action="javascript:void(0);" onsubmit="validacaoEmail()">
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <button type="button" class="btn btn-default">Continuar</button>
+            <p>
+            Não tem uma conta? <a class="navbar-brand" href="index.html">Crie uma!</a>
+            </p>
             </form>
         </div>
     </div>
@@ -173,22 +178,23 @@ function paginalogar2(email, nome) {
     <div class="col-lg-11 space-up">
         <div class="center-align">
             <img src="assets/imagens/icone-usuario.png" class="img-rounded" id="icone">
+            <p>
+            Agora digite a sua senha
+            </p>
         </div>
-        <p class="center-align">
-        Agora digite a sua senha
-        </p>
         <div class="container form-box">
-            <form>
-                <div class="form-group">
-                        <label for="senha">Senha:</label>
-                        <input type="password" class="form-control" id="senha">
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox"> Mantenha-me conectado</label>
-                </div>
-                <button type="button" class="btn btn-default" onclick="validacaoSenha('${email}')">Entrar</button>
-                <p></p>
+            <br/>
+            <form action="javascript:void(0);" onsubmit="validacaoSenha('${email}')">
+            <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" class="form-control" id="senha">
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> Mantenha-me conectado</label>
+            </div>
+            <button type="button" class="btn btn-default">Entrar</button>
             </form>
+            <br/>
         </div>
     </div>
       `;
