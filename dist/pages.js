@@ -56,14 +56,14 @@ function menuLogado(){
     `;
     let perfil = document.querySelector("#perfil");
     options.innerHTML = `
-    <li class="autocomplete-item">
-        <a onclick="paginameusitens()">Meus Itens</a>
+    <li class="autocomplete-item"  onclick="paginameusitens()">
+        <a>Meus Itens</a>
     </li>
-    <li class="autocomplete-item">
-        <a onclick="paginacadastrarproduto()">Cadastrar Item</a>
+    <li class="autocomplete-item" onclick="paginacadastrarproduto()">
+        <a>Cadastrar Item</a>
     </li>
-    <li class="autocomplete-item">
-        <a onclick="logoff()">Sair</a>
+    <li class="autocomplete-item" onclick="logoff()">
+        <a>Sair</a>
     </li>
     `;
 }
@@ -98,8 +98,8 @@ function paginacadastrarproduto() {
         <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
         </div>
         <input type="file" id="campoimagem"/>
-        <button class="btn btn-primary btn-right">Cadastrar</button>
-        </form> <br/><br/>
+        <button type="submit" class="btn btn-primary btn-right">Cadastrar</button>
+        </form> <br/>
     </div>
     `;
     var camponome = document.querySelector('#camponome');
@@ -111,6 +111,7 @@ function paginacadastrarproduto() {
 function paginacadastrarusuario() {
     content.innerHTML = `
     <div class="container space-up form-box">
+        <br/>
         <form action="javascript:void(0);" onsubmit="cadastrarusuario()">
         <div class="form-group">
         <label for="email">E-mail:</label>
@@ -128,8 +129,8 @@ function paginacadastrarusuario() {
             <label for="phonenum">Telefone:</label>
             <input type="tel" class="form-control" id="campotelefone""/>
         </div>
-        <div class="checkbox">
-            <label><input type="checkbox"> obter localização atual.</label>
+        <div class="checkbox" >
+            <label><input type="checkbox" id="localcheck"> obter localização atual.</label>
             <button class="btn btn-default btn-right">selecionar a localização</button>
         </div>
         <div class="checkbox">
@@ -137,14 +138,16 @@ function paginacadastrarusuario() {
         </div>
         <input type="file" id="campoimagem"/>
         <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
-        <button class="btn btn-default btn-right">Cadastrar</button> <br/><br/>
+        <button type="submit" class="btn btn-default btn-right">Cadastrar</button>
         </form>
+        <br/>
     </div>
     `;
     var campoemail = document.querySelector('#campoemail');
     var camposenha = document.querySelector('#camposenha');
     var camponome = document.querySelector('#camponome');
     var campotelefone = document.querySelector('#campotelefone');
+    var localcheck = document.querySelector('#localcheck');
     var file = document.querySelector('#campoimagem');
     file.addEventListener('change', prepararImagem);
 }
@@ -164,7 +167,7 @@ function paginalogar() {
                 <label for="email">E-mail:</label>
                 <input type="email" class="form-control" id="email">
             </div>
-            <button type="button" class="btn btn-default">Continuar</button>
+            <button type="submit" class="btn btn-default">Continuar</button>
             <p>
             Não tem uma conta? <a class="navbar-brand" href="index.html">Crie uma!</a>
             </p>
@@ -192,7 +195,7 @@ function paginalogar2(email, nome) {
             <div class="checkbox">
                 <label><input type="checkbox"> Mantenha-me conectado</label>
             </div>
-            <button type="button" class="btn btn-default">Entrar</button>
+            <button type="submit" class="btn btn-default">Entrar</button>
             </form>
             <br/>
         </div>
@@ -213,15 +216,19 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
             <h3 class="my-3">Descrição</h3>
             <p>${descricao}</p>
             <p>Preço: ${preco}, Endereço: ${endereco}, avaliação: ${avaliacao}</p>
+            <div class="container" id="chatbox">
+
+            </div>
             </div>
         </div>
     </div>
     `;
-    exibircomentarios();
+    exibirchat(id);
 }
 function paginameusitens() {
     content.innerHTML = `
     <div class="container">
+        <br/><br/>
         <div class="row" id="grid">
         </div>
     </div>

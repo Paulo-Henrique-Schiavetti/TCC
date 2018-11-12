@@ -136,12 +136,10 @@ server.get("/abrirlista/:id", function (req, res, next) {
   return next();
 });
 
-server.get("/comentarios/:id", function (req, res, next) {
+server.get("/exibirchat/:id", function (req, res, next) {
   const { id } = req.params;
-  knex('mensagens')
-    .innerJoin("conversas", "mensagens.conversa_id", "conversas.id")
-    .where("conversas.item_id", id)
-    .select({ "nome": "mensagens.usuario_id", "mensagem": "mensagens.mensagem" })
+  knex('conversas')
+    .where("item_id", id)
     .then((dados) => {
       res.send(dados);
     }, next)

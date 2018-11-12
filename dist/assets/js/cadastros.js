@@ -90,10 +90,12 @@ function cadastrarusuario() {
         mensagemtemporaria('selecione a imagem.')
         return false;
     }
-
-    navigator.geolocation.getCurrentPosition(sucess, error, {
-        enableHighAccuracy: true
-      });
+    if (localcheck.checked) {
+        navigator.geolocation.getCurrentPosition(sucess, error, {
+            enableHighAccuracy: true
+          });
+    }
+    
 
     function sucess(position) {
         const lat = position.coords.latitude;

@@ -92,9 +92,7 @@ function alugar(id) {
             .get(`/pesquisarid/${id}`)
             .then(response => {
                 element = response.data;
-                console.log(element);
                 paginaitem(element.id, element.item, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
-                exibircomentarios(element.id);
             });
 }
 function cancelEvents(element) {
@@ -118,13 +116,16 @@ function abrirPerfil() {
         needAppendPerfil = true;
     }
 }
-function exibircomentarios(id) {
-    let campocomments = document.querySelector("#comentarios");
+function exibirchat(id) {
+    let chatbox = document.querySelector("#chatbox");
     axios
-        .get(`/comentarios/${id}`)
+        .get(`/exibirchat/${id}`)
         .then(response => {
-            response.data.forEach(comments => {
-                campocomments.innerHTML += '<p>' + comments.nome + ': ' + comments.mensagem + '</p>';
+            response.data.forEach(element => {
+                div = document.createElement("div");
+                div.setAttribute("class", "chat-item");
+                div.innerHTML = "<img src='"+element.imagemMenor+"'/>"+element.locador_id;
+                chatbox.appendChild(div);
             });
         });
 }
