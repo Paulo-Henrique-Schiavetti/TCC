@@ -94,8 +94,9 @@ function alugar(id) {
                 element = response.data;
                 if (element.locatario == usuario.id) {
                     paginaitemlocatario(element.id, element.item, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
+                } else {
+                    paginaitem(element.id, element.item, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
                 }
-                paginaitem(element.id, element.item, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
             });
 }
 function cancelEvents(element) {
