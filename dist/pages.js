@@ -1,23 +1,22 @@
 function paginahome(){
     content.innerHTML =`
-    <div id="demo" class="carousel slide space-down" data-ride="carousel">
+        <div id="demo" class="carousel slide space-down" data-ride="carousel">
         <!-- Indicators -->
         <ul class="carousel-indicators">
         <li data-target="#demo" data-slide-to="0" class="active"></li>
         <li data-target="#demo" data-slide-to="1"></li>
         <li data-target="#demo" data-slide-to="2"></li>
         </ul>
-    
         <!-- The slideshow -->
         <div class="carousel-inner" onclick="paginacadastrarusuario()">
         <div class="carousel-item active">
-            <img src="assets/imagens/carousel1.jpeg" alt="1">
+            <img class="img-responsive" src="assets/imagens/carousel1.jpeg" alt="1">
         </div>
         <div class="carousel-item">
-            <img src="assets/imagens/carousel2.jpeg" alt="2">
+            <img class="img-responsive" src="assets/imagens/carousel2.jpeg" alt="2">
         </div>
         <div class="carousel-item">
-            <img src="assets/imagens/carousel3.jpeg" alt="3">
+            <img class="img-responsive" src="assets/imagens/carousel3.jpeg" alt="3">
         </div>
         </div>
     
@@ -29,7 +28,6 @@ function paginahome(){
         <span class="carousel-control-next-icon"></span>
         </a>
     </div>
-    <br/>
     <div class="col-lg-9 container"> 
         <div class="row" id="grid">
         </div>
