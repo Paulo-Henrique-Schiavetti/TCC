@@ -71,7 +71,7 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco) {
     grid.innerHTML += `
     <div class="col-lg-4 col-md-6 mb-4" data-id="${id}">
       <div class="card h-100" onclick="alugar(${id})">
-        <img class="card-img-top" src="${imagem}" height="220px" alt="">
+        <img class="card-img-top" src="${imagem}" height="300px" alt="">
         <div class="card-body">
           <h4 class="card-title">
             ${nome}
@@ -203,6 +203,19 @@ function paginalogar2(email, nome) {
       `;
 }
 function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
+    var estrelas = '';
+            for (e = 0; e < 5; e++) {
+                if (element.avaliacao >= 1) {
+                    estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
+                } else {
+                    if (element.avaliacao > 0) {
+                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
+                    } else {
+                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
+                    }
+                }
+                element.avaliacao -= 1;
+                 }
     content.innerHTML = `
     <div class="container space-up">
         <div class="row box">
@@ -214,8 +227,10 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
             ${item}
             </h1>
             <h3 class="my-3">Descrição</h3>
+            <h5>${estrelas}</h5>
+            <p class="preço">R$${preco}</p>
+            <p>${endereco}</p>
             <p>${descricao}</p>
-            <p>Preço: ${preco}, Endereço: ${endereco}, avaliação: ${avaliacao}</p>
             <div class="container" id="chatbox">
 
             </div>
