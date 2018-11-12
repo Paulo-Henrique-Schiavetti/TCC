@@ -231,6 +231,40 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
             <p class="preço">R$${preco}</p>
             <p>${endereco}</p>
             <p>${descricao}</p>
+            </div>
+        </div>
+    </div>
+    `;
+}
+function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
+    var estrelas = '';
+            for (e = 0; e < 5; e++) {
+                if (element.avaliacao >= 1) {
+                    estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
+                } else {
+                    if (element.avaliacao > 0) {
+                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
+                    } else {
+                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
+                    }
+                }
+                element.avaliacao -= 1;
+                 }
+    content.innerHTML = `
+    <div class="container space-up">
+        <div class="row box">
+            <div class="col-md-8 center-align">
+            <img class="img-fluid item-img" src="${imagem}" alt="">
+            </div>
+            <div class="col-md-4 right-box">
+            <h1 class="my-4">
+            ${item}
+            </h1>
+            <h3 class="my-3">Descrição</h3>
+            <h5>${estrelas}</h5>
+            <p class="preço">R$${preco}</p>
+            <p>${endereco}</p>
+            <p>${descricao}</p>
             <div class="container" id="chatbox">
 
             </div>

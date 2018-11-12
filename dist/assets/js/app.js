@@ -92,6 +92,9 @@ function alugar(id) {
             .get(`/pesquisarid/${id}`)
             .then(response => {
                 element = response.data;
+                if (element.locatario == usuario.id) {
+                    paginaitemlocatario(element.id, element.item, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
+                }
                 paginaitem(element.id, element.item, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
             });
 }
