@@ -106,7 +106,7 @@ server.get("/pesquisarid/:id", function (req, res, next) {
     .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
     .where("item.id", id)
     .first()
-    .select('item.id', 'item.nome as item', 'item.descrição', 'item.avaliacao', 'item.preço', 'usuarios.endereco', 'item.imagemCompleta', 'usuarios.nome', 'usuarios.imagemMenor')
+    .select('item.id', 'item.locatario as locatario','item.nome as item', 'item.descrição', 'item.avaliacao', 'item.preço', 'usuarios.endereco', 'item.imagemCompleta', 'usuarios.nome', 'usuarios.imagemMenor')
     .then((dados) => {
       res.send(dados);
     }, next)
