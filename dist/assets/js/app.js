@@ -161,7 +161,7 @@ function autocomplete() {
                 dropdown.innerHTML += `<li class="autocomplete-item" onclick="alugar(${element.id})"><a><img class="autocomplete-icon" src="${element.imagemMenor}" alt=""> ${nomeAbreviado}</a></li>`;
             })
             if (response.data.length == 4) {
-                    dropdown.innerHTML += `<li class="autocomplete-item"><a>...</a></li>`;
+                    dropdown.innerHTML += `<li class="autocomplete-item" onclick="paginapesquisa();"><a>...</a></li>`;
                 }
             if (needAppendDropdown){
                 searchbar.appendChild(dropdown);
