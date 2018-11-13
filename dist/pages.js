@@ -55,6 +55,7 @@ function menuLogado(){
     let perfil = document.querySelector("#perfil");
     options.innerHTML = `
     <li class="perfil-item"  onclick="paginameusitens()">
+    <li class="autocomplete-item"  onclick="paginameusitens()">
         <a>Meus Itens</a>
     </li>
     <li class="perfil-item" onclick="paginacadastrarproduto()">
@@ -63,6 +64,7 @@ function menuLogado(){
     <li class="perfil-item" onclick="logoff()">
         <a>Sair</a>
     </li>
+    </div>
     `;
 }
 function item(id, locatario, nome, preco, descricao, imagem, endereco) {
@@ -235,7 +237,7 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
                 <p>${endereco}</p>
                 <p>${descricao}</p>
                 <div class="center-align">
-                    <button class="btn btn-default btn-big" onclick="">Iniciar chat</button>
+                    <button class="btn btn-default btn-big" onclick=""><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
                 </div>
             </div>
         </div>
@@ -257,22 +259,21 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
                 element.avaliacao -= 1;
                  }
     content.innerHTML = `
-    <div class="container space-up">
+    <div class="container space-up center-space">
         <div class="row box">
             <div class="col-md-8 center-align">
             <img class="img-fluid item-img" src="${imagem}" alt="">
             </div>
-            <div class="col-md-4 right-box">
-            <h1 class="my-4">
+            <div class="col-md-3 right-box">
+            <h3 class="my-3 center-align">
             ${item}
-            </h1>
-            <h3 class="my-3">Descrição</h3>
-            <h5>${estrelas}</h5>
+            </h3>
+            <h5 class="pulado">${estrelas}</h5>
             <p class="preço">R$${preco}</p>
-            <p>${endereco}</p>
-            <p>${descricao}</p>
+            <p class="pulado"><i class="fa fa-map-marker" aria-hidden="true"></i> ${endereco}</p>
+            <h3 class="pulado">Descrição</h3>
+            <p class="pulado">${descricao}</p>
             <div class="container" id="chatbox">
-
             </div>
             </div>
         </div>
