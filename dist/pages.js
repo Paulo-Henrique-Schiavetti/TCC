@@ -456,6 +456,306 @@ function paginasobre(){
     </div>
     `;
 }
+function paginaajuda() {
+    content.innerHTML =`
+    <!-- Portfolio Grid -->
+    <section class="bg-light" id="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Central de Ajuda</h2>
+            <h3 class="section-subheading text-muted">Aqui você poderá esclarecer suas principais dúvidas</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/imagens/maos.jpg" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4>Como alugar um item ? </h4>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/imagens/porta.jpg" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4>Como me cadastrar ?</h4>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/imagens/porco.jpg" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4>Como cadastrar um item para alugar ?</h4>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/imagens/van.jpg" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4>Como posso fretar meu produto ?</h4>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/imagens/seguro.jpg" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4>Como posso me previnir de hackers ou falsos negociantes ?</h4>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="assets/imagens/informacao.jpg" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4>Demais informações</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+
+    <!-- Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">Processo de Locação</h2>
+                  <p>Após encontrar o item do seu desejo, você pode solicitar a locação para o locador, simplesmente apertando o botão de <b>"Allugar"</b>, é muito fácil!</p>
+                    Ao selecionar o item do seu agrado, é possível ver as características como o tipo de produto, o preço pela diária, o usuário que publicou o produto, a descrição feita pelo locador, etc.
+                    Se o item cobrir todas as suas expectativas e você estiver disposto a efetuar o acordo, pressione o botão <b>"Allugar"</b> e logo após, selecione no calendário os dias que você irá utilizar o produto.
+                    Logo após isso, uma notificação sua chegará ao locador sobre seu item, com todas suas informações, como os seus dados, os dias que você irá utilizar o produto e também o motivo adotado pela locação de tal produto.
+                    Em seguida, o locador irá responder positivamente ou não sobre o seu pedido, caso ele aceite sua oferta, vai ser aberto um chat entre você e o locador para organizarem onde e quando será realizada a entrega e a devolução do produto.
+                  </p>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fas fa-times"></i>
+                    Entendi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">Cadastrar usuário</h2>
+                  <p>Crie sua conta agora e saia alugando os itens que você precise.</p>
+                  Caso você esteja navegando pelo nosso site como visitante, primeiramente, seja bem-vindo! Em seguida, eu convido você a criar sua própria conta Allugar, é muito mais fácil do que parece.
+                  Para você se cadastrar como um usuário, primeiramente clique em <b>"Cadastrar"</b>> na parte superior direita da página, logo após, é preciso que você insira uma série de seus dados para que sua conta seja criada (Não se esqueça de aceitar os termos e condições de nosso sistema)
+                  Dados como Nome completo, E-mail, Endereço e Telefone são essênciais para o seu cadastro e para uma eventual negociação.
+                  Após esses procedimentos, você poderá ter acesso a locações de todos os itens que estão disponíveis no nosso site, e então, que comece os jogos.
+                </p>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fas fa-times"></i>
+                    Entendi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">Cadastro de itens</h2>
+                  <p>Logo após o seu cadastro como usuário, você ganhan o direito de publicar qualquer item para locação, gerando uma renda extra para você</p>
+                  Para que um item seja publicado para locação, primeiramente você deverá possuir uma conta Allugar e estar logado ao sistema.
+                  Depois do processo de locação, ao clicar no botão <b>"Perfil"</b>, aparecerá uma opção <b>"Cadastrar Item"</b>.
+                  Assim como no cadastro de usuário, você terá de inserir dados do seu item, como foto recente, tipo de produto, descrição e preço cobrado pela diária, logo após, clique em <b>"Cadatrar Item"</b>
+                  Depois de Cadastrado, seu item está sujeito a receber ofertas de qualquer usuário do site, assim que alguém se interessar pelo seu item, uma notificação chegrará até você, a oferta fica a seu gosto, podendo aceitá-la como também negá-la. 
+                  </p>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fas fa-times"></i>
+                    Entendi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">Sistema de Fretamento</h2>
+                  <p>Se você estiver longe de seu item desejado, isso não é um problema, nós resolvemos isso para você.</p>
+                  <p>Suponhamos que você tenha encontrado seu item ideal, porém a distância entre você e o locador impossibilita que o item chegue até você, com o nosso sistema de fretamento isso não vai acontecer.
+                    Ao entrar em negociação com o locador sobre determinado item, aparecerá uma opção <b>"Fretamento"</b> do item, onde você poderá pedir que a equipe Allugar de realize um transporte, sendo cobrada uma taxa sobre o processo.
+                    Após solicitar o fretamento,você não precisará se preocupar em questão ao transporte, desde a busca até a entrega do fica de responsabilidade exclusiva de nossa equipe. 
+                  </p>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fas fa-times"></i>
+                    Entendi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">Segurança</h2>
+                  <p>Para que você tenha uma boa experiência com nosso ambiente, é preciso que você tenha conforto, facilidade e principalmente segurança.</p>
+                  A equipe Allugar recomenda que, antes de você começar uma negociação, seja feita uma análise sobre o usuário e o item. O sistema disponibiliza comentários sobre ambos, o que facilita uma pesquisa sobre cada item e cada usuário em particular.
+                  Verifique se o usuário é confiável para os outros usuários, se seu item tem um bom histórico, para garantir uma boa negociação e um bom ambiente.</p>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fas fa-times"></i>
+                    Entendi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">Termos e Condições</h2>
+                  <p>Comprrendendo de que o sistema de gerenciamento Allugar é um ambiente social e que aceita todas os tipos de usuários, é preciso que termos e condições sejam estabelecidos.</p> 
+                  Para manter uma boa comunicação entre o sistema e você, a equipe Allugar estabeleceu termos para o serviço do site, é preciso que você aceite os termos para continuar seu cadastro e cada desrespeito ocorrerá numa possível banição do sistema.
+                
+                  </br>
+                  Veja : <h3><a href="termo e política.docx">Allugar - Termos e Condições</a></h3>
+                  </p>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fas fa-times"></i>
+                    Entendi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+}
 function paginapesquisa(){
   content.innerHTML =`
     <div class="col-lg-10 container space-up">
