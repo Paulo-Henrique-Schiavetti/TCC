@@ -125,14 +125,45 @@ function abrirPerfil() {
 }
 function exibirchat(id) {
     let chatbox = document.querySelector("#chatbox");
+    chatbox.innerHTML = `
+    <h3 class=" text-center">Chat</h3>
+    <div class="messaging">
+    <div class="inbox_msg">
+    <div class="inbox_people">
+    <div class="headind_srch">
+    <div class="recent_heading">
+    <h4>Recent</h4>
+    </div>
+    <div class="srch_bar">
+    <div class="stylish-input-group">
+    <input type="text" class="search-bar"  placeholder="Search" >
+    <span class="input-group-addon">
+    <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+    </span> </div>
+    </div>
+    </div>
+    <div class="inbox_chat" id="inboxchat">
+
+    </div>
+    </div>
+    </div>
+        `;
+    let inboxchat = document.querySelector("#inboxchat");
     axios
         .get(`/exibirchat/${id}`)
         .then(response => {
             response.data.forEach(element => {
                 div = document.createElement("div");
-                div.setAttribute("class", "chat-item");
-                div.innerHTML = "<img src='"+element.imagemMenor+"'/>"+element.locador_id;
-                chatbox.appendChild(div);
+                div.setAttribute("class", "chat_list");
+                div.innerHTML = `
+                <div class="chat_people">
+                <div class="chat_img"> <img src="${element.imagemMenor}" alt="sunil"> </div>
+                <div class="chat_ib">
+                <h5>${element.nome} <span class="chat_date">Dec 25</span></h5>
+                </div>
+                </div>
+                `;
+                inboxchat.appendChild(div);
             });
         });
 }

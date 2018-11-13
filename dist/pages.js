@@ -273,7 +273,8 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
             <p class="pulado"><i class="fa fa-map-marker" aria-hidden="true"></i> ${endereco}</p>
             <h3 class="pulado">Descrição</h3>
             <p class="pulado">${descricao}</p>
-            <div class="container" id="chatbox">
+            <div class="container chat-box" id="chatbox">
+            
             </div>
             </div>
         </div>
