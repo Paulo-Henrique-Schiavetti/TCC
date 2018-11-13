@@ -124,31 +124,6 @@ function abrirPerfil() {
     }
 }
 function exibirchat(id) {
-    let chatbox = document.querySelector("#chatbox");
-    chatbox.innerHTML = `
-    <h3 class=" text-center">Chat</h3>
-    <div class="messaging">
-    <div class="inbox_msg">
-    <div class="inbox_people">
-    <div class="headind_srch">
-    <div class="recent_heading">
-    <h4>Recent</h4>
-    </div>
-    <div class="srch_bar">
-    <div class="stylish-input-group">
-    <input type="text" class="search-bar"  placeholder="Search" >
-    <span class="input-group-addon">
-    <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-    </span> </div>
-    </div>
-    </div>
-    <div class="inbox_chat" id="inboxchat">
-
-    </div>
-    </div>
-    </div>
-        `;
-    let inboxchat = document.querySelector("#inboxchat");
     axios
         .get(`/exibirchat/${id}`)
         .then(response => {
@@ -213,9 +188,6 @@ function mensagemtemporaria(texto) {
     setTimeout(() => {
         modal.style.display = "none";
     }, 1000);
-}
-function clickimagem(){
-    file.click();
 }
 // lista de desejos
 function add(id) {

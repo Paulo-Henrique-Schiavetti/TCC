@@ -89,7 +89,7 @@ font-size: 18px;
 .mesgs {
   float: left;
   padding: 30px 15px 0 25px;
-  width: 60%;
+  width: 100%;
 }
 
  .sent_msg p {
@@ -130,6 +130,6 @@ font-size: 18px;
 }
 .messaging { padding: 0 0 50px 0;}
 .msg_history {
-  height: 516px;
+  height: 10em;
   overflow-y: auto;
 }
