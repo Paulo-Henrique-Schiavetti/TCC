@@ -30,20 +30,48 @@
     cursor: pointer;
   }
   .perfil {
-    position: relative;
     display: flex;
+    position: relative;
   }
-  .perfil-icon {
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-  }
-  .autocomplete {
+  .perfil-options {
+    color: white;
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
     position: absolute;
-    top: 6.9vh;
+    top: 2.5em;
     right:0;
     left:0;
-    font-size: 12pt;
+    background-color: #2b91ff;
+    border-right: solid 2px #0980ff;
+    border-left: solid 2px #0980ff;
+    border-bottom: solid 2px #0980ff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 0;
+    cursor: pointer;
+  }
+  .perfil-icon {
+    border-radius: 10px;
+    min-width: 2.5em;
+    min-height: 2.5em;
+    max-width: 2.8em;
+    max-height: 2.8em;
+  }
+  .perfil-item {
+    border-top: solid 1px #0980ff;
+    list-style: none;
+    padding: 0.5vh;
+  }
+  .perfil-item:hover {
+    background-color: #1888ff;
+  }
+  .autocomplete {
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 6.9vh;
+    right: 0.1%;
+    left:0.1%;
     background-color: #fbfbfb;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -63,7 +91,6 @@
     height: 20px;
   }
   .form-box{
-    width: 35%;
     border: solid 1px rgb(173, 173, 173);
     border-radius: 5px;
     background: white;
@@ -136,10 +163,10 @@
     justify-content: center;
   }
   .space-up {
-    margin-top: 10vh;
+    margin-top: 2em;
   }
   .space-down {
-    margin-bottom: 10vh;
+    margin-bottom: 7em;
   }
   .item-img {
     max-height: 80vh;
@@ -164,6 +191,7 @@
   .carousel {
     width: 100%;
     height: 80vh;
+    margin-bottom: 2em;
   }
   .carousel-inner, .carousel-item, .carousel-item img{
     margin: 0;
@@ -177,25 +205,27 @@
   .carousel-control-next {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
   }
-  .add-item {
-    position: relative;
+  .add-item i {
     color: green;
-    font-size: 92pt;
-  }
-  .add-item-icon {
-    position: absolute;
-    bottom: 30%;
-    right: 30%;
-    left: 30%;
-  }
-  .rodape{
-    background: #0072ec;
+    font-size: 126pt;
+    text-align: center;
   }
   .preço{
     color: rgb(0, 182, 9);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20pt;
-    padding-left: 11%;
+  }
+  .footer {
+      clear: both;
+      position: relative;
+      z-index: 10;
+      height: 2em;
+      margin-top: -2em;
+  }
+  .btn-big {
+    width: 10em;
+    height: 2em;
+    font-size: 2em;
   }
 
   @media only screen and (max-width: 600px) {
@@ -203,14 +233,7 @@
       width: 100%;
       height: 100%;
     }
-  }
-  .drop{
-    background-color: #0072ec;
-    color: #fff;
-  }
-  .botao-img {
-    color: #fff
-  }
-  .pulado{
-    padding-left: 11%;
+    .form-box{
+      width: 80%;
+    }
   }

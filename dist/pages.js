@@ -1,6 +1,6 @@
 function paginahome(){
     content.innerHTML =`
-        <div id="demo" class="carousel slide space-down" data-ride="carousel">
+        <div id="demo" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ul class="carousel-indicators">
         <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -28,7 +28,7 @@ function paginahome(){
         <span class="carousel-control-next-icon"></span>
         </a>
     </div>
-    <div class="col-lg-9 container"> 
+    <div class="col-lg-10 container"> 
         <div class="row" id="grid">
         </div>
     </div>
@@ -45,8 +45,8 @@ function paginahome(){
 }
 function menuLogado(){
     navbar.innerHTML = `
-    <li class="nav-item active perfil" id="perfil">
-    <img src="${usuario.imagemMenor}" alt="" class="perfil-icon"/><a class="nav-link" onclick="abrirPerfil()">${usuario.nome}</a>
+    <li class="nav-item active perfil" id="perfil" onclick="abrirPerfil()">
+    <img src="${usuario.imagemMenor}" alt="" class="perfil-icon"/><a class="nav-link">${usuario.nome}</a>
     </li>
     <li class="nav-item active">
       <a class="nav-link" onclick="paginasobre()">Sobre</a>
@@ -54,14 +54,14 @@ function menuLogado(){
     `;
     let perfil = document.querySelector("#perfil");
     options.innerHTML = `
-    <div class ="drop">
+    <li class="perfil-item"  onclick="paginameusitens()">
     <li class="autocomplete-item"  onclick="paginameusitens()">
         <a>Meus Itens</a>
     </li>
-    <li class="autocomplete-item" onclick="paginacadastrarproduto()">
+    <li class="perfil-item" onclick="paginacadastrarproduto()">
         <a>Cadastrar Item</a>
     </li>
-    <li class="autocomplete-item" onclick="logoff()">
+    <li class="perfil-item" onclick="logoff()">
         <a>Sair</a>
     </li>
     </div>
@@ -85,21 +85,24 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco) {
 }
 function paginacadastrarproduto() {
     content.innerHTML = `
-    <div class="container space-up form-box">
-    <br/>
-    <form action="javascript:void(0);" onsubmit="cadastrarproduto()">
-        <div class="form-group">
-            <input type="text" class="form-control" id="camponome" placeholder="Nome"/>
+    <div class="col-lg-5 space-up space-down">
+        <div class="container form-box">
+            <br/>
+            <form action="javascript:void(0);" onsubmit="cadastrarproduto()">
+            <div class="form-group">
+                <input type="text" class="form-control" id="camponome" placeholder="Nome"/>
+            </div>
+            <div class="form-group">
+            <input type="text" class="form-control" id="campopreço" placeholder="Preço"/>
+            </div>
+            <div class="form-group">
+            <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
+            </div>
+            <input type="file" id="campoimagem"/>
+            <button type="submit" class="btn btn-primary btn-right">Cadastrar</button>
+            </form> 
+            <br/>
         </div>
-        <div class="form-group">
-        <input type="text" class="form-control" id="campopreço" placeholder="Preço"/>
-        </div>
-        <div class="form-group">
-        <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
-        </div>
-        <input class="botao-img" type="file" id="campoimagem"/>
-        <button type="submit" class="btn btn-primary btn-right">Cadastrar</button>
-        </form> <br/>
     </div>
     `;
     var camponome = document.querySelector('#camponome');
@@ -110,37 +113,39 @@ function paginacadastrarproduto() {
 }
 function paginacadastrarusuario() {
     content.innerHTML = `
-    <div class="container space-up form-box">
-        <br/>
-        <form action="javascript:void(0);" onsubmit="cadastrarusuario()">
-        <div class="form-group">
-        <label for="email">E-mail:</label>
-        <input type="email" class="form-control" id="campoemail"/>
+    <div class="col-lg-5 space-up">
+        <div class="container form-box">
+            <br/>
+            <form action="javascript:void(0);" onsubmit="cadastrarusuario()">
+            <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" class="form-control" id="campoemail"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" class="form-control" id="camposenha"/>
+            </div>
+            <div class="form-group">
+                <label for="text">Nome:</label>
+                <input type="text" class="form-control" id="camponome"/>
+            </div>
+            <div class="form-group">
+                <label for="phonenum">Telefone:</label>
+                <input type="tel" class="form-control" id="campotelefone""/>
+            </div>
+            <div class="checkbox" >
+                <label><input type="checkbox" id="localcheck"> obter localização atual.</label>
+                <!--<button class="btn btn-default btn-right">selecionar a localização</button>-->
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox">lí e concordo com os <a href="">termos de uso</a>.</label>
+            </div>
+            <input type="file" id="campoimagem"/>
+            <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
+            <button type="submit" class="btn btn-default btn-right">Cadastrar</button>
+            </form>
+            <br/>
         </div>
-        <div class="form-group">
-            <label for="password">Senha:</label>
-            <input type="password" class="form-control" id="camposenha"/>
-        </div>
-        <div class="form-group">
-            <label for="text">Nome:</label>
-            <input type="text" class="form-control" id="camponome"/>
-        </div>
-        <div class="form-group">
-            <label for="phonenum">Telefone:</label>
-            <input type="tel" class="form-control" id="campotelefone""/>
-        </div>
-        <div class="checkbox" >
-            <label><input type="checkbox" id="localcheck"> obter localização atual.</label>
-            <button class="btn btn-default btn-right">selecionar a localização</button>
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox">lí e concordo com os <a href="">termos de uso</a>.</label>
-        </div>
-        <input class="botao-img" type="file" id="campoimagem"/>
-        <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
-        <button type="submit" class="btn btn-default btn-right">Cadastrar</button>
-        </form>
-        <br/>
     </div>
     `;
     var campoemail = document.querySelector('#campoemail');
@@ -153,13 +158,13 @@ function paginacadastrarusuario() {
 }
 function paginalogar() {
     content.innerHTML = `
-    <div class="col-lg-11 space-up">
+    <div class="col-lg-4 space-up space-down">
         <div class="center-align">
-                <img src="assets/imagens/icone-usuario.png" class="img-rounded">
+            <img src="assets/imagens/icone-usuario.png" class="img-rounded">
+            <p>
+                Olá! Digite o seu E-mail
+            </p>
         </div>
-        <p class="center-align">
-            Olá! Digite o seu E-mail
-        </p>
         <div class="container form-box">
             <br/>
             <form action="javascript:void(0);" onsubmit="validacaoEmail()">
@@ -178,7 +183,7 @@ function paginalogar() {
 }
 function paginalogar2(email, nome) {
     content.innerHTML = `
-    <div class="col-lg-11 space-up">
+    <div class="col-lg-4 space-up space-down">
         <div class="center-align">
             <img src="assets/imagens/icone-usuario.png" class="img-rounded" id="icone">
             <p>
@@ -220,17 +225,20 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
     <div class="container space-up">
         <div class="row box">
             <div class="col-md-8 center-align">
-            <img class="img-fluid item-img" src="${imagem}" alt="">
+                <img class="img-fluid item-img" src="${imagem}" alt="">
             </div>
             <div class="col-md-4 right-box">
-            <h1 class="my-4">
-            ${item}
-            </h1>
-            <h3 class="my-3">Descrição</h3>
-            <h5>${estrelas}</h5>
-            <p class="preço">R$${preco}</p>
-            <p>${endereco}</p>
-            <p>${descricao}</p>
+                <h1 class="my-4">
+                ${item}
+                </h1>
+                <h3 class="my-3">Descrição</h3>
+                <h5>${estrelas}</h5>
+                <p class="preço">R$${preco}</p>
+                <p>${endereco}</p>
+                <p>${descricao}</p>
+                <div class="center-align">
+                    <button class="btn btn-default btn-big" onclick=""><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
+                </div>
             </div>
         </div>
     </div>
@@ -266,8 +274,6 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
             <h3 class="pulado">Descrição</h3>
             <p class="pulado">${descricao}</p>
             <div class="container" id="chatbox">
-            <br/><br/>
-                <button type="submit" class="btn btn-chat"><i class="fa fa-comments" aria-hidden="true"></i> Iniciar Chat</button>
             </div>
             </div>
         </div>
@@ -277,8 +283,7 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
 }
 function paginameusitens() {
     content.innerHTML = `
-    <div class="container">
-        <br/><br/>
+    <div class="col-lg-10 container space-up">
         <div class="row" id="grid">
         </div>
     </div>
@@ -356,6 +361,7 @@ function paginasobre(){
             <h2 class="my-4 center-align">Fale Conosco</h2>
         </div>
         <div class="col-lg-6 text-center">
+            <form action="javascript:void(0);" onsubmit="faleconosco();">
             <div class="form-group">
                 <input type="text" id="name" class="form-control" placeholder="Nome">
             </div>
@@ -366,16 +372,15 @@ function paginasobre(){
                 <textarea id="message" class="textarea-message form-control" placeholder="Digite sua mensagem..." rows="5"></textarea>
             </div>
             <button type="button" class="btn btn-default">Enviar</button>
+            </form>
         </div>
     </div>
     `;
 }
 function paginapesquisa(){
   content.innerHTML =`
-    <div class="container space-up">
-        <div class="col-lg-12"> 
-            <div class="row" id="grid">
-            </div>
+    <div class="col-lg-10 container space-up">
+        <div class="row" id="grid">
         </div>
     </div>
     `;

@@ -94,6 +94,23 @@ function cadastrarusuario() {
         navigator.geolocation.getCurrentPosition(sucess, error, {
             enableHighAccuracy: true
           });
+    } else {
+        var imagemCompleta = localStorage.getItem('imagemCompleta');
+        var imagemMenor = localStorage.getItem('imagemMenor');
+
+        axios
+            .post('/cadastrarusuario', {
+                email: campoemail.value, senha: camposenha.value, nome: camponome.value, telefone: campotelefone.value, avaliacao: campoavaliacao, imagemMenor: imagemMenor, imagemCompleta: imagemCompleta
+            })
+            .then(()=>{
+                mensagemtemporaria('A sua conta foi cadastrada!');
+                localStorage.setItem('imagemCompleta', "");
+                localStorage.setItem('imagemMenor', "");
+                login(campoemail.value, camposenha.value);
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
     }
     
 

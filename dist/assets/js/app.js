@@ -8,7 +8,7 @@ window.onload = () => {
     dropdown.setAttribute("class", "autocomplete");
     needAppendDropdown = true;
     options = document.createElement("ul");
-    options.setAttribute("class", "autocomplete");
+    options.setAttribute("class", "perfil-options");
     needAppendPerfil = true;
     // lista
     //let lista = document.querySelector("#lista");
@@ -65,9 +65,12 @@ function exibirmeusitens(){
         });
     grid.innerHTML += `
         <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100" onclick="paginacadastrarproduto()">
-            <div class="card-body center-align add-item">
-                <i class="fa fa-plus-circle add-item-icon"></i>
+        <div class="card h-100 add-item" onclick="paginacadastrarproduto()">
+            <i class="fa fa-plus-circle card-img-top"></i>
+            <div class="card-body center-align">
+            <h4 class="card-title">
+            Cadastrar item
+            </h4>
             </div>
         </div>
         </div>
@@ -158,7 +161,7 @@ function autocomplete() {
                 dropdown.innerHTML += `<li class="autocomplete-item" onclick="alugar(${element.id})"><a><img class="autocomplete-icon" src="${element.imagemMenor}" alt=""> ${nomeAbreviado}</a></li>`;
             })
             if (response.data.length == 4) {
-                    dropdown.innerHTML += `<li class="autocomplete-item"><a>...</a></li>`;
+                    dropdown.innerHTML += `<li class="autocomplete-item" onclick="paginapesquisa();"><a>...</a></li>`;
                 }
             if (needAppendDropdown){
                 searchbar.appendChild(dropdown);
