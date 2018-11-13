@@ -54,6 +54,7 @@ function menuLogado(){
     `;
     let perfil = document.querySelector("#perfil");
     options.innerHTML = `
+    <div class ="drop">
     <li class="autocomplete-item"  onclick="paginameusitens()">
         <a>Meus Itens</a>
     </li>
@@ -63,6 +64,7 @@ function menuLogado(){
     <li class="autocomplete-item" onclick="logoff()">
         <a>Sair</a>
     </li>
+    </div>
     `;
 }
 function item(id, locatario, nome, preco, descricao, imagem, endereco) {
@@ -95,7 +97,7 @@ function paginacadastrarproduto() {
         <div class="form-group">
         <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
         </div>
-        <input type="file" id="campoimagem"/>
+        <input class="botao-img" type="file" id="campoimagem"/>
         <button type="submit" class="btn btn-primary btn-right">Cadastrar</button>
         </form> <br/>
     </div>
@@ -134,7 +136,7 @@ function paginacadastrarusuario() {
         <div class="checkbox">
             <label><input type="checkbox">lí e concordo com os <a href="">termos de uso</a>.</label>
         </div>
-        <input type="file" id="campoimagem"/>
+        <input class="botao-img" type="file" id="campoimagem"/>
         <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
         <button type="submit" class="btn btn-default btn-right">Cadastrar</button>
         </form>
@@ -249,22 +251,23 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
                 element.avaliacao -= 1;
                  }
     content.innerHTML = `
-    <div class="container space-up">
+    <div class="container space-up center-space">
         <div class="row box">
             <div class="col-md-8 center-align">
             <img class="img-fluid item-img" src="${imagem}" alt="">
             </div>
-            <div class="col-md-4 right-box">
-            <h1 class="my-4">
+            <div class="col-md-3 right-box">
+            <h3 class="my-3 center-align">
             ${item}
-            </h1>
-            <h3 class="my-3">Descrição</h3>
-            <h5>${estrelas}</h5>
+            </h3>
+            <h5 class="pulado">${estrelas}</h5>
             <p class="preço">R$${preco}</p>
-            <p>${endereco}</p>
-            <p>${descricao}</p>
+            <p class="pulado"><i class="fa fa-map-marker" aria-hidden="true"></i> ${endereco}</p>
+            <h3 class="pulado">Descrição</h3>
+            <p class="pulado">${descricao}</p>
             <div class="container" id="chatbox">
-
+            <br/><br/>
+                <button type="submit" class="btn btn-chat"><i class="fa fa-comments" aria-hidden="true"></i> Iniciar Chat</button>
             </div>
             </div>
         </div>
