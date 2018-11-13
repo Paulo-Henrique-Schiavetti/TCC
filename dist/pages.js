@@ -302,40 +302,40 @@ function paginasobre(){
         </div>
         <br/><br>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/faell.jpg" width="200px" alt="">
           <h3>Rafael Sousa
           </h3>
-          <i>Gerente</i>
+          <i>Gerente, ex atleta</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/paulo.jpg" width="200px" alt="">
           <h3>Paulo Schiavetti
           </h3>
-          <i>Programador Back-End</i>
+          <i>Programador Back-End, atleta</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/lopes.jpg" width="200px"alt="">
           <h3>Gabriel Lopes
           </h3>
-          <i>Programador Front-End</i>
+          <i>Programador Front-End, atleta</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+        <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/larissaa.jpg" width="200px" alt="">
           <h3>Larissa Adriana
           </h3>
-          <i>Documentação</i>
+          <i>Documentação, atleta</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/talvez.jpg" width="200px" alt="">
           <h3>Liandra Manara
           </h3>
-          <i>Documentação</i>
+          <i>Documentação, atleta</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/igor.jpg" width="200px" alt="">
           <h3>Igor Teruel
           </h3>
-          <i>Banco de Dados</i>
+          <i>Banco de Dados, Atleta</i>
         </div>
       </div>
       <br/>
