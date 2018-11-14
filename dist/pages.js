@@ -118,27 +118,31 @@ function paginacadastrarusuario() {
             <br/>
             <form action="javascript:void(0);" onsubmit="cadastrarusuario()">
             <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input type="email" class="form-control" id="campoemail"/>
-            </div>
-            <div class="form-group">
-                <label for="password">Senha:</label>
-                <input type="password" class="form-control" id="camposenha"/>
-            </div>
-            <div class="form-group">
-                <label for="text">Nome:</label>
+                <label for="text">Nome</label>
                 <input type="text" class="form-control" id="camponome"/>
             </div>
             <div class="form-group">
-                <label for="phonenum">Telefone:</label>
+                <label for="phonenum">Telefone</label>
                 <input type="tel" class="form-control" id="campotelefone""/>
             </div>
+            <div class="form-group">
+                <label for="phonenum">Endereço</label>
+                <input type="tel" class="form-control" id="campoendereco""/>
             <div class="checkbox" >
-                <label><input type="checkbox" id="localcheck"> obter localização atual.</label>
-                <!--<button class="btn btn-default btn-right">selecionar a localização</button>-->
+            <label><input type="checkbox" id="localcheck">Obter localização atual</label>
+            <!--<button class="btn btn-default btn-right">Selecionar a localização</button>-->
+        </div>
+            </div>
+            <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" id="campoemail"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" class="form-control" id="camposenha"/>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox">lí e concordo com os <a href="">termos de uso</a>.</label>
+                <label><input type="checkbox">Li e concordo com os <a href="">Termos de uso</a>.</label>
             </div>
             <input type="file" id="campoimagem"/>
             <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
@@ -436,24 +440,6 @@ function paginasobre(){
       </div>
     </div>
     <div class="row center-page">
-        <div class="col-lg-12">
-            <h2 class="my-4 center-align">Fale Conosco</h2>
-        </div>
-        <div class="col-lg-6 text-center">
-            <form action="javascript:void(0);" onsubmit="faleconosco();">
-            <div class="form-group">
-                <input type="text" id="name" class="form-control" placeholder="Nome">
-            </div>
-            <div class="form-group">
-                <input type="email" id="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="textarea-message form-group">
-                <textarea id="message" class="textarea-message form-control" placeholder="Digite sua mensagem..." rows="5"></textarea>
-            </div>
-            <button type="button" class="btn btn-default">Enviar</button>
-            </form>
-        </div>
-    </div>
     `;
 }
 function paginaajuda() {
@@ -550,21 +536,6 @@ function paginaajuda() {
       </div>
     </section>
 
-    
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-
     <!-- Portfolio Modals -->
 
     <!-- Modal 1 -->
@@ -589,7 +560,6 @@ function paginaajuda() {
                     Em seguida, o locador irá responder positivamente ou não sobre o seu pedido, caso ele aceite sua oferta, vai ser aberto um chat entre você e o locador para organizarem onde e quando será realizada a entrega e a devolução do produto.
                   </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
                     Entendi</button>
                 </div>
               </div>
@@ -616,12 +586,11 @@ function paginaajuda() {
                   <h2 class="text-uppercase">Cadastrar usuário</h2>
                   <p>Crie sua conta agora e saia alugando os itens que você precise.</p>
                   Caso você esteja navegando pelo nosso site como visitante, primeiramente, seja bem-vindo! Em seguida, eu convido você a criar sua própria conta Allugar, é muito mais fácil do que parece.
-                  Para você se cadastrar como um usuário, primeiramente clique em <b>"Cadastrar"</b>> na parte superior direita da página, logo após, é preciso que você insira uma série de seus dados para que sua conta seja criada (Não se esqueça de aceitar os termos e condições de nosso sistema)
+                  Para você se cadastrar como um usuário, primeiramente clique em <b>"Cadastrar"</b> na parte superior direita da página, logo após, é preciso que você insira uma série de seus dados para que sua conta seja criada (Não se esqueça de aceitar os termos e condições de nosso sistema)
                   Dados como Nome completo, E-mail, Endereço e Telefone são essênciais para o seu cadastro e para uma eventual negociação.
                   Após esses procedimentos, você poderá ter acesso a locações de todos os itens que estão disponíveis no nosso site, e então, que comece os jogos.
                 </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
                     Entendi</button>
                 </div>
               </div>
@@ -653,7 +622,6 @@ function paginaajuda() {
                   Depois de Cadastrado, seu item está sujeito a receber ofertas de qualquer usuário do site, assim que alguém se interessar pelo seu item, uma notificação chegrará até você, a oferta fica a seu gosto, podendo aceitá-la como também negá-la. 
                   </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
                     Entendi</button>
                 </div>
               </div>
@@ -684,7 +652,6 @@ function paginaajuda() {
                     Após solicitar o fretamento,você não precisará se preocupar em questão ao transporte, desde a busca até a entrega do fica de responsabilidade exclusiva de nossa equipe. 
                   </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
                     Entendi</button>
                 </div>
               </div>
@@ -713,7 +680,6 @@ function paginaajuda() {
                   A equipe Allugar recomenda que, antes de você começar uma negociação, seja feita uma análise sobre o usuário e o item. O sistema disponibiliza comentários sobre ambos, o que facilita uma pesquisa sobre cada item e cada usuário em particular.
                   Verifique se o usuário é confiável para os outros usuários, se seu item tem um bom histórico, para garantir uma boa negociação e um bom ambiente.</p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
                     Entendi</button>
                 </div>
               </div>
@@ -754,6 +720,24 @@ function paginaajuda() {
         </div>
       </div>
     </div>
+    <div class="col-lg-12">
+    <h2 class="my-4 center-align">Fale Conosco</h2>
+</div>
+<div class="col-lg-6 text-center">
+    <form action="javascript:void(0);" onsubmit="faleconosco();">
+    <div class="form-group">
+        <input type="text" id="name" class="form-control" placeholder="Nome">
+    </div>
+    <div class="form-group">
+        <input type="email" id="email" class="form-control" placeholder="Email">
+    </div>
+    <div class="textarea-message form-group">
+        <textarea id="message" class="textarea-message form-control" placeholder="Digite sua mensagem..." rows="5"></textarea>
+    </div>
+    <button type="button" class="btn btn-default">Enviar</button>
+    </form>
+</div>
+</div>   
     `;
 }
 function paginapesquisa(){

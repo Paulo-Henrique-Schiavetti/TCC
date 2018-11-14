@@ -65,12 +65,12 @@ section h3.section-subheading {
 }
 
 ::-moz-selection {
-  background: #007f9c;
+  background: #35daff79;
   text-shadow: none;
 }
 
 ::selection {
-  background: #007f9c;
+  background: #35daff79;
   text-shadow: none;
 }
 
@@ -228,7 +228,7 @@ header.masthead .intro-text .intro-heading {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
   opacity: 0;
-  background: #007f9c;
+  background: #35daff79;
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
@@ -243,7 +243,7 @@ header.masthead .intro-text .intro-heading {
   height: 20px;
   margin-top: -12px;
   text-align: center;
-  color: white;
+  color: rgba(255, 255, 255, 0);
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
