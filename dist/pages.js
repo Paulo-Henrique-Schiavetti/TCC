@@ -718,7 +718,7 @@ function paginaajuda() {
             </div>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
     <div class="col-lg-12">
     <h2 class="my-4 center-align">Fale Conosco</h2>
