@@ -54,7 +54,9 @@ function menuLogado(){
     `;
     let perfil = document.querySelector("#perfil");
     options.innerHTML = `
-    <li class="perfil-item"  onclick="paginameusitens()">
+    <li class="perfil-item" onclick="paginaperfil()">
+        <a>Perfil</a>
+    </li>
     <li class="autocomplete-item"  onclick="paginameusitens()">
         <a>Meus Itens</a>
     </li>
@@ -98,7 +100,8 @@ function paginacadastrarproduto() {
             <div class="form-group">
             <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
             </div>
-            <input type="file" id="campoimagem"/>
+            <label for="campoimagem" class="img-btn">selecione a imagem</label>
+            <input type="file" id="campoimagem" hidden/>
             <button type="submit" class="btn btn-primary btn-right">Cadastrar</button>
             </form> 
             <br/>
@@ -140,8 +143,8 @@ function paginacadastrarusuario() {
             <div class="checkbox">
                 <label><input type="checkbox">lí e concordo com os <a href="">termos de uso</a>.</label>
             </div>
-            <input type="file" id="campoimagem"/>
-            <!--<img src="assets/imagens/bola.jpg" onclick="file.click();" width="100px"/>-->
+            <label for="campoimagem" class="img-btn">Selecionar imagem</label>
+            <input type="file" id="campoimagem" hidden/>
             <button type="submit" class="btn btn-default btn-right">Cadastrar</button>
             </form>
             <br/>
@@ -369,6 +372,88 @@ function paginameusitens() {
     `;
     let grid = document.querySelector("#grid");
     exibirmeusitens();
+}
+function paginaperfil() {
+    content.innerHTML = `
+    <hr>
+<div class="container bootstrap snippet space-up">
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+              
+
+      <div class="text-center">
+        <label for="img-input" class="img-label"><img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar"><i class="fas fa-camera"></i></label>
+        <label for="img-input" class="img-btn">Selecionar foto</label>
+        <input type="file" class="text-center center-block file-upload" id="img-input" hidden>
+      </div></hr><br>
+
+               
+          <div class="panel panel-default">
+            <div class="panel-heading">Facebook <i class="fa fa-link fa-1x"></i></div>
+            <div class="panel-body"><a href="http://bootnipets.com">facebook.com/</a></div>
+          </div>
+          
+          
+          <ul class="list-group">
+            <li class="list-group-item text-muted">Atividade<i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Meus itens</strong></span> 14</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Itens favoritos</strong></span> 13</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Postagens</strong></span> 5</li>
+          </ul> 
+          
+        </div><!--/col-3-->
+    	<div class="col-sm-9">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Perfil</a></li>
+                </ul>
+
+              
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                <hr>
+                  <form class="form" action="##" method="post" id="registrationForm">
+                      <div class="form-group">
+                          
+                          <div class="col-xs-8">
+                              <label for="first_name"><h4>Nome completo</h4></label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="Nome completo">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="phone"><h4>Telefone</h4></label>
+                              <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="(DDD) 00000-0000">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="Seu email atual.">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Endereço</h4></label>
+                              <input type="email" class="form-control" id="location" placeholder="somewhere" title="Localização atual">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                              	<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Salvar</button>
+                            </div>
+                      </div>
+              	</form>
+              
+              <hr>
+
+        </div>
+    </div>
+</div>
+    `;
 }
 function paginasobre(){
     content.innerHTML = `
