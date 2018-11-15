@@ -51,13 +51,16 @@ function menuLogado(){
     <li class="nav-item active">
       <a class="nav-link" onclick="paginasobre()">Sobre</a>
     </li>
+    <li class="nav-item active">
+      <a class="nav-link" onclick="paginaajuda()">Ajuda</a>
+    </li>
     `;
     let perfil = document.querySelector("#perfil");
     options.innerHTML = `
     <li class="perfil-item" onclick="paginaperfil()">
         <a>Perfil</a>
     </li>
-    <li class="autocomplete-item"  onclick="paginameusitens()">
+    <li class="perfil-item"  onclick="paginameusitens()">
         <a>Meus Itens</a>
     </li>
     <li class="perfil-item" onclick="paginacadastrarproduto()">
@@ -131,10 +134,6 @@ function paginacadastrarusuario() {
             <div class="form-group">
                 <label for="phonenum">Endereço</label>
                 <input type="tel" class="form-control" id="campoendereco""/>
-            <div class="checkbox" >
-            <label><input type="checkbox" id="localcheck">Obter localização atual</label>
-            <!--<button class="btn btn-default btn-right">Selecionar a localização</button>-->
-        </div>
             </div>
             <div class="form-group">
             <label for="email">E-mail</label>
@@ -143,6 +142,10 @@ function paginacadastrarusuario() {
             <div class="form-group">
                 <label for="password">Senha</label>
                 <input type="password" class="form-control" id="camposenha"/>
+            </div>
+            <div class="checkbox" >
+              <label><input type="checkbox" id="localcheck">Obter localização atual</label>
+              <!--<button class="btn btn-default btn-right">Selecionar a localização</button>-->
             </div>
             <div class="checkbox">
                 <label><input type="checkbox">Li e concordo com os <a href="">Termos de uso</a>.</label>
