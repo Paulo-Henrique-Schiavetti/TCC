@@ -524,7 +524,6 @@ function paginasobre(){
         <i>A Plenitude Logística visa alcançar uma posição de destaque no segmento, atuando de forma ética e transparente, estabelecendo parcerias de resultados e viabilizando negócios para obter a fidelização de nossos clientes.</i>    
       </div>
     </div>
-    <div class="row center-page">
     `;
 }
 function paginaajuda() {
@@ -617,6 +616,25 @@ function paginaajuda() {
               <h4>Demais informações</h4>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="center-page">
+        <div class="col-lg-12">
+            <h2 class="my-4 center-align">Fale Conosco</h2>
+        </div>
+        <div class="col-lg-6 text-center">
+            <form action="javascript:void(0);" onsubmit="faleconosco();">
+            <div class="form-group">
+                <input type="text" id="name" class="form-control" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="textarea-message form-group">
+                <textarea id="message" class="textarea-message form-control" placeholder="Digite sua mensagem..." rows="5"></textarea>
+            </div>
+            <button type="button" class="btn btn-default">Enviar</button>
+            </form>
         </div>
       </div>
     </section>
