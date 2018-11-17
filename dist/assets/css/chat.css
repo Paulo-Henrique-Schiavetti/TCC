@@ -1,9 +1,8 @@
-.chat-box{width: 100%; margin:auto;}
+.chat-box{width: 100%; margin:auto; margin-bottom: 0.5em;}
 .chat-box img { width: 2.5em; height: 2.5em; border-radius: 50%;}
 
 .inbox_people {
 background: #f8f8f8 none repeat scroll 0 0;
-float: left;
 overflow: hidden;
 width: 100%; border-right:1px solid #c4c4c4;
 }
@@ -86,10 +85,10 @@ font-size: 18px;
   margin: 8px 0 0;
 }
 .received_withd_msg { width: 57%;}
+
 .mesgs {
-  float: left;
-  padding: 30px 15px 0 25px;
   width: 100%;
+  padding: 0.25em;
 }
 
  .sent_msg p {
@@ -128,7 +127,6 @@ font-size: 18px;
   top: 11px;
   width: 33px;
 }
-.messaging { padding: 0 0 50px 0;}
 .msg_history {
   height: 10em;
   overflow-y: auto;

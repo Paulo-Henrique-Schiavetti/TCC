@@ -257,54 +257,55 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
 }
 function openchat() {
     chatbox.innerHTML = `
-    <div class="mesgs">
-          <div class="msg_history">
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>Test which is a new approach to have all
-                    solutions</p>
-                  <span class="time_date"> 11:01 AM    |    June 9</span></div>
-              </div>
-            </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Test which is a new approach to have all
-                  solutions</p>
-                <span class="time_date"> 11:01 AM    |    June 9</span> </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>Test, which is a new approach to have</p>
-                  <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
-              </div>
-            </div>
-            <div class="outgoing_msg">
-              <div class="sent_msg">
-                <p>Apollo University, Delhi, India Test</p>
-                <span class="time_date"> 11:01 AM    |    Today</span> </div>
-            </div>
-            <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-              <div class="received_msg">
-                <div class="received_withd_msg">
-                  <p>We work directly with our designers and suppliers,
-                    and sell direct to you, which means quality, exclusive
-                    products, at a price anyone can afford.</p>
-                  <span class="time_date"> 11:01 AM    |    Today</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="type_msg">
-            <div class="input_msg_write">
-              <input type="text" class="write_msg" placeholder="Type a message" />
-              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-            </div>
+    <div class="mesgs box">
+      <h5>Nome</h5>
+      <div class="msg_history">
+        <div class="incoming_msg">
+          <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+          <div class="received_msg">
+            <div class="received_withd_msg">
+              <p>Test which is a new approach to have all
+                solutions</p>
+              <span class="time_date"> 11:01 AM    |    June 9</span></div>
           </div>
         </div>
+        <div class="outgoing_msg">
+          <div class="sent_msg">
+            <p>Test which is a new approach to have all
+              solutions</p>
+            <span class="time_date"> 11:01 AM    |    June 9</span> </div>
+        </div>
+        <div class="incoming_msg">
+          <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+          <div class="received_msg">
+            <div class="received_withd_msg">
+              <p>Test, which is a new approach to have</p>
+              <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+          </div>
+        </div>
+        <div class="outgoing_msg">
+          <div class="sent_msg">
+            <p>Apollo University, Delhi, India Test</p>
+            <span class="time_date"> 11:01 AM    |    Today</span> </div>
+        </div>
+        <div class="incoming_msg">
+          <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+          <div class="received_msg">
+            <div class="received_withd_msg">
+              <p>We work directly with our designers and suppliers,
+                and sell direct to you, which means quality, exclusive
+                products, at a price anyone can afford.</p>
+              <span class="time_date"> 11:01 AM    |    Today</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="type_msg">
+        <div class="input_msg_write">
+          <input type="text" class="write_msg" placeholder="Type a message" />
+          <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
     `;
 }
 function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
@@ -327,7 +328,7 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
             <div class="col-md-8 center-align">
             <img class="img-fluid item-img" src="${imagem}" alt="">
             </div>
-            <div class="col-md-3 right-box">
+            <div class="col-md-4 right-box">
             <h3 class="my-3 center-align">
             ${item}
             </h3>
@@ -336,7 +337,7 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
             <p class="pulado"><i class="fa fa-map-marker" aria-hidden="true"></i> ${endereco}</p>
             <h3 class="pulado">Descrição</h3>
             <p class="pulado">${descricao}</p>
-            <div class="container chat-box" id="chatbox">
+            <div class="chat-box" id="chatbox">
             
             </div>
             </div>
@@ -345,7 +346,7 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
     `;
     let chatbox = document.querySelector("#chatbox");
     chatbox.innerHTML = `
-    <h3 class=" text-center">Chat</h3>
+    <h3 class="text-center">Chat</h3>
     <div class="messaging">
     <div class="inbox_msg">
     <div class="inbox_people">

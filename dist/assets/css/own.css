@@ -170,6 +170,8 @@
   }
   .item-img {
     max-height: 80vh;
+    margin-top: 2em;
+    margin-bottom: 2em;
   }
   .btn-right{
     float: right;
