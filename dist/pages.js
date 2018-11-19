@@ -48,14 +48,18 @@ function menuLogado(){
     <li class="nav-item active perfil" id="perfil" onclick="abrirPerfil()">
     <img src="${usuario.imagemMenor}" alt="" class="perfil-icon"/><a class="nav-link">${usuario.nome}</a>
     </li>
-    <li class="nav-item active">
-      <a class="nav-link" onclick="paginasobre()">Sobre</a>
+    <li class="nav-item active perfil" id="favoritos" onclick="abrirfavoritos()">
+      <a class="nav-link">Favoritos</a>
     </li>
-    <li class="nav-item active">
-      <a class="nav-link" onclick="paginaajuda()">Ajuda</a>
+    <li class="nav-item active" onclick="paginasobre()">
+      <a class="nav-link">Sobre</a>
+    </li>
+    <li class="nav-item active" onclick="paginaajuda()">
+      <a class="nav-link">Ajuda</a>
     </li>
     `;
     let perfil = document.querySelector("#perfil");
+    let favoritos = document.querySelector("#favoritos");
     options.innerHTML = `
     <li class="perfil-item" onclick="paginaperfil()">
         <a>Perfil</a>
@@ -103,11 +107,11 @@ function paginacadastrarproduto() {
             <div class="form-group">
             <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
             </div>
-            <label for="campoimagem" class="img-btn">selecione a imagem</label>
+            <label for="campoimagem" class="img-btn"><img src="assets/imagens/cam.jpg" class="miniatura" id="miniatura"/>selecione a imagem</label>
             <input type="file" id="campoimagem" hidden/>
-            <button type="submit" class="btn btn-primary btn-right">Cadastrar</button>
-            </form> 
             <br/>
+            <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
+            </form> 
         </div>
     </div>
     `;
@@ -116,6 +120,7 @@ function paginacadastrarproduto() {
     var campodescricao = document.querySelector('#campodescriçao');
     var file = document.querySelector('#campoimagem');
     file.addEventListener('change', prepararImagem);
+    var miniatura = document.querySelector('#miniatura');
 }
 function paginacadastrarusuario() {
     content.innerHTML = `
@@ -124,37 +129,36 @@ function paginacadastrarusuario() {
             <br/>
             <form action="javascript:void(0);" onsubmit="cadastrarusuario()">
             <div class="form-group">
-                <label for="text">Nome</label>
+                <label>Nome</label>
                 <input type="text" class="form-control" id="camponome"/>
             </div>
             <div class="form-group">
-                <label for="phonenum">Telefone</label>
+                <label>Telefone</label>
                 <input type="tel" class="form-control" id="campotelefone""/>
             </div>
             <div class="form-group">
-                <label for="phonenum">Endereço</label>
+                <label>Endereço</label>
                 <input type="tel" class="form-control" id="campoendereco""/>
             </div>
             <div class="form-group">
-            <label for="email">E-mail</label>
+            <label>E-mail</label>
             <input type="email" class="form-control" id="campoemail"/>
             </div>
             <div class="form-group">
-                <label for="password">Senha</label>
+                <label>Senha</label>
                 <input type="password" class="form-control" id="camposenha"/>
             </div>
             <div class="checkbox" >
               <label><input type="checkbox" id="localcheck">Obter localização atual</label>
-              <!--<button class="btn btn-default btn-right">Selecionar a localização</button>-->
             </div>
             <div class="checkbox">
                 <label><input type="checkbox">Li e concordo com os <a href="">Termos de uso</a>.</label>
             </div>
-            <label for="campoimagem" class="img-btn">Selecionar imagem</label>
+            <label for="campoimagem" class="img-btn"><img src="assets/imagens/cam.jpg" class="miniatura" id="miniatura"/> Selecionar imagem</label>
             <input type="file" id="campoimagem" hidden/>
-            <button type="submit" class="btn btn-default btn-right">Cadastrar</button>
-            </form>
             <br/>
+            <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
+            </form>
         </div>
     </div>
     `;
@@ -165,6 +169,7 @@ function paginacadastrarusuario() {
     var localcheck = document.querySelector('#localcheck');
     var file = document.querySelector('#campoimagem');
     file.addEventListener('change', prepararImagem);
+    var miniatura = document.querySelector('#miniatura');
 }
 function paginalogar() {
     content.innerHTML = `
@@ -390,32 +395,20 @@ function paginaperfil() {
               
 
       <div class="text-center">
-        <label for="img-input" class="img-label"><img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar"><i class="fas fa-camera"></i></label>
+        <label for="img-input" class="img-label"><img src="${usuario.imagemCompleta}" class="avatar img-circle img-thumbnail" alt="avatar"><i class="fas fa-camera"></i></label>
         <label for="img-input" class="img-btn">Selecionar foto</label>
         <input type="file" class="text-center center-block file-upload" id="img-input" hidden>
       </div></hr><br>
-
-               
-          <div class="panel panel-default">
-            <div class="panel-heading">Facebook <i class="fa fa-link fa-1x"></i></div>
-            <div class="panel-body"><a href="http://bootnipets.com">facebook.com/</a></div>
-          </div>
-          
           
           <ul class="list-group">
-            <li class="list-group-item text-muted">Atividade<i class="fa fa-dashboard fa-1x"></i></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Meus itens</strong></span> 14</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Itens favoritos</strong></span> 13</li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Postagens</strong></span> 5</li>
+            <li class="list-group-item text-muted">Atividade <i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right" onclick="paginameusitens()"><span class="pull-left"><strong>Meus itens</strong></span></li>
+            <li class="list-group-item text-right" onclick="abrirfavoritos()"><span class="pull-left"><strong>Favoritos</strong></span></li>
           </ul> 
           
         </div><!--/col-3-->
     	<div class="col-sm-9">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Perfil</a></li>
-                </ul>
-
-              
+          <h5>Perfil</h5>  
           <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
@@ -423,29 +416,29 @@ function paginaperfil() {
                       <div class="form-group">
                           
                           <div class="col-xs-8">
-                              <label for="first_name"><h4>Nome completo</h4></label>
-                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="Nome completo">
+                              <label for="first_name"><h4>Nome</h4></label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" value="${usuario.nome}" title="Nome">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="phone"><h4>Telefone</h4></label>
-                              <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="(DDD) 00000-0000">
+                              <input type="text" class="form-control" name="phone" id="phone" value="${usuario.telefone}" title="(DDD) 00000-0000">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="email"><h4>Email</h4></label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="Seu email atual.">
+                              <input type="email" class="form-control" name="email" id="email" value="${usuario.email}" title="Seu email atual.">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="email"><h4>Endereço</h4></label>
-                              <input type="email" class="form-control" id="location" placeholder="somewhere" title="Localização atual">
+                              <input type="email" class="form-control" id="location" value="${usuario.endereco}" title="Localização atual">
                           </div>
                       </div>
                       <div class="form-group">
@@ -455,9 +448,6 @@ function paginaperfil() {
                             </div>
                       </div>
               	</form>
-              
-              <hr>
-
         </div>
     </div>
 </div>

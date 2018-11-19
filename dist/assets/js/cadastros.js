@@ -22,6 +22,7 @@ function prepararImagem(evt){
         resize: true // defaults to true, set false if you do not want to resize the image width and height
       }).then((data)=>{
         localStorage.setItem('imagemMenor', data[0].prefix+data[0].data);
+        miniatura.src = data[0].prefix+data[0].data;
     }, false);
 }
 

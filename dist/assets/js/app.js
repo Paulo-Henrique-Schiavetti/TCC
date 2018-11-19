@@ -1,7 +1,6 @@
 window.onload = () => {
     let content = document.querySelector("#content");
     let navbar = document.querySelector("#navbar");
-    let modal = document.querySelector("#modal");
     let searchinput = document.querySelector("#searchinput");
     let searchbar = document.querySelector("#searchbar");
     dropdown = document.createElement("ul");
@@ -10,9 +9,11 @@ window.onload = () => {
     options = document.createElement("ul");
     options.setAttribute("class", "perfil-options");
     needAppendPerfil = true;
-    // lista
-    //let lista = document.querySelector("#lista");
-    //let verdadeiralista = document.querySelector("#verdadeiralista");
+    listadropdown = document.createElement("ul");
+    options.setAttribute("class", "perfil-options");
+    needAppendLista = true;
+    modal = document.createElement("div");
+    modal.setAttribute("class", "container mensagem");
 
     //variáveis
     usuario = [];
@@ -77,19 +78,6 @@ function exibirmeusitens(){
         `;
     });
 }
-/*
-// codigo inútil?
-function clicaritem(element) {
-
-    element.path[5].dataset.id ? id = element.path[5].dataset.id : id = element.path[4].dataset.id;
-
-    if (element.path[1].classList.contains('btnalugar') || element.path[0].classList.contains('btnalugar')) {
-        alugar(id);
-    } else if (element.path[1].classList.contains('btnadd') || element.path[0].classList.contains('btnadd')) {
-        add(id);
-    }
-}
-*/
 function alugar(id) {
         axios
             .get(`/pesquisarid/${id}`)
@@ -111,6 +99,10 @@ function cancelEvents(element) {
     }
     if (element.target.parentNode.id != "perfil" && needAppendPerfil != true) {
         perfil.removeChild(options);
+        needAppendPerfil = true;
+    }
+    if (element.target.parentNode.id != "favoritos" && needAppendLista != true) {
+        favoritos.removeChild(listadropdown);
         needAppendPerfil = true;
     }
 }
@@ -149,10 +141,12 @@ function autocomplete() {
         .get(`/pesquisarnome/${nome}`)
         .then(response => {
             if (nome == "" || response.data.length == 0) {
+                if (!needAppendDropdown) {
                 searchbar.removeChild(dropdown);
                 searchinput.style.borderBottomLeftRadius = '4px';
                 searchinput.style.borderBottomRightRadius = '4px';
                 needAppendDropdown = true;
+                }
                 return;
             }
             dropdown.innerHTML = "";
@@ -177,20 +171,8 @@ function autocomplete() {
             }
         });
 }
-function mensagem(texto) {
-    modal.style.display = "block";
-    modal.innerHTML = texto;
-}
 
-function mensagemtemporaria(texto) {
-    modal.style.display = "initial";
-    modal.innerHTML = texto;
-    setTimeout(() => {
-        modal.style.display = "none";
-    }, 1000);
-}
-// lista de desejos
-function add(id) {
+function adicionaralista(id) {
     axios
         .post(`/inserirnalista`, {item_id: id, usuarios_id: usuario.id})
         .then(()=> {
@@ -200,25 +182,45 @@ function add(id) {
             console.log(error);
         })
 }
-function mostrarlista() {
-    verdadeiralista.innerHTML = "";
+function abrirfavoritos() {
+    id = usuario.id;
+    
     axios
-        .get(`/abrirlista/${usuario.id}`)
+        .get(`/abrirlista/${id}`)
         .then(response => {
-            response.data.forEach(element=>{
-                verdadeiralista.innerHTML += `<li class="collection-item" onclick="alugar(${element.id})"><a>${element.nome}</a></li>`;
-                verdadeiralista.style.visibility = "visible";
+            if (response.data.length == 0) {
+                if (!needAppendLista){
+                    favoritos.removeChild(listadropdown);
+                    needAppendLista = true;
+                }
+                mensagemtemporaria('Você não tem nenhum item na sua lista de desejos.')
+                return;
+            }
+            listadropdown.innerHTML = "";
+            response.data.forEach(element => {
+                nomeArray = element.nome.split("");
+                if (nomeArray.length > 8){
+                    nomeArray.length = 8;
+                    nomeAbreviado = nomeArray.join("")+"...";
+                } else {
+                    nomeAbreviado = element.nome;
+                }
+                listadropdown.innerHTML += `<li class="perfil-item" onclick="alugar(${element.id})"><a><img class="autocomplete-icon" src="${element.imagemMenor}" alt=""> ${nomeAbreviado}</a></li>`;
             })
-        })
-        setTimeout(() => {
-            document.addEventListener("click", esconderlista);
-            lista.removeEventListener("click", mostrarlista);
-        }, 100);
+            if (response.data.length == 4) {
+                    listadropdown.innerHTML += `<li class="perfil-item" onclick="paginafavoritos();"><a>...</a></li>`;
+                }
+            if (needAppendLista){
+                favoritos.appendChild(listadropdown);
+                needAppendLista = false;
+            }
+        });
 }
-function esconderlista(element) {
-        verdadeiralista.style.visibility = "hidden";
-        setTimeout(() => {
-            lista.addEventListener("click", mostrarlista);
-            document.removeEventListener("click", esconderlista);
-        }, 100);
+
+function mensagemtemporaria(texto) {
+    modal.innerHTML = texto;
+    content.appendChild(modal);
+    setTimeout(() => {
+        content.removeChild(modal);
+    }, 1500);
 }

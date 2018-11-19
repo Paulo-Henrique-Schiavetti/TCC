@@ -113,6 +113,18 @@ server.get("/pesquisarid/:id", function (req, res, next) {
 
   return next();
 });
+
+server.get("/perfil/:id", function (req, res, next) {
+  const { id } = req.params;
+  knex('usuarios')
+    .where("usuarios.id", id)
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+    return next();
+  });
+
 server.post("/inserirnalista", function (req, res, next) {
   knex('lista')
     .insert(req.body)
