@@ -57,6 +57,7 @@ function cadastrarproduto() {
         mensagemtemporaria('Seu item foi cadastrado!')
         localStorage.setItem('imagemCompleta', "");
         localStorage.setItem('imagemMenor', "");
+        paginameusitens();
     })
     .catch((error)=>{
         console.log(error);

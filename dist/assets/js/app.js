@@ -86,7 +86,7 @@ function alugar(id) {
                 if (element.locatario == usuario.id) {
                     paginaitemlocatario(element.id, element.item, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
                 } else {
-                    paginaitem(element.id, element.item, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
+                    paginaitem(element.id, element.item, element.locatario, element.descrição, element.avaliacao, element.preço, element.endereco, element.imagemCompleta, element.nome, element.imagemMenor);
                 }
             });
 }
@@ -133,6 +133,17 @@ function exibirchat(id) {
                 inboxchat.appendChild(div);
             });
         });
+}
+function iniciarchat(id, locatario) {
+    axios.post('/iniciarchat', {
+        item_id: id, locatario_id: locatario, locador_id: usuario.id
+    })
+    .then(()=> {
+        openchat();
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
 }
 function autocomplete() {
     nome = searchinput.value;

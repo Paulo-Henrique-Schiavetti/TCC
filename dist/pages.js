@@ -137,10 +137,6 @@ function paginacadastrarusuario() {
                 <input type="tel" class="form-control" id="campotelefone""/>
             </div>
             <div class="form-group">
-                <label>Endereço</label>
-                <input type="tel" class="form-control" id="campoendereco""/>
-            </div>
-            <div class="form-group">
             <label>E-mail</label>
             <input type="email" class="form-control" id="campoemail"/>
             </div>
@@ -222,7 +218,7 @@ function paginalogar2(email, nome) {
     </div>
       `;
 }
-function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
+function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, imagem, nome, locatarioImagem) {
     var estrelas = '';
             for (e = 0; e < 5; e++) {
                 if (element.avaliacao >= 1) {
@@ -244,7 +240,7 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
             </div>
             <div class="col-md-4 right-box">
                 <h1 class="my-4">
-                ${item}
+                ${item} <small>por ${nome}</small>
                 </h1>
                 <h3 class="my-3">Descrição</h3>
                 <h5>${estrelas}</h5>
@@ -252,7 +248,7 @@ function paginaitem(id, item, descricao, avaliacao, preco, endereco, imagem, loc
                 <p>${endereco}</p>
                 <p>${descricao}</p>
                 <div class="center-align chat-box" id="chatbox">
-                    <button class="btn btn-default btn-big" onclick="openchat();"><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
+                    <button class="btn btn-default btn-big" onclick="iniciarchat(${id+","+locatario});"><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
                 </div>
             </div>
         </div>
@@ -379,6 +375,7 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
 function paginameusitens() {
     content.innerHTML = `
     <div class="col-lg-10 container space-up">
+      <div class="text-center"><h3>Meus itens</h3></div>
         <div class="row" id="grid">
         </div>
     </div>

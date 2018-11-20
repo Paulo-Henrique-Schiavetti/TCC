@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`usuarios` (
   `email` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NULL,
   `nome` VARCHAR(45) NULL,
-  `endereco` VARCHAR(45) NULL,
+  `endereco` VARCHAR(90) NULL,
   `place_id` VARCHAR(60) NULL,
   `telefone` VARCHAR(45) NULL,
   `avaliacao` FLOAT NULL,
@@ -67,8 +67,6 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`conversas` (
   `item_id` INT NOT NULL,
   `locatario_id` INT NOT NULL,
   `locador_id` INT NOT NULL,
-  `locatario_visualizar` BOOLEAN,
-  `locador_visualizar` BOOLEAN,
    PRIMARY KEY (`id`),
     FOREIGN KEY (`item_id`)
     REFERENCES `allugardb`.`item` (`id`)
