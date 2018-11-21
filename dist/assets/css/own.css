@@ -266,14 +266,27 @@
     padding: 1em;
   }
   .miniatura {
-    width: 2em;
-    height: 2em;
-    border-radius: 10%;
-    border: solid 2px white;
-    margin-right: 1em;
+    position: relative;
+    border: solid 1px rgb(173, 173, 173);
+    cursor: pointer;
+  }
+  .miniatura i {
+    display:none;
+  }
+  .miniatura:hover i {
+    display: block;
+    position: absolute;
+    bottom: 10%;
+    right: 40%;
+    color: lightgray;
+    text-shadow: 0.1em 0.1em 0.1em black;
+  }
+  .miniatura-img {
+    max-width: 5em;
+    max-height: 5em;
   }
   .ul-btn {
-    padding-left: 10px;
+    padding: 0;
   }
 
   @media only screen and (max-width: 600px) {
