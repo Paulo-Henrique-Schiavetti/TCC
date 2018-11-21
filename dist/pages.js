@@ -462,40 +462,40 @@ function paginasobre(){
         </div>
         <br/><br>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/faell.jpg" width="200px" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/rafael.jpg" width="200px" alt="">
           <h3>Rafael Sousa
           </h3>
-          <i>Gerente, ex atleta</i>
+          <i>Gerente</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
           <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/paulo.jpg" width="200px" alt="">
           <h3>Paulo Schiavetti
           </h3>
-          <i>Programador Back-End, atleta</i>
+          <i>Programador Back-End</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/lopes.jpg" width="200px"alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/gabriel.jpg" width="200px"alt="">
           <h3>Gabriel Lopes
           </h3>
-          <i>Programador Front-End, atleta</i>
+          <i>Programador Front-End</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-        <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/larissaa.jpg" width="200px" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/larissa.jpg" width="200px" alt="">
           <h3>Larissa Adriana
           </h3>
-          <i>Documentação, atleta</i>
+          <i>Documentação</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/talvez.jpg" width="200px" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/liandra.jpg" width="200px" alt="">
           <h3>Liandra Manara
           </h3>
-          <i>Documentação, atleta</i>
+          <i>Documentação</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
           <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/igor.jpg" width="200px" alt="">
           <h3>Igor Teruel
           </h3>
-          <i>Banco de Dados, Atleta</i>
+          <i>Banco de Dados</i>
         </div>
       </div>
       <br/>
