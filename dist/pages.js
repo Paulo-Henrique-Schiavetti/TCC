@@ -107,7 +107,8 @@ function paginacadastrarproduto() {
             <div class="form-group">
             <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
             </div>
-            <label for="campoimagem"><img src="assets/imagens/cam.jpg" class="miniatura" id="miniatura"/></label>
+            <h6>Fotos:</h6>
+            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.jpg" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
             <input type="file" id="campoimagem" hidden/>
             <br/>
             <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
@@ -144,6 +145,7 @@ function paginacadastrarusuario() {
                 <label>Senha</label>
                 <input type="password" class="form-control" id="camposenha"/>
             </div>
+            <h6>Foto de perfil:</h6>
             <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.jpg" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
             <input type="file" id="campoimagem" hidden/>
             <div class="checkbox" >
