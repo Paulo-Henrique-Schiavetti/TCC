@@ -152,7 +152,7 @@ function paginacadastrarusuario() {
               <label><input type="checkbox" id="localcheck">Obter localização atual</label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox">Li e concordo com os <a href="">Termos de uso</a>.</label>
+                <label><input type="checkbox">Li e concordo com os <a href="termos e políticas.docx">Termos de uso</a>.</label>
             </div>
             <br/>
             <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
@@ -804,7 +804,7 @@ function paginaajuda() {
                   Para manter uma boa comunicação entre o sistema e você, a equipe Allugar estabeleceu termos para o serviço do site, é preciso que você aceite os termos para continuar seu cadastro e cada desrespeito ocorrerá numa possível banição do sistema.
                 
                   </br>
-                  Veja : <h3><a href="termo e política.docx">Allugar - Termos e Condições</a></h3>
+                  Veja : <h3><a href="termos e políticas.docx">Allugar - Termos e Condições</a></h3>
                   </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
