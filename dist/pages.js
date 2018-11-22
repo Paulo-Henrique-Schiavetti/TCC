@@ -107,7 +107,8 @@ function paginacadastrarproduto() {
             <div class="form-group">
             <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
             </div>
-            <label for="campoimagem" class="img-btn"><img src="assets/imagens/cam.jpg" class="miniatura" id="miniatura"/>selecione a imagem</label>
+            <h6>Fotos:</h6>
+            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.jpg" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
             <input type="file" id="campoimagem" hidden/>
             <br/>
             <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
@@ -144,14 +145,15 @@ function paginacadastrarusuario() {
                 <label>Senha</label>
                 <input type="password" class="form-control" id="camposenha"/>
             </div>
+            <h6>Foto de perfil:</h6>
+            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.jpg" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
+            <input type="file" id="campoimagem" hidden/>
             <div class="checkbox" >
               <label><input type="checkbox" id="localcheck">Obter localização atual</label>
             </div>
             <div class="checkbox">
-                <label><input type="checkbox">Li e concordo com os <a href="">Termos de uso</a>.</label>
+                <label><input type="checkbox">Li e concordo com os <a href="termos e políticas.docx">Termos de uso</a>.</label>
             </div>
-            <label for="campoimagem" class="img-btn"><img src="assets/imagens/cam.jpg" class="miniatura" id="miniatura"/> Selecionar imagem</label>
-            <input type="file" id="campoimagem" hidden/>
             <br/>
             <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
             </form>
@@ -450,40 +452,40 @@ function paginasobre(){
         </div>
         <br/><br>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/faell.jpg" width="200px" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/rafael.jpg" width="200px" alt="">
           <h3>Rafael Sousa
           </h3>
-          <i>Gerente, ex atleta</i>
+          <i>Gerente</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
           <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/paulo.jpg" width="200px" alt="">
           <h3>Paulo Schiavetti
           </h3>
-          <i>Programador Back-End, atleta</i>
+          <i>Programador Back-End</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/lopes.jpg" width="200px"alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/gabriel.jpg" width="200px"alt="">
           <h3>Gabriel Lopes
           </h3>
-          <i>Programador Front-End, atleta</i>
+          <i>Programador Front-End</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-        <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/larissaa.jpg" width="200px" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/larissa.jpg" width="200px" alt="">
           <h3>Larissa Adriana
           </h3>
-          <i>Documentação, atleta</i>
+          <i>Documentação</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
-          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/talvez.jpg" width="200px" alt="">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/liandra.jpg" width="200px" alt="">
           <h3>Liandra Manara
           </h3>
-          <i>Documentação, atleta</i>
+          <i>Documentação</i>
         </div>
         <div class="col-lg-4 col-sm-6 text-center mb-4">
           <img class="rounded-circle img-fluid d-block mx-auto" src="assets/imagens/igor.jpg" width="200px" alt="">
           <h3>Igor Teruel
           </h3>
-          <i>Banco de Dados, Atleta</i>
+          <i>Banco de Dados</i>
         </div>
       </div>
       <br/>
@@ -792,7 +794,7 @@ function paginaajuda() {
                   Para manter uma boa comunicação entre o sistema e você, a equipe Allugar estabeleceu termos para o serviço do site, é preciso que você aceite os termos para continuar seu cadastro e cada desrespeito ocorrerá numa possível banição do sistema.
                 
                   </br>
-                  Veja : <h3><a href="termo e política.docx">Allugar - Termos e Condições</a></h3>
+                  Veja : <h3><a href="termos e políticas.docx">Allugar - Termos e Condições</a></h3>
                   </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
