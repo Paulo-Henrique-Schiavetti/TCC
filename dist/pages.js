@@ -108,8 +108,11 @@ function paginacadastrarproduto() {
             <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
             </div>
             <h6>Fotos:</h6>
-            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.jpg" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
-            <input type="file" id="campoimagem" hidden/>
+            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
+            <input type="file" id="campoimagem" multiple="multiple" hidden/>
+            <div class="mini-miniaturas">
+            <img src="" id="miniatura2"/><img src="" id="miniatura3"/><img src="" id="miniatura3"/>
+            </div>
             <br/>
             <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
             </form> 
@@ -122,6 +125,9 @@ function paginacadastrarproduto() {
     var file = document.querySelector('#campoimagem');
     file.addEventListener('change', prepararImagem);
     var miniatura = document.querySelector('#miniatura');
+    var miniatura2 = document.querySelector('#miniatura2');
+    var miniatura3 = document.querySelector('#miniatura3');
+    var miniatura4 = document.querySelector('#miniatura4');
 }
 function paginacadastrarusuario() {
     content.innerHTML = `
@@ -146,7 +152,7 @@ function paginacadastrarusuario() {
                 <input type="password" class="form-control" id="camposenha"/>
             </div>
             <h6>Foto de perfil:</h6>
-            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.jpg" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
+            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
             <input type="file" id="campoimagem" hidden/>
             <div class="checkbox" >
               <label><input type="checkbox" id="localcheck">Obter localização atual</label>

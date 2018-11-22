@@ -3,6 +3,7 @@ function prepararImagem(evt){
     var reader = new FileReader();
 
     var arquivo = [...event.target.files];
+    console.log(arquivo);
 
     compress.compress(arquivo, {
         size: 4, // the max size in MB, defaults to 2MB
@@ -12,6 +13,18 @@ function prepararImagem(evt){
         resize: true, // defaults to true, set false if you do not want to resize the image width and height
       }).then((data)=>{
         localStorage.setItem('imagemCompleta', data[0].prefix+data[0].data);
+        if(data[1]){
+            localStorage.setItem('imagem2', data[1].prefix+data[1].data);
+            miniatura2.src = data[1].prefix+data[1].data;
+        }
+        if(data[2]){
+            localStorage.setItem('imagem3', data[2].prefix+data[2].data);
+            miniatura3.src = data[2].prefix+data[2].data;
+        }
+        if(data[3]){
+            localStorage.setItem('imagem4', data[3].prefix+data[3].data);
+            miniatura4.src = data[3].prefix+data[3].data;
+        }
     }, false);
 
     compress.compress(arquivo, {
@@ -25,7 +38,6 @@ function prepararImagem(evt){
         miniatura.src = data[0].prefix+data[0].data;
     }, false);
 }
-
 function cadastrarproduto() {
     var campolocatario = usuario.id;
     var campoavaliacao = usuario.avaliacao;
@@ -84,7 +96,7 @@ function cadastrarusuario() {
         return false;
     }
     else if (!navigator.geolocation) {
-        alert('Seu browser não suporta geolocalização!</p>');
+        alert('Seu browser não suporta geolocalização!');
         return;
     }
     else if(localStorage.getItem('imagemCompleta') == "")
