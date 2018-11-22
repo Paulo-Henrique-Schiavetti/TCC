@@ -115,9 +115,20 @@ function abrirPerfil() {
         needAppendPerfil = true;
     }
 }
-function exibirchat(id) {
+function iniciarchat(id, locatario) {
+    axios.post('/iniciarchat', {
+        item_id: id, locatario_id: locatario, locador_id: usuario.id
+    })
+    .then(()=> {
+        exibirchat();
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+}
+function chatnames(id) {
     axios
-        .get(`/exibirchat/${id}`)
+        .get(`/chatnames/${id}`)
         .then(response => {
             response.data.forEach(element => {
                 div = document.createElement("div");
@@ -134,16 +145,33 @@ function exibirchat(id) {
             });
         });
 }
-function iniciarchat(id, locatario) {
-    axios.post('/iniciarchat', {
-        item_id: id, locatario_id: locatario, locador_id: usuario.id
-    })
-    .then(()=> {
-        openchat();
-    })
-    .catch((error)=>{
-        console.log(error);
-    });
+function verificarchat(id, item){
+    axios
+        .get(`/verificarchat/${id}/${item}`)
+        .then(response => {
+            if (!response.data == ""){
+                chatbase(response.data.nome)
+                exibirchat(response.data.id);
+            }
+        })
+}
+function exibirchat(id) {
+    axios
+        .get(`/exibirchat/${id}`)
+        .then(response => {
+            response.data.forEach(element => {
+                console.log(element);
+                message = document.createElement('div');
+                if (element.usuario_id == usuario.id) {
+                    message.setAttribute('class', 'outgoing_msg');
+                    outgoingmsg(element.imagem, element.mensagem);
+                } else {
+                    message.setAttribute('class', 'incoming_msg');
+                    incomingmsg(element.imagem, element.mensagem);
+                }
+                messagearea.appendChild(message);
+            });
+        });
 }
 function autocomplete() {
     nome = searchinput.value;

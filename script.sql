@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`conversas` (
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `allugardb`.`mensagens` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `conversa_id` INT NOT NULL,
   `usuario_id` INT NOT NULL,
   `datahora` BIGINT NOT NULL,

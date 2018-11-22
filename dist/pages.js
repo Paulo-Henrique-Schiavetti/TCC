@@ -240,7 +240,9 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
             </div>
             <div class="col-md-4 right-box">
                 <h1 class="my-4">
-                ${item} <small>por ${nome}</small>
+                ${item} 
+                <br/>
+                <small>por ${nome}</small>
                 </h1>
                 <h3 class="my-3">Descrição</h3>
                 <h5>${estrelas}</h5>
@@ -255,50 +257,14 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
     </div>
     `;
     let chatbox = document.querySelector("#chatbox");
+    verificarchat(usuario.id, id);
 }
-function openchat() {
+function chatbase(nome) {
     chatbox.innerHTML = `
     <div class="mesgs box">
-      <h5>Nome</h5>
-      <div class="msg_history">
-        <div class="incoming_msg">
-          <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-          <div class="received_msg">
-            <div class="received_withd_msg">
-              <p>Test which is a new approach to have all
-                solutions</p>
-              <span class="time_date"> 11:01 AM    |    June 9</span></div>
-          </div>
-        </div>
-        <div class="outgoing_msg">
-          <div class="sent_msg">
-            <p>Test which is a new approach to have all
-              solutions</p>
-            <span class="time_date"> 11:01 AM    |    June 9</span> </div>
-        </div>
-        <div class="incoming_msg">
-          <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-          <div class="received_msg">
-            <div class="received_withd_msg">
-              <p>Test, which is a new approach to have</p>
-              <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
-          </div>
-        </div>
-        <div class="outgoing_msg">
-          <div class="sent_msg">
-            <p>Apollo University, Delhi, India Test</p>
-            <span class="time_date"> 11:01 AM    |    Today</span> </div>
-        </div>
-        <div class="incoming_msg">
-          <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-          <div class="received_msg">
-            <div class="received_withd_msg">
-              <p>We work directly with our designers and suppliers,
-                and sell direct to you, which means quality, exclusive
-                products, at a price anyone can afford.</p>
-              <span class="time_date"> 11:01 AM    |    Today</span></div>
-          </div>
-        </div>
+      <h5>${nome}</h5>
+      <div class="msg_history" id="messagearea">
+        
       </div>
       <div class="type_msg">
         <div class="input_msg_write">
@@ -308,6 +274,30 @@ function openchat() {
       </div>
     </div>
     `;
+    let messagearea = document.querySelector('#messagearea');
+}
+function outgoingmsg(imagem, texto) {
+  message.innerHTML = `
+    <div class="incoming_msg_img"> <img src="${imagem}" alt="sunil"> </div>
+    <div class="sent_msg">
+      <div class="received_withd_msg">
+        <p>${texto}</p>
+        <span class="time_date"> 11:01 AM    |    June 9</span>
+      </div>
+    </div>
+  `;
+
+}
+function incomingmsg(imagem, texto){
+  message.innerHTML = `
+  <div class="incoming_msg_img"> <img src="${imagem}" alt="sunil"> </div>
+    <div class="received_msg">
+      <div class="received_withd_msg">
+        <p>${texto}</p>
+        <span class="time_date"> 11:01 AM    |    June 9</span>
+      </div>
+    </div>
+  `;
 }
 function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
     var estrelas = '';
@@ -370,7 +360,7 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
     </div>
         `;
     let inboxchat = document.querySelector("#inboxchat");
-    exibirchat(id);
+    chatnames(id);
 }
 function paginameusitens() {
     content.innerHTML = `

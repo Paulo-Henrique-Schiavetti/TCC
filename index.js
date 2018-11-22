@@ -159,7 +159,39 @@ server.post("/iniciarchat", function (req, res, next) {
   return next();
 });
 
+server.get("/verificarchat/:id/:item", function (req, res, next) {
+  const dados = {
+          "id": req.params.id,
+          "item": req.params.item
+  };
+  knex('conversas')
+    .where('conversas.locador_id', dados.id)
+    .andWhere('conversas.item_id', dados.item)
+    .innerJoin('usuarios', 'conversas.locatario_id', 'usuarios.id')
+    .first()
+    .select('conversas.id', 'usuarios.nome')
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
 server.get("/exibirchat/:id", function (req, res, next) {
+  const { id } = req.params;
+  knex('mensagens')
+    .where('mensagens.conversa_id', id)
+    .innerJoin('conversas', 'mensagens.conversa_id', 'conversas.id')
+    .innerJoin('usuarios', 'mensagens.usuario_id', 'usuarios.id')
+    .select('mensagens.datahora as datahora', 'mensagens.mensagem as mensagem', 'usuarios.imagemMenor as imagem', 'usuarios.id as usuario_id')
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
+server.get("/chatnames/:id", function (req, res, next) {
   const { id } = req.params;
   knex('conversas')
     .where("item_id", id)
