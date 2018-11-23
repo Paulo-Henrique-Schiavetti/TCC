@@ -116,15 +116,20 @@ function abrirPerfil() {
     }
 }
 function iniciarchat(id, locatario) {
-    axios.post('/iniciarchat', {
-        item_id: id, locatario_id: locatario, locador_id: usuario.id
-    })
-    .then(()=> {
-        exibirchat();
-    })
-    .catch((error)=>{
-        console.log(error);
-    });
+    if(usuario.id){
+        axios.post('/iniciarchat', {
+            item_id: id, locatario_id: locatario, locador_id: usuario.id
+        })
+        .then(()=> {
+            exibirchat();
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+    } else {
+        mensagemtemporaria("você deve ter uma conta para iniciar uma conversa!");
+        return false;
+    }
 }
 function chatnames(id) {
     axios
@@ -164,7 +169,7 @@ function exibirchat(id) {
                 message = document.createElement('div');
                 if (element.usuario_id == usuario.id) {
                     message.setAttribute('class', 'outgoing_msg');
-                    outgoingmsg(element.imagem, element.mensagem);
+                    outgoingmsg(element.mensagem);
                 } else {
                     message.setAttribute('class', 'incoming_msg');
                     incomingmsg(element.imagem, element.mensagem);

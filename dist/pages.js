@@ -257,8 +257,10 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
                 <p class="preço">R$${preco}</p>
                 <p>${endereco}</p>
                 <p>${descricao}</p>
-                <div class="center-align chat-box" id="chatbox">
+                <div class="chat-box" id="chatbox">
+                  <div class="center-align">
                     <button class="btn btn-default btn-big" onclick="iniciarchat(${id+","+locatario});"><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
+                  </div>
                 </div>
             </div>
         </div>
@@ -270,7 +272,7 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
 function chatbase(nome) {
     chatbox.innerHTML = `
     <div class="mesgs box">
-      <h5>${nome}</h5>
+      <h5 class="center-align chat-title">${nome}</h5>
       <div class="msg_history" id="messagearea">
         
       </div>
@@ -284,27 +286,24 @@ function chatbase(nome) {
     `;
     let messagearea = document.querySelector('#messagearea');
 }
-function outgoingmsg(imagem, texto) {
+function outgoingmsg(texto) {
   message.innerHTML = `
-    <div class="incoming_msg_img"> <img src="${imagem}" alt="sunil"> </div>
-    <div class="sent_msg">
-      <div class="received_withd_msg">
-        <p>${texto}</p>
-        <span class="time_date"> 11:01 AM    |    June 9</span>
-      </div>
-    </div>
+  <div class="sent_msg">
+    <p>${texto}</p>
+    <span class="time_date"> 11:01 AM    |    June 9</span> 
+  </div>
   `;
 
 }
 function incomingmsg(imagem, texto){
   message.innerHTML = `
   <div class="incoming_msg_img"> <img src="${imagem}" alt="sunil"> </div>
-    <div class="received_msg">
-      <div class="received_withd_msg">
-        <p>${texto}</p>
-        <span class="time_date"> 11:01 AM    |    June 9</span>
-      </div>
+  <div class="received_msg">
+    <div class="received_withd_msg">
+      <p>${texto}</p>
+      <span class="time_date"> 11:01 AM    |    June 9</span>
     </div>
+  </div>
   `;
 }
 function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
