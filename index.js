@@ -159,6 +159,17 @@ server.post("/iniciarchat", function (req, res, next) {
   return next();
 });
 
+server.post("/enviarmensagem", function (req, res, next) {
+
+  knex('mensagens')
+    .insert(req.body)
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
 server.get("/verificarchat/:id/:item", function (req, res, next) {
   const dados = {
           "id": req.params.id,

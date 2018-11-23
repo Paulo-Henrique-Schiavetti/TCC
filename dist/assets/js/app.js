@@ -155,7 +155,7 @@ function verificarchat(id, item){
         .get(`/verificarchat/${id}/${item}`)
         .then(response => {
             if (!response.data == ""){
-                chatbase(response.data.nome)
+                chatbase(response.data.nome, response.data.id)
                 exibirchat(response.data.id);
             }
         })
@@ -177,6 +177,19 @@ function exibirchat(id) {
                 messagearea.appendChild(message);
             });
         });
+}
+function enviarmensagem(conversa) {
+    mensagem = document.querySelector('#mensagemparaenviar');
+
+    axios
+        .post(`/inserirnalista`, {conversa_id: conversa, usuario_id: usuario.id, datahora: date.now(), mensagem: mensagem.innerHTML})
+        .then(()=> {
+            outgoingmsg(mensagem.innerHTML);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    
 }
 function autocomplete() {
     nome = searchinput.value;
