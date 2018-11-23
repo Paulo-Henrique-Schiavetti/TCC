@@ -206,7 +206,8 @@ server.get("/chatnames/:id", function (req, res, next) {
   const { id } = req.params;
   knex('conversas')
     .where("item_id", id)
-    .innerJoin('usuarios', 'conversas.locador_id', 'usuarios.id') 
+    .innerJoin('usuarios', 'conversas.locador_id', 'usuarios.id')
+    .select('conversas.id', 'conversas.item_id', 'usuarios.nome', 'usuarios.imagemMenor')
     .then((dados) => {
       res.send(dados);
     }, next)

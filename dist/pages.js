@@ -256,7 +256,7 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
                 <br/>
                 <small>por ${nome}</small>
                 </h1>
-                <h3 class="my-3">${descricao}</h3>
+                <h3 class="my-3">Descrição</h3>
                 <h4>${estrelas}</h4>
                 <p class="preço">R$${preco}</p>
                 <p>${endereco}</p>
@@ -291,15 +291,19 @@ function chatbase(nome, id) {
   let messagearea = document.querySelector('#messagearea');
 }
 function outgoingmsg(texto) {
+  message = document.createElement('div');
+  message.setAttribute('class', 'outgoing_msg');
   message.innerHTML = `
   <div class="sent_msg">
     <p>${texto}</p>
     <span class="time_date"> 11:01 AM    |    June 9</span> 
   </div>
   `;
-
+  messagearea.appendChild(message);
 }
 function incomingmsg(imagem, texto) {
+  message = document.createElement('div');
+  message.setAttribute('class', 'incoming_msg');
   message.innerHTML = `
   <div class="incoming_msg_img"> <img src="${imagem}" alt="sunil"> </div>
   <div class="received_msg">
@@ -309,6 +313,7 @@ function incomingmsg(imagem, texto) {
     </div>
   </div>
   `;
+  messagearea.appendChild(message);
 }
 function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
   var estrelas = '';

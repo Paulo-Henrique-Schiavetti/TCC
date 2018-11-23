@@ -60,9 +60,12 @@ font-size: 18px;
   margin: 0;
   padding: 18px 16px 10px;
 }
+.chat_list:hover{
+  background:#ebebeb;
+  cursor:pointer;
+}
 .inbox_chat { height: 20em; overflow-y: scroll;}
 
-.active_chat{ background:#ebebeb;}
 .incoming_msg {
   display: block;
 }
@@ -137,6 +140,6 @@ font-size: 18px;
   width: 33px;
 }
 .msg_history {
-  height: 12em;
+  height: 16em;
   overflow-y: auto;
 }

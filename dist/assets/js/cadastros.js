@@ -3,7 +3,6 @@ function prepararImagem(evt){
     var reader = new FileReader();
 
     var arquivo = [...event.target.files];
-    console.log(arquivo);
 
     compress.compress(arquivo, {
         size: 4, // the max size in MB, defaults to 2MB
