@@ -273,13 +273,8 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
   let chatbox = document.querySelector("#chatbox");
   verificarchat(usuario.id, id);
 }
-<<<<<<< HEAD
-function chatbase(nome) {
-  chatbox.innerHTML = `
-=======
 function chatbase(nome, id) {
     chatbox.innerHTML = `
->>>>>>> 3ec85a46b0f488fef1c325101d12f6b1285699ad
     <div class="mesgs box">
       <h5 class="center-align chat-title">${nome}</h5>
       <div class="msg_history" id="messagearea">
