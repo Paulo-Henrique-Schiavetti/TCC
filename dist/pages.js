@@ -273,8 +273,13 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
   let chatbox = document.querySelector("#chatbox");
   verificarchat(usuario.id, id);
 }
+<<<<<<< HEAD
 function chatbase(nome) {
   chatbox.innerHTML = `
+=======
+function chatbase(nome, id) {
+    chatbox.innerHTML = `
+>>>>>>> 3ec85a46b0f488fef1c325101d12f6b1285699ad
     <div class="mesgs box">
       <h5 class="center-align chat-title">${nome}</h5>
       <div class="msg_history" id="messagearea">
@@ -282,8 +287,8 @@ function chatbase(nome) {
       </div>
       <div class="type_msg">
         <div class="input_msg_write">
-          <input type="text" class="write_msg" placeholder="Type a message" />
-          <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+          <input type="text" class="write_msg" id="mensagemparaenviar" />
+          <button class="msg_send_btn" type="button" onclick="enviarmensagem(${id})"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
