@@ -1,5 +1,5 @@
-function paginahome(){
-    content.innerHTML =`
+function paginahome() {
+  content.innerHTML = `
         <div id="demo" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ul class="carousel-indicators">
@@ -38,13 +38,13 @@ function paginahome(){
         </ul>
     </div>
     `;
-    let grid = document.querySelector("#grid");
-    let vermais = document.querySelector("#vermais");
-    page = 0;
-    exibiritens();
+  let grid = document.querySelector("#grid");
+  let vermais = document.querySelector("#vermais");
+  page = 0;
+  exibiritens();
 }
-function menuLogado(){
-    navbar.innerHTML = `
+function menuLogado() {
+  navbar.innerHTML = `
     <li class="nav-item active perfil" id="perfil" onclick="abrirPerfil()">
     <img src="${usuario.imagemMenor}" alt="" class="perfil-icon"/><a class="nav-link">${usuario.nome}</a>
     </li>
@@ -58,9 +58,9 @@ function menuLogado(){
       <a class="nav-link">Ajuda</a>
     </li>
     `;
-    let perfil = document.querySelector("#perfil");
-    let favoritos = document.querySelector("#favoritos");
-    options.innerHTML = `
+  let perfil = document.querySelector("#perfil");
+  let favoritos = document.querySelector("#favoritos");
+  options.innerHTML = `
     <li class="perfil-item" onclick="paginaperfil()">
         <a>Perfil</a>
     </li>
@@ -77,7 +77,7 @@ function menuLogado(){
     `;
 }
 function item(id, locatario, nome, preco, descricao, imagem, endereco) {
-    grid.innerHTML += `
+  grid.innerHTML += `
     <div class="col-lg-4 col-md-6 mb-4" data-id="${id}">
       <div class="card h-100" onclick="alugar(${id})">
         <img class="card-img-top" src="${imagem}" height="300px" alt="">
@@ -93,7 +93,7 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco) {
     `;
 }
 function paginacadastrarproduto() {
-    content.innerHTML = `
+  content.innerHTML = `
     <div class="col-lg-5 space-up space-down">
         <div class="container form-box">
             <br/>
@@ -119,18 +119,18 @@ function paginacadastrarproduto() {
         </div>
     </div>
     `;
-    var camponome = document.querySelector('#camponome');
-    var campopreço = document.querySelector('#campopreço');
-    var campodescricao = document.querySelector('#campodescriçao');
-    var file = document.querySelector('#campoimagem');
-    file.addEventListener('change', prepararImagem);
-    var miniatura = document.querySelector('#miniatura');
-    var miniatura2 = document.querySelector('#miniatura2');
-    var miniatura3 = document.querySelector('#miniatura3');
-    var miniatura4 = document.querySelector('#miniatura4');
+  var camponome = document.querySelector('#camponome');
+  var campopreço = document.querySelector('#campopreço');
+  var campodescricao = document.querySelector('#campodescriçao');
+  var file = document.querySelector('#campoimagem');
+  file.addEventListener('change', prepararImagem);
+  var miniatura = document.querySelector('#miniatura');
+  var miniatura2 = document.querySelector('#miniatura2');
+  var miniatura3 = document.querySelector('#miniatura3');
+  var miniatura4 = document.querySelector('#miniatura4');
 }
 function paginacadastrarusuario() {
-    content.innerHTML = `
+  content.innerHTML = `
     <div class="col-lg-5 space-up">
         <div class="container form-box">
             <br/>
@@ -166,24 +166,28 @@ function paginacadastrarusuario() {
         </div>
     </div>
     `;
-    var campoemail = document.querySelector('#campoemail');
-    var camposenha = document.querySelector('#camposenha');
-    var camponome = document.querySelector('#camponome');
-    var campotelefone = document.querySelector('#campotelefone');
-    var localcheck = document.querySelector('#localcheck');
-    var file = document.querySelector('#campoimagem');
-    file.addEventListener('change', prepararImagem);
-    var miniatura = document.querySelector('#miniatura');
+  var campoemail = document.querySelector('#campoemail');
+  var camposenha = document.querySelector('#camposenha');
+  var camponome = document.querySelector('#camponome');
+  var campotelefone = document.querySelector('#campotelefone');
+  var localcheck = document.querySelector('#localcheck');
+  var file = document.querySelector('#campoimagem');
+  file.addEventListener('change', prepararImagem);
+  var miniatura = document.querySelector('#miniatura');
 }
 function paginalogar() {
-    content.innerHTML = `
-    <div class="col-lg-4 space-up space-down">
+  content.innerHTML = `
+  <div class="col-lg-4 space-up space-down">
         <div class="center-align">
-            <img src="assets/imagens/icone-usuario.png" class="img-rounded">
-            <p>
+        <br/>  
+  <br/><br/>
+        <img src="assets/imagens/icone-usuario.png" class="img-rounded">
+        <br/>    
+        <br/>
                 Olá! Digite o seu E-mail
-            </p>
+            </i>
         </div>
+        <br/>
         <div class="container form-box">
             <br/>
             <form action="javascript:void(0);" onsubmit="validacaoEmail()">
@@ -193,7 +197,7 @@ function paginalogar() {
             </div>
             <button type="submit" class="btn btn-default">Continuar</button>
             <p>
-            Não tem uma conta? <a class="navbar-brand" href="index.html">Crie uma!</a>
+            Não tem uma conta? <a class="navbar-brand" onclick="paginacadastrarusuario()">Crie uma!</a>
             </p>
             </form>
         </div>
@@ -201,7 +205,7 @@ function paginalogar() {
     `;
 }
 function paginalogar2(email, nome) {
-    content.innerHTML = `
+  content.innerHTML = `
     <div class="col-lg-4 space-up space-down">
         <div class="center-align">
             <img src="assets/imagens/icone-usuario.png" class="img-rounded" id="icone">
@@ -227,50 +231,50 @@ function paginalogar2(email, nome) {
       `;
 }
 function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, imagem, nome, locatarioImagem) {
-    var estrelas = '';
-            for (e = 0; e < 5; e++) {
-                if (element.avaliacao >= 1) {
-                    estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
-                } else {
-                    if (element.avaliacao > 0) {
-                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-                    } else {
-                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-                    }
-                }
-                element.avaliacao -= 1;
-                 }
-    content.innerHTML = `
+  var estrelas = '';
+  for (e = 0; e < 5; e++) {
+    if (element.avaliacao >= 1) {
+      estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
+    } else {
+      if (element.avaliacao > 0) {
+        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
+      } else {
+        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
+      }
+    }
+    element.avaliacao -= 1;
+  }
+  content.innerHTML = `
     <div class="container space-up">
         <div class="row box">
             <div class="col-md-8 center-align">
                 <img class="img-fluid item-img" src="${imagem}" alt="">
-            </div>
+          </div>
             <div class="col-md-4 right-box">
                 <h1 class="my-4">
                 ${item} 
                 <br/>
                 <small>por ${nome}</small>
                 </h1>
-                <h3 class="my-3">Descrição</h3>
-                <h5>${estrelas}</h5>
+                <h3 class="my-3">${descricao}</h3>
+                <h4>${estrelas}</h4>
                 <p class="preço">R$${preco}</p>
                 <p>${endereco}</p>
                 <p>${descricao}</p>
                 <div class="chat-box" id="chatbox">
                   <div class="center-align">
-                    <button class="btn btn-default btn-big" onclick="iniciarchat(${id+","+locatario});"><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
+                    <button class="btn btn-default btn-big" onclick="iniciarchat(${id + "," + locatario});"><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
                   </div>
                 </div>
             </div>
         </div>
     </div>
     `;
-    let chatbox = document.querySelector("#chatbox");
-    verificarchat(usuario.id, id);
+  let chatbox = document.querySelector("#chatbox");
+  verificarchat(usuario.id, id);
 }
 function chatbase(nome) {
-    chatbox.innerHTML = `
+  chatbox.innerHTML = `
     <div class="mesgs box">
       <h5 class="center-align chat-title">${nome}</h5>
       <div class="msg_history" id="messagearea">
@@ -284,7 +288,7 @@ function chatbase(nome) {
       </div>
     </div>
     `;
-    let messagearea = document.querySelector('#messagearea');
+  let messagearea = document.querySelector('#messagearea');
 }
 function outgoingmsg(texto) {
   message.innerHTML = `
@@ -295,7 +299,7 @@ function outgoingmsg(texto) {
   `;
 
 }
-function incomingmsg(imagem, texto){
+function incomingmsg(imagem, texto) {
   message.innerHTML = `
   <div class="incoming_msg_img"> <img src="${imagem}" alt="sunil"> </div>
   <div class="received_msg">
@@ -307,20 +311,20 @@ function incomingmsg(imagem, texto){
   `;
 }
 function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
-    var estrelas = '';
-            for (e = 0; e < 5; e++) {
-                if (element.avaliacao >= 1) {
-                    estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
-                } else {
-                    if (element.avaliacao > 0) {
-                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-                    } else {
-                        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-                    }
-                }
-                element.avaliacao -= 1;
-                 }
-    content.innerHTML = `
+  var estrelas = '';
+  for (e = 0; e < 5; e++) {
+    if (element.avaliacao >= 1) {
+      estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
+    } else {
+      if (element.avaliacao > 0) {
+        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
+      } else {
+        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
+      }
+    }
+    element.avaliacao -= 1;
+  }
+  content.innerHTML = `
     <div class="container space-up center-space">
         <div class="row box">
             <div class="col-md-8 center-align">
@@ -342,8 +346,8 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
         </div>
     </div>
     `;
-    let chatbox = document.querySelector("#chatbox");
-    chatbox.innerHTML = `
+  let chatbox = document.querySelector("#chatbox");
+  chatbox.innerHTML = `
     <h3 class="text-center">Chat</h3>
     <div class="messaging">
     <div class="inbox_msg">
@@ -366,22 +370,22 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
     </div>
     </div>
         `;
-    let inboxchat = document.querySelector("#inboxchat");
-    chatnames(id);
+  let inboxchat = document.querySelector("#inboxchat");
+  chatnames(id);
 }
 function paginameusitens() {
-    content.innerHTML = `
+  content.innerHTML = `
     <div class="col-lg-10 container space-up">
       <div class="text-center"><h3>Meus itens</h3></div>
         <div class="row" id="grid">
         </div>
     </div>
     `;
-    let grid = document.querySelector("#grid");
-    exibirmeusitens();
+  let grid = document.querySelector("#grid");
+  exibirmeusitens();
 }
 function paginaperfil() {
-    content.innerHTML = `
+  content.innerHTML = `
     <hr>
 <div class="container bootstrap snippet space-up">
     <div class="row">
@@ -447,10 +451,11 @@ function paginaperfil() {
 </div>
     `;
 }
-function paginasobre(){
-    content.innerHTML = `
+function paginasobre() {
+  content.innerHTML = `
     <div class="container">
       <!-- Team Members Row -->
+      <br/>
       <div class="row">
         <div class="col-lg-12">
           <h2 class="my-4 center-align">Nossa Equipe</h2>
@@ -515,7 +520,7 @@ function paginasobre(){
     `;
 }
 function paginaajuda() {
-    content.innerHTML =`
+  content.innerHTML = `
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
       <div class="container">
@@ -802,7 +807,7 @@ function paginaajuda() {
                   Veja : <h3><a href="termos e políticas.docx">Allugar - Termos e Condições</a></h3>
                   </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
+                    <i class="fas"></i>
                     Entendi</button>
                 </div>
               </div>
@@ -813,8 +818,8 @@ function paginaajuda() {
     </div>
     `;
 }
-function paginapesquisa(){
-  content.innerHTML =`
+function paginapesquisa() {
+  content.innerHTML = `
     <div class="col-lg-10 container space-up">
         <div class="row" id="grid">
         </div>
