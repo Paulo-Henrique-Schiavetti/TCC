@@ -55,12 +55,20 @@ function exibirchat(conversa) {
         .get(`/exibirchat/${conversa}`)
         .then(response => {
             response.data.forEach(element => {
+                var datahora = new Date(element.datahora);
+                var ano = datahora.getFullYear();
+                var mes = datahora.getMonth();
+                var dia = datahora.getDate();
+                var hora = datahora.getHours();
+                var minutos = datahora.getMinutes();
+                var data = hora+":"+minutos+" &nbsp; "+dia+"/"+mes+"/"+ano;
                 if (element.usuario_id == usuario.id) {
-                    outgoingmsg(element.mensagem);
+                    outgoingmsg(element.mensagem, data);
                 } else {
-                    incomingmsg(element.imagem, element.mensagem);
+                    incomingmsg(element.imagem, element.mensagem, data);
                 }
             });
+        messagearea.scrollTop = messagearea.scrollHeight;
         });
     if (usuariolocatario){
         axios
@@ -78,12 +86,24 @@ function exibirchat(conversa) {
 }
 function enviarmensagem(conversa) {
     let mensagem = document.querySelector('#mensagemparaenviar');
+    if (mensagem.value == "") {
+        mensagemtemporaria("digite a mensagem.");
+        return false;
+    }
     
     axios
         .post(`/enviarmensagem`, {conversa_id: conversa, usuario_id: usuario.id, datahora: Date.now(), mensagem: mensagem.value})
         .then(()=> {
-            outgoingmsg(mensagem.value);
+            var datahora = new Date(Date.now());
+            var ano = datahora.getFullYear();
+            var mes = datahora.getMonth();
+            var dia = datahora.getDate();
+            var hora = datahora.getHours();
+            var minutos = datahora.getMinutes();
+            var data = hora+":"+minutos+" &nbsp; "+dia+"/"+mes+"/"+ano;
+            outgoingmsg(mensagem.value, data);
             mensagem.value = "";
+            messagearea.scrollTop = messagearea.scrollHeight;
         })
         .catch(error => {
             console.log(error);

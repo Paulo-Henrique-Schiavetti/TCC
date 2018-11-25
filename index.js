@@ -235,7 +235,7 @@ server.put("/locatariounview/:id" , function (req, res, next) {
       locatario_view: 0
     })
     .then((dados) => {
-      res.send(dados);
+      res.send("ok");
     }, next)
 
   return next();
@@ -249,7 +249,7 @@ server.put("/locadorunview/:id" , function (req, res, next) {
       locador_view: 0
     })
     .then((dados) => {
-      res.send(dados);
+      res.send("ok");
     }, next)
 
   return next();
@@ -263,7 +263,7 @@ server.put("/locatarioview/:id" , function (req, res, next) {
       locatario_view: 1
     })
     .then((dados) => {
-      res.send(dados);
+      res.send("ok");
     }, next)
 
   return next();
@@ -277,6 +277,7 @@ server.put("/locadorview/:id" , function (req, res, next) {
       locador_view: 1
     })
     .then(() => {
+      res.send("ok");
     }, next)
 
   return next();

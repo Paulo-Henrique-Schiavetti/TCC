@@ -123,6 +123,7 @@ font-size: 18px;
   font-size: 15px;
   min-height: 48px;
   width: 100%;
+  outline: none;
 }
 
 .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
@@ -138,6 +139,7 @@ font-size: 18px;
   right: 0;
   top: 11px;
   width: 33px;
+  outline: none !important;
 }
 .msg_history {
   height: 16em;

@@ -283,8 +283,10 @@ function chatbase(nome, id) {
       </div>
       <div class="type_msg">
         <div class="input_msg_write">
+        <form action="javascript:void(0);" onsubmit="enviarmensagem(${id})">
           <input type="text" class="write_msg" id="mensagemparaenviar" />
-          <button class="msg_send_btn" type="button" onclick="enviarmensagem(${id})"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+          <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+        </form>
         </div>
       </div>
     </div>
@@ -293,18 +295,18 @@ function chatbase(nome, id) {
   
   refresher = setInterval(function() {refresh(id);} , 1000);
 }
-function outgoingmsg(texto) {
+function outgoingmsg(texto, data) {
   message = document.createElement('div');
   message.setAttribute('class', 'outgoing_msg');
   message.innerHTML = `
   <div class="sent_msg">
     <p>${texto}</p>
-    <span class="time_date"> 11:01 AM    |    June 9</span> 
+    <span class="time_date">  ${data}</span> 
   </div>
   `;
   messagearea.appendChild(message);
 }
-function incomingmsg(imagem, texto) {
+function incomingmsg(imagem, texto, data) {
   message = document.createElement('div');
   message.setAttribute('class', 'incoming_msg');
   message.innerHTML = `
@@ -312,7 +314,7 @@ function incomingmsg(imagem, texto) {
   <div class="received_msg">
     <div class="received_withd_msg">
       <p>${texto}</p>
-      <span class="time_date"> 11:01 AM    |    June 9</span>
+      <span class="time_date"> ${data}</span>
     </div>
   </div>
   `;
