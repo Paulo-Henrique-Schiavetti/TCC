@@ -64,7 +64,7 @@ font-size: 18px;
   background:#ebebeb;
   cursor:pointer;
 }
-.inbox_chat { height: 20em; overflow-y: scroll;}
+.inbox_chat { height: 18.5em; overflow-y: scroll;}
 
 .incoming_msg {
   display: block;

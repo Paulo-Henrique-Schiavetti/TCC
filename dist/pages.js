@@ -233,16 +233,16 @@ function paginalogar2(email, nome) {
 function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, imagem, nome, locatarioImagem) {
   var estrelas = '';
   for (e = 0; e < 5; e++) {
-    if (element.avaliacao >= 1) {
+    if (avaliacao >= 1) {
       estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
     } else {
-      if (element.avaliacao > 0) {
+      if (avaliacao > 0) {
         estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
       } else {
         estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
       }
     }
-    element.avaliacao -= 1;
+    avaliacao -= 1;
   }
   content.innerHTML = `
     <div class="container space-up">
@@ -263,7 +263,7 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
                 <p>${descricao}</p>
                 <div class="chat-box" id="chatbox">
                   <div class="center-align">
-                    <button class="btn btn-default btn-big" onclick="iniciarchat(${id + "," + locatario});"><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
+                    <button class="btn btn-default btn-big" onclick="iniciarchat(${id}, ${locatario});"><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
                   </div>
                 </div>
             </div>
@@ -275,6 +275,7 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
 }
 function chatbase(nome, id) {
     chatbox.innerHTML = `
+    <h3 class="text-center">Chat</h3>
     <div class="mesgs box">
       <h5 class="center-align chat-title">${nome}</h5>
       <div class="msg_history" id="messagearea">
@@ -289,6 +290,8 @@ function chatbase(nome, id) {
     </div>
     `;
   let messagearea = document.querySelector('#messagearea');
+  
+  refresher = setInterval(function() {refresh(id);} , 1000);
 }
 function outgoingmsg(texto) {
   message = document.createElement('div');
@@ -318,16 +321,16 @@ function incomingmsg(imagem, texto) {
 function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
   var estrelas = '';
   for (e = 0; e < 5; e++) {
-    if (element.avaliacao >= 1) {
+    if (avaliacao >= 1) {
       estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
     } else {
-      if (element.avaliacao > 0) {
+      if (avaliacao > 0) {
         estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
       } else {
         estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
       }
     }
-    element.avaliacao -= 1;
+    avaliacao -= 1;
   }
   content.innerHTML = `
     <div class="container space-up center-space">

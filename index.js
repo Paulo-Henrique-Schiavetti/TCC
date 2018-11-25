@@ -180,7 +180,7 @@ server.get("/verificarchat/:id/:item", function (req, res, next) {
     .andWhere('conversas.item_id', dados.item)
     .innerJoin('usuarios', 'conversas.locatario_id', 'usuarios.id')
     .first()
-    .select('conversas.id', 'usuarios.nome')
+    .select('conversas.id as conversa_id', 'usuarios.nome', 'usuarios.id')
     .then((dados) => {
       res.send(dados);
     }, next)
@@ -207,13 +207,69 @@ server.get("/chatnames/:id", function (req, res, next) {
   knex('conversas')
     .where("item_id", id)
     .innerJoin('usuarios', 'conversas.locador_id', 'usuarios.id')
-    .select('conversas.id', 'conversas.item_id', 'usuarios.nome', 'usuarios.imagemMenor')
+    .select('conversas.locador_id', 'conversas.item_id', 'usuarios.nome', 'usuarios.imagemMenor')
     .then((dados) => {
       res.send(dados);
     }, next)
 
   return next();
 });
+
+server.get("/refresh/:id", function (req, res, next) {
+  const { id } = req.params;
+  knex('conversas')
+    .where("conversas.id", id)
+    .first()
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+    return next();
+})
+
+server.get("/locatariounview/:id" , function (req, res, next) {
+  const { id } = req.params;
+  knex('conversas')
+    .where("conversas.id", id)
+    .update({
+      locatario_view: 0
+    })
+
+  return next();
+})
+
+server.get("/locadorunview/:id" , function (req, res, next) {
+  const { id } = req.params;
+  knex('conversas')
+    .where("conversas.id", id)
+    .update({
+      locador_view: 0
+    })
+    
+  return next();
+})
+
+server.get("/locatarioview/:id" , function (req, res, next) {
+  const { id } = req.params;
+  knex('conversas')
+    .where("conversas.id", id)
+    .update({
+      locatario_view: 1
+    })
+    
+  return next();
+})
+
+server.get("/locadorview/:id" , function (req, res, next) {
+  const { id } = req.params;
+  knex('conversas')
+    .where("conversas.id", id)
+    .update({
+      locador_view: 1
+    })
+    
+  return next();
+})
 
 server.get("/pesquisarnome/:nome", function (req, res, next) {
   const { nome } = req.params;

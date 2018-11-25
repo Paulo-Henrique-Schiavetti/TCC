@@ -67,6 +67,8 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`conversas` (
   `item_id` INT NOT NULL,
   `locatario_id` INT NOT NULL,
   `locador_id` INT NOT NULL,
+  `locatario_view` INT,
+  `locador_view` INT,
    PRIMARY KEY (`id`),
     FOREIGN KEY (`item_id`)
     REFERENCES `allugardb`.`item` (`id`)

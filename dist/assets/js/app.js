@@ -20,6 +20,7 @@ window.onload = () => {
     loged = false;
     localStorage.getItem('usuario') ? loged=true : "";
     loged ? usuario=JSON.parse(localStorage.getItem('usuario')) : "";
+    usuariolocatario = false;
     
     //funções
     setTimeout(() => {
