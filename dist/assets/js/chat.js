@@ -62,6 +62,19 @@ function exibirchat(conversa) {
                 }
             });
         });
+    if (usuariolocatario){
+        axios
+            .put(`/locatarioview/${conversa}`)
+            .catch(error => {
+                console.log(error);
+            });
+    } else {
+        axios
+            .put(`/locadorview/${conversa}`)
+            .catch(error => {
+                console.log(error);
+            });
+    }
 }
 function enviarmensagem(conversa) {
     let mensagem = document.querySelector('#mensagemparaenviar');
@@ -78,10 +91,16 @@ function enviarmensagem(conversa) {
 
     if (usuariolocatario){
         axios
-            .get(`/locatariounview/${conversa}`);
+            .put(`/locadorunview/${conversa}`)
+            .catch(error => {
+                console.log(error);
+            });
     } else {
         axios
-            .get(`/locadoriounview${conversa}`);
+            .put(`/locatariounview/${conversa}`)
+            .catch(error => {
+                console.log(error);
+            });
     }
     
 }
@@ -99,11 +118,4 @@ function refresh(conversa) {
                 }
             }
         })
-    if (usuariolocatario){
-        axios
-            .get(`/locatarioview/${conversa}`);
-    } else {
-        axios
-            .get(`/locadorioview${conversa}`);
-    }
 }

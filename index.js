@@ -227,47 +227,58 @@ server.get("/refresh/:id", function (req, res, next) {
     return next();
 })
 
-server.get("/locatariounview/:id" , function (req, res, next) {
+server.put("/locatariounview/:id" , function (req, res, next) {
   const { id } = req.params;
   knex('conversas')
     .where("conversas.id", id)
     .update({
       locatario_view: 0
     })
+    .then((dados) => {
+      res.send(dados);
+    }, next)
 
   return next();
 })
 
-server.get("/locadorunview/:id" , function (req, res, next) {
+server.put("/locadorunview/:id" , function (req, res, next) {
   const { id } = req.params;
   knex('conversas')
     .where("conversas.id", id)
     .update({
       locador_view: 0
     })
-    
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
   return next();
 })
 
-server.get("/locatarioview/:id" , function (req, res, next) {
+server.put("/locatarioview/:id" , function (req, res, next) {
   const { id } = req.params;
   knex('conversas')
     .where("conversas.id", id)
     .update({
       locatario_view: 1
     })
-    
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
   return next();
 })
 
-server.get("/locadorview/:id" , function (req, res, next) {
+server.put("/locadorview/:id" , function (req, res, next) {
   const { id } = req.params;
   knex('conversas')
     .where("conversas.id", id)
     .update({
       locador_view: 1
     })
-    
+    .then(() => {
+    }, next)
+
   return next();
 })
 
