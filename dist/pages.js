@@ -42,7 +42,6 @@ function paginahome() {
   let vermais = document.querySelector("#vermais");
   page = 0;
   exibiritens();
-  menuLogado();
 }
 function menuLogado() {
   navbar.innerHTML = `
