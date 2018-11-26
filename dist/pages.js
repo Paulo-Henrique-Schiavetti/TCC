@@ -98,14 +98,15 @@ function escolher() {
         <div class="container form-box">
             <br/>
             <form action="javascript:void(0);" onsubmit="paginacadastrarimovel()">
-            <div class="carousel-item">
-              <label id="imovelbtn"><img src="assets/imagens/casa.png"/></label>
-              <button type="submit" id="imovelbtn"/>
+            <div>
+              <label for="imovelbtn"><img src="assets/imagens/casa.png" width=></label>
+              <button type="submit" id="imovelbtn" hidden/>
             </div> 
+            </form>
             <form action="javascript:void(0);" onsubmit="paginacadastrarproduto">
-            <div class="carousel-item">
+            <div>
               <label for="itensbtn"><img src="assets/imagens/itens.png"/></label>
-              <button type="submit" id="itensbtn"/>
+              <button type="submit" id="itensbtn" hidden/>
             </div>
             </form> 
         </div>
