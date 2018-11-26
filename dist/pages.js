@@ -42,6 +42,7 @@ function paginahome() {
   let vermais = document.querySelector("#vermais");
   page = 0;
   exibiritens();
+  menuLogado();
 }
 function menuLogado() {
   navbar.innerHTML = `
@@ -64,11 +65,11 @@ function menuLogado() {
     <li class="perfil-item" onclick="paginaperfil()">
         <a>Perfil</a>
     </li>
+    <li class="perfil-item" onclick="escolher()">
+        <a>Cadastrar Item</a>
+    </li>
     <li class="perfil-item"  onclick="paginameusitens()">
         <a>Meus Itens</a>
-    </li>
-    <li class="perfil-item" onclick="paginacadastrarproduto()">
-        <a>Cadastrar Item</a>
     </li>
     <li class="perfil-item" onclick="logoff()">
         <a>Sair</a>
@@ -92,6 +93,26 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco) {
     </div>
     `;
 }
+function escolher() {
+  content.innerHTML = `
+    <div class="col-lg-5 space-up space-down">
+        <div class="container form-box">
+            <br/>
+            <form action="javascript:void(0);" onsubmit="paginacadastrarimovel()">
+            <div class="carousel-item">
+              <label id="imovelbtn"><img src="assets/imagens/casa.png"/></label>
+              <button type="submit" id="imovelbtn"/>
+            </div> 
+            <form action="javascript:void(0);" onsubmit="paginacadastrarproduto">
+            <div class="carousel-item">
+              <label for="itensbtn"><img src="assets/imagens/itens.png"/></label>
+              <button type="submit" id="itensbtn"/>
+            </div>
+            </form> 
+        </div>
+    </div>
+    `;
+}
 function paginacadastrarproduto() {
   content.innerHTML = `
     <div class="col-lg-5 space-up space-down">
@@ -106,6 +127,34 @@ function paginacadastrarproduto() {
             </div>
             <div class="form-group">
             <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
+            </div>
+            <h6>Fotos:</h6>
+            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
+            <input type="file" id="campoimagem" multiple="multiple" hidden/>
+            <div class="mini-miniaturas">
+            <img src="" id="miniatura2"/><img src="" id="miniatura3"/><img src="" id="miniatura3"/>
+            </div>
+            <br/>
+            <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
+            </form> 
+        </div>
+    </div>
+    `;
+} 
+function paginacadastrarimovel() {
+  content.innerHTML = `
+    <div class="col-lg-5 space-up space-down">
+        <div class="container form-box">
+            <br/>
+            <form action="javascript:void(0);" onsubmit="cadastrarproduto()">
+            <div class="form-group">
+                <input type="text" class="form-control" id="campoendereco" placeholder="Endereço"/>
+            </div>
+            <div class="form-group">
+            <input type="text" class="form-control" id="campopreço" placeholder="Preço mensal"/>
+            </div>
+            <div class="form-group">
+            <input type="text" class="form-control" id="campodescricao" placeholder="Descrição do imóvel"/>
             </div>
             <h6>Fotos:</h6>
             <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
@@ -197,7 +246,7 @@ function paginalogar() {
             </div>
             <button type="submit" class="btn btn-default">Continuar</button>
             <p>
-            Não tem uma conta? <a class="navbar-brand" onclick="paginacadastrarusuario()">Crie uma!</a>
+            Não tem uma conta? <a class="btn btn-link" onclick="paginacadastrarusuario()">Crie uma!</a>
             </p>
             </form>
         </div>
