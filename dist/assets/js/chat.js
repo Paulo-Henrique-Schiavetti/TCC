@@ -57,7 +57,7 @@ function exibirchat(conversa) {
             response.data.forEach(element => {
                 var datahora = new Date(element.datahora);
                 var ano = datahora.getFullYear();
-                var mes = datahora.getMonth();
+                var mes = datahora.getMonth()+1;
                 var dia = datahora.getDate();
                 var hora = datahora.getHours();
                 var minutos = datahora.getMinutes();
@@ -96,7 +96,7 @@ function enviarmensagem(conversa) {
         .then(()=> {
             var datahora = new Date(Date.now());
             var ano = datahora.getFullYear();
-            var mes = datahora.getMonth();
+            var mes = datahora.getMonth()+1;
             var dia = datahora.getDate();
             var hora = datahora.getHours();
             var minutos = datahora.getMinutes();
