@@ -33,7 +33,6 @@ window.onload = () => {
     }, 100);
         
 };
-
 function exibiritens() {
     axios
     .get(`/itens/${page}`)

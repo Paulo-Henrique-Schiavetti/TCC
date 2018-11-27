@@ -64,11 +64,11 @@ function menuLogado() {
     <li class="perfil-item" onclick="paginaperfil()">
         <a>Perfil</a>
     </li>
+    <li class="perfil-item" onclick="paginacadastraritem()">
+        <a>Cadastrar Item</a>
+    </li>
     <li class="perfil-item"  onclick="paginameusitens()">
         <a>Meus Itens</a>
-    </li>
-    <li class="perfil-item" onclick="paginacadastrarproduto()">
-        <a>Cadastrar Item</a>
     </li>
     <li class="perfil-item" onclick="logoff()">
         <a>Sair</a>
@@ -111,7 +111,7 @@ function paginacadastrarproduto() {
             <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
             <input type="file" id="campoimagem" multiple="multiple" hidden/>
             <div class="mini-miniaturas">
-            <img src="" id="miniatura2"/><img src="" id="miniatura3"/><img src="" id="miniatura3"/>
+            <img class="container-img img" src="" id="miniatura2"/><img class="container-img img" src="" id="miniatura3"/><img class="container-img img" src="" id="miniatura4"/>
             </div>
             <br/>
             <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
@@ -119,6 +119,7 @@ function paginacadastrarproduto() {
         </div>
     </div>
     `;
+} 
   var camponome = document.querySelector('#camponome');
   var campopreço = document.querySelector('#campopreço');
   var campodescricao = document.querySelector('#campodescriçao');
@@ -128,7 +129,7 @@ function paginacadastrarproduto() {
   var miniatura2 = document.querySelector('#miniatura2');
   var miniatura3 = document.querySelector('#miniatura3');
   var miniatura4 = document.querySelector('#miniatura4');
-}
+
 function paginacadastrarusuario() {
   content.innerHTML = `
     <div class="col-lg-5 space-up">
@@ -197,7 +198,7 @@ function paginalogar() {
             </div>
             <button type="submit" class="btn btn-default">Continuar</button>
             <p>
-            Não tem uma conta? <a class="navbar-brand" onclick="paginacadastrarusuario()">Crie uma!</a>
+            Não tem uma conta? <a class="btn btn-link" onclick="paginacadastrarusuario()">Crie uma!</a>
             </p>
             </form>
         </div>
