@@ -665,3 +665,10 @@ ul.social-buttons li a {
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #007f9c;
 }
+.container-img {
+  max-width: 200px;
+  max-height:250px;
+}
+img {
+  vertical-align: top
+}

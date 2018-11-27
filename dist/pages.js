@@ -64,7 +64,7 @@ function menuLogado() {
     <li class="perfil-item" onclick="paginaperfil()">
         <a>Perfil</a>
     </li>
-    <li class="perfil-item" onclick="escolher()">
+    <li class="perfil-item" onclick="paginacadastraritem()">
         <a>Cadastrar Item</a>
     </li>
     <li class="perfil-item"  onclick="paginameusitens()">
@@ -92,27 +92,6 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco) {
     </div>
     `;
 }
-function escolher() {
-  content.innerHTML = `
-    <div class="col-lg-5 space-up space-down">
-        <div class="container form-box">
-            <br/>
-            <form action="javascript:void(0);" onsubmit="paginacadastrarimovel()">
-            <div>
-              <label for="imovelbtn"><img src="assets/imagens/casa.png" width=></label>
-              <button type="submit" id="imovelbtn" hidden/>
-            </div> 
-            </form>
-            <form action="javascript:void(0);" onsubmit="paginacadastrarproduto">
-            <div>
-              <label for="itensbtn"><img src="assets/imagens/itens.png"/></label>
-              <button type="submit" id="itensbtn" hidden/>
-            </div>
-            </form> 
-        </div>
-    </div>
-    `;
-}
 function paginacadastrarproduto() {
   content.innerHTML = `
     <div class="col-lg-5 space-up space-down">
@@ -132,7 +111,7 @@ function paginacadastrarproduto() {
             <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
             <input type="file" id="campoimagem" multiple="multiple" hidden/>
             <div class="mini-miniaturas">
-            <img src="" id="miniatura2"/><img src="" id="miniatura3"/><img src="" id="miniatura3"/>
+            <img class="container-img img" src="" id="miniatura2"/><img class="container-img img" src="" id="miniatura3"/><img class="container-img img" src="" id="miniatura4"/>
             </div>
             <br/>
             <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
@@ -141,33 +120,6 @@ function paginacadastrarproduto() {
     </div>
     `;
 } 
-function paginacadastrarimovel() {
-  content.innerHTML = `
-    <div class="col-lg-5 space-up space-down">
-        <div class="container form-box">
-            <br/>
-            <form action="javascript:void(0);" onsubmit="cadastrarproduto()">
-            <div class="form-group">
-                <input type="text" class="form-control" id="campoendereco" placeholder="Endereço"/>
-            </div>
-            <div class="form-group">
-            <input type="text" class="form-control" id="campopreço" placeholder="Preço mensal"/>
-            </div>
-            <div class="form-group">
-            <input type="text" class="form-control" id="campodescricao" placeholder="Descrição do imóvel"/>
-            </div>
-            <h6>Fotos:</h6>
-            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
-            <input type="file" id="campoimagem" multiple="multiple" hidden/>
-            <div class="mini-miniaturas">
-            <img src="" id="miniatura2"/><img src="" id="miniatura3"/><img src="" id="miniatura3"/>
-            </div>
-            <br/>
-            <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
-            </form> 
-        </div>
-    </div>
-    `;
   var camponome = document.querySelector('#camponome');
   var campopreço = document.querySelector('#campopreço');
   var campodescricao = document.querySelector('#campodescriçao');
@@ -177,7 +129,7 @@ function paginacadastrarimovel() {
   var miniatura2 = document.querySelector('#miniatura2');
   var miniatura3 = document.querySelector('#miniatura3');
   var miniatura4 = document.querySelector('#miniatura4');
-}
+
 function paginacadastrarusuario() {
   content.innerHTML = `
     <div class="col-lg-5 space-up">
