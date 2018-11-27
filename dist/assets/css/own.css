@@ -270,20 +270,21 @@
     border: solid 1px rgb(173, 173, 173);
     cursor: pointer;
   }
-  .miniatura i {
-    display:none;
-  }
-  .miniatura:hover i {
-    display: block;
-    position: absolute;
-    bottom: 10%;
-    right: 40%;
-    color: whitesmoke;
-    text-shadow: 0.1em 0.1em 0.1em black;
+  .miniatura:hover {
+    box-shadow: 1px 1px 2px 1px  #888888;
   }
   .miniatura-img {
     max-width: 5em;
     max-height: 5em;
+  }
+  .mini-miniaturas {
+    display: flex;
+  }
+  .mini-miniaturas img{
+    max-width: 2em;
+    max-height: 2em;
+    border: solid 1px rgb(173, 173, 173);
+    margin: 0.2em;
   }
   .ul-btn {
     padding: 0;

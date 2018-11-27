@@ -109,10 +109,10 @@ function paginacadastrarproduto() {
             <input type="text" class="form-control" id="campodescricao" placeholder="Descrição"/>
             </div>
             <h6>Fotos:</h6>
-            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
+            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/></label>
             <input type="file" id="campoimagem" multiple="multiple" hidden/>
             <div class="mini-miniaturas">
-            <img class="container-img img" src="" id="miniatura2"/><img class="container-img img" src="" id="miniatura3"/><img class="container-img img" src="" id="miniatura4"/>
+            <img src="assets/imagens/carregar_foto.png" id="miniatura2"/><img src="assets/imagens/carregar_foto.png" id="miniatura3"/><img src="assets/imagens/carregar_foto.png" id="miniatura4"/>
             </div>
             <br/>
             <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
