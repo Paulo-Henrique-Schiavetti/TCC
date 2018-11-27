@@ -10,7 +10,7 @@ window.onload = () => {
     options.setAttribute("class", "perfil-options");
     needAppendPerfil = true;
     listadropdown = document.createElement("ul");
-    options.setAttribute("class", "perfil-options");
+    listadropdown.setAttribute("class", "perfil-options");
     needAppendLista = true;
     modal = document.createElement("div");
     modal.setAttribute("class", "container mensagem");
@@ -101,9 +101,9 @@ function cancelEvents(element) {
         perfil.removeChild(options);
         needAppendPerfil = true;
     }
-    if (element.target.parentNode.id != "favoritos" && needAppendLista != true) {
+    if (needAppendLista != true) {
         favoritos.removeChild(listadropdown);
-        needAppendPerfil = true;
+        needAppendLista = true;
     }
 }
 function abrirPerfil() {
@@ -157,7 +157,7 @@ function adicionaralista(id) {
     axios
         .post(`/inserirnalista`, {item_id: id, usuarios_id: usuario.id})
         .then(()=> {
-            mensagemtemporaria('O item foi adicionado a lista!')
+            mensagemtemporaria('O item foi adicionado aos favoritos!')
         })
         .catch(error => {
             console.log(error);
@@ -165,16 +165,12 @@ function adicionaralista(id) {
 }
 function abrirfavoritos() {
     id = usuario.id;
-    
+    if (needAppendLista){
     axios
         .get(`/abrirlista/${id}`)
         .then(response => {
             if (response.data.length == 0) {
-                if (!needAppendLista){
-                    favoritos.removeChild(listadropdown);
-                    needAppendLista = true;
-                }
-                mensagemtemporaria('Você não tem nenhum item na sua lista de desejos.')
+                mensagemtemporaria('Você não tem nenhum item nos seus favoritos.')
                 return;
             }
             listadropdown.innerHTML = "";
@@ -189,13 +185,23 @@ function abrirfavoritos() {
                 listadropdown.innerHTML += `<li class="perfil-item" onclick="alugar(${element.id})"><a><img class="autocomplete-icon" src="${element.imagemMenor}" alt=""> ${nomeAbreviado}</a></li>`;
             })
             if (response.data.length == 4) {
-                    listadropdown.innerHTML += `<li class="perfil-item" onclick="paginafavoritos();"><a>...</a></li>`;
+                    listadropdown.innerHTML += `<li class="perfil-item" onclick="paginafavoritos(${id});"><a>...</a></li>`;
                 }
-            if (needAppendLista){
+            
                 favoritos.appendChild(listadropdown);
                 needAppendLista = false;
-            }
         });
+    }
+}
+
+function exibirfavoritos(){
+    axios
+    .get(`/abrirlistacompleta/${usuario.id}`)
+        .then(response => {
+            response.data.forEach((element) => {
+                item(element.id, element.locatario, element.nome, element.preço, element.descrição, element.imagemMenor, element.endereco);
+            });
+        })
 }
 
 function mensagemtemporaria(texto) {

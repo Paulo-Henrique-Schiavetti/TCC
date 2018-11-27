@@ -138,9 +138,24 @@ server.get("/abrirlista/:id", function (req, res, next) {
   const {id} = req.params;
   knex('lista')
     .where("lista.usuarios_id", id)
+    .limit(4)
     .innerJoin('item', "lista.item_id", "item.id")
     .column('item.id', 'item.nome', 'item.imagemMenor')
     .select()
+    .then((dados) => {
+      res.send(dados);
+    }, next)
+
+  return next();
+});
+
+server.get("/abrirlistacompleta/:id", function (req, res, next) {
+  const {id} = req.params;
+  knex('lista')
+    .where("lista.usuarios_id", id)
+    .innerJoin('item', "lista.item_id", "item.id")
+    .innerJoin('usuarios', 'item.locatario', 'usuarios.id')
+    .select({ 'id': 'item.id', 'nome': 'item.nome', 'imagemMenor': 'item.imagemMenor', 'preço': 'item.preço', 'descrição': 'item.descrição', 'avaliacao': 'item.avaliacao', 'endereco': 'usuarios.endereco', 'data': 'item.data_publicacao' })
     .then((dados) => {
       res.send(dados);
     }, next)

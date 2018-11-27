@@ -64,7 +64,7 @@ function menuLogado() {
     <li class="perfil-item" onclick="paginaperfil()">
         <a>Perfil</a>
     </li>
-    <li class="perfil-item" onclick="paginacadastraritem()">
+    <li class="perfil-item" onclick="paginacadastrarproduto()">
         <a>Cadastrar Item</a>
     </li>
     <li class="perfil-item"  onclick="paginameusitens()">
@@ -78,7 +78,8 @@ function menuLogado() {
 }
 function item(id, locatario, nome, preco, descricao, imagem, endereco) {
   grid.innerHTML += `
-    <div class="col-lg-4 col-md-6 mb-4" data-id="${id}">
+    <div class="col-lg-4 col-md-6 mb-4 du-card" data-id="${id}">
+    <div class="favoritos" onclick="adicionaralista(${id})"><i class="fa fa-star-o" onmouseover="this.setAttribute('class', 'fa fa-star')" onmouseout="this.setAttribute('class', 'fa fa-star-o')"></i></div>
       <div class="card h-100" onclick="alugar(${id})">
         <img class="card-img-top" src="${imagem}" height="300px" alt="">
         <div class="card-body">
@@ -395,6 +396,17 @@ function paginameusitens() {
     `;
   let grid = document.querySelector("#grid");
   exibirmeusitens();
+}
+function paginafavoritos() {
+  content.innerHTML = `
+    <div class="col-lg-10 container space-up">
+      <div class="text-center"><h3>Favoritos</h3></div>
+        <div class="row" id="grid">
+        </div>
+    </div>
+    `;
+  let grid = document.querySelector("#grid");
+  exibirfavoritos();
 }
 function paginaperfil() {
   content.innerHTML = `

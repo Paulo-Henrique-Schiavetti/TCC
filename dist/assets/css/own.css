@@ -288,6 +288,23 @@
   .ul-btn {
     padding: 0;
   }
+  .favoritos {
+    position: absolute;
+    top: 0.5em;
+    right: 1.5em;
+    z-index: 1000;
+    color: rgb(173, 173, 173);
+    font-size: 1.5em;
+  }
+  .favoritos i {
+    visibility: hidden;
+  }
+  .du-card:hover .favoritos i {
+    visibility: visible;
+  }
+  .favoritos i:hover {
+    color: rgb(0, 100, 254);
+  }
 
   @media only screen and (max-width: 600px) {
     .carousel {
