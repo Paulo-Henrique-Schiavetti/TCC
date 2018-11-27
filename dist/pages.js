@@ -119,16 +119,17 @@ function paginacadastrarproduto() {
         </div>
     </div>
     `;
-} 
+
   var camponome = document.querySelector('#camponome');
   var campopreço = document.querySelector('#campopreço');
   var campodescricao = document.querySelector('#campodescriçao');
-  var file = document.querySelector('#campoimagem');
+  let file = document.querySelector('#campoimagem');
   file.addEventListener('change', prepararImagem);
   var miniatura = document.querySelector('#miniatura');
   var miniatura2 = document.querySelector('#miniatura2');
   var miniatura3 = document.querySelector('#miniatura3');
   var miniatura4 = document.querySelector('#miniatura4');
+} 
 
 function paginacadastrarusuario() {
   content.innerHTML = `
