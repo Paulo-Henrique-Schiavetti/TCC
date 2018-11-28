@@ -176,8 +176,8 @@ function abrirfavoritos() {
             listadropdown.innerHTML = "";
             response.data.forEach(element => {
                 nomeArray = element.nome.split("");
-                if (nomeArray.length > 8){
-                    nomeArray.length = 8;
+                if (nomeArray.length > 6){
+                    nomeArray.length = 4;
                     nomeAbreviado = nomeArray.join("")+"...";
                 } else {
                     nomeAbreviado = element.nome;

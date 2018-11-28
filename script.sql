@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`item` (
   CONSTRAINT `fk_item_usuarios1`
     FOREIGN KEY (`locatario`)
     REFERENCES `allugardb`.`usuarios` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 

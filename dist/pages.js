@@ -95,7 +95,7 @@ function item(id, locatario, nome, preco, descricao, imagem, endereco) {
 }
 function paginacadastrarproduto() {
   content.innerHTML = `
-    <div class="col-lg-5 space-up space-down">
+    <div class="col-lg-5 space-up2 space-down2">
         <div class="container form-box">
             <br/>
             <form action="javascript:void(0);" onsubmit="cadastrarproduto()">
@@ -134,7 +134,7 @@ function paginacadastrarproduto() {
 
 function paginacadastrarusuario() {
   content.innerHTML = `
-    <div class="col-lg-5 space-up">
+    <div class="col-lg-5 space-up space-down2">
         <div class="container form-box">
             <br/>
             <form action="javascript:void(0);" onsubmit="cadastrarusuario()">
@@ -183,7 +183,7 @@ function paginacadastrarusuario() {
 }
 function paginalogar() {
   content.innerHTML = `
-  <div class="col-lg-4 space-up space-down">
+  <div class="col-lg-4 space-up space-down2">
         <div class="center-align">
         <br/>  
   <br/><br/>
@@ -212,7 +212,7 @@ function paginalogar() {
 }
 function paginalogar2(email, nome) {
   content.innerHTML = `
-    <div class="col-lg-4 space-up space-down">
+    <div class="col-lg-4 space-up2 space-down2">
         <div class="center-align">
             <img src="assets/imagens/icone-usuario.png" class="img-rounded" id="icone">
             <p>
@@ -238,15 +238,15 @@ function paginalogar2(email, nome) {
 }
 function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, imagem, nome, locatarioImagem) {
   content.innerHTML = `
-    <div class="container space-up">
+    <div class="container space-up space-down">
         <div class="row box">
           <div class="col-md-8 center-align">
                 <img class="img-fluid item-img" src="${imagem}" alt="">
           </div>
             <div class="col-md-4 right-box">
-                <h1 class="my-4 nome-item">
+                <h3 class="my-3 nome-item">
                 ${item} 
-                </h1>
+                </h3>
                 <i>por ${nome}</i>
                 <p class="preço">R$${preco}</p>
                 <h5>${descricao}</h5>
@@ -266,7 +266,7 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
 }
 function chatbase(nome, id) {
     chatbox.innerHTML = `
-    <h3 class="text-center">Chat</h3>
+    <h4 class="text-center">Chat</h4>
     <div class="mesgs box">
       <h5 class="center-align chat-title">${nome}</h5>
       <div class="msg_history" id="messagearea">
@@ -324,9 +324,9 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
             <img class="img-fluid item-img" src="${imagem}" alt="">
             </div>
             <div class="col-md-4 right-box">
-                <h1 class="my-4">
+                <h3 class="my-3">
                 ${item} 
-                </h1>
+                </h3>
                 <p class="preço">R$${preco}</p>
                 <i>${endereco}</i>
             <div class="chat-box" id="chatbox">
@@ -338,6 +338,7 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
     `;
   let chatbox = document.querySelector("#chatbox");
   chatbox.innerHTML = `
+
     <h3 class="text-center">Conversas</h3>
     <div class="messaging">
     <div class="inbox_msg">
@@ -388,7 +389,7 @@ function paginafavoritos() {
 function paginaperfil() {
   content.innerHTML = `
     <hr>
-<div class="container bootstrap snippet space-up">
+<div class="container bootstrap snippet space-up space-down">
     <div class="row">
   		<div class="col-sm-3"><!--left col-->
               
@@ -437,7 +438,7 @@ function paginaperfil() {
                           
                           <div class="col-xs-6">
                               <label for="email"><h4>Endereço</h4></label>
-                              <input type="email" class="form-control" id="location" value="${usuario.endereco}" title="Localização atual">
+                              <input type="text" class="form-control" id="location" value="${usuario.endereco}" title="Localização atual">
                           </div>
                       </div>
                       <div class="form-group">

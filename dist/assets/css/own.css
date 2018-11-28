@@ -165,8 +165,17 @@
   .space-up {
     margin-top: 2em;
   }
+  .space-up2 {
+    margin-top: 8em;
+  }
   .space-down {
     margin-bottom: 7em;
+  }
+  .space-down2 {
+    margin-bottom: 9em;
+  }
+  .space-down3 {
+    margin-bottom: 15em;
   }
   .item-img {
     max-height: 80vh;
