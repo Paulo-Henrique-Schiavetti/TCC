@@ -127,30 +127,6 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`lista` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `allugardb`.`itens-alugados`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `allugardb`.`itens-alugados` (
-  `usuarios_id` INT NOT NULL,
-  `item_id` INT NOT NULL,
-  `check-in` DATE NULL,
-  `check-out` DATE NULL,
-  PRIMARY KEY (`usuarios_id`, `item_id`),
-  INDEX `fk_usuarios_has_alugando_usuarios1_idx` (`usuarios_id` ASC),
-  INDEX `fk_itens-alugados_item1_idx` (`item_id` ASC),
-  CONSTRAINT `fk_usuarios_has_alugando_usuarios1`
-    FOREIGN KEY (`usuarios_id`)
-    REFERENCES `allugardb`.`usuarios` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_itens-alugados_item1`
-    FOREIGN KEY (`item_id`)
-    REFERENCES `allugardb`.`item` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
