@@ -324,6 +324,7 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
             <img class="img-fluid item-img" src="${imagem}" alt="">
             </div>
             <div class="col-md-4 right-box">
+                <button class="btn btn-danger" onclick="deleteitem(${id})">excluir</button>
                 <h1 class="my-4">
                 ${item} 
                 </h1>

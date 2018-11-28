@@ -203,7 +203,14 @@ function exibirfavoritos(){
             });
         })
 }
-
+function deleteitem(id) {
+    axios
+    .get(`/deleteitem/${id}`)
+    .then(response => {
+        paginahome();
+        mensagemtemporaria("seu item foi excluido!");
+    })
+}
 function mensagemtemporaria(texto) {
     modal.innerHTML = texto;
     content.appendChild(modal);
