@@ -285,7 +285,7 @@ function chatbase(nome, id) {
     <br/>
     <i>Para solicitar o fretamento ligue para <br/>
     <h5>(19) 3806-5389</h5> 
-    ou acesse <a href="www.plenitudelogistica.com.br">plenitudelogistica.com.br</a></i>
+    ou acesse <a href="https://www.plenitudelogistica.com.br">plenitudelogistica.com.br</a></i>
     `;
   let messagearea = document.querySelector('#messagearea');
   
