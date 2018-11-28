@@ -244,15 +244,14 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
                 <img class="img-fluid item-img" src="${imagem}" alt="">
           </div>
             <div class="col-md-4 right-box">
-                <h1 class="my-4">
+                <h1 class="my-4 nome-item">
                 ${item} 
-                <br/>
-                <i>por</i> <h3>${nome}</h3>
                 </h1>
-                <h4 class="my-4">Descrição:</h4>
+                <i>por ${nome}</i>
                 <p class="preço">R$${preco}</p>
-                <p>${endereco}</p>
-                <p>${descricao}</p>
+                <h5>${descricao}</h5>
+                <br/>
+                <i>${endereco}</i>
                 <div class="chat-box" id="chatbox">
                   <div class="center-align">
                     <button class="btn btn-default btn-big" onclick="iniciarchat(${id}, ${locatario});"><i class="fa fa-comments" aria-hidden="true"></i>Iniciar chat</button>
@@ -321,17 +320,15 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
     <div class="container space-up center-space">
         <div class="row box">
             <div class="col-md-8 center-align">
-            <button class="btn btn-danger delete-item" onclick="deleteitem(${id})">excluir</button>
+            <button class="btn btn-danger delete-item" onclick="deleteitem(${id})">Excluir</button>
             <img class="img-fluid item-img" src="${imagem}" alt="">
             </div>
             <div class="col-md-4 right-box">
                 <h1 class="my-4">
                 ${item} 
                 </h1>
-                <h4 class="my-4">Descrição:</h4>
                 <p class="preço">R$${preco}</p>
-                <p>${endereco}</p>
-                <p>${descricao}</p>
+                <i>${endereco}</i>
             <div class="chat-box" id="chatbox">
             
             </div>
