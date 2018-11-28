@@ -336,6 +336,17 @@ server.get("/meusitens/:id", function (req, res, next) {
   return next();
 });
 
+server.get("/deleteitem/:id", function (req, res, next) {
+  const { id } = req.params;
+  knex('item')
+  .where('id', id)
+  .del()
+  .then(()=> {
+    res.send("ok");
+  });
+})
+
+
 server.post("/geolocate", function (req, res, next) {
   const { lat, lng } = req.body
 

@@ -269,6 +269,7 @@
     position: relative;
     border: solid 1px rgb(173, 173, 173);
     cursor: pointer;
+    margin-left: 0.6em;
   }
   .miniatura:hover {
     box-shadow: 1px 1px 2px 1px  #888888;
@@ -305,6 +306,12 @@
   }
   .favoritos i:hover {
     color: rgb(0, 100, 254);
+  }
+  .delete-item {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    font-size: 12pt;
   }
 
   @media only screen and (max-width: 600px) {

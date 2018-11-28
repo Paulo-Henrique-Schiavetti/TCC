@@ -143,6 +143,13 @@ function paginacadastrarusuario() {
                 <input type="text" class="form-control" id="camponome"/>
             </div>
             <div class="form-group">
+            <label>Endereço</label>
+            <input type="text" class="form-control" id="campoendereco"/>
+            </div>
+            <div class="checkbox" >
+              <label><input type="checkbox" id="localcheck">Obter automaticamente sua localização</label>
+            </div>
+            <div class="form-group">
                 <label>Telefone</label>
                 <input type="tel" class="form-control" id="campotelefone""/>
             </div>
@@ -155,15 +162,10 @@ function paginacadastrarusuario() {
                 <input type="password" class="form-control" id="camposenha"/>
             </div>
             <h6>Foto de perfil:</h6>
-            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/><i class="fa fa-camera"></i></label>
+            <label for="campoimagem" class="miniatura"><img src="assets/imagens/carregar_foto.png" class="miniatura-img" id="miniatura"/></i></label>
             <input type="file" id="campoimagem" hidden/>
-            <div class="checkbox" >
-              <label><input type="checkbox" id="localcheck">Obter localização atual</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox">Li e concordo com os <a href="termos e políticas.docx">Termos de uso</a>.</label>
-            </div>
             <br/>
+            <ul class="ul-btn"><i>Ao cadastrar, você concorda com os  <a href="termos e políticas.docx">Termos de uso</a>.</i></ul>
             <ul class="ul-btn"><button type="submit" class="btn btn-default">Cadastrar</button></ul>
             </form>
         </div>
@@ -173,6 +175,7 @@ function paginacadastrarusuario() {
   var camposenha = document.querySelector('#camposenha');
   var camponome = document.querySelector('#camponome');
   var campotelefone = document.querySelector('#campotelefone');
+  var campoendereco = document.querySelector('#campoendereco');
   var localcheck = document.querySelector('#localcheck');
   var file = document.querySelector('#campoimagem');
   file.addEventListener('change', prepararImagem);
@@ -234,23 +237,10 @@ function paginalogar2(email, nome) {
       `;
 }
 function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, imagem, nome, locatarioImagem) {
-  var estrelas = '';
-  for (e = 0; e < 5; e++) {
-    if (avaliacao >= 1) {
-      estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
-    } else {
-      if (avaliacao > 0) {
-        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-      } else {
-        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-      }
-    }
-    avaliacao -= 1;
-  }
   content.innerHTML = `
     <div class="container space-up">
         <div class="row box">
-            <div class="col-md-8 center-align">
+          <div class="col-md-8 center-align">
                 <img class="img-fluid item-img" src="${imagem}" alt="">
           </div>
             <div class="col-md-4 right-box">
@@ -259,8 +249,7 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
                 <br/>
                 <i>por</i> <h3>${nome}</h3>
                 </h1>
-                <h3 class="my-3">Descrição</h3>
-                <h4>${estrelas}</h4>
+                <h4 class="my-4">Descrição:</h4>
                 <p class="preço">R$${preco}</p>
                 <p>${endereco}</p>
                 <p>${descricao}</p>
@@ -293,6 +282,10 @@ function chatbase(nome, id) {
         </div>
       </div>
     </div>
+    <br/>
+    <i>Para solicitar o fretamento ligue para <br/>
+    <h5>(19) 3806-5389</h5> 
+    ou acesse <a href="https://www.plenitudelogistica.com.br">plenitudelogistica.com.br</a></i>
     `;
   let messagearea = document.querySelector('#messagearea');
   
@@ -324,34 +317,21 @@ function incomingmsg(imagem, texto, data) {
   messagearea.appendChild(message);
 }
 function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, imagem, locatario, locatarioImagem) {
-  var estrelas = '';
-  for (e = 0; e < 5; e++) {
-    if (avaliacao >= 1) {
-      estrelas += '<i class="fa fa-star" style="color:rgb(0, 100, 254);"></i>'
-    } else {
-      if (avaliacao > 0) {
-        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-      } else {
-        estrelas += '<i class="fa fa-star-o" style="color:rgb(243, 239, 29);"></i>'
-      }
-    }
-    avaliacao -= 1;
-  }
   content.innerHTML = `
     <div class="container space-up center-space">
         <div class="row box">
             <div class="col-md-8 center-align">
+            <button class="btn btn-danger delete-item" onclick="deleteitem(${id})">excluir</button>
             <img class="img-fluid item-img" src="${imagem}" alt="">
             </div>
             <div class="col-md-4 right-box">
-            <h3 class="my-3 center-align">
-            ${item}
-            </h3>
-            <h5 class="pulado">${estrelas}</h5>
-            <h2 class="preço">R$${preco}</h2>
-            <p class="pulado"><i class="fa fa-map-marker" aria-hidden="true"></i> ${endereco}</p>
-            <h4 class="pulado">Descrição</h4>
-            <i class="pulado">${descricao}</i>
+                <h1 class="my-4">
+                ${item} 
+                </h1>
+                <h4 class="my-4">Descrição:</h4>
+                <p class="preço">R$${preco}</p>
+                <p>${endereco}</p>
+                <p>${descricao}</p>
             <div class="chat-box" id="chatbox">
             
             </div>
