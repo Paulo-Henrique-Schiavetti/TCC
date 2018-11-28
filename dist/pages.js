@@ -257,7 +257,7 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
                 <h1 class="my-4">
                 ${item} 
                 <br/>
-                <small>por ${nome}</small>
+                <i>por</i> <h3>${nome}</h3>
                 </h1>
                 <h3 class="my-3">Descrição</h3>
                 <h4>${estrelas}</h4>
@@ -348,10 +348,10 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
             ${item}
             </h3>
             <h5 class="pulado">${estrelas}</h5>
-            <p class="preço">R$${preco}</p>
+            <h2 class="preço">R$${preco}</h2>
             <p class="pulado"><i class="fa fa-map-marker" aria-hidden="true"></i> ${endereco}</p>
-            <h3 class="pulado">Descrição</h3>
-            <p class="pulado">${descricao}</p>
+            <h4 class="pulado">Descrição</h4>
+            <i class="pulado">${descricao}</i>
             <div class="chat-box" id="chatbox">
             
             </div>
@@ -361,17 +361,17 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
     `;
   let chatbox = document.querySelector("#chatbox");
   chatbox.innerHTML = `
-    <h3 class="text-center">Chat</h3>
+    <h3 class="text-center">Conversas</h3>
     <div class="messaging">
     <div class="inbox_msg">
     <div class="inbox_people">
     <div class="headind_srch">
     <div class="recent_heading">
-    <h4>Recent</h4>
+    <h4>Recentes</h4>
     </div>
     <div class="srch_bar">
     <div class="stylish-input-group">
-    <input type="text" class="search-bar"  placeholder="Search" >
+    <input type="text" class="search-bar"  placeholder="Buscar" >
     <span class="input-group-addon">
     <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
     </span> </div>
