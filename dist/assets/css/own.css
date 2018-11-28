@@ -307,6 +307,12 @@
   .favoritos i:hover {
     color: rgb(0, 100, 254);
   }
+  .delete-item {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    font-size: 12pt;
+  }
 
   @media only screen and (max-width: 600px) {
     .carousel {
