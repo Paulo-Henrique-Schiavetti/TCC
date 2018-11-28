@@ -247,7 +247,7 @@ function paginaitem(id, item, locatario, descricao, avaliacao, preco, endereco, 
                 <h1 class="my-4">
                 ${item} 
                 <br/>
-                <small>por ${nome}</small>
+                <i>por</i> <h3>${nome}</h3>
                 </h1>
                 <h4 class="my-4">Descrição:</h4>
                 <p class="preço">R$${preco}</p>
@@ -341,13 +341,13 @@ function paginaitemlocatario(id, item, descricao, avaliacao, preco, endereco, im
     `;
   let chatbox = document.querySelector("#chatbox");
   chatbox.innerHTML = `
-    <h3 class="text-center">Chat</h3>
+    <h3 class="text-center">Conversas</h3>
     <div class="messaging">
     <div class="inbox_msg">
     <div class="inbox_people">
     <div class="headind_srch">
     <div class="recent_heading">
-    <h4>Conversas</h4>
+    <h4>Recentes</h4>
     </div>
     <div class="srch_bar">
     <div class="stylish-input-group">
