@@ -79,7 +79,6 @@ function cadastrarproduto() {
 
 function cadastrarusuario() {
     var campoavaliacao = 5;
-    var campoendereco = '';
     var campoplace_id = '';
 
     if (campoemail.value == '')
@@ -113,7 +112,7 @@ function cadastrarusuario() {
 
         axios
             .post('/cadastrarusuario', {
-                email: campoemail.value, senha: camposenha.value, nome: camponome.value, telefone: campotelefone.value, avaliacao: campoavaliacao, imagemMenor: imagemMenor, imagemCompleta: imagemCompleta
+                email: campoemail.value, senha: camposenha.value, nome: camponome.value, telefone: campotelefone.value, endereco: campoendereco.value, imagemMenor: imagemMenor, imagemCompleta: imagemCompleta
             })
             .then(()=>{
                 mensagemtemporaria('A sua conta foi cadastrada!');
