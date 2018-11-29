@@ -72,15 +72,15 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`conversas` (
    PRIMARY KEY (`id`),
     FOREIGN KEY (`item_id`)
     REFERENCES `allugardb`.`item` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
     FOREIGN KEY (`locatario_id`)
     REFERENCES `allugardb`.`usuarios` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
     FOREIGN KEY (`locador_id`)
     REFERENCES `allugardb`.`usuarios` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
@@ -97,11 +97,11 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`mensagens` (
    PRIMARY KEY (`id`),
     FOREIGN KEY (`conversa_id`)
     REFERENCES `allugardb`.`conversas` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
     FOREIGN KEY (`usuario_id`)
     REFERENCES `allugardb`.`usuarios` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
@@ -117,12 +117,12 @@ CREATE TABLE IF NOT EXISTS `allugardb`.`lista` (
   CONSTRAINT `fk_usuarios_has_item_usuarios1`
     FOREIGN KEY (`usuarios_id`)
     REFERENCES `allugardb`.`usuarios` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuarios_has_item_item2`
     FOREIGN KEY (`item_id`)
     REFERENCES `allugardb`.`item` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
