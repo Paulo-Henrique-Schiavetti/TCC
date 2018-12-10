@@ -153,7 +153,11 @@ function autocomplete() {
         });
 }
 
-function adicionaralista(id) {
+function adicionaralista(id, element) {
+    element.children[0].setAttribute('class', 'fa fa-star permanente');
+    element.children[0].setAttribute('onmouseover', '');
+    element.children[0].setAttribute('onmouseout', '');
+    element.setAttribute('onclick', '');
     axios
         .post(`/inserirnalista`, {item_id: id, usuarios_id: usuario.id})
         .then(()=> {

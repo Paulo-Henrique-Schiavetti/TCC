@@ -316,6 +316,10 @@
   .favoritos i:hover {
     color: rgb(0, 100, 254);
   }
+  .permanente {
+    visibility: visible !important;
+    color: rgb(255, 225, 0) !important;
+  }
   .delete-item {
     position: absolute;
     top: 0.5em;
